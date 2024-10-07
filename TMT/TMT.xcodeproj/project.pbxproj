@@ -53,6 +53,8 @@
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
+				D8C7FB7A2CB3D88E007B1B3E /* BusStopSearch */,
+				D8C7FB7B2CB3D89B007B1B3E /* BusJourney */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
 			);
@@ -65,6 +67,20 @@
 				D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D8C7FB7A2CB3D88E007B1B3E /* BusStopSearch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusStopSearch;
+			sourceTree = "<group>";
+		};
+		D8C7FB7B2CB3D89B007B1B3E /* BusJourney */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusJourney;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
