@@ -21,9 +21,9 @@
 		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D8C7FB7C2CB3E342007B1B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D8C160EB2CB4D85600818C1E /* BusStopSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSearchView.swift; sourceTree = "<group>"; };
 		D8C160EE2CB4D86B00818C1E /* BusJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyView.swift; sourceTree = "<group>"; };
+		D8C7FB7C2CB3E342007B1B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
