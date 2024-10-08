@@ -23,6 +23,7 @@
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D8C160EB2CB4D85600818C1E /* BusStopSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSearchView.swift; sourceTree = "<group>"; };
 		D8C160EE2CB4D86B00818C1E /* BusJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyView.swift; sourceTree = "<group>"; };
+		D8C7FB7C2CB3E342007B1B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 				D8C160EA2CB4D84700818C1E /* BusStopSearch */,
 				D8C160ED2CB4D85A00818C1E /* BusJourney */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
+				D8C7FB7C2CB3E342007B1B3E /* Info.plist */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
 			);
 			path = TMT;
@@ -300,6 +302,8 @@
 				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMT/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,6 +335,8 @@
 				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMT/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
