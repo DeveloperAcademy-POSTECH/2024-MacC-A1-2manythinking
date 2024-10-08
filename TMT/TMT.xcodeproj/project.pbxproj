@@ -11,6 +11,8 @@
 		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */; };
+		D8C160EC2CB4D85600818C1E /* BusStopSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C160EB2CB4D85600818C1E /* BusStopSearchView.swift */; };
+		D8C160EF2CB4D86B00818C1E /* BusJourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C160EE2CB4D86B00818C1E /* BusJourneyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D8C7FB7C2CB3E342007B1B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D8C160EB2CB4D85600818C1E /* BusStopSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSearchView.swift; sourceTree = "<group>"; };
+		D8C160EE2CB4D86B00818C1E /* BusJourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,8 @@
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
-				D8C7FB7A2CB3D88E007B1B3E /* BusStopSearch */,
-				D8C7FB7B2CB3D89B007B1B3E /* BusJourney */,
+				D8C160EA2CB4D84700818C1E /* BusStopSearch */,
+				D8C160ED2CB4D85A00818C1E /* BusJourney */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D8C7FB7C2CB3E342007B1B3E /* Info.plist */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
@@ -71,16 +75,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D8C7FB7A2CB3D88E007B1B3E /* BusStopSearch */ = {
+		D8C160EA2CB4D84700818C1E /* BusStopSearch */ = {
 			isa = PBXGroup;
 			children = (
+				D8C160EB2CB4D85600818C1E /* BusStopSearchView.swift */,
 			);
 			path = BusStopSearch;
 			sourceTree = "<group>";
 		};
-		D8C7FB7B2CB3D89B007B1B3E /* BusJourney */ = {
+		D8C160ED2CB4D85A00818C1E /* BusJourney */ = {
 			isa = PBXGroup;
 			children = (
+				D8C160EE2CB4D86B00818C1E /* BusJourneyView.swift */,
 			);
 			path = BusJourney;
 			sourceTree = "<group>";
@@ -155,6 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C160EF2CB4D86B00818C1E /* BusJourneyView.swift in Sources */,
+				D8C160EC2CB4D85600818C1E /* BusStopSearchView.swift in Sources */,
 				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 			);
