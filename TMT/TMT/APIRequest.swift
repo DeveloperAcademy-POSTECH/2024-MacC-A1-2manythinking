@@ -7,15 +7,19 @@
 
 import Foundation
 
-class APIRequest: ObservableObject {
-    @Published var arrmsg1: String = ""
-    @Published var arrmsg2: String = ""
-    @Published var nextStId: String = ""
-    @Published var vehId: String = ""
-    @Published var vehId1: String = ""
-    @Published var vehId2: String = ""
+struct BusInfo {
+    var arrmsg1: String = ""
+    var arrmsg2: String = ""
+    var nextStId: String = ""
+    var vehId: String = "" // 버스 위치 정보 API에서 제공하는 버스 고유 번호
+    var vehId1: String = "" // 버스 도착 정보 API에서 제공하는 첫번째로 도착하는 버스 고유 번호
+    var vehId2: String = "" // 버스 도착 정보 API에서 제공하는 두번째로 도착하는 버스 고유 번호
+}
 
-    func fetchBusArrivalData(urlString: String) {
+class APIRequest: ObservableObject {
+    @Published var busInfo = BusInfo()
+    
+    private func fetchBusArrivalData(urlString: String) {
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
@@ -38,17 +42,17 @@ class APIRequest: ObservableObject {
                 arrivalParser.parseXML(data: data)
 
                 DispatchQueue.main.async {
-                    self.arrmsg1 = arrivalParser.arrmsg1
-                    self.arrmsg2 = arrivalParser.arrmsg2
-                    self.vehId1 = arrivalParser.vehId1
-                    self.vehId2 = arrivalParser.vehId2
+                    self.busInfo.arrmsg1 = arrivalParser.arrmsg1
+                    self.busInfo.arrmsg2 = arrivalParser.arrmsg2
+                    self.busInfo.vehId1 = arrivalParser.vehId1
+                    self.busInfo.vehId2 = arrivalParser.vehId2
                 }
             }
         }
         task.resume()
     }
 
-    func fetchBusLocationData(urlString: String) {
+    private func fetchBusLocationData(urlString: String) {
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
@@ -71,11 +75,36 @@ class APIRequest: ObservableObject {
                 locationParser.parseXML(data: data)
 
                 DispatchQueue.main.async {
-                    self.vehId = locationParser.vehId
-                    self.nextStId = locationParser.nextStId
+                    self.busInfo.vehId = locationParser.vehId
+                    self.busInfo.nextStId = locationParser.nextStId
                 }
             }
         }
         task.resume()
+    }
+    
+    private func getAPIKey() -> String {
+        guard let apiKey = Bundle.main.infoDictionary?["APIKey"] as? String else {
+            fatalError("APIKey not found in Info.plist")
+        }
+        return apiKey
+    }
+    
+    private func getArrivalInfoURL() -> String {
+        let apiKey = getAPIKey()
+        return "http://ws.bus.go.kr/api/rest/arrive/getArrInfoByRoute?ServiceKey=\(apiKey)&stId=122000048&busRouteId=100100075&ord=20"
+    }
+    
+    private func getBusPositionURL() -> String {
+        let apiKey = getAPIKey()
+        return "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid?ServiceKey=\(apiKey)&busRouteId=100100075"
+    }
+    
+    /// 버스 도착 정보와 위치 정보 데이터를 불러옵니다.
+    func fetchData() {
+        let arrivalInfoURL = getArrivalInfoURL()
+        let busPositionURL = getBusPositionURL()
+        fetchBusArrivalData(urlString: arrivalInfoURL)
+        fetchBusLocationData(urlString: busPositionURL)
     }
 }

@@ -11,9 +11,9 @@ class BusInfoParser: NSObject, XMLParserDelegate {
     var currentElement = ""
     var arrmsg1 = ""
     var arrmsg2 = ""
-    var vehId1 = "" // 버스 도착 정보 API에서 제공하는 첫번째로 도착하는 버스 고유 번호
-    var vehId2 = "" // 버스 도착 정보 API에서 제공하는 두번째로 도착하는 버스 고유 번호
-    var vehId = "" // 버스 위치 정보 API에서 제공하는 버스 고유 번호
+    var vehId1 = ""
+    var vehId2 = ""
+    var vehId = ""
     var nextStId = ""
     
     func parseXML(data: Data) {
