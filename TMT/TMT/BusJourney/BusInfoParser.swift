@@ -14,7 +14,7 @@ class BusInfoParser: NSObject, XMLParserDelegate {
     var vehId1 = ""
     var vehId2 = ""
     var vehId = ""
-    var nextStId = ""
+    var stId = ""
     
     func parseXML(data: Data) {
         let parser = XMLParser(data: data)
@@ -36,10 +36,8 @@ class BusInfoParser: NSObject, XMLParserDelegate {
             vehId1 += string.trimmingCharacters(in: .whitespacesAndNewlines)
         case "vehId2":
             vehId2 += string.trimmingCharacters(in: .whitespacesAndNewlines)
-        case "nextStId":
-            nextStId += string.trimmingCharacters(in: .whitespacesAndNewlines)
-        case "vehId":
-            vehId += string.trimmingCharacters(in: .whitespacesAndNewlines)
+        case "stId":
+            stId += string.trimmingCharacters(in: .whitespacesAndNewlines)
         default:
             break
         }
@@ -52,8 +50,7 @@ class BusInfoParser: NSObject, XMLParserDelegate {
         print("vehId1: \(vehId1)")
         print("vehId2: \(vehId2)")
         print("==============================")
-        print("vehId: \(vehId)")
-        print("nextStId: \(nextStId)")
+        print("stId: \(stId)")
         print("==============================")
     }
 }

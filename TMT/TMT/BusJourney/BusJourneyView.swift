@@ -12,10 +12,10 @@ struct BusJourneyView: View {
     
     var body: some View {
         VStack {
-            if apiRequest.busInfo.arrmsg1.isEmpty && apiRequest.busInfo.arrmsg2.isEmpty && apiRequest.busInfo.nextStId.isEmpty {
+            if apiRequest.busInfo.arrmsg1.isEmpty && apiRequest.busInfo.arrmsg2.isEmpty && apiRequest.busInfo.stId.isEmpty {
                 Text("Loading data...")
                     .onAppear {
-                        apiRequest.fetchData()
+                        apiRequest.fetchArrivalData()
                     }
             } else {
                 VStack {
@@ -25,8 +25,12 @@ struct BusJourneyView: View {
                     Text("First Arrived Bus Number: \(apiRequest.busInfo.vehId1)")
                     Text("Second Arrived Bus Number: \(apiRequest.busInfo.vehId2)")
                     
-                    Text("Real Bus Number: \(apiRequest.busInfo.vehId)")
-                    Text("Next stop List: \(apiRequest.busInfo.nextStId)")
+                    // TODO: 이후 엑셀 파일 연결되면 ord로 몇 정거장 남았는지 구하기.
+                    Button {
+                        apiRequest.fetchPositionData()
+                    } label: {
+                        Text("What is the next stop: \(apiRequest.busInfo.stId)")
+                    }
                 }
                 .padding()
                 
