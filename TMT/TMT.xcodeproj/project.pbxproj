@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BE9B3752CB5976800547B86 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9B3742CB5976300547B86 /* APIRequest.swift */; };
+		5BE9B3772CB5978C00547B86 /* BusInfoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9B3762CB5978400547B86 /* BusInfoParser.swift */; };
+		5BE9B3792CB5982700547B86 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5BE9B3782CB5982700547B86 /* Config.xcconfig */; };
 		D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396C2CA933CD00FFE8ED /* TMTApp.swift */; };
 		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BE9B3742CB5976300547B86 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		5BE9B3762CB5978400547B86 /* BusInfoParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoParser.swift; sourceTree = "<group>"; };
+		5BE9B3782CB5982700547B86 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		D86739692CA933CD00FFE8ED /* TMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867396C2CA933CD00FFE8ED /* TMTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTApp.swift; sourceTree = "<group>"; };
 		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +62,7 @@
 		D867396B2CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXGroup;
 			children = (
+				5BE9B3742CB5976300547B86 /* APIRequest.swift */,
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
 				D8C160EA2CB4D84700818C1E /* BusStopSearch */,
@@ -63,6 +70,7 @@
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D8C7FB7C2CB3E342007B1B3E /* Info.plist */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
+				5BE9B3782CB5982700547B86 /* Config.xcconfig */,
 			);
 			path = TMT;
 			sourceTree = "<group>";
@@ -86,6 +94,7 @@
 		D8C160ED2CB4D85A00818C1E /* BusJourney */ = {
 			isa = PBXGroup;
 			children = (
+				5BE9B3762CB5978400547B86 /* BusInfoParser.swift */,
 				D8C160EE2CB4D86B00818C1E /* BusJourneyView.swift */,
 			);
 			path = BusJourney;
@@ -150,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
+				5BE9B3792CB5982700547B86 /* Config.xcconfig in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +172,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8C160EF2CB4D86B00818C1E /* BusJourneyView.swift in Sources */,
+				5BE9B3772CB5978C00547B86 /* BusInfoParser.swift in Sources */,
 				D8C160EC2CB4D85600818C1E /* BusStopSearchView.swift in Sources */,
 				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
+				5BE9B3752CB5976800547B86 /* APIRequest.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +304,7 @@
 		};
 		D86739782CA933CE00FFE8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BE9B3782CB5982700547B86 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -299,7 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = 4S9N87385A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -325,6 +338,7 @@
 		};
 		D86739792CA933CE00FFE8ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BE9B3782CB5982700547B86 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -332,7 +346,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = 4S9N87385A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
