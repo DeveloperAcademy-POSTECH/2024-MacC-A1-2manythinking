@@ -11,6 +11,7 @@
 		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */; };
+		D8D377E62CBE549F0043D103 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8D377E52CBE549F0043D103 /* BusStopData.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D8D377E52CBE549F0043D103 /* BusStopData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
+				D8D377E42CBE548F0043D103 /* Resource */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
 			);
@@ -65,6 +68,14 @@
 				D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D8D377E42CBE548F0043D103 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D8D377E52CBE549F0043D103 /* BusStopData.csv */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
+				D8D377E62CBE549F0043D103 /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
