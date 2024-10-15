@@ -10,6 +10,7 @@ import Foundation
 final class BusStopSearchViewModel: ObservableObject {
     @Published var busStops: [BusStopInfo] = []
     @Published var filteredBusStops: [BusStopInfo] = []
+    @Published var busNumbers = [Int]()
     
     init() {
         loadCSV()
@@ -56,5 +57,19 @@ final class BusStopSearchViewModel: ObservableObject {
             }
             return false
         }
+        
+        fetchBusNumbersList()
+    }
+    
+    /// 검색 결과 배열에는 노선 전체 데이터가 담겨 있어 동일한 버스 번호를 가진 데이터가 많습니다.
+    /// 사용자에게 보여줄 때는 중복된 데이터를 제외하고, 버스 번호만 추출해서 보여줘야 합니다.
+    /// 사용자가 검색한 버스 번호를 추출하여 결과로 보여주기 위해 버스 번호만 추출하기 위해 만든 함수입니다.
+    private func fetchBusNumbersList() {
+        busNumbers = Array(Set(filteredBusStops.compactMap { busStop in
+            if let busNumberString = busStop.busNumber, let busNumber = Int(busNumberString) {
+                return busNumber
+            }
+            return nil
+        }))
     }
 }
