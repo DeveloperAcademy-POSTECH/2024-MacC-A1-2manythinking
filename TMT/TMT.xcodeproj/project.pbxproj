@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
+		5B6DA5BA2CBE6F8C00613ACB /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManagerDelegate.swift */; };
 		D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396C2CA933CD00FFE8ED /* TMTApp.swift */; };
 		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		5B6DA5B92CBE6F8700613ACB /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
 		D86739692CA933CD00FFE8ED /* TMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867396C2CA933CD00FFE8ED /* TMTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTApp.swift; sourceTree = "<group>"; };
 		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,8 +55,10 @@
 		D867396B2CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXGroup;
 			children = (
+				5B6DA5B92CBE6F8700613ACB /* LocationManagerDelegate.swift */,
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
+				5B6DA5B72CBE551400613ACB /* MapView.swift */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
+				5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */,
+				5B6DA5BA2CBE6F8C00613ACB /* LocationManagerDelegate.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,9 +281,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,9 +313,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
