@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D844BCB52CC0AE770059E31F /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D844BCB42CC0AE770059E31F /* BusStopData.csv */; };
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
+		D844BCB52CC0AE770059E31F /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D844BCB42CC0AE770059E31F /* BusStopData.csv */; };
+		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
+		D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBE2CC120010059E31F /* SwiftUI.framework */; };
+		D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D844BCD92CC147390059E31F /* LiveActivityManager.swift */; };
 		D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396C2CA933CD00FFE8ED /* TMTApp.swift */; };
 		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
@@ -19,10 +23,38 @@
 		D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EC2CBE95D10043D103 /* BusSearchView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D844BCCE2CC120030059E31F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D86739612CA933CD00FFE8ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D844BCB92CC120010059E31F;
+			remoteInfo = TMTWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D844BCD52CC120030059E31F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		D844BCB42CC0AE770059E31F /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D844BCB42CC0AE770059E31F /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
+		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D844BCBE2CC120010059E31F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D844BCD92CC147390059E31F /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
 		D86739692CA933CD00FFE8ED /* TMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867396C2CA933CD00FFE8ED /* TMTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTApp.swift; sourceTree = "<group>"; };
 		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,7 +65,37 @@
 		D8D377EC2CBE95D10043D103 /* BusSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D844BCB92CC120010059E31F /* TMTWidgetExtension */;
+		};
+		D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TMTWidgetLiveActivity.swift,
+			);
+			target = D86739682CA933CD00FFE8ED /* TMT */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D844BCC02CC120010059E31F /* TMTWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		D844BCB72CC120010059E31F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */,
+				D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D86739662CA933CD00FFE8ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,10 +106,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D844BCBB2CC120010059E31F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D844BCBC2CC120010059E31F /* WidgetKit.framework */,
+				D844BCBE2CC120010059E31F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D844BCD82CC1472E0059E31F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D844BCD92CC147390059E31F /* LiveActivityManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D86739602CA933CD00FFE8ED = {
 			isa = PBXGroup;
 			children = (
 				D867396B2CA933CD00FFE8ED /* TMT */,
+				D844BCC02CC120010059E31F /* TMTWidget */,
+				D844BCBB2CC120010059E31F /* Frameworks */,
 				D867396A2CA933CD00FFE8ED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D86739692CA933CD00FFE8ED /* TMT.app */,
+				D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +149,7 @@
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
 				5B6DA5B72CBE551400613ACB /* MapView.swift */,
+				D844BCD82CC1472E0059E31F /* Utils */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
 				D8D377E42CBE548F0043D103 /* Resource */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
@@ -104,6 +187,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D844BCB92CC120010059E31F /* TMTWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D844BCD22CC120030059E31F /* Build configuration list for PBXNativeTarget "TMTWidgetExtension" */;
+			buildPhases = (
+				D844BCB62CC120010059E31F /* Sources */,
+				D844BCB72CC120010059E31F /* Frameworks */,
+				D844BCB82CC120010059E31F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D844BCC02CC120010059E31F /* TMTWidget */,
+			);
+			name = TMTWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = TMTWidgetExtension;
+			productReference = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D86739682CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D86739772CA933CE00FFE8ED /* Build configuration list for PBXNativeTarget "TMT" */;
@@ -111,10 +216,12 @@
 				D86739652CA933CD00FFE8ED /* Sources */,
 				D86739662CA933CD00FFE8ED /* Frameworks */,
 				D86739672CA933CD00FFE8ED /* Resources */,
+				D844BCD52CC120030059E31F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D844BCCF2CC120030059E31F /* PBXTargetDependency */,
 			);
 			name = TMT;
 			productName = TMT;
@@ -128,9 +235,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					D844BCB92CC120010059E31F = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					D86739682CA933CD00FFE8ED = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -150,11 +260,19 @@
 			projectRoot = "";
 			targets = (
 				D86739682CA933CD00FFE8ED /* TMT */,
+				D844BCB92CC120010059E31F /* TMTWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D844BCB82CC120010059E31F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D86739672CA933CD00FFE8ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,6 +286,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D844BCB62CC120010059E31F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D86739652CA933CD00FFE8ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,12 +304,79 @@
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
 				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
+				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D844BCCF2CC120030059E31F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D844BCB92CC120010059E31F /* TMTWidgetExtension */;
+			targetProxy = D844BCCE2CC120030059E31F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D844BCD32CC120030059E31F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMTWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D844BCD42CC120030059E31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMTWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D86739752CA933CE00FFE8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,10 +505,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,10 +538,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -371,6 +565,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D844BCD22CC120030059E31F /* Build configuration list for PBXNativeTarget "TMTWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D844BCD32CC120030059E31F /* Debug */,
+				D844BCD42CC120030059E31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D86739642CA933CD00FFE8ED /* Build configuration list for PBXProject "TMT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
