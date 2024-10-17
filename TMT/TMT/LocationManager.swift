@@ -1,5 +1,5 @@
 //
-//  LocationManagerDelegate.swift
+//  LocationManager.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/15/24.
@@ -11,7 +11,7 @@ import MapKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
+        center: CLLocationCoordinate2D(latitude: 36.016082, longitude: 129.324605),
         span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     )
     
