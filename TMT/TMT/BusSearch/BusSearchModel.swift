@@ -5,7 +5,10 @@
 //  Created by 김유빈 on 10/15/24.
 //
 
-struct BusStopInfo: Codable {
+import Foundation
+
+struct BusStopInfo: Codable, Identifiable {
+    var id = UUID()
     var busNumber: String? // 노선명 (버스번호)
     var busType: Int? // 버스 타입
     var stopOrder: Int? // 순번

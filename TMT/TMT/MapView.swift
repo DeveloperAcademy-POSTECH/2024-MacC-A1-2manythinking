@@ -13,17 +13,15 @@ struct MapView: View {
     @StateObject var busStopSearchViewModel = BusStopSearchViewModel()
     
     // TODO: 사용자 위치 바뀌어도 화면 다시 업데이트 안되게 하기.
+    // 투두: 다시 테스트 해보고, 밑에 스트링 값 없을 때 대신 넣는거 생각해보기.
     var body: some View {
         ZStack {
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: busStopSearchViewModel.nameAndCoordinates) { stop in
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(stop.latitude) ?? 0, longitude: Double(stop.longitude) ?? 0)) {
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(stop.xCoordinate ?? "") ?? 0, longitude: Double(stop.yCoordinate ?? "") ?? 0)) {
                     VStack {
                         RoundedRectangle(cornerRadius: 5)
                             .frame(width: 30, height: 30)
                             .foregroundStyle(.blue)
-                        Text(stop.name)
-                            .font(.caption)
-                            .foregroundColor(.black)
                     }
                 }
             }

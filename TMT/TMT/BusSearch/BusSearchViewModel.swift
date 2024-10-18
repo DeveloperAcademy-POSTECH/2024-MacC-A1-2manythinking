@@ -11,7 +11,7 @@ final class BusStopSearchViewModel: ObservableObject {
     @Published var busStops: [BusStopInfo] = []
     @Published var filteredBusStops: [BusStopInfo] = []
     @Published var busNumbers = [Int]()
-    @Published var nameAndCoordinates: [BusStop] = []
+    @Published var nameAndCoordinates: [BusStopInfo] = []
     
     init() {
         loadCSV()
@@ -75,23 +75,16 @@ final class BusStopSearchViewModel: ObservableObject {
     }
     
     func getNameAndCoordinates(busNum: String) {
-        var stopInfo: [BusStop] = []
+        var stopInfo: [BusStopInfo] = []
         for busStop in busStops {
             if busStop.busNumber == busNum {
-                if let stopName = busStop.stopName,
+                if let stopName = busStop.romanizedStopName,
                    let xCoordinate = busStop.xCoordinate,
                    let yCoordinate = busStop.yCoordinate {
-                    stopInfo.append(BusStop(name: stopName, latitude: xCoordinate, longitude: yCoordinate))
+                    stopInfo.append(BusStopInfo(romanizedStopName: stopName, xCoordinate: xCoordinate, yCoordinate: yCoordinate))
                 }
             }
         }
         nameAndCoordinates = stopInfo
     }
-}
-
-struct BusStop: Identifiable {
-    let id = UUID()
-    let name: String
-    let latitude: String
-    let longitude: String
 }
