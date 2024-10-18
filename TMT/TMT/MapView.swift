@@ -14,7 +14,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: busStopSearchViewModel.nameAndCoordinates) { stop in
+            Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: busStopSearchViewModel.filteredBusStops) { stop in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(stop.xCoordinate ?? "") ?? 0, longitude: Double(stop.yCoordinate ?? "") ?? 0)) {
                     VStack {
                         RoundedRectangle(cornerRadius: 5)
@@ -26,14 +26,14 @@ struct MapView: View {
             .edgesIgnoringSafeArea(.all)
             VStack {
                 Button {
-                    busStopSearchViewModel.getNameAndCoordinates(busNum: "207(기본)")
+                    busStopSearchViewModel.searchBusStops(by: "207(기본)")
                 } label: {
                     Text("207번 버스")
                         .background(.white)
                 }
                 
                 Button {
-                    busStopSearchViewModel.getNameAndCoordinates(busNum: "306(기본)")
+                    busStopSearchViewModel.searchBusStops(by: "306(기본)")
                 } label: {
                     Text("472번 버스")
                         .background(.white)
