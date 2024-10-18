@@ -21,6 +21,7 @@
 		D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchModel.swift */; };
 		D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */; };
 		D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EC2CBE95D10043D103 /* BusSearchView.swift */; };
+		D8F9FAB12CC212700076239D /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F9FAB02CC212700076239D /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D8D377E82CBE95C30043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 		D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewModel.swift; sourceTree = "<group>"; };
 		D8D377EC2CBE95D10043D103 /* BusSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchView.swift; sourceTree = "<group>"; };
+		D8F9FAB02CC212700076239D /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -149,6 +151,7 @@
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
 				5B6DA5B72CBE551400613ACB /* MapView.swift */,
+				D8F9FAAF2CC212670076239D /* Map */,
 				D844BCD82CC1472E0059E31F /* Utils */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
 				D8D377E42CBE548F0043D103 /* Resource */,
@@ -182,6 +185,14 @@
 				D8D377EC2CBE95D10043D103 /* BusSearchView.swift */,
 			);
 			path = BusSearch;
+			sourceTree = "<group>";
+		};
+		D8F9FAAF2CC212670076239D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D8F9FAB02CC212700076239D /* MapViewModel.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */,
+				D8F9FAB12CC212700076239D /* MapViewModel.swift in Sources */,
 				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
