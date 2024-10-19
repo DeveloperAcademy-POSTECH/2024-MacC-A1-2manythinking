@@ -17,11 +17,9 @@ struct MapView: View {
         ZStack {
             Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: busStopSearchViewModel.filteredBusStops) { stop in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(stop.xCoordinate ?? "") ?? 0, longitude: Double(stop.yCoordinate ?? "") ?? 0)) {
-                    VStack {
-                        RoundedRectangle(cornerRadius: 5)
-                            .frame(width: 40, height: 40)
-                            .foregroundStyle(.black)
-                    }
+                    RoundedRectangle(cornerRadius: 5)
+                        .frame(width: 40, height: 40)
+                        .foregroundStyle(.black)
                 }
             }
             .edgesIgnoringSafeArea(.all)

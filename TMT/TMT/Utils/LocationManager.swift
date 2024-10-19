@@ -25,7 +25,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    /// 사용자의 현재 위치를 파악합니다.
+    /// 사용자의 현재 위치 파악
     func findCurrentLocation() {
         if let location = locationManager.location {
             let latitude = location.coordinate.latitude
@@ -38,7 +38,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    /// 사용자의 위치를 업데이트합니다.
+    /// 사용자의 위치 업데이트
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {
