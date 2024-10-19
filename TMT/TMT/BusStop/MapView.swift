@@ -19,28 +19,32 @@ struct MapView: View {
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(stop.xCoordinate ?? "") ?? 0, longitude: Double(stop.yCoordinate ?? "") ?? 0)) {
                     VStack {
                         RoundedRectangle(cornerRadius: 5)
-                            .frame(width: 30, height: 30)
-                            .foregroundStyle(.blue)
+                            .frame(width: 40, height: 40)
+                            .foregroundStyle(.black)
                     }
                 }
             }
             .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
-                Button {
-                    locationManager.findCurrentLocation()
-                } label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 40)
-                            .tint(.white)
-                            .shadow(radius: 5)
-                        Image(systemName: "location.fill")
-                            .font(.title)
-                            .tint(.gray)
+                HStack {
+                    Spacer()
+                    Button {
+                        locationManager.findCurrentLocation()
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .frame(width: 44)
+                                .tint(.gray)
+                            Image(systemName: "location.fill")
+                                .font(.title)
+                                .tint(.purple)
+                        }
                     }
+                    Spacer().frame(width: 19)
                 }
-                
+                Spacer().frame(height: 23)
+                NextStopView()
             }
             .padding()
         }
