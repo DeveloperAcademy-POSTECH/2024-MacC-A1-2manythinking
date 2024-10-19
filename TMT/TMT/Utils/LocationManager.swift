@@ -5,7 +5,6 @@
 //  Created by Choi Minkyeong on 10/15/24.
 //
 
-import Foundation
 import CoreLocation
 import MapKit
 
@@ -14,6 +13,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         center: CLLocationCoordinate2D(latitude: 36.016082, longitude: 129.324605),
         span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
+    @Published var isFirstLoad = true
     
     private let locationManager = CLLocationManager()
     
@@ -42,10 +42,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {
-                self.region = MKCoordinateRegion(
-                    center: location.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-                )
+                if self.isFirstLoad {
+                    self.region = MKCoordinateRegion(
+                        center: location.coordinate,
+                        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                    )
+                    self.isFirstLoad = false
+                }
             }
         }
     }

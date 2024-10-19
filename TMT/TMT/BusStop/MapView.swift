@@ -25,6 +25,7 @@ struct MapView: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 Spacer()
                 HStack {
@@ -49,7 +50,9 @@ struct MapView: View {
             .padding()
         }
         .onAppear {
-            locationManager.findCurrentLocation()
+            if locationManager.isFirstLoad {
+                locationManager.findCurrentLocation()
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
