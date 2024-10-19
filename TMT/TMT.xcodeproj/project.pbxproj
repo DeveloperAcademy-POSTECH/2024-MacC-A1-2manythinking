@@ -145,10 +145,10 @@
 		D867396B2CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXGroup;
 			children = (
-				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
 				5B6DA5B72CBE551400613ACB /* MapView.swift */,
+				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
 				D844BCD82CC1472E0059E31F /* Utils */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
 				D8D377E42CBE548F0043D103 /* Resource */,

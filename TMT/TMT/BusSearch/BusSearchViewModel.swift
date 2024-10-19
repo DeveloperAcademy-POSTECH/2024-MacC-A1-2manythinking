@@ -57,7 +57,6 @@ final class BusStopSearchViewModel: ObservableObject {
             }
             return false
         }
-        
         fetchBusNumbersList()
     }
     
