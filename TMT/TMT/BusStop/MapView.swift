@@ -10,7 +10,8 @@ import MapKit
 
 struct MapView: View {
     @StateObject private var locationManager = LocationManager()
-    @StateObject var busStopSearchViewModel = BusStopSearchViewModel()
+    @ObservedObject var busStopSearchViewModel: BusStopSearchViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack {
@@ -25,20 +26,6 @@ struct MapView: View {
             }
             .edgesIgnoringSafeArea(.all)
             VStack {
-                Button {
-                    busStopSearchViewModel.searchBusStops(by: "207(기본)")
-                } label: {
-                    Text("207번 버스")
-                        .background(.white)
-                }
-                
-                Button {
-                    busStopSearchViewModel.searchBusStops(by: "306(기본)")
-                } label: {
-                    Text("472번 버스")
-                        .background(.white)
-                }
-                
                 Spacer()
                 Button {
                     locationManager.findCurrentLocation()
@@ -60,9 +47,23 @@ struct MapView: View {
         .onAppear {
             locationManager.findCurrentLocation()
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: backButton)
+    }
+    
+    var backButton : some View {
+        Button{
+            self.presentationMode.wrappedValue.dismiss()
+        } label: {
+            ZStack {
+                Circle()
+                    .foregroundStyle(.black)
+                    .frame(width: 50, height: 50)
+                Image(systemName: "arrow.left")
+                    .foregroundStyle(.white)
+            }
+            
+        }
     }
 }
 
-#Preview {
-    MapView()
-}
