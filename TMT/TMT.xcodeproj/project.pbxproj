@@ -106,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BCE456F2CC389FE00CF38CE /* BusStop */ = {
+			isa = PBXGroup;
+			children = (
+				5B6DA5B72CBE551400613ACB /* MapView.swift */,
+			);
+			path = BusStop;
+			sourceTree = "<group>";
+		};
 		D844BCBB2CC120010059E31F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +126,7 @@
 		D844BCD82CC1472E0059E31F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
 				D844BCD92CC147390059E31F /* LiveActivityManager.swift */,
 			);
 			path = Utils;
@@ -147,8 +156,7 @@
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
-				5B6DA5B72CBE551400613ACB /* MapView.swift */,
-				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
+				5BCE456F2CC389FE00CF38CE /* BusStop */,
 				D844BCD82CC1472E0059E31F /* Utils */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
 				D8D377E42CBE548F0043D103 /* Resource */,
