@@ -1,5 +1,5 @@
 //
-//  NextStopView.swift
+//  NextStopInfoView.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/19/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 // TODO: 색, 폰트 사이즈, padding 확정되면 다시 수정하기
-struct NextStopView: View {
+struct NextStopInfoView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
@@ -54,5 +54,5 @@ struct NextStopView: View {
 }
 
 #Preview {
-    NextStopView()
+    NextStopInfoView()
 }
