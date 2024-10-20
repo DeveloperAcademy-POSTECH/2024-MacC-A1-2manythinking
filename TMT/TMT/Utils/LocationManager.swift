@@ -5,15 +5,15 @@
 //  Created by Choi Minkyeong on 10/15/24.
 //
 
-import Foundation
 import CoreLocation
 import MapKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 36.016082, longitude: 129.324605),
-        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
+    @Published var isFirstLoad = true
     
     private let locationManager = CLLocationManager()
     
@@ -25,7 +25,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    /// 사용자의 현재 위치를 파악합니다.
+    /// 사용자의 현재 위치 파악
     func findCurrentLocation() {
         if let location = locationManager.location {
             let latitude = location.coordinate.latitude
@@ -33,19 +33,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
             )
         }
     }
     
-    /// 사용자의 위치를 업데이트합니다.
+    /// 사용자의 위치 업데이트
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {
-                self.region = MKCoordinateRegion(
-                    center: location.coordinate,
-                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                )
+                if self.isFirstLoad {
+                    self.region = MKCoordinateRegion(
+                        center: location.coordinate,
+                        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                    )
+                    self.isFirstLoad = false
+                }
             }
         }
     }

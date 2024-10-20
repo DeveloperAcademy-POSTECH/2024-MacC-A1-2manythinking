@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
+		5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */; };
 		D844BCB52CC0AE770059E31F /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D844BCB42CC0AE770059E31F /* BusStopData.csv */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
 		D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBE2CC120010059E31F /* SwiftUI.framework */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStopInfoView.swift; sourceTree = "<group>"; };
 		D844BCB42CC0AE770059E31F /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -106,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BCE456F2CC389FE00CF38CE /* BusJourney */ = {
+			isa = PBXGroup;
+			children = (
+				5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */,
+				5B6DA5B72CBE551400613ACB /* MapView.swift */,
+			);
+			path = BusJourney;
+			sourceTree = "<group>";
+		};
 		D844BCBB2CC120010059E31F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +129,7 @@
 		D844BCD82CC1472E0059E31F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
 				D844BCD92CC147390059E31F /* LiveActivityManager.swift */,
 			);
 			path = Utils;
@@ -147,8 +159,7 @@
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
-				5B6DA5B72CBE551400613ACB /* MapView.swift */,
-				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
+				5BCE456F2CC389FE00CF38CE /* BusJourney */,
 				D844BCD82CC1472E0059E31F /* Utils */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
 				D8D377E42CBE548F0043D103 /* Resource */,
@@ -301,6 +312,7 @@
 				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
+				5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
 				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
@@ -327,7 +339,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -356,7 +368,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -505,7 +517,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
@@ -538,7 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
