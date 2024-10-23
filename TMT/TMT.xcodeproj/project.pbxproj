@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */; };
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
 		5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStopInfoView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		5BCE456F2CC389FE00CF38CE /* BusJourney */ = {
 			isa = PBXGroup;
 			children = (
+				5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */,
 				5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */,
 				5B6DA5B72CBE551400613ACB /* MapView.swift */,
 			);
@@ -314,6 +317,7 @@
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
+				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
 				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
