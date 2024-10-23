@@ -11,7 +11,8 @@ import SwiftUI
 struct TMTApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            BusSearchView()
         }
     }
 }

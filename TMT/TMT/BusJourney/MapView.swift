@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import MapKit
 
 struct Coordinate: Identifiable {
     var id = UUID()
@@ -23,7 +22,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            mapView
+            mapViewWrapper
                 .edgesIgnoringSafeArea(.all)
             controlsView
         }
@@ -37,14 +36,8 @@ struct MapView: View {
         .navigationBarItems(leading: backButton)
     }
     
-    private var mapView: some View {
-        Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: items) { stop in
-            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: stop.xCoordinate, longitude: stop.yCoordinate)) {
-                RoundedRectangle(cornerRadius: 5)
-                    .frame(width: 40, height: 40)
-                    .foregroundStyle(.black)
-            }
-        }
+    private var mapViewWrapper: some View {
+        MapViewWrapper(region: $locationManager.region, items: items)
     }
     
     private var controlsView: some View {
@@ -86,7 +79,7 @@ struct MapView: View {
         }
     }
     
-    /// BusStopInfo를 Coordinate로 변환하는 함수
+    /// 좌표의 옵셔널을 제거합니다.
     private func getCoordinates() -> [Coordinate] {
         busStopSearchViewModel.filteredBusStops.compactMap { stop in
             guard let xCoordinate = stop.xCoordinate,
