@@ -27,19 +27,19 @@ class ScanJourneyVC: UIViewController {
         resultLabel.textColor = .black
         resultLabel.numberOfLines = 0
         resultLabel.lineBreakMode = .byWordWrapping
-        resultLabel.text = "인식 중..."
+        resultLabel.text = "Analyzing..."
         
         view.addSubview(resultLabel)
     }
     
     func startOCR() {
         guard let image = imageData.first else {
-            resultLabel.text = "이미지를 찾을 수 없습니다."
+            resultLabel.text = "Cannot find image. Please try it again."
             return
         }
         
         guard let cgImage = image.cgImage else {
-            resultLabel.text = "이미지를 처리할 수 없습니다."
+            resultLabel.text = "Failed while processing image. Please try it again."
             return
         }
         
@@ -50,7 +50,7 @@ class ScanJourneyVC: UIViewController {
             
             guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {
                 DispatchQueue.main.async {
-                    self.resultLabel.text = "텍스트 인식에 실패했습니다."
+                    self.resultLabel.text = "Failed to read data. Please make sure your all route is on the screenshot."
                 }
                 return
             }
@@ -61,8 +61,8 @@ class ScanJourneyVC: UIViewController {
             let busJourneyInfo = BusJourneyExtractor.analyzeText(recognizedText)
             
             DispatchQueue.main.async {
-                if recognizedText.isEmpty {
-                    self.resultLabel.text = "인식된 텍스트가 없습니다."
+                if recognizedText.isEmpty || busJourneyInfo == "" {
+                    self.resultLabel.text = "Failed to fetch data. Please make sure your all route is on the screenshot."
                 } else {
                     self.resultLabel.text = busJourneyInfo
                 }
@@ -83,7 +83,7 @@ class ScanJourneyVC: UIViewController {
             try handler.perform([request])
         } catch {
             DispatchQueue.main.async {
-                self.resultLabel.text = "OCR 요청 처리 중 에러가 발생했습니다: \(error.localizedDescription)"
+                self.resultLabel.text = "Failed to fetch data: \(error.localizedDescription)"
             }
         }
     }
