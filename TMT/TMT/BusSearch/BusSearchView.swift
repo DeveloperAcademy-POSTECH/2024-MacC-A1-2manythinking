@@ -9,11 +9,22 @@ import SwiftUI
 
 struct BusSearchView: View {
     @StateObject private var busStopSearchViewModel = BusStopSearchViewModel()
+    @StateObject var locationManager: LocationManager
+    
+    @State private var selectedStartStop: BusStopInfo?
+    @State private var selectedEndStop: BusStopInfo?
+    
     @State private var tag: Int? = nil
+    
+    init() {
+        let viewModel = BusStopSearchViewModel()
+        _busStopSearchViewModel = StateObject(wrappedValue: viewModel)
+        _locationManager = StateObject(wrappedValue: LocationManager(viewModel: viewModel))
+    }
     
     var body: some View {
         NavigationStack {
-            NavigationLink(destination: MapView(busStopSearchViewModel: busStopSearchViewModel), tag: 1, selection: self.$tag) {
+            NavigationLink(destination: MapView(), tag: 1, selection: self.$tag) {
                 EmptyView()
             }
             Button {
@@ -24,6 +35,8 @@ struct BusSearchView: View {
                     .background(.white)
             }
         }
+        .environmentObject(locationManager)
+        .environmentObject(busStopSearchViewModel)
     }
 }
 

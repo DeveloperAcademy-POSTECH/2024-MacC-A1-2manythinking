@@ -15,9 +15,9 @@ struct Coordinate: Identifiable {
 }
 
 struct MapView: View {
-    @StateObject private var locationManager = LocationManager()
-    @ObservedObject var busStopSearchViewModel: BusStopSearchViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var busStopSearchViewModel: BusStopSearchViewModel
     
     @State private var items: [Coordinate] = []
     

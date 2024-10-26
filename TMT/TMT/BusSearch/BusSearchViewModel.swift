@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import MapKit
 
 final class BusStopSearchViewModel: ObservableObject {
     @Published var busStops: [BusStopInfo] = []
     @Published var filteredBusStops: [BusStopInfo] = []
     @Published var busNumbers = [Int]()
+    @Published var remainingStops: Int = 0
     
+    private var startStop: BusStopInfo?
+    private var endStop: BusStopInfo?
+
     init() {
         loadCSV()
     }
@@ -70,5 +75,46 @@ final class BusStopSearchViewModel: ObservableObject {
             }
             return nil
         }))
+    }
+    
+    /// 사용자 입력에 따라 출발 정류장과 하차 정류장 설정
+    func setJourneyStops(startStop: BusStopInfo, endStop: BusStopInfo) {
+        self.startStop = startStop
+        self.endStop = endStop
+    }
+    
+    /// 실시간으로 남은 정류장 수 업데이트
+    func updateRemainingStops(currentLocation: CLLocationCoordinate2D) {
+        guard let startStop = self.startStop, let endStop = self.endStop else {
+            print("출발 정류장과 하차 정류장을 설정하세요..")
+            return
+        }
+        
+        guard let startIndex = startStop.stopOrder,
+              let endIndex = endStop.stopOrder,
+              startIndex <= endIndex else {
+            print("출발 정류장과 하차 정류장 순서가 올바르지 않습니다.")
+            return
+        }
+                
+        let journeyStops = busStops.filter { stop in
+            guard let order = stop.stopOrder else { return false }
+            return startStop.busNumber == stop.busNumber && order >= startIndex && order <= endIndex
+        }
+        
+        var passedStops = 0
+        
+        for stop in journeyStops {
+            guard let stopX = stop.xCoordinate, let stopY = stop.yCoordinate else { continue }
+            
+            let stopLocation = CLLocation(latitude: stopX, longitude: stopY)
+            let userLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+            
+            if userLocation.distance(from: stopLocation) < 50.0 {
+                passedStops += 1
+            }
+        }
+        
+        self.remainingStops = max(0, journeyStops.count - passedStops - 1)
     }
 }
