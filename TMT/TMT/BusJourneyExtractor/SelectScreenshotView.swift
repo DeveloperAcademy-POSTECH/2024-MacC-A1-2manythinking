@@ -21,11 +21,9 @@ struct SelectScreenshotView: View {
             .padding()
             
             if selectedImage != nil {
-                ScrollView {
                     ScanJourneyVCRepresentable(image: $selectedImage)
                         .padding()
                         .multilineTextAlignment(.leading)
-                }
             } else {
                 Text("이미지를 선택하세요.")
                     .foregroundColor(.gray)

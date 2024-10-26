@@ -19,8 +19,8 @@ class BusJourneyExtractor {
         
         let busColors = ["Blue", "General", "Express", "Green", "Town"]
         let busNumbers = ["206", "207", "209", "216", "302", "305", "306", "308", "600", "700", "800", "900"]
-        let arrivalWordsFront = ["min", "Interval:", "Total", "No"]
-        let arrivalWordsBack = ["stops", "buses", "Weekdays", "Everyday", "Weekends", "ETA"]
+        let arrivalWordsFront = ["min", "Interval:", "No"]
+        let arrivalWordsBack = ["stops", "Weekdays", "Everyday", "Weekends", "ETA"]
         
         var stringInArray = recognizedString.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         let firstMinIndex = stringInArray.enumerated().filter({ $0.element.contains("min") }).first?.offset ?? 0
@@ -94,7 +94,7 @@ class BusJourneyExtractor {
                         }
                         
                         // 탑승 정류장을 구합니다.
-                        if let firstIndex = filteredArray.firstIndex(of: "off"),
+                        if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
                            let secondIndex = filteredArray.firstIndex(of: sortOfBusNumber[0]),
                            firstIndex < secondIndex {
                             let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
@@ -120,9 +120,45 @@ class BusJourneyExtractor {
                         } else {
                             print("Failed to extract busStopToGetOff.")
                         }
+                        
                     } else {
                         // 버스 여러대 감.
                         print("버스 여러대 감")
+                        
+                        // 버스 번호를 구합니다.
+                        if !sortOfBusNumber[0].isEmpty {
+                            busNumber = sortOfBusNumber.first ?? ""
+                            busNumber = busNumber.filter { $0.isNumber }
+                        } else {
+                            print("No bus info.")
+                        }
+                        
+                        // 탑승 정류장을 구합니다.
+                        if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
+                           let secondIndex = filteredArray.firstIndex(of: sortOfBusNumber[0]),
+                           firstIndex < secondIndex {
+                            let result = Array(filteredArray[(firstIndex + 1)...secondIndex].dropLast())
+                            busStopToBoard = stringArrayToStirng(stringArray: result)
+                        } else {
+                            print("Failed to extract busStopBoard.")
+                        }
+                        
+                        // 하차 정류장을 구합니다.
+                        if let secondIndex = filteredArray.firstIndex(of: "GO") {
+                            var foundIndices: [Int] = []
+                            for (index, word) in filteredArray.enumerated() {
+                                if arrivalWordsBack.contains(word) {
+                                    foundIndices.append(index)
+                                }
+                            }
+                            if foundIndices.count >= 2 {
+                                var result = Array(filteredArray[(foundIndices[1] + 1)..<secondIndex].dropLast())
+                                result = result.filter { $0 != "ETA" }
+                                busStopToGetOff = stringArrayToStirng(stringArray: result)
+                            }
+                        } else {
+                            print("Failed to extract busStopToGetOff.")
+                        }
                     }
                     
                 } else {
@@ -135,7 +171,7 @@ class BusJourneyExtractor {
                     var currentIndex: Int = 0
                     
                     // 첫번째 노선 탑승할 정류장 정보
-                    if let firstIndex = filteredArray.firstIndex(of: "off"),
+                    if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
                        let secondIndex = filteredArray.firstIndex(of: sortOfBusNumber[0]),
                        firstIndex < secondIndex {
                         let result = filteredArray[(firstIndex + 1)..<secondIndex].dropLast()
@@ -184,7 +220,7 @@ class BusJourneyExtractor {
                         }
                         
                         // 하차 정류장을 구합니다.
-                        if let firstIndex = filteredArray.firstIndex(of: "off"),
+                        if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
                            let secondIndex = filteredArray.firstIndex(of: "GO"),
                            firstIndex < secondIndex {
                             let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
