@@ -90,12 +90,10 @@ struct MapView: View {
     private func getCoordinates() -> [Coordinate] {
         busStopSearchViewModel.filteredBusStops.compactMap { stop in
             guard let xCoordinate = stop.xCoordinate,
-                  let yCoordinate = stop.yCoordinate,
-                  let x = Double(xCoordinate),
-                  let y = Double(yCoordinate) else {
+                  let yCoordinate = stop.yCoordinate else {
                 return nil
             }
-            return Coordinate(xCoordinate: x, yCoordinate: y)
+            return Coordinate(xCoordinate: xCoordinate, yCoordinate: yCoordinate)
         }
     }
 }

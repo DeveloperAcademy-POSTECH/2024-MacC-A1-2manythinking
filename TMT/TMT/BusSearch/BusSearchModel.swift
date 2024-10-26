@@ -14,6 +14,6 @@ struct BusStopInfo: Codable, Identifiable {
     var stopOrder: Int? // 순번
     var stopNameKorean: String? // 정류소명 (한글)
     var stopNameRomanized: String? // 정류소명 (로마자 표기)
-    var xCoordinate: String? // x좌표
-    var yCoordinate: String? // y좌표
+    var xCoordinate: Double? // x좌표
+    var yCoordinate: Double? // y좌표
 }
