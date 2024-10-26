@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2D9A102CCA151A001FF6CC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A0F2CCA1509001FF6CC /* ImagePicker.swift */; };
+		5B2D9A122CCA1553001FF6CC /* ScanJourneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */; };
+		5B2D9A142CCA1569001FF6CC /* ScanJourneyVCRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A132CCA1557001FF6CC /* ScanJourneyVCRepresentable.swift */; };
+		5B2D9A162CCA18B8001FF6CC /* SelectScreenshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A152CCA18A8001FF6CC /* SelectScreenshotView.swift */; };
+		5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */; };
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
 		5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */; };
@@ -49,6 +54,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B2D9A0F2CCA1509001FF6CC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanJourneyVC.swift; sourceTree = "<group>"; };
+		5B2D9A132CCA1557001FF6CC /* ScanJourneyVCRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanJourneyVCRepresentable.swift; sourceTree = "<group>"; };
+		5B2D9A152CCA18A8001FF6CC /* SelectScreenshotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectScreenshotView.swift; sourceTree = "<group>"; };
+		5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyExtractor.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStopInfoView.swift; sourceTree = "<group>"; };
@@ -108,6 +118,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B2D9A0E2CCA14FB001FF6CC /* BusJourneyExtractor */ = {
+			isa = PBXGroup;
+			children = (
+				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
+				5B2D9A152CCA18A8001FF6CC /* SelectScreenshotView.swift */,
+				5B2D9A132CCA1557001FF6CC /* ScanJourneyVCRepresentable.swift */,
+				5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */,
+				5B2D9A0F2CCA1509001FF6CC /* ImagePicker.swift */,
+			);
+			path = BusJourneyExtractor;
+			sourceTree = "<group>";
+		};
 		5BCE456F2CC389FE00CF38CE /* BusJourney */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +181,7 @@
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
+				5B2D9A0E2CCA14FB001FF6CC /* BusJourneyExtractor */,
 				5BCE456F2CC389FE00CF38CE /* BusJourney */,
 				D844BCD82CC1472E0059E31F /* Utils */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
@@ -310,13 +333,18 @@
 			files = (
 				D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */,
 				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
+				5B2D9A122CCA1553001FF6CC /* ScanJourneyVC.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */,
+				5B2D9A162CCA18B8001FF6CC /* SelectScreenshotView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
+				5B2D9A102CCA151A001FF6CC /* ImagePicker.swift in Sources */,
+				5B2D9A142CCA1569001FF6CC /* ScanJourneyVCRepresentable.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
 				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
+				5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
