@@ -19,7 +19,8 @@ class BusJourneyExtractor {
         
         let busColors = ["Blue", "General", "Express", "Green", "Town"]
         let busNumbers = ["206", "207", "209", "216", "302", "305", "306", "308", "600", "700", "800", "900"]
-        let arrivalInfoWords = ["min", "stops", "Interval:", "Weekdays", "Total", "buses", "Everyday", "Weekends", "No", "ETA"]
+        let arrivalWordsFront = ["min", "Interval:", "Total", "No"]
+        let arrivalWordsBack = ["stops", "buses", "Weekdays", "Everyday", "Weekends", "ETA"]
         
         var stringInArray = recognizedString.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         let firstMinIndex = stringInArray.enumerated().filter({ $0.element.contains("min") }).first?.offset ?? 0
@@ -75,7 +76,7 @@ class BusJourneyExtractor {
             sortOfBuses.contains(where: { busType in element.contains(busType) })
         }), firstColorIndex + 2 < filteredArray.count {
             let twoStepsAfterIndex = firstColorIndex + 2
-            if sortOfBuses.contains(where: { filteredArray[twoStepsAfterIndex].contains($0) }) {
+            if filteredArray[twoStepsAfterIndex] == "Get" {
                 // 세로로 OCR 처리가 된 경우
                 print("세로로 OCR 처리가 된 경우")
                 if sortOfBuses.count < 2 {
@@ -93,25 +94,32 @@ class BusJourneyExtractor {
                         }
                         
                         // 탑승 정류장을 구합니다.
-                        if let firstIndex = filteredArray.firstIndex(of: sortOfBuses[0]),
-                           let secondIndex = filteredArray.firstIndex(where: { $0 == "ETA" || $0 == busNumber }),
+                        if let firstIndex = filteredArray.firstIndex(of: "off"),
+                           let secondIndex = filteredArray.firstIndex(of: sortOfBusNumber[0]),
                            firstIndex < secondIndex {
-                            let result = Array(filteredArray[(firstIndex + 1)..<(secondIndex)].dropLast())
+                            let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
                             busStopToBoard = stringArrayToStirng(stringArray: result)
                         } else {
                             print("Failed to extract busStopBoard.")
                         }
                         
                         // 하차 정류장을 구합니다.
-                        if let firstIndex = filteredArray.firstIndex(of: "off"),
-                           let secondIndex = filteredArray.firstIndex(of: "GO"),
-                           firstIndex < secondIndex {
-                            let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-                            busStopToGetOff = stringArrayToStirng(stringArray: result)
+                        if let secondIndex = filteredArray.firstIndex(of: "GO") {
+                            var firstIndex: Int = 0
+                            if let matchingIndex = filteredArray.firstIndex(where: { element in
+                                arrivalWordsBack.contains(where: { word in element.contains(word) })
+                            }) {
+                                firstIndex = matchingIndex
+                            } else {
+                                print("No matching element found.")
+                            }
+                            if firstIndex < secondIndex {
+                                let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
+                                busStopToGetOff = stringArrayToStirng(stringArray: result)
+                            }
                         } else {
                             print("Failed to extract busStopToGetOff.")
                         }
-                        
                     } else {
                         // 버스 여러대 감.
                         print("버스 여러대 감")
