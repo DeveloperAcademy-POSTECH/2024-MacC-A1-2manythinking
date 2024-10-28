@@ -30,7 +30,7 @@ struct MapView: View {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
-            items = getCoordinates()
+            items = getValidCoordinates()
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
@@ -80,13 +80,13 @@ struct MapView: View {
     }
     
     /// 좌표의 옵셔널을 제거합니다.
-    private func getCoordinates() -> [Coordinate] {
+    private func getValidCoordinates() -> [Coordinate] {
         busStopSearchViewModel.filteredBusStops.compactMap { stop in
-            guard let xCoordinate = stop.xCoordinate,
-                  let yCoordinate = stop.yCoordinate else {
+            guard let latitude = stop.latitude,
+                  let longitude = stop.longitude else {
                 return nil
             }
-            return Coordinate(xCoordinate: xCoordinate, yCoordinate: yCoordinate)
+            return Coordinate(xCoordinate: latitude, yCoordinate: longitude)
         }
     }
 }
