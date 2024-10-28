@@ -14,10 +14,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
     @Published var isFirstLoad = true
+    @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     private let locationManager = CLLocationManager()
+    private weak var viewModel: BusStopSearchViewModel?
     
-    override init() {
+    init(viewModel: BusStopSearchViewModel) {
+        self.viewModel = viewModel
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -49,6 +52,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     )
                     self.isFirstLoad = false
                 }
+                self.userLocation = location.coordinate
+                
+                self.viewModel?.updateRemainingStops(currentLocation: self.userLocation)
             }
         }
     }

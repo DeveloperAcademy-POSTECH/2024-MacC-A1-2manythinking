@@ -14,9 +14,9 @@ struct Coordinate: Identifiable {
 }
 
 struct MapView: View {
-    @StateObject private var locationManager = LocationManager()
-    @ObservedObject var busStopSearchViewModel: BusStopSearchViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var busStopSearchViewModel: BusStopSearchViewModel
     
     @State private var items: [Coordinate] = []
     
@@ -83,12 +83,10 @@ struct MapView: View {
     private func getCoordinates() -> [Coordinate] {
         busStopSearchViewModel.filteredBusStops.compactMap { stop in
             guard let xCoordinate = stop.xCoordinate,
-                  let yCoordinate = stop.yCoordinate,
-                  let x = Double(xCoordinate),
-                  let y = Double(yCoordinate) else {
+                  let yCoordinate = stop.yCoordinate else {
                 return nil
             }
-            return Coordinate(xCoordinate: x, yCoordinate: y)
+            return Coordinate(xCoordinate: xCoordinate, yCoordinate: yCoordinate)
         }
     }
 }
