@@ -5,10 +5,10 @@
 //  Created by Choi Minkyeong on 10/24/24.
 //
 
+import PhotosUI
 import SwiftUI
 import UIKit
 import Vision
-import PhotosUI
 
 class ScanJourneyVC: UIViewController {
     var resultLabel: UILabel!
@@ -69,15 +69,10 @@ class ScanJourneyVC: UIViewController {
             }
         }
         
-        if #available(iOS 16.0, *) {
-            request.revision = VNRecognizeTextRequestRevision3
-            request.recognitionLevel = .accurate
-            request.recognitionLanguages = ["ko-KR"]
-            request.usesLanguageCorrection = true
-        } else {
-            request.recognitionLanguages = ["en-US"]
-            request.usesLanguageCorrection = true
-        }
+        request.revision = VNRecognizeTextRequestRevision3
+        request.recognitionLevel = .accurate
+        request.recognitionLanguages = ["ko-KR"]
+        request.usesLanguageCorrection = true
         
         do {
             try handler.perform([request])

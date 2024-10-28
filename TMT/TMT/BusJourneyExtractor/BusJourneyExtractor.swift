@@ -12,12 +12,7 @@ class BusJourneyExtractor {
     static func analyzeText(_ recognizedString: String) -> String? {
         var sortOfBuses: [String] = []
         var sortOfBusNumber: [String] = []
-        var extractedInfo: (String, String, String) = ("", "", "")
-        
-        let busColors = ["Blue", "General", "Express", "Green", "Town"]
-        let busNumbers = ["206", "207", "209", "216", "219", "302", "305", "306", "308", "600", "700", "800", "900", "110", "111", "120", "121", "130", "131", "5000", "9000", "580"]
-        let arrivalWordsFront = ["min", "Interval:", "No"]
-        let arrivalWordsBack = ["stops", "Weekdays", "Everyday", "Weekends", "ETA"]
+        var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
         
         var stringInArray = recognizedString.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         let firstMinIndex = stringInArray.enumerated().filter({ $0.element.contains("min") }).first?.offset ?? 0
@@ -29,11 +24,11 @@ class BusJourneyExtractor {
         let filteredArray = slicedArray.filter { !$0.matches("\\b\\d+m\\b(?!in)") && $0 != "Best" && $0 != "route" }
         
         // 어떤 종류의 버스를 타는지 구합니다. 예시: ["blue", "blue", "general"]
-        sortOfBuses = filteredArray.filter { busColors.contains($0) }
+        sortOfBuses = filteredArray.filter { BusColor.allColors.contains($0) }
         
         // 지금 가는 경로가 여러대의 버스를 포함하고 있는지 확인합니다. 예시: ["306", "306", "207"]
         sortOfBusNumber = filteredArray.filter { element in
-            busNumbers.contains { element.contains($0) }
+            BusNumber.allNumbers.contains { element.contains($0) }
         }
         
         // MARK: - 버스 경로 생김새에 따라 분기처리합니다.
@@ -47,10 +42,10 @@ class BusJourneyExtractor {
                     // 환승 아닌 노선
                     if sortOfBusNumber.count < 2 {
                         // 버스 한대만 감.
-                        extractedInfo = VerticalOCROneLineType(filteredArray: filteredArray, sortOfBusNumber: sortOfBusNumber, arrivalWordsBack: arrivalWordsBack)
+                        extractedInfo = VerticalOCROneLineType(filteredArray: filteredArray, sortOfBusNumber: sortOfBusNumber, arrivalWordsBack: ArrivalWordsBack.allBackWords)
                     } else {
                         // 버스 여러대 감.
-                        extractedInfo = VerticalOCRMultipleLineType(filteredArray: filteredArray, sortOfBusNumber: sortOfBusNumber, arrivalWordsBack: arrivalWordsBack)
+                        extractedInfo = VerticalOCRMultipleLineType(filteredArray: filteredArray, sortOfBusNumber: sortOfBusNumber, arrivalWordsBack: ArrivalWordsBack.allBackWords)
                     }
                 } else {
                     // 환승 노선
@@ -62,10 +57,10 @@ class BusJourneyExtractor {
                     // 환승 아닌 노선
                     if sortOfBusNumber.count < 2 {
                         // 버스 한대만 감.
-                        extractedInfo = HorizontalOCROneLineType(filteredArray: filteredArray, sortOfBuses: sortOfBusNumber, sortOfBusNumber: arrivalWordsBack)
+                        extractedInfo = HorizontalOCROneLineType(filteredArray: filteredArray, sortOfBuses: sortOfBusNumber, sortOfBusNumber: ArrivalWordsBack.allBackWords)
                     } else {
                         // 버스 여러대 감
-                        extractedInfo = HorizontalOCRMultipleLineType(filteredArray: filteredArray, sortOfBuses: sortOfBusNumber, sortOfBusNumber: arrivalWordsBack)
+                        extractedInfo = HorizontalOCRMultipleLineType(filteredArray: filteredArray, sortOfBuses: sortOfBusNumber, sortOfBusNumber: ArrivalWordsBack.allBackWords)
                     }
                 } else {
                     // 환승노선
@@ -74,10 +69,10 @@ class BusJourneyExtractor {
             }
         }
         
-        if extractedInfo.0.isEmpty || extractedInfo.1.isEmpty || extractedInfo.2.isEmpty {
+        if extractedInfo.startStop.isEmpty || extractedInfo.busNumber.isEmpty || extractedInfo.endStop.isEmpty {
             return ""
         } else {
-            return extractedInfo.0 + "," + extractedInfo.1 + "," + extractedInfo.2
+            return extractedInfo.startStop + "," + extractedInfo.busNumber + "," + extractedInfo.endStop
         }
     }
     
