@@ -12,7 +12,6 @@ struct SelectScreenshotView: View {
     @State private var isImagePickerPresented = false
     @State private var receivedText: String = ""
     
-    // TODO: 처음에는 선택이라고 뜨고, 두번째부터는 다시 선택하기라고 띄우기
     var body: some View {
         VStack {
             Button("이미지 선택") {

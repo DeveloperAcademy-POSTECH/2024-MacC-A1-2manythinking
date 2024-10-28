@@ -115,9 +115,9 @@ class BusJourneyExtractor {
     
     /// OCR이 세로로 읽히고, 버스 경로에 하나의 버스만 존재하며, 환승이 없는 경우
     private static func VerticalOCROneLineType(filteredArray: [String], sortOfBusNumber: [String], arrivalWordsBack: [String]) -> (String, String, String) {
-        var busStopToBoard: String = ""
+        var startStop: String = ""
         var busNumber: String = ""
-        var busStopToGetOff: String = ""
+        var endStop: String = ""
         
         if !sortOfBusNumber[0].isEmpty {
             busNumber = sortOfBusNumber.first ?? ""
@@ -129,7 +129,7 @@ class BusJourneyExtractor {
            let secondIndex = filteredArray.firstIndex(of: busNumber),
            firstIndex < secondIndex {
             let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-            busStopToBoard = stringArrayToStirng(stringArray: result)
+            startStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopBoard.")
         }
@@ -145,20 +145,20 @@ class BusJourneyExtractor {
             }
             if firstIndex < secondIndex {
                 let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-                busStopToGetOff = stringArrayToStirng(stringArray: result)
+                endStop = stringArrayToStirng(stringArray: result)
             }
         } else {
             print("Failed to extract busStopToGetOff.")
         }
         
-        return (busStopToBoard, busNumber, busStopToGetOff)
+        return (startStop, busNumber, endStop)
     }
     
     /// OCR이 세로로 읽히고, 버스 경로에 여러개의 버스가 존재하며, 환승이 없는 경우
     private static func VerticalOCRMultipleLineType(filteredArray: [String], sortOfBusNumber: [String], arrivalWordsBack: [String]) -> (String, String, String) {
-        var busStopToBoard: String = ""
+        var startStop: String = ""
         var busNumber: String = ""
-        var busStopToGetOff: String = ""
+        var endStop: String = ""
         
         if !sortOfBusNumber[0].isEmpty {
             busNumber = sortOfBusNumber.first ?? ""
@@ -171,7 +171,7 @@ class BusJourneyExtractor {
            let secondIndex = filteredArray.firstIndex(of: busNumber),
            firstIndex < secondIndex {
             let result = Array(filteredArray[(firstIndex + 1)...secondIndex].dropLast())
-            busStopToBoard = stringArrayToStirng(stringArray: result)
+            startStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopBoard.")
         }
@@ -186,21 +186,21 @@ class BusJourneyExtractor {
             if foundIndices.count >= 2 {
                 var result = Array(filteredArray[(foundIndices[1] + 1)..<secondIndex].dropLast())
                 result = result.filter { $0 != "ETA" }
-                busStopToGetOff = stringArrayToStirng(stringArray: result)
+                endStop = stringArrayToStirng(stringArray: result)
             }
         } else {
             print("Failed to extract busStopToGetOff.")
         }
         
         busNumber = busNumber.filter { $0.isNumber }
-        return (busStopToBoard, busNumber, busStopToGetOff)
+        return (startStop, busNumber, endStop)
     }
     
     /// OCR이 가로로 읽히고, 버스 경로에 하나의 버스만 존재하며, 환승이 없는 경우
     private static func HorizontalOCROneLineType(filteredArray: [String], sortOfBuses: [String], sortOfBusNumber: [String]) -> (String, String, String) {
-        var busStopToBoard: String = ""
+        var startStop: String = ""
         var busNumber: String = ""
-        var busStopToGetOff: String = ""
+        var endStop: String = ""
         
         if !sortOfBusNumber[0].isEmpty {
             busNumber = sortOfBusNumber.first ?? ""
@@ -212,7 +212,7 @@ class BusJourneyExtractor {
            let secondIndex = filteredArray.firstIndex(where: { $0 == "ETA" || $0 == busNumber }),
            firstIndex < secondIndex {
             let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-            busStopToBoard = stringArrayToStirng(stringArray: result)
+            startStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopBoard.")
         }
@@ -221,18 +221,18 @@ class BusJourneyExtractor {
            let secondIndex = filteredArray.firstIndex(of: "GO"),
            firstIndex < secondIndex {
             let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-            busStopToGetOff = stringArrayToStirng(stringArray: result)
+            endStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopToGetOff.")
         }
-        return (busStopToBoard, busNumber, busStopToGetOff)
+        return (startStop, busNumber, endStop)
     }
     
     /// OCR이 가로로 읽히고, 버스 경로에 여러개의 버스가 존재하며, 환승이 없는 경우
     private static func HorizontalOCRMultipleLineType(filteredArray: [String], sortOfBuses: [String], sortOfBusNumber: [String]) -> (String, String, String) {
-        var busStopToBoard: String = ""
+        var startStop: String = ""
         var busNumber: String = ""
-        var busStopToGetOff: String = ""
+        var endStop: String = ""
         
         if !sortOfBusNumber[0].isEmpty {
             busNumber = sortOfBusNumber.first ?? ""
@@ -244,7 +244,7 @@ class BusJourneyExtractor {
            let secondIndex = filteredArray.firstIndex(where: { $0 == "ETA" || $0 == busNumber }),
            firstIndex < secondIndex {
             let result = Array(filteredArray[(firstIndex + 1)...secondIndex].dropLast())
-            busStopToBoard = stringArrayToStirng(stringArray: result)
+            startStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopBoard.")
         }
@@ -253,12 +253,12 @@ class BusJourneyExtractor {
            let secondIndex = filteredArray.firstIndex(of: "GO"),
            firstIndex < secondIndex {
             let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-            busStopToGetOff = stringArrayToStirng(stringArray: result)
+            endStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopToGetOff.")
         }
         busNumber = busNumber.filter { $0.isNumber }
-        return (busStopToBoard, busNumber, busStopToGetOff)
+        return (startStop, busNumber, endStop)
     }
     
     private static func stringArrayToStirng(stringArray: [String]) -> String {
