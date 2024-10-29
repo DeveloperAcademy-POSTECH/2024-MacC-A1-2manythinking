@@ -1,164 +1,164 @@
-노선명,busType,순번,정류소명,RomanizedName,X좌표,Y좌표
-472,3,1,래미안블레스티지아파트,Raemian Blesstige A-pa-teu,127.063217,37.480651
-472,3,2,개포1단지연금매장,Gae-po il-Dan-ji Yeon-geum Mae-jang,127.06097,37.482501
-472,3,3,개포고등학교,Gae-po Go-deung-hak-gyo,127.058944,37.484213
-472,3,4,개일초등학교앞,Gae-il Cho-deung-hak-gyo Ap,127.057216,37.486174
-472,3,5,그랑프리백화점,GrandPrix Baek-hwa-jeom,127.0557033053,37.4902578609
-472,3,6,중대부고,Jung-dae-bu-go,127.0550936879,37.4918872375
-472,3,7,단대부고.대치아이파크아파트,Dan-dae-bu-go.Dae-chi i-Park A-pa-teu,127.0537770662,37.4946749575
-472,3,8,한티역,Han-ti-yeok,127.0521475206,37.4981160997
-472,3,9,도성초등학교,Do-seong Cho-deung-hak-gyo,127.0512135652,37.5001223629
-472,3,10,진선여자중고등학교,Jin-seon Yeo-ja Jung-go-deung-hak-gyo,127.049965539,37.5027442041
-472,3,11,선릉역8번출구.선정릉,Seol-leung-yeok Pal-beon Chul-gu.Seon-jeong-neung,127.048337,37.506203
-472,3,12,선정릉역.무형문화재전수회관,Seon-jeong-neung-yeok.Mu-hyeong Mun-hwa-jae Jeon-su-hoe-gwan,127.044202384,37.5096985003
-472,3,13,한국토지주택공사앞,Han-guk To-ji Ju-taek Gong-sa Ap,127.043208,37.512637
-472,3,14,강남구보건소,Gang-nam-gu Bo-geon-so,127.042155,37.515333
-472,3,15,강남구청역,Gang-nam-gu-cheong-yeok,127.04094,37.518505
-472,3,16,영동고교앞,Yeong-dong-go-gyo Ap,127.0398932882,37.5215035461
-472,3,17,일지아트홀.압구정노인복지관,il-ji Art hall.Ap-gu-jeong Noin-bok-ji-gwan,127.0396345679,37.5243159636
-472,3,18,한양아파트.압구정로데오역,Han-yang A-pa-teu.Ap-gu-jeong-Rodeo-yeok,127.0395789565,37.5282700029
-472,3,19,압구정파출소,Ap-gu-jeong Pa-chul-so,127.036279,37.529112
-472,3,20,현대아파트,Hyun-dai A-pa-teu,127.030580671,37.5284384777
-472,3,21,광림교회.현대고등학교,Gwang-nim Gyo-hoe.Hyun-dai Go-deung-hak-gyo,127.0244392928,37.5252779533
-472,3,22,신사중학교,Sin-sa Jung-hak-gyo,127.02155,37.52386
-472,3,23,한남대교전망카페,Han-nam Dae-gyo Jeon-mang Cafe,127.015683,37.524552
-472,3,24,한남5거리,Han-nam O-geori,127.0083381045,37.5328656324
-472,3,25,순천향대학병원,Sun-cheon-hyang Dae-hak Byeong-won,127.0057302453,37.5364422432
-472,3,26,국가인권위.안중근활동터,Guk-ga In-gwon-wi.An-Jung-Geun Hwal-dong-teo,126.9878515151,37.5643504711
-472,3,27,을지로2가.기업은행본점.서울노동청,Eul-ji-ro i-ga.Gi-eob Eun-haeng Bon-jeom.Seoul No-dong-cheong,126.9865233528,37.566246226
-472,3,28,을지로입구.시청입구,Eul-ji-ro Ip-gu.Si-cheong Ip-gu,126.9811712097,37.5661382638
-472,3,29,시청.서소문청사,Si-cheong.Seo-so-mun Cheong-sa,126.9749539314,37.5635248407
-472,3,30,충정로역2호선,Chung-jeong-no-yeok i-ho-seon,126.9640265994,37.5596112723
-472,3,31,아현가구단지,A-hyeon Ga-gu Dan-ji,126.9608923538,37.5586613075
-472,3,32,아현역,A-hyeon-yeok,126.956889,37.557396
-472,3,33,웨딩타운,Wedding Town,126.952552,37.55724
-472,3,34,이대역,I-dae-yeok,126.9472705221,37.5568755655
-472,3,35,연세로.문학의거리,Yeon-sero.Mun-hagui Geori,126.937003,37.55626
-472,3,36,연세로.명물거리,Yeon-sero.Myeong-mul Geori,126.936975,37.558149
-472,3,37,세브란스병원,Severance Byeong-won,126.9378406593,37.5598680153
-472,3,38,신촌기차역,Sin-chon Gi-cha-yeok,126.94245,37.558777
-472,3,39,이대역,I-dae-yeok,126.944495,37.556652
-472,3,40,웨딩타운,Wedding Town,126.951517,37.557092
-472,3,41,아현역,A-hyeon-yeok,126.954943,37.557293
-472,3,42,아현동 가구단지,A-hyeon-dong Ga-gu Dan-ji,126.960662,37.557975
-472,3,43,종근당.충정로역,Jong-geun-dang.Chung-jeong-no-yeok,126.964543,37.559648
-472,3,44,시청서소문2청사,Si-cheong Seo-so-mun i-cheong-sa,126.9746522037,37.5631901447
-472,3,45,서울광장,Seoul Gwang-jang,126.978885,37.565352
-472,3,46,을지로입구.로얄호텔,Eul-ji-ro Ip-gu.Royal Hotel,126.9853902774,37.5658757422
-472,3,47,남대문세무서,Nam-dae-mun Se-mu-seo,126.9875299251,37.5649848069
-472,3,48,남산1호터널,Nam-san il-Ho Tunnel,126.9921666231,37.5574051765
-472,3,49,순천향대학병원.한남오거리,Sun-cheon-hyang Dae-hak byeong-won.Han-nam O-geori,127.0057290409,37.5354906847
-472,3,50,신사중학교,Sin-sa Jung-hak-gyo,127.0204991277,37.5229277357
-472,3,51,광림교회.현대고등학교,Gwang-nim Gyo-hoe.Hyun-dai Go-deung-hak-gyo,127.0252663803,37.5253868122
-472,3,52,현대아파트,Hyun-dai A-pa-teu,127.0311225746,37.5282986659
-472,3,53,압구정파출소,Ap-gu-jeong Pa-chu-lso,127.0360581401,37.5287469102
-472,3,54,한양아파트.압구정로데오역,Han-yang A-pa-teu.Ap-gu-jeong-Rodeo-yeok,127.0392574486,37.527929495
-472,3,55,일지아트홀,il-ji Art Hall,127.039498,37.524912
-472,3,56,영동고등학교현대아파트,Yeong-dong Go–deung–hak-gyo Hyun-dai A-pa-teu,127.0395300499,37.5213549869
-472,3,57,강남구청역,Gang-nam-gu-cheong-yeok,127.0406295627,37.5185093539
-472,3,58,강남구보건소,Gang–nam–gu Bo–geon–so,127.041773,37.515478
-472,3,59,한국토지주택공사앞,Han–gung to–ji ju–taeng gong–sa ap,127.042662,37.51319
-472,3,60,선정릉역.무형문화재전수회관,Seon–jeong–neung–yeok.Mu–hyeong Mun–hwa–jae Jeon–su Hoe–gwan,127.0440935191,37.5092335728
-472,3,61,선릉역,Seol-leung-yeok,127.0481759639,37.5058843866
-472,3,62,진선여자중고등학교,Jin-seon Yeo-ja Jung-go-deung-hak-gyo,127.0498724735,37.5022648571
-472,3,63,역삼e-편한세상아파트,Yeok-sam e-Pyeon-han Se-sang A-pa-teu,127.0512977977,37.4992545645
-472,3,64,한티역,Han-ti-yeok,127.0522475418,37.4972023372
-472,3,65,도곡렉슬아파트정문,Do-gok Rexle A-pa-teu Jeong-mun,127.053435578,37.4947508051
-472,3,66,중대부고앞,Jung-dae-bu-go Ap,127.054525,37.492538
-472,3,67,그랑프리백화점,Grand Prix Baek-hwa-jeom,127.055608,37.489975
-472,3,68,구룡중학교앞,Gu-ryong Jung-hak-gyo Ap,127.057243,37.485803
-472,3,69,개포고등학교앞,Gae-po-go-deung-hak-gyo-ap,127.059951,37.483066
-472,3,70,개포1단지,Gae-po il-Dan-ji,127.062072,37.481319
-472,3,71,개포중학교,Gae-po Jung-hak-gyo,127.063631,37.480019
-207(기본),3,0,양덕차고지,Yang-deok Cha-go-ji,36.077248,129.401686
-207(기본),3,1,양덕한마음체육관,Yang-deok Han-maeum Che-yuk-gwan,36.078189,129.40639
-207(기본),3,2,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,36.07902,129.409196
-207(기본),3,3,장량하수처리장,Jang-nyang Ha-su Cheo-ri-jang,36.082462,129.410095
-207(기본),3,4,포항대학교,Po-hang Dae-hak-gyo,36.084552,129.408726
-207(기본),3,5,삼성쉐르빌,Sam-seong Swereubil,36.0865,129.405079
-207(기본),3,6,풍림아이원,Pung-nim Ai-won,36.084969,129.401663
-207(기본),3,7,농협하나로클럽,Nong-hyeop Ha-na-ro Club,36.081899,129.39859
-207(기본),3,8,농협양덕지점,Nong-hyeop Yang-deok Ji-jeom,36.080083,129.396745
-207(기본),3,9,청소년수련관,Cheong-so-nyeon Su-ryeon-gwan,36.073502,129.397843
-207(기본),3,10,환호여중,Hwan-ho Yeo-jung,36.071182,129.399063
-207(기본),3,11,라메르웨딩컨벤션,Ramereu Wedding Convention,36.069702,129.396504
-207(기본),3,12,환호해맞이그린빌,Hwan-ho Hae-ma-ji Greenvil,36.068843,129.392355
-207(기본),3,13,노인복지회관,Noin Bok-ji-hoe-gwan,36.066924,129.386482
-207(기본),3,14,설머리물회지구,Seol-meo-ri Mul-hoe-ji-gu,36.065774,129.384722
-207(기본),3,15,동부초등학교,Dong-bu Cho-deung-hak-gyo,36.062191,129.380719
-207(기본),3,16,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Center,36.06034,129.378882
-207(기본),3,17,롯데아파트,Lotte A-pa-teu,36.057957,129.377506
-207(기본),3,18,우방비치타운,U-bang Beach Town,36.054774,129.376284
-207(기본),3,19,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,36.053208,129.374828
-207(기본),3,20,포항세관,Po-hang Se-gwan,36.051393,129.371833
-207(기본),3,21,롯데백화점,Lotte Baek-hwa-jeom,36.048811,129.370957
-207(기본),3,22,북부시장/채움 병원,Buk-bu Si-jang/Chae-um Byeong-won,36.04604,129.369426
-207(기본),3,23,국민건강보험공단,Gung-min Geon-gang Bo-heom Gong-dan,36.041924,129.367056
-207(기본),3,24,중앙상가,Jung-ang Sang-ga,36.037419,129.365216
-207(기본),3,25,죽도시장,Juk-do-si-jang,36.033661,129.365614
-207(기본),3,26,홈플러스,Homeplus,36.031299,129.364658
-207(기본),3,27,죽도파출소,Juk-do Pa-chul-so,36.028436,129.362401
-207(기본),3,28,GS슈퍼마켓,GS Supermarket,36.025677,129.360192
-207(기본),3,29,고용복지플러스센터,Go-yong Bok-ji Plus Center,36.023018,129.358069
-207(기본),3,30,산업은행,San-eob Eun-haeng,36.017758,129.353873
-207(기본),3,31,교보생명,Gyo-bo Saeng-myeong,36.015711,129.352234
-207(기본),3,32,시외버스터미널,Si-oe Bus Terminal,36.013287,129.350316
-207(기본),3,33,대잠사거리,Dae-jam Sageori,36.011389,129.34449
-207(기본),3,34,포항성모병원,Po-hang Seong-mo Byeong-won,36.010577,129.339612
-207(기본),3,35,영일대입구,Yeong-il-dae Ip-gu,36.012892,129.336525
-207(기본),3,36,영일대,Yeong-il-dae,36.012975,129.334115
-207(기본),3,37,효자아트홀,Hyo-ja Art Hall,36.01173,129.332994
-207(기본),3,38,효곡동행정복지센터,Hyo-gok-dong Haeng-jeong Bok-ji Center,36.010473,129.328355
-207(기본),3,39,생명공학 연구소,Saeng-myeong Gong-hak Yeon-gu-so,36.012563,129.326489
-207(기본),3,40,포스텍,Postech,36.015169,129.325127
-207(기본),3,41,포항제철공고,Po-hang Je-cheol Gong-go,36.021079,129.325287
-207(기본),3,42,포스코교육재단,Posco Gyo-yuk Jae-dan,36.026276,129.326635
-207(기본),3,43,포항제철고등학교,Pohang Je-cheol Go-deung-hak-gyo,36.029999,129.326403
-207(기본),3,44,효자그린아파트,Hyo-ja Green A-pa-teu,36.032375,129.32588
-207(기본),3,45,포항제철유치원,Po-hang Je-cheol Yu-chi-won,36.029577,129.323537
-207(기본),3,46,현대그린아파트,Hyun-dai Green A-pa-teu,36.030903,129.318607
-207(기본),3,47,포항테크노파크,Po-hang Techno Park,36.031723,129.315805
-207(기본),3,48,LG빌라,LG Villa,36.028164,129.314298
-207(기본),3,49,LG빌라입구,LG Villa Ip-gu,36.027269,129.31723
-207(기본),3,50,산책로,San-chaeng-no,36.026208,129.320713
-207(기본),3,51,교수아파트,Gyo-su A-pa-teu,36.022743,129.325194
-207(기본),3,52,포항제철공고,Po-hang Je-cheol Gong-go,36.019458,129.324884
-207(기본),3,53,포스텍,Postech,36.016082,129.324605
-207(기본),3,54,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,36.011751,129.326565
-207(기본),3,55,효곡동행정복지센터,Hyogok-dong Haeng-jeong Bok-ji Center,36.010241,129.328481
-207(기본),3,56,효자 아트 홀,Hyo-ja Art Hall,36.011527,129.332519
-207(기본),3,57,효자웰빙아울렛,Hyo-ja Well-being Outlet,36.011206,129.335607
-207(기본),3,58,포항성모병원,Po-hang Seong-mo Byeong-won,36.011145,129.340524
-207(기본),3,59,대잠사거리,Dae-jam Sa-geo-ri,36.011017,129.34451
-207(기본),3,60,시외버스터미널,Si-oe Bus Terminal,36.013273,129.350668
-207(기본),3,61,교보생명,Gyo-bo Saeng-myeong,36.01522,129.35222
-207(기본),3,62,산업은행,San-eob Eun-haeng,36.018107,129.354529
-207(기본),3,63,고용복지플러스센터,Go-yong Bok-ji Plus Center,36.022987,129.358409
-207(기본),3,64,GS슈퍼마켓,GS Supermarket,36.025657,129.360522
-207(기본),3,65,죽도파출소,Juk-do Pa-chul-so,36.02832,129.362648
-207(기본),3,66,홈플러스(오거리),Homeplus(O-geori),36.030979,129.364774
-207(기본),3,67,죽도시장,Juk-do-si-jang,36.035694,129.365236
-207(기본),3,68,육거리,Yuk-geo-ri,36.039702,129.366432
-207(기본),3,69,북구청,Buk-gu-cheong,36.043574,129.368115
-207(기본),3,70,북부시장/채움병원,Buk-bu Si-jang/Chae-um Byeong-won,36.045839,129.369553
-207(기본),3,71,롯데백화점,Lotte Baek-hwa-jeom,36.049595,129.37143
-207(기본),3,72,포항세관,Po-hang Se-gwan,36.052196,129.373372
-207(기본),3,73,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,36.053985,129.376316
-207(기본),3,74,롯데아파트,Lotte A-pa-teu,36.057092,129.377508
-207(기본),3,75,두호동행정 복지 센터,Du-ho-dong Haeng-jeong Bok-ji Center,36.06123,129.380113
-207(기본),3,76,설머리물회지구,Seol-meori Mul-hoe-ji-gu,36.065624,129.385045
-207(기본),3,77,노인복지회관,No-in Bok-ji-hoe-gwan,36.066822,129.387533
-207(기본),3,78,환호해맞이그린빌,Hwan-ho Hae-maji Greenvil,36.068297,129.391057
-207(기본),3,79,환호공원,Hwan-ho Gong-won,36.069004,129.394441
-207(기본),3,80,라메르웨딩컨벤션,Ramereu Wedding Convention,36.069553,129.397632
-207(기본),3,81,환호여중,Hwan-ho Yeo-jung,36.071316,129.39935
-207(기본),3,82,청소년수련관,Cheong-so-nyeon Su-ryeon-gwan,36.073611,129.398143
-207(기본),3,83,농협양덕지점,Nong-hyeop Yangdeok Ji-jeom,36.080099,129.397067
-207(기본),3,84,농협하나로클럽,Nong-hyeop Ha-na-ro Club,36.081696,129.398603
-207(기본),3,85,풍림아이원,Pung-nim Ai-won,36.085295,129.402012
-207(기본),3,86,삼성쉐르빌,Sam-seong cherville,36.086204,129.405669
-207(기본),3,87,포항대학교,Po-hang Dae-hak-gyo,36.083862,129.408761
-207(기본),3,88,장량하수처리장,Jang-nyang Ha-su Cheo-ri-jang,36.082183,129.409836
-207(기본),3,89,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,36.079316,129.409049
-207(기본),3,90,양덕한마음체육관,Yang-deok Han-ma-eum Che-yuk-gwan,36.078453,129.40626
-207(기본),3,91,양덕차고지,Yang-deok Cha-goji,36.07731,129.401999
+BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latitude,Longitude
+472,3,1,래미안블레스티지아파트,Raemian Blesstige A-pa-teu,,37.480651,127.063217
+472,3,2,개포1단지연금매장,Gae-po il-Dan-ji Yeon-geum Mae-jang,,37.482501,127.06097
+472,3,3,개포고등학교,Gae-po Go-deung-hak-gyo,,37.484213,127.058944
+472,3,4,개일초등학교앞,Gae-il Cho-deung-hak-gyo Ap,,37.486174,127.057216
+472,3,5,그랑프리백화점,GrandPrix Baek-hwa-jeom,,37.4902578609,127.0557033053
+472,3,6,중대부고,Jung-dae-bu-go,,37.4918872375,127.0550936879
+472,3,7,단대부고.대치아이파크아파트,Dan-dae-bu-go.Dae-chi i-Park A-pa-teu,,37.4946749575,127.0537770662
+472,3,8,한티역,Han-ti-yeok,,37.4981160997,127.0521475206
+472,3,9,도성초등학교,Do-seong Cho-deung-hak-gyo,,37.5001223629,127.0512135652
+472,3,10,진선여자중고등학교,Jin-seon Yeo-ja Jung-go-deung-hak-gyo,,37.5027442041,127.049965539
+472,3,11,선릉역8번출구.선정릉,Seol-leung-yeok Pal-beon Chul-gu.Seon-jeong-neung,,37.506203,127.048337
+472,3,12,선정릉역.무형문화재전수회관,Seon-jeong-neung-yeok.Mu-hyeong Mun-hwa-jae Jeon-su-hoe-gwan,,37.5096985003,127.044202384
+472,3,13,한국토지주택공사앞,Han-guk To-ji Ju-taek Gong-sa Ap,,37.512637,127.043208
+472,3,14,강남구보건소,Gang-nam-gu Bo-geon-so,,37.515333,127.042155
+472,3,15,강남구청역,Gang-nam-gu-cheong-yeok,,37.518505,127.04094
+472,3,16,영동고교앞,Yeong-dong-go-gyo Ap,,37.5215035461,127.0398932882
+472,3,17,일지아트홀.압구정노인복지관,il-ji Art hall.Ap-gu-jeong Noin-bok-ji-gwan,,37.5243159636,127.0396345679
+472,3,18,한양아파트.압구정로데오역,Han-yang A-pa-teu.Ap-gu-jeong-Rodeo-yeok,,37.5282700029,127.0395789565
+472,3,19,압구정파출소,Ap-gu-jeong Pa-chul-so,,37.529112,127.036279
+472,3,20,현대아파트,Hyun-dai A-pa-teu,,37.5284384777,127.030580671
+472,3,21,광림교회.현대고등학교,Gwang-nim Gyo-hoe.Hyun-dai Go-deung-hak-gyo,,37.5252779533,127.0244392928
+472,3,22,신사중학교,Sin-sa Jung-hak-gyo,,37.52386,127.02155
+472,3,23,한남대교전망카페,Han-nam Dae-gyo Jeon-mang Cafe,,37.524552,127.015683
+472,3,24,한남5거리,Han-nam O-geori,,37.5328656324,127.0083381045
+472,3,25,순천향대학병원,Sun-cheon-hyang Dae-hak Byeong-won,,37.5364422432,127.0057302453
+472,3,26,국가인권위.안중근활동터,Guk-ga In-gwon-wi.An-Jung-Geun Hwal-dong-teo,,37.5643504711,126.9878515151
+472,3,27,을지로2가.기업은행본점.서울노동청,Eul-ji-ro i-ga.Gi-eob Eun-haeng Bon-jeom.Seoul No-dong-cheong,,37.566246226,126.9865233528
+472,3,28,을지로입구.시청입구,Eul-ji-ro Ip-gu.Si-cheong Ip-gu,,37.5661382638,126.9811712097
+472,3,29,시청.서소문청사,Si-cheong.Seo-so-mun Cheong-sa,,37.5635248407,126.9749539314
+472,3,30,충정로역2호선,Chung-jeong-no-yeok i-ho-seon,,37.5596112723,126.9640265994
+472,3,31,아현가구단지,A-hyeon Ga-gu Dan-ji,,37.5586613075,126.9608923538
+472,3,32,아현역,A-hyeon-yeok,,37.557396,126.956889
+472,3,33,웨딩타운,Wedding Town,,37.55724,126.952552
+472,3,34,이대역,I-dae-yeok,,37.5568755655,126.9472705221
+472,3,35,연세로.문학의거리,Yeon-sero.Mun-hagui Geori,,37.55626,126.937003
+472,3,36,연세로.명물거리,Yeon-sero.Myeong-mul Geori,,37.558149,126.936975
+472,3,37,세브란스병원,Severance Byeong-won,,37.5598680153,126.9378406593
+472,3,38,신촌기차역,Sin-chon Gi-cha-yeok,,37.558777,126.94245
+472,3,39,이대역,I-dae-yeok,,37.556652,126.944495
+472,3,40,웨딩타운,Wedding Town,,37.557092,126.951517
+472,3,41,아현역,A-hyeon-yeok,,37.557293,126.954943
+472,3,42,아현동 가구단지,A-hyeon-dong Ga-gu Dan-ji,,37.557975,126.960662
+472,3,43,종근당.충정로역,Jong-geun-dang.Chung-jeong-no-yeok,,37.559648,126.964543
+472,3,44,시청서소문2청사,Si-cheong Seo-so-mun i-cheong-sa,,37.5631901447,126.9746522037
+472,3,45,서울광장,Seoul Gwang-jang,,37.565352,126.978885
+472,3,46,을지로입구.로얄호텔,Eul-ji-ro Ip-gu.Royal Hotel,,37.5658757422,126.9853902774
+472,3,47,남대문세무서,Nam-dae-mun Se-mu-seo,,37.5649848069,126.9875299251
+472,3,48,남산1호터널,Nam-san il-Ho Tunnel,,37.5574051765,126.9921666231
+472,3,49,순천향대학병원.한남오거리,Sun-cheon-hyang Dae-hak byeong-won.Han-nam O-geori,,37.5354906847,127.0057290409
+472,3,50,신사중학교,Sin-sa Jung-hak-gyo,,37.5229277357,127.0204991277
+472,3,51,광림교회.현대고등학교,Gwang-nim Gyo-hoe.Hyun-dai Go-deung-hak-gyo,,37.5253868122,127.0252663803
+472,3,52,현대아파트,Hyun-dai A-pa-teu,,37.5282986659,127.0311225746
+472,3,53,압구정파출소,Ap-gu-jeong Pa-chu-lso,,37.5287469102,127.0360581401
+472,3,54,한양아파트.압구정로데오역,Han-yang A-pa-teu.Ap-gu-jeong-Rodeo-yeok,,37.527929495,127.0392574486
+472,3,55,일지아트홀,il-ji Art Hall,,37.524912,127.039498
+472,3,56,영동고등학교현대아파트,Yeong-dong Go–deung–hak-gyo Hyun-dai A-pa-teu,,37.5213549869,127.0395300499
+472,3,57,강남구청역,Gang-nam-gu-cheong-yeok,,37.5185093539,127.0406295627
+472,3,58,강남구보건소,Gang–nam–gu Bo–geon–so,,37.515478,127.041773
+472,3,59,한국토지주택공사앞,Han–gung to–ji ju–taeng gong–sa ap,,37.51319,127.042662
+472,3,60,선정릉역.무형문화재전수회관,Seon–jeong–neung–yeok.Mu–hyeong Mun–hwa–jae Jeon–su Hoe–gwan,,37.5092335728,127.0440935191
+472,3,61,선릉역,Seol-leung-yeok,,37.5058843866,127.0481759639
+472,3,62,진선여자중고등학교,Jin-seon Yeo-ja Jung-go-deung-hak-gyo,,37.5022648571,127.0498724735
+472,3,63,역삼e-편한세상아파트,Yeok-sam e-Pyeon-han Se-sang A-pa-teu,,37.4992545645,127.0512977977
+472,3,64,한티역,Han-ti-yeok,,37.4972023372,127.0522475418
+472,3,65,도곡렉슬아파트정문,Do-gok Rexle A-pa-teu Jeong-mun,,37.4947508051,127.053435578
+472,3,66,중대부고앞,Jung-dae-bu-go Ap,,37.492538,127.054525
+472,3,67,그랑프리백화점,Grand Prix Baek-hwa-jeom,,37.489975,127.055608
+472,3,68,구룡중학교앞,Gu-ryong Jung-hak-gyo Ap,,37.485803,127.057243
+472,3,69,개포고등학교앞,Gae-po-go-deung-hak-gyo-ap,,37.483066,127.059951
+472,3,70,개포1단지,Gae-po il-Dan-ji,,37.481319,127.062072
+472,3,71,개포중학교,Gae-po Jung-hak-gyo,,37.480019,127.063631
+207(기본),3,0,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.077248,129.401686
+207(기본),3,1,양덕한마음체육관,Yang-deok Han-maeum Che-yuk-gwan,Yangdeok Hanmaeum Gymnasium,36.078189,129.40639
+207(기본),3,2,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,,36.07902,129.409196
+207(기본),3,3,장량하수처리장,Jang-nyang Ha-su Cheo-ri-jang,Jangnyang Sewage Treatment Plant,36.082462,129.410095
+207(기본),3,4,포항대학교,Po-hang Dae-hak-gyo,,36.084552,129.408726
+207(기본),3,5,삼성쉐르빌,Sam-seong Swereubil,Samsung Chereville,36.0865,129.405079
+207(기본),3,6,풍림아이원,Pung-nim Ai-won,Poonglim Iwant,36.084969,129.401663
+207(기본),3,7,농협하나로클럽,Nong-hyeop Ha-na-ro Club,NH Hanaroclub,36.081899,129.39859
+207(기본),3,8,농협양덕지점,Nong-hyeop Yang-deok Ji-jeom,Nonghyup Yangdeok Branch,36.080083,129.396745
+207(기본),3,9,청소년수련관,Cheong-so-nyeon Su-ryeon-gwan,Youth Center,36.073502,129.397843
+207(기본),3,10,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071182,129.399063
+207(기본),3,11,라메르웨딩컨벤션,Ramereu Wedding Convention,,36.069702,129.396504
+207(기본),3,12,환호해맞이그린빌,Hwan-ho Hae-ma-ji Greenvil,Hwanho Haemaji Green Ville,36.068843,129.392355
+207(기본),3,13,노인복지회관,Noin Bok-ji-hoe-gwan,Senior Welfare Center,36.066924,129.386482
+207(기본),3,14,설머리물회지구,Seol-meo-ri Mul-hoe-ji-gu,,36.065774,129.384722
+207(기본),3,15,동부초등학교,Dong-bu Cho-deung-hak-gyo,Dongbu Elementary School,36.062191,129.380719
+207(기본),3,16,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Center,Duho-dong Administration & Welfare Center,36.06034,129.378882
+207(기본),3,17,롯데아파트,Lotte A-pa-teu,Lotte Apartment,36.057957,129.377506
+207(기본),3,18,우방비치타운,U-bang Beach Town,Ubang Beach Town,36.054774,129.376284
+207(기본),3,19,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053208,129.374828
+207(기본),3,20,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.051393,129.371833
+207(기본),3,21,롯데백화점,Lotte Baek-hwa-jeom,Lotte Dept. Store,36.048811,129.370957
+207(기본),3,22,북부시장/채움 병원,Buk-bu Si-jang/Chae-um Byeong-won,,36.04604,129.369426
+207(기본),3,23,국민건강보험공단,Gung-min Geon-gang Bo-heom Gong-dan,National Health Insurance Service,36.041924,129.367056
+207(기본),3,24,중앙상가,Jung-ang Sang-ga,Jungang Commercial Center,36.037419,129.365216
+207(기본),3,25,죽도시장,Juk-do-si-jang,Jukdo Market,36.033661,129.365614
+207(기본),3,26,홈플러스,Homeplus,Homeplus,36.031299,129.364658
+207(기본),3,27,죽도파출소,Juk-do Pa-chul-so,Jukdo Police Office,36.028436,129.362401
+207(기본),3,28,GS슈퍼마켓,GS Supermarket,GS Supermarket,36.025677,129.360192
+207(기본),3,29,고용복지플러스센터,Go-yong Bok-ji Plus Center,Employment & Welfare Plus Center,36.023018,129.358069
+207(기본),3,30,산업은행,San-eob Eun-haeng,KDB,36.017758,129.353873
+207(기본),3,31,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.015711,129.352234
+207(기본),3,32,시외버스터미널,Si-oe Bus Terminal,Intercity Bus Terminal,36.013287,129.350316
+207(기본),3,33,대잠사거리,Dae-jam Sageori,Daejam Sageori,36.011389,129.34449
+207(기본),3,34,포항성모병원,Po-hang Seong-mo Byeong-won,,36.010577,129.339612
+207(기본),3,35,영일대입구,Yeong-il-dae Ip-gu,Yeongildae Entrance,36.012892,129.336525
+207(기본),3,36,영일대,Yeong-il-dae,Yeongildae,36.012975,129.334115
+207(기본),3,37,효자아트홀,Hyo-ja Art Hall,Hyoja Art Hall,36.01173,129.332994
+207(기본),3,38,효곡동행정복지센터,Hyo-gok-dong Haeng-jeong Bok-ji Center,,36.010473,129.328355
+207(기본),3,39,생명공학 연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
+207(기본),3,40,포스텍,Postech,Force Tec,36.015169,129.325127
+207(기본),3,41,포항제철공고,Po-hang Je-cheol Gong-go,,36.021079,129.325287
+207(기본),3,42,포스코교육재단,Posco Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
+207(기본),3,43,포항제철고등학교,Pohang Je-cheol Go-deung-hak-gyo,Pohang Iron and Steel High School,36.029999,129.326403
+207(기본),3,44,효자그린아파트,Hyo-ja Green A-pa-teu,Hyoja Green Apartment,36.032375,129.32588
+207(기본),3,45,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029577,129.323537
+207(기본),3,46,현대그린아파트,Hyun-dai Green A-pa-teu,Hyeondae Green Apartment,36.030903,129.318607
+207(기본),3,47,포항테크노파크,Po-hang Techno Park,Pohang Techno Park,36.031723,129.315805
+207(기본),3,48,LG빌라,LG Villa,LG Villa,36.028164,129.314298
+207(기본),3,49,LG빌라입구,LG Villa Ip-gu,LG Villa Entrance,36.027269,129.31723
+207(기본),3,50,산책로,San-chaeng-no,Sanchaengno,36.026208,129.320713
+207(기본),3,51,교수아파트,Gyo-su A-pa-teu,Teacher Apartment,36.022743,129.325194
+207(기본),3,52,포항제철공고,Po-hang Je-cheol Gong-go,,36.019458,129.324884
+207(기본),3,53,포스텍,Postech,Force Tec,36.016082,129.324605
+207(기본),3,54,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.011751,129.326565
+207(기본),3,55,효곡동행정복지센터,Hyogok-dong Haeng-jeong Bok-ji Center,,36.010241,129.328481
+207(기본),3,56,효자 아트 홀,Hyo-ja Art Hall,Hyoja Art Hall,36.011527,129.332519
+207(기본),3,57,효자웰빙아울렛,Hyo-ja Well-being Outlet,Hyoja Wellbeing Outlet,36.011206,129.335607
+207(기본),3,58,포항성모병원,Po-hang Seong-mo Byeong-won,,36.011145,129.340524
+207(기본),3,59,대잠사거리,Dae-jam Sa-geo-ri,Daejam Sageori,36.011017,129.34451
+207(기본),3,60,시외버스터미널,Si-oe Bus Terminal,Intercity Bus Terminal,36.013273,129.350668
+207(기본),3,61,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
+207(기본),3,62,산업은행,San-eob Eun-haeng,KDB,36.018107,129.354529
+207(기본),3,63,고용복지플러스센터,Go-yong Bok-ji Plus Center,Employment & Welfare Plus Center,36.022987,129.358409
+207(기본),3,64,GS슈퍼마켓,GS Supermarket,GS Supermarket,36.025657,129.360522
+207(기본),3,65,죽도파출소,Juk-do Pa-chul-so,Jukdo Police Office,36.02832,129.362648
+207(기본),3,66,홈플러스(오거리),Homeplus(O-geori),,36.030979,129.364774
+207(기본),3,67,죽도시장,Juk-do-si-jang,Jukdo Market,36.035694,129.365236
+207(기본),3,68,육거리,Yuk-geo-ri,Yukgeori,36.039702,129.366432
+207(기본),3,69,북구청,Buk-gu-cheong,Bukgu Office,36.043574,129.368115
+207(기본),3,70,북부시장/채움병원,Buk-bu Si-jang/Chae-um Byeong-won,,36.045839,129.369553
+207(기본),3,71,롯데백화점,Lotte Baek-hwa-jeom,Lotte Dept. Store,36.049595,129.37143
+207(기본),3,72,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.052196,129.373372
+207(기본),3,73,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
+207(기본),3,74,롯데아파트,Lotte A-pa-teu,Lotte Apartment,36.057092,129.377508
+207(기본),3,75,두호동행정 복지 센터,Du-ho-dong Haeng-jeong Bok-ji Center,Duho-dong Administration & Welfare Center,36.06123,129.380113
+207(기본),3,76,설머리물회지구,Seol-meori Mul-hoe-ji-gu,,36.065624,129.385045
+207(기본),3,77,노인복지회관,No-in Bok-ji-hoe-gwan,Senior Welfare Center,36.066822,129.387533
+207(기본),3,78,환호해맞이그린빌,Hwan-ho Hae-maji Greenvil,Hwanho Haemaji Green Ville,36.068297,129.391057
+207(기본),3,79,환호공원,Hwan-ho Gong-won,Hwanho Park,36.069004,129.394441
+207(기본),3,80,라메르웨딩컨벤션,Ramereu Wedding Convention,,36.069553,129.397632
+207(기본),3,81,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071316,129.39935
+207(기본),3,82,청소년수련관,Cheong-so-nyeon Su-ryeon-gwan,Youth Center,36.073611,129.398143
+207(기본),3,83,농협양덕지점,Nong-hyeop Yangdeok Ji-jeom,Nonghyup Yangdeok Branch,36.080099,129.397067
+207(기본),3,84,농협하나로클럽,Nong-hyeop Ha-na-ro Club,NH Hanaroclub,36.081696,129.398603
+207(기본),3,85,풍림아이원,Pung-nim Ai-won,Poonglim Iwant,36.085295,129.402012
+207(기본),3,86,삼성쉐르빌,Sam-seong cherville,Samsung Chereville,36.086204,129.405669
+207(기본),3,87,포항대학교,Po-hang Dae-hak-gyo,,36.083862,129.408761
+207(기본),3,88,장량하수처리장,Jang-nyang Ha-su Cheo-ri-jang,Jangnyang Sewage Treatment Plant,36.082183,129.409836
+207(기본),3,89,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,,36.079316,129.409049
+207(기본),3,90,양덕한마음체육관,Yang-deok Han-ma-eum Che-yuk-gwan,Yangdeok Hanmaeum Gymnasium,36.078453,129.40626
+207(기본),3,91,양덕차고지,Yang-deok Cha-goji,Yangdeok Garage,36.07731,129.401999

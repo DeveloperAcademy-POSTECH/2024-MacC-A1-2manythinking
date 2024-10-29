@@ -50,8 +50,9 @@ final class BusStopSearchViewModel: ObservableObject {
                                              stopOrder: response[2].isEmpty ? nil : Int(response[2]),
                                              stopNameKorean: response[3].isEmpty ? nil : response[3],
                                              stopNameRomanized: response[4].isEmpty ? nil : response[4],
-                                             xCoordinate: response[5].isEmpty ? nil : Double(response[5]),
-                                             yCoordinate: response[6].isEmpty ? nil : Double(response[6].dropLast(1))))
+                                             stopNameNaver: response[5].isEmpty ? nil : response[5],
+                                             latitude: response[6].isEmpty ? nil : Double(response[6]),
+                                             longitude: response[7].isEmpty ? nil : Double(response[7].dropLast(1))))
         }
     }
     
@@ -105,9 +106,9 @@ final class BusStopSearchViewModel: ObservableObject {
         var passedStops = 0
         
         for stop in journeyStops {
-            guard let stopX = stop.xCoordinate, let stopY = stop.yCoordinate else { continue }
+            guard let stopLatitude = stop.latitude, let stopLongitude = stop.longitude else { continue }
             
-            let stopLocation = CLLocation(latitude: stopX, longitude: stopY)
+            let stopLocation = CLLocation(latitude: stopLatitude, longitude: stopLongitude)
             let userLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
             
             if userLocation.distance(from: stopLocation) < 50.0 {
