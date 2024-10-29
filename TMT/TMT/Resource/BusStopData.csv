@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latitude,Longitude
 472,3,1,래미안블레스티지아파트,Raemian Blesstige A-pa-teu,,37.480651,127.063217
 472,3,2,개포1단지연금매장,Gae-po il-Dan-ji Yeon-geum Mae-jang,,37.482501,127.06097
@@ -328,4 +327,3 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,89,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,36.079316,129.409049
 207(기본),3,90,양덕한마음체육관,Yang-deok Han-ma-eum Che-yuk-gwan,36.078453,129.40626
 207(기본),3,91,양덕차고지,Yang-deok Cha-goji,36.07731,129.401999
->>>>>>> 7c2ae76 (chore: #37 Remove whitespace from bus stop names in BusStopData CSV file)
