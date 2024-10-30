@@ -29,10 +29,6 @@ class BusJourneyExtractor {
         }
         ocrProcessor.getBusNumber(sortOfBusNumber: sortOfBusNumber)
         
-        print("sortOfBuses: \(sortOfBuses)")
-        print("sortOfBusNumber: \(sortOfBusNumber)")
-//        print("endstop: \(endStop)")
-        
         // MARK: - 버스 경로 생김새에 따라 분기처리합니다.
         if let firstColorIndex = filteredArray.firstIndex(where: { element in
             sortOfBuses.contains(where: { busType in element.contains(busType) })
