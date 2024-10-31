@@ -16,14 +16,17 @@
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
 		5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */; };
 		5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */; };
+		D826488F2CD35550000A448D /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* Button.swift */; };
+		D82D29A52CD3AC8B0083BB59 /* OnboardingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingEnum.swift */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
 		D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBE2CC120010059E31F /* SwiftUI.framework */; };
 		D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D844BCD92CC147390059E31F /* LiveActivityManager.swift */; };
 		D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396C2CA933CD00FFE8ED /* TMTApp.swift */; };
-		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
+		D867396F2CA933CD00FFE8ED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* HomeView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */; };
+		D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */; };
 		D8B3C0882CD0D0F000BB6631 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */; };
 		D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchModel.swift */; };
 		D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */; };
@@ -64,15 +67,18 @@
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessor.swift; sourceTree = "<group>"; };
 		5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStopInfoView.swift; sourceTree = "<group>"; };
+		D826488E2CD35550000A448D /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		D82D29A42CD3AC8B0083BB59 /* OnboardingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingEnum.swift; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D844BCBE2CC120010059E31F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		D844BCD92CC147390059E31F /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
 		D86739692CA933CD00FFE8ED /* TMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867396C2CA933CD00FFE8ED /* TMTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTApp.swift; sourceTree = "<group>"; };
-		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D867396E2CA933CD00FFE8ED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		D8D377E82CBE95C30043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 		D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewModel.swift; sourceTree = "<group>"; };
@@ -142,6 +148,14 @@
 			path = BusJourney;
 			sourceTree = "<group>";
 		};
+		D826488D2CD3553B000A448D /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D826488E2CD35550000A448D /* Button.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
 		D844BCBB2CC120010059E31F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,11 +197,13 @@
 			isa = PBXGroup;
 			children = (
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
-				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
+				D867396E2CA933CD00FFE8ED /* HomeView.swift */,
+				D88F3AF32CD34DD700C0B657 /* Onboarding */,
+				D8D377E72CBE95B80043D103 /* BusSearch */,
 				5B2D9A0E2CCA14FB001FF6CC /* BusJourneyExtractor */,
 				5BCE456F2CC389FE00CF38CE /* BusJourney */,
 				D844BCD82CC1472E0059E31F /* Utils */,
-				D8D377E72CBE95B80043D103 /* BusSearch */,
+				D826488D2CD3553B000A448D /* UIComponent */,
 				D8D377E42CBE548F0043D103 /* Resource */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
@@ -201,6 +217,15 @@
 				D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D88F3AF32CD34DD700C0B657 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */,
+				D82D29A42CD3AC8B0083BB59 /* OnboardingEnum.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		D8D377E42CBE548F0043D103 /* Resource */ = {
@@ -335,19 +360,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */,
-				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
+				D867396F2CA933CD00FFE8ED /* HomeView.swift in Sources */,
 				5B2D9A122CCA1553001FF6CC /* ScanJourneyVC.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */,
 				5B2D9A162CCA18B8001FF6CC /* SelectScreenshotView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */,
+				D826488F2CD35550000A448D /* Button.swift in Sources */,
 				5BCE45712CC3966200CF38CE /* NextStopInfoView.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
+				D82D29A52CD3AC8B0083BB59 /* OnboardingEnum.swift in Sources */,
 				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
+				D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */,
 				5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +399,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -400,7 +428,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -549,7 +577,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
@@ -582,7 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
