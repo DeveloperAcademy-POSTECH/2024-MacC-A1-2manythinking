@@ -13,6 +13,7 @@ struct TMTApp: App {
         WindowGroup {
 //            ContentView()
             BusSearchView()
+            
         }
     }
 }
