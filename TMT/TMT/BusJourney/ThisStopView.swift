@@ -13,6 +13,7 @@ struct ThisStopView: View {
     var stopNameNaver: String
     var stopNameRomanized: String
     
+    // TODO: 지도 뒤에는 블러를 어떻게 넣나요...
     var body: some View {
         VStack(alignment: .leading) {
                 Text("KOR")

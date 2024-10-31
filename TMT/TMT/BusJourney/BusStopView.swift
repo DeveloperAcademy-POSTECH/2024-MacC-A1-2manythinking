@@ -14,25 +14,6 @@ struct Coordinate: Identifiable {
     var yCoordinate: Double
 }
 
-struct EndStopView: View {
-    // 컬러 이넘으로 받아서 남은정류장별로 바꿔서 받기.
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(.white)
-                .frame(width: 361, height: 65)
-            HStack {
-                VStack {
-                    Text("Destination")
-                    Text("Youngildae Beach")
-                }
-                Spacer()
-                Text("20 left")
-            }
-        }
-    }
-}
-
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var busStopSearchViewModel: BusStopSearchViewModel
@@ -54,6 +35,8 @@ struct BusStopView: View {
                         .padding(.top, 23.91)
                 }
                 Spacer()
+                EndStopView(endStop: "Youngildae Beach", remainingStops: 20)
+                    .padding(.bottom, 18)
             }
             
         }

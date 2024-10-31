@@ -16,6 +16,7 @@
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
 		5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */; };
 		5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2532CD372E500F6A487 /* ThisStopView.swift */; };
+		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
 		D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBE2CC120010059E31F /* SwiftUI.framework */; };
 		D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -64,6 +65,7 @@
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessor.swift; sourceTree = "<group>"; };
 		5BB6D2532CD372E500F6A487 /* ThisStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisStopView.swift; sourceTree = "<group>"; };
+		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D844BCBE2CC120010059E31F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -135,6 +137,7 @@
 		5BCE456F2CC389FE00CF38CE /* BusJourney */ = {
 			isa = PBXGroup;
 			children = (
+				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
 				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
 				5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */,
 				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
@@ -345,6 +348,7 @@
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
+				5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
 				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
