@@ -78,10 +78,40 @@ final class BusStopSearchViewModel: ObservableObject {
         }))
     }
     
-    /// 사용자 입력에 따라 출발 정류장과 하차 정류장 설정
-    func setJourneyStops(startStop: BusStopInfo, endStop: BusStopInfo) {
-        self.startStop = startStop
-        self.endStop = endStop
+    func setJourneyStops(startStopString: String, endStopString: String) {
+        let startCandidates = searchBusStops(for: startStopString)
+        let endCandidates = searchBusStops(for: endStopString)
+        
+        if let validStops = findValidJourneyStops(from: startCandidates, to: endCandidates) {
+            self.startStop = validStops.startStop
+            self.endStop = validStops.endStop
+        }
+    }
+    
+    private func searchBusStops(for busStopName: String) -> [BusStopInfo] {
+        return busStops.filter{ $0.stopNameKorean == busStopName }
+    }
+    
+    private func findValidJourneyStops(from startCandidates: [BusStopInfo], to endCandidates: [BusStopInfo]) -> (startStop: BusStopInfo, endStop: BusStopInfo)? {
+        let startOrders = startCandidates.compactMap { $0.stopOrder }
+        let endOrders = endCandidates.compactMap { $0.stopOrder }
+        
+        guard let startMin = startOrders.min(), let endMin = endOrders.min(),
+              let startMax = startOrders.max(), let endMax = endOrders.max() else { return nil }
+        
+        if startMin < endMin {
+            if let startInfo = startCandidates.first(where: { $0.stopOrder == startMin }),
+               let endInfo = endCandidates.first(where: { $0.stopOrder == endMin }) {
+                return (startInfo, endInfo)
+            }
+        } else {
+            if let startInfo = startCandidates.first(where: { $0.stopOrder == startMax }),
+               let endInfo = endCandidates.first(where: { $0.stopOrder == endMax }) {
+                return (startInfo, endInfo)
+            }
+        }
+        
+        return nil
     }
     
     /// 실시간으로 남은 정류장 수 업데이트
@@ -91,10 +121,7 @@ final class BusStopSearchViewModel: ObservableObject {
             return
         }
         
-        guard let startIndex = startStop.stopOrder,
-              let endIndex = endStop.stopOrder,
-              startIndex <= endIndex else {
-            print("출발 정류장과 하차 정류장 순서가 올바르지 않습니다.")
+        guard let startIndex = startStop.stopOrder, let endIndex = endStop.stopOrder else {
             return
         }
                 

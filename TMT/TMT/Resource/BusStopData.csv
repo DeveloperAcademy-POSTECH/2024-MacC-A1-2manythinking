@@ -40,7 +40,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 472,3,39,이대역,I-dae-yeok,,37.556652,126.944495
 472,3,40,웨딩타운,Wedding Town,,37.557092,126.951517
 472,3,41,아현역,A-hyeon-yeok,,37.557293,126.954943
-472,3,42,아현동 가구단지,A-hyeon-dong Ga-gu Dan-ji,,37.557975,126.960662
+472,3,42,아현동가구단지,A-hyeon-dong Ga-gu Dan-ji,,37.557975,126.960662
 472,3,43,종근당.충정로역,Jong-geun-dang.Chung-jeong-no-yeok,,37.559648,126.964543
 472,3,44,시청서소문2청사,Si-cheong Seo-so-mun i-cheong-sa,,37.5631901447,126.9746522037
 472,3,45,서울광장,Seoul Gwang-jang,,37.565352,126.978885
@@ -92,7 +92,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,19,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053208,129.374828
 207(기본),3,20,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.051393,129.371833
 207(기본),3,21,롯데백화점,Lotte Baek-hwa-jeom,Lotte Dept. Store,36.048811,129.370957
-207(기본),3,22,북부시장/채움 병원,Buk-bu Si-jang/Chae-um Byeong-won,,36.04604,129.369426
+207(기본),3,22,북부시장/채움병원,Buk-bu Si-jang/Chae-um Byeong-won,,36.04604,129.369426
 207(기본),3,23,국민건강보험공단,Gung-min Geon-gang Bo-heom Gong-dan,National Health Insurance Service,36.041924,129.367056
 207(기본),3,24,중앙상가,Jung-ang Sang-ga,Jungang Commercial Center,36.037419,129.365216
 207(기본),3,25,죽도시장,Juk-do-si-jang,Jukdo Market,36.033661,129.365614
@@ -109,7 +109,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,36,영일대,Yeong-il-dae,Yeongildae,36.012975,129.334115
 207(기본),3,37,효자아트홀,Hyo-ja Art Hall,Hyoja Art Hall,36.01173,129.332994
 207(기본),3,38,효곡동행정복지센터,Hyo-gok-dong Haeng-jeong Bok-ji Center,,36.010473,129.328355
-207(기본),3,39,생명공학 연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
+207(기본),3,39,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
 207(기본),3,40,포스텍,Postech,Force Tec,36.015169,129.325127
 207(기본),3,41,포항제철공고,Po-hang Je-cheol Gong-go,,36.021079,129.325287
 207(기본),3,42,포스코교육재단,Posco Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
@@ -126,7 +126,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,53,포스텍,Postech,Force Tec,36.016082,129.324605
 207(기본),3,54,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.011751,129.326565
 207(기본),3,55,효곡동행정복지센터,Hyogok-dong Haeng-jeong Bok-ji Center,,36.010241,129.328481
-207(기본),3,56,효자 아트 홀,Hyo-ja Art Hall,Hyoja Art Hall,36.011527,129.332519
+207(기본),3,56,효자아트홀,Hyo-ja Art Hall,Hyoja Art Hall,36.011527,129.332519
 207(기본),3,57,효자웰빙아울렛,Hyo-ja Well-being Outlet,Hyoja Wellbeing Outlet,36.011206,129.335607
 207(기본),3,58,포항성모병원,Po-hang Seong-mo Byeong-won,,36.011145,129.340524
 207(기본),3,59,대잠사거리,Dae-jam Sa-geo-ri,Daejam Sageori,36.011017,129.34451
@@ -145,7 +145,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,72,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.052196,129.373372
 207(기본),3,73,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
 207(기본),3,74,롯데아파트,Lotte A-pa-teu,Lotte Apartment,36.057092,129.377508
-207(기본),3,75,두호동행정 복지 센터,Du-ho-dong Haeng-jeong Bok-ji Center,Duho-dong Administration & Welfare Center,36.06123,129.380113
+207(기본),3,75,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Center,Duho-dong Administration & Welfare Center,36.06123,129.380113
 207(기본),3,76,설머리물회지구,Seol-meori Mul-hoe-ji-gu,,36.065624,129.385045
 207(기본),3,77,노인복지회관,No-in Bok-ji-hoe-gwan,Senior Welfare Center,36.066822,129.387533
 207(기본),3,78,환호해맞이그린빌,Hwan-ho Hae-maji Greenvil,Hwanho Haemaji Green Ville,36.068297,129.391057
