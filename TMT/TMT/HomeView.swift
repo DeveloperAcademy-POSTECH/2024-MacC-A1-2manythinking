@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  TMT
 //
 //  Created by 김유빈 on 9/29/24.
@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
     @State private var isShowingOnboarding = false
     
     var body: some View {
@@ -27,6 +28,14 @@ struct HomeView: View {
             
             if isShowingOnboarding {
                 OnboardingView(isShowingOnboarding: $isShowingOnboarding)
+                    .onDisappear {
+                        hasSeenOnboarding = true
+                    }
+            }
+        }
+        .onAppear {
+            if !hasSeenOnboarding {
+                isShowingOnboarding = true
             }
         }
     }
