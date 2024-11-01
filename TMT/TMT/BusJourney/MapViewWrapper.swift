@@ -8,14 +8,14 @@
 import SwiftUI
 import MapKit
 
-struct MapViewWrapper: UIViewRepresentable {
+struct BusStopViewWrapper: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
     var items: [Coordinate]
     
     class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: MapViewWrapper
+        var parent: BusStopViewWrapper
         
-        init(_ parent: MapViewWrapper) {
+        init(_ parent: BusStopViewWrapper) {
             self.parent = parent
         }
         
