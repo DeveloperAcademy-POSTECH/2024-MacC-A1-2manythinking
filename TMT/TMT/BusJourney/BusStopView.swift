@@ -23,7 +23,7 @@ struct BusStopView: View {
     
     var body: some View {
         ZStack {
-            mapViewWrapper
+            busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
             VStack {
                 ThisStopView(stopNameKorean: journeyStops.first?.stopNameKorean ?? "", stopNameNaver: journeyStops.first?.stopNameNaver ?? "", stopNameRomanized: journeyStops.first?.stopNameRomanized ?? "")
@@ -36,8 +36,6 @@ struct BusStopView: View {
                 Spacer()
                 EndStopView(endStop: endStop, remainingStops: busStopSearchViewModel.remainingStops)
             }
-            
-            
         }
         // TODO: 테스트 필요
         .onChange(of: busStopSearchViewModel.remainingStops) { searchResults in
@@ -51,8 +49,8 @@ struct BusStopView: View {
         }
     }
     
-    private var mapViewWrapper: some View {
-        MapViewWrapper(region: $locationManager.region, items: items)
+    private var busStopViewWrapper: some View {
+        BusStopViewWrapper(region: $locationManager.region, items: items)
     }
     
     private var controlsView: some View {

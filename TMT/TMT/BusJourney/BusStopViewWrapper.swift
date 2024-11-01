@@ -22,7 +22,7 @@ struct BusStopViewWrapper: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             if annotation is MKUserLocation {
                 let identifier = "CurrentLocation"
-                var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKAnnotationView
+                var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
                 
                 if annotationView == nil {
                     annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)

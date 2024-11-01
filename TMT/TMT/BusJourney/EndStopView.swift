@@ -53,37 +53,9 @@ struct EndStopView: View {
     }
     
     /// EndStopView의 메인 컬러를 판단합니다.
-    private func getMainColor(remainingStops: Int) ->  (backgroundColor: Color, textColor: Color, subTextColor: Color, pinImage: String) {
-        var backgroundColor: Color = .white
-        var textColor: Color = .orange
-        var subTextColor: Color = .gray
-        var pinImage: String = ""
-        //        var pinImage: String = "pin_yellow"
-        
-        switch remainingStops {
-        case 0...1:
-            backgroundColor = .red
-            textColor = .white
-            subTextColor = .white
-            //            pinImage = "pin_white"
-        case 2:
-            backgroundColor = .orange
-            textColor = .white
-            subTextColor = .white
-            //            pinImage = "pin_white"
-        case 3:
-            backgroundColor = .yellow
-            textColor = .white
-            subTextColor = .white
-            //            pinImage = "pin_white"
-        default:
-            backgroundColor = .white
-            textColor = .orange
-            subTextColor = .gray
-            //            pinImage = "pin_yellow"
-        }
-        
-        return (backgroundColor, textColor, subTextColor, pinImage)
+    private func getMainColor(remainingStops: Int) -> (backgroundColor: Color, textColor: Color, subTextColor: Color, pinImage: String) {
+        let status = StopStatusEnum(remainingStops: remainingStops)
+        return (status.backgroundColor, status.textColor, status.subTextColor, status.pinImage)
     }
 }
 
