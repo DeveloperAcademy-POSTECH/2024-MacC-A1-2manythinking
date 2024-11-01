@@ -31,8 +31,7 @@ struct BusStopView: View {
                 HStack {
                     Spacer()
                     controlsView
-                    // TODO: 여기 왜 기본으로 spacer() 쓰면 밖에 나가버리는지 이유 찾기.
-                        .padding(.trailing, 26.6)
+                        .padding(.trailing, 15.48)
                         .padding(.top, 23.91)
                 }
                 Spacer()

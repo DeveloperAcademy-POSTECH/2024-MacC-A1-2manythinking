@@ -18,7 +18,6 @@ struct EndStopView: View {
                 .fill(colors.backgroundColor)
                 .frame(height: 65)
                 .shadow(color: .black.opacity(0.25), radius: 2.5, x: 0, y: 2)
-                .padding(.horizontal, 16.75)
             HStack {
                 VStack(alignment: .leading) {
                     HStack {
@@ -49,7 +48,8 @@ struct EndStopView: View {
             .cornerRadius(16)
         }
         .padding(.bottom, 18)
-        .padding(.horizontal, 16.75)
+        .padding(.leading, 16.25)
+        .padding(.trailing, 16.75)
     }
     
     /// EndStopView의 메인 컬러를 판단합니다.
@@ -58,29 +58,29 @@ struct EndStopView: View {
         var textColor: Color = .orange
         var subTextColor: Color = .gray
         var pinImage: String = ""
-//        var pinImage: String = "pin_yellow"
+        //        var pinImage: String = "pin_yellow"
         
         switch remainingStops {
         case 0...1:
             backgroundColor = .red
             textColor = .white
             subTextColor = .white
-//            pinImage = "pin_white"
+            //            pinImage = "pin_white"
         case 2:
             backgroundColor = .orange
             textColor = .white
             subTextColor = .white
-//            pinImage = "pin_white"
+            //            pinImage = "pin_white"
         case 3:
             backgroundColor = .yellow
             textColor = .white
             subTextColor = .white
-//            pinImage = "pin_white"
+            //            pinImage = "pin_white"
         default:
             backgroundColor = .white
             textColor = .orange
             subTextColor = .gray
-//            pinImage = "pin_yellow"
+            //            pinImage = "pin_yellow"
         }
         
         return (backgroundColor, textColor, subTextColor, pinImage)

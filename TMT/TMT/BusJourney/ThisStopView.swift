@@ -31,8 +31,9 @@ struct ThisStopView: View {
             Text("\(stopNameNaver)")
                 .padding(.bottom, 16)
         }
-        .frame(width: 393)
-        .padding()
+        .padding(.top, 8)
+        .padding(.horizontal, 16)
+        .frame(width: 393, alignment: .leading)
         
         // TODO: 블러처리와 흰 화면을 동시에 쌓을 수 있는 방법 찾기
         .background (
@@ -53,7 +54,6 @@ struct ThisStopView: View {
         } label: {
             Image(systemName: "chevron.left")
                 .foregroundStyle(.black)
-            
         }
     }
 }
