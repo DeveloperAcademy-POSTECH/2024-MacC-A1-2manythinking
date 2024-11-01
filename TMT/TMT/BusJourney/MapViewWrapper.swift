@@ -50,7 +50,7 @@ struct MapViewWrapper: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .followWithHeading
         mapView.setRegion(region, animated: true)
-        mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 25, bottom: 90, right: 0)
+        mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 26, bottom: 90, right: 0)
         mapView.mapType = .mutedStandard
         return mapView
     }

@@ -15,11 +15,12 @@ struct Coordinate: Identifiable {
 }
 
 struct BusStopView: View {
-    @EnvironmentObject var locationManager: LocationManager
-    @EnvironmentObject var busStopSearchViewModel: BusStopSearchViewModel
-    
+    @ObservedObject var locationManager: LocationManager
+    @ObservedObject var busStopSearchViewModel: BusStopSearchViewModel
     @State private var items: [Coordinate] = []
     @State private var journeyStops: [BusStopInfo] = []
+    
+    var endStop: String
     
     var body: some View {
         ZStack {
@@ -35,9 +36,9 @@ struct BusStopView: View {
                         .padding(.top, 23.91)
                 }
                 Spacer()
-                EndStopView(endStop: "Youngildae Beach", remainingStops: 20)
-                    .padding(.bottom, 18)
+                EndStopView(endStop: endStop, remainingStops: busStopSearchViewModel.remainingStops)
             }
+            
             
         }
         // TODO: 테스트 필요
@@ -50,7 +51,6 @@ struct BusStopView: View {
             }
             items = getValidCoordinates()
         }
-        
     }
     
     private var mapViewWrapper: some View {
@@ -82,13 +82,3 @@ struct BusStopView: View {
         }
     }
 }
-
-//struct CircleImage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//        @EnvironmentObject var locationManager: LocationManager
-//        @EnvironmentObject var busStopSearchViewModel: BusStopSearchViewModel
-//
-//        BusStopView(presentationMode: _presentationMode, locationManager: _locationManager, busStopSearchViewModel: _busStopSearchViewModel)
-//    }
-//}

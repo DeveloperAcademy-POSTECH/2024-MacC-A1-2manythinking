@@ -13,29 +13,34 @@ struct ThisStopView: View {
     var stopNameNaver: String
     var stopNameRomanized: String
     
-    // TODO: 지도 뒤에는 블러를 어떻게 넣나요...
     var body: some View {
         VStack(alignment: .leading) {
-                Text("KOR")
-                    .frame(width: 52, height: 21)
-                    .background(Color.yellow)
-                    .cornerRadius(4)
+            Text("KOR")
+                .frame(width: 52, height: 21)
+                .background(Color.yellow)
+                .cornerRadius(4)
             Text("\(stopNameRomanized)")
                 .font(.title)
                 .bold()
             Text("\(stopNameKorean)")
                 .padding(.bottom, 18)
-                Text("ENG")
+            Text("ENG")
                 .frame(width: 52, height: 21)
-                    .background(Color.yellow)
-                    .cornerRadius(4)
+                .background(Color.yellow)
+                .cornerRadius(4)
             Text("\(stopNameNaver)")
                 .padding(.bottom, 16)
         }
         .frame(width: 393)
         .padding()
-        .background(Color.white)
-        .opacity(0.7)
+        
+        // TODO: 블러처리와 흰 화면을 동시에 쌓을 수 있는 방법 찾기
+        .background (
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .edgesIgnoringSafeArea(.top)
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+        )
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: backButton)
         .navigationTitle("This Stop")
