@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// TODO: 현재 위치 점 노랑색으로 커스텀하기
 struct Coordinate: Identifiable {
     var id = UUID()
     var xCoordinate: Double
