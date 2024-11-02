@@ -8,10 +8,10 @@
 import SwiftUI
 import PhotosUI
 
-struct SelectScreenshotView: View {
+struct UploadPhotoView: View {
     @State private var selectedImage: UIImage?
     @State private var pickedItem: PhotosPickerItem?
-    @State private var busJourneyInfo: String = ""
+    @State private var scannedJourneyInfo: String = ""
     @State private var isLoading: Bool = false
     @State private var errorMessage: String?
     
@@ -29,7 +29,7 @@ struct SelectScreenshotView: View {
                 if let newItem {
                     Task {
                         isLoading = true
-                        busJourneyInfo = ""
+                        scannedJourneyInfo = ""
                         errorMessage = nil
                         
                         if let data = try? await newItem.loadTransferable(type: Data.self),
@@ -41,7 +41,7 @@ struct SelectScreenshotView: View {
                                 if info.isEmpty {
                                     errorMessage = "No information found."
                                 } else {
-                                    busJourneyInfo = info
+                                    scannedJourneyInfo = info
                                 }
                             }
                         } else {
@@ -56,8 +56,8 @@ struct SelectScreenshotView: View {
                 ProgressView("Analyzing...")
             } else if let error = errorMessage {
                 Text(error).foregroundColor(.red)
-            } else if !busJourneyInfo.isEmpty {
-                Text(busJourneyInfo)
+            } else if !scannedJourneyInfo.isEmpty {
+                Text(scannedJourneyInfo)
                     .padding()
                     .multilineTextAlignment(.leading)
             } else {
