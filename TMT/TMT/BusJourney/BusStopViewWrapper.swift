@@ -10,7 +10,7 @@ import MapKit
 
 struct BusStopViewWrapper: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
-    var items: [Coordinate]
+    var coordinatesList: [Coordinate]
     
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: BusStopViewWrapper
@@ -75,9 +75,9 @@ struct BusStopViewWrapper: UIViewRepresentable {
         mapView.setRegion(region, animated: true)
         mapView.removeAnnotations(mapView.annotations)
         
-        let annotations = items.map { stop in
+        let annotations = coordinatesList.map { stop in
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: stop.xCoordinate, longitude: stop.yCoordinate)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: stop.latitude, longitude: stop.longtitude)
             return annotation
         }
         mapView.addAnnotations(annotations)

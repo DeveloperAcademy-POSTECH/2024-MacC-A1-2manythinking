@@ -9,14 +9,14 @@ import SwiftUI
 
 struct Coordinate: Identifiable {
     var id = UUID()
-    var xCoordinate: Double
-    var yCoordinate: Double
+    var latitude: Double
+    var longtitude: Double
 }
 
 struct BusStopView: View {
     @ObservedObject var locationManager: LocationManager
     @ObservedObject var busStopSearchViewModel: BusStopSearchViewModel
-    @State private var items: [Coordinate] = []
+    @State private var coordinatesList: [Coordinate] = []
     @State private var journeyStops: [BusStopInfo] = []
     
     var endStop: String
@@ -45,12 +45,12 @@ struct BusStopView: View {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
-            items = getValidCoordinates()
+            coordinatesList = getValidCoordinates()
         }
     }
     
     private var busStopViewWrapper: some View {
-        BusStopViewWrapper(region: $locationManager.region, items: items)
+        BusStopViewWrapper(region: $locationManager.region, coordinatesList: coordinatesList)
     }
     
     private var controlsView: some View {
@@ -74,7 +74,7 @@ struct BusStopView: View {
                   let longitude = stop.longitude else {
                 return nil
             }
-            return Coordinate(xCoordinate: latitude, yCoordinate: longitude)
+            return Coordinate(latitude: latitude, longtitude: longitude)
         }
     }
 }
