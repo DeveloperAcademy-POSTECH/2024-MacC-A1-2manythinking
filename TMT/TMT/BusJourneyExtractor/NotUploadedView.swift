@@ -43,7 +43,7 @@ struct NotUploadedView: View {
                         Image(systemName: "photo")
                         Text("Upload Path Screenshot")
                     }
-                    .foregroundStyle(.yellow)
+                    .foregroundStyle(Color.Basic.yellow600)
                 }
             }
             .onChange(of: pickedItem) { newItem in
@@ -64,7 +64,7 @@ struct NotUploadedView: View {
                             }
                         } else {
                             isLoading = false
-//                            errorMessage = "Failed to convert image."
+                            // TODO: 이미지 변환 자체에 실패하였을 때 에러 처리
                         }
                     }
                 }

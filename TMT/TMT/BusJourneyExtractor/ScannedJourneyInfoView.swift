@@ -27,21 +27,21 @@ struct ScannedJourneyInfoView: View {
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
-                            .stroke(.yellow, lineWidth: 1)
+                            .stroke(Color.Brand.primary, lineWidth: 1)
                         
                         Text("Reupload")
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(Color.Brand.primary)
                     }
                     .padding(.trailing, 8)
                 }
                 
                 Button {
-                    // Go to Map
+                    // TODO: Start Live Activities, and convert to map.
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(.yellow)
-                            .stroke(.yellow)
+                            .fill(Color.Brand.primary)
+                            .stroke(Color.Brand.primary)
                         Text("Start")
                             .foregroundStyle(.black)
                     }
@@ -51,7 +51,7 @@ struct ScannedJourneyInfoView: View {
             .padding(.vertical, 12.5)
             
             if backToHome {
-                UploadPhotoView()
+                HomeView()
             }
         }
         .onAppear {
@@ -71,7 +71,7 @@ struct ScannedJourneyInfoView: View {
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
-                .foregroundStyle(.gray)
+                .foregroundStyle(Color.Basic.grey300)
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
                 .bold()
                 .font(.title)
@@ -79,8 +79,8 @@ struct ScannedJourneyInfoView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(
                     RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(.gray, lineWidth: 1)
-                        .background(Color.white.cornerRadius(8)) // 배경 색상 설정
+                        .strokeBorder(Color.Basic.grey100, lineWidth: 1)
+                        .background(Color.white.cornerRadius(8))
                 )
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }

@@ -21,13 +21,9 @@ struct UploadedPhotoView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .inset(by: 0.75)
-                            .stroke(.gray, lineWidth: 1.5)
+                            .stroke(Color.Basic.grey200, lineWidth: 1.5)
                     )
                     .clipped()
-                    .padding(.bottom, 10)
-            } else {
-                Text("Failed to load image.")
-                    .foregroundColor(.gray)
                     .padding(.bottom, 10)
             }
         }
