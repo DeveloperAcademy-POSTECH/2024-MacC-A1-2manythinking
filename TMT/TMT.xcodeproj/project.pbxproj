@@ -70,9 +70,11 @@
 		5B6DA5B72CBE551400613ACB /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessor.swift; sourceTree = "<group>"; };
+		5BCE45702CC3964F00CF38CE /* NextStopInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextStopInfoView.swift; sourceTree = "<group>"; };
+		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		5BB6D2532CD372E500F6A487 /* ThisStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisStopView.swift; sourceTree = "<group>"; };
 		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
-    D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -204,6 +206,7 @@
 		D867396B2CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXGroup;
 			children = (
+				D803DE332CD8A80C00C36D17 /* Info.plist */,
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				D867396E2CA933CD00FFE8ED /* HomeView.swift */,
 				D88F3AF32CD34DD700C0B657 /* Onboarding */,
@@ -593,6 +596,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMT/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -626,6 +630,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMT/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want your location haha";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
