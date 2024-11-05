@@ -33,9 +33,10 @@ struct UploadPhotoView: View {
                         Alert(title: Text("Failed to recognize the image."), message: Text("Image recognition failed during upload. Please upload the image again."), dismissButton: .default(Text("Reupload")))
                     }
                 } else if !scannedJourneyInfo.isEmpty {
-                    // scroll view
-                    UploadedPhotoView(selectedImage: $selectedImage)
-                    ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo)
+                    ScrollView {
+                        UploadedPhotoView(selectedImage: $selectedImage)
+                        ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo)
+                    }
                 } else {
                     if isLoading {
                         ZStack {

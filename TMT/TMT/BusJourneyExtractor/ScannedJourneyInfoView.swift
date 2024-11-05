@@ -17,13 +17,8 @@ struct ScannedJourneyInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             uploadedInfoBox(title: "Bus Number", scannedInfo: $busNumber)
-                .padding(.bottom, 24)
-            
             uploadedInfoBox(title: "Departure Stop", scannedInfo: $startStop)
-                .padding(.bottom, 24)
-            
             uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
-                .padding(.bottom, 20)
             
             HStack {
                 Button {
@@ -77,10 +72,18 @@ struct ScannedJourneyInfoView: View {
         VStack(alignment: .leading) {
             Text("\(title)")
                 .foregroundStyle(.gray)
-            Text(scannedInfo.wrappedValue)
+            TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
                 .bold()
                 .font(.title)
+                .padding(12)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .strokeBorder(.gray, lineWidth: 1)
+                        .background(Color.white.cornerRadius(8)) // 배경 색상 설정
+                )
         }
+        .padding(.bottom, 16)
     }
 }
 
