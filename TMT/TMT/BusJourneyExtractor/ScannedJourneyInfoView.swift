@@ -82,6 +82,7 @@ struct ScannedJourneyInfoView: View {
                         .strokeBorder(.gray, lineWidth: 1)
                         .background(Color.white.cornerRadius(8)) // 배경 색상 설정
                 )
+                .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }
         .padding(.bottom, 16)
     }
