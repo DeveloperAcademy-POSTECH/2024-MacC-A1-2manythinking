@@ -12,6 +12,7 @@ struct ScannedJourneyInfoView: View {
     @State private var busNumber: String = ""
     @State private var startStop: String = ""
     @State private var endStop: String = ""
+    @State private var backToHome: Bool = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,9 +25,40 @@ struct ScannedJourneyInfoView: View {
             uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
                 .padding(.bottom, 20)
             
-            // TODO: 유디 pr 머지되면 버튼 컴포넌트로 start 버튼 바꾸기
+            HStack {
+                Button {
+                    scannedJourneyInfo = ""
+                    backToHome = true
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(.yellow, lineWidth: 1)
+                        
+                        Text("Reupload")
+                            .foregroundStyle(.yellow)
+                    }
+                    .padding(.trailing, 8)
+                }
+                
+                Button {
+                    // Go to Map
+                } label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(.yellow)
+                            .stroke(.yellow)
+                        Text("Start")
+                            .foregroundStyle(.black)
+                    }
+                }
+            }
+            .frame(height: 52)
+            .padding(.vertical, 12.5)
+            
+            if backToHome {
+                UploadPhotoView()
+            }
         }
-        .padding(.horizontal, 16)
         .onAppear {
             splitScannedInfo()
         }
@@ -35,8 +67,8 @@ struct ScannedJourneyInfoView: View {
     private func splitScannedInfo() {
         let splitted = scannedJourneyInfo.split(separator: ",")
         if splitted.count >= 3 {
-            busNumber = String(splitted[0])
-            startStop = String(splitted[1])
+            busNumber = String(splitted[1])
+            startStop = String(splitted[0])
             endStop = String(splitted[2])
         }
     }
@@ -45,19 +77,9 @@ struct ScannedJourneyInfoView: View {
         VStack(alignment: .leading) {
             Text("\(title)")
                 .foregroundStyle(.gray)
-            HStack {
-                Text(scannedInfo.wrappedValue)
-                    .bold()
-                    .font(.title)
-                Spacer()
-                Button {
-                    scannedInfo.wrappedValue = ""
-                } label: {
-                    Image(systemName: "xmark.circle")
-                        .foregroundStyle(Color.gray)
-                        .font(.title)
-                }
-            }
+            Text(scannedInfo.wrappedValue)
+                .bold()
+                .font(.title)
         }
     }
 }

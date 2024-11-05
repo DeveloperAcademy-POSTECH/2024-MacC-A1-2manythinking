@@ -11,27 +11,25 @@ import PhotosUI
 struct NotUploadedView: View {
     @State private var pickedItem: PhotosPickerItem?
     @Binding var selectedImage: UIImage?
-    @Binding var errorMessage: String?
     @Binding var scannedJourneyInfo: String
+    @Binding var isLoading: Bool
     
     private let ocrService = OCRService()
     
     var body: some View {
         VStack {
             HStack {
-                Text("With Poling Bus,")
+                Text("Ride Confident,\nArrive Intentionally")
                     .font(.title)
                     .bold()
                 Spacer()
             }
-            .padding(.horizontal, 16)
             HStack {
                 Text("Whether you don't know Korean,\nyou can know\nwhere to get off the bus.")
                     .padding(.bottom, 10)
                     .multilineTextAlignment(.leading)
                 Spacer()
             }
-            .padding(.horizontal, 16)
             PhotosPicker(
                 selection: $pickedItem,
                 matching: .screenshots
@@ -42,29 +40,31 @@ struct NotUploadedView: View {
                         .stroke(.yellow, style: StrokeStyle(lineWidth: 2, dash: [4, 4]))
                         .aspectRatio(1.0, contentMode: .fit)
                     HStack(alignment: .center, spacing: 8) {
-                        Image(systemName: "square.and.arrow.up")
+                        Image(systemName: "photo")
                         Text("Upload Path Screenshot")
-                    }.foregroundStyle(.yellow)
+                    }
+                    .foregroundStyle(.yellow)
                 }
-                .padding(.horizontal, 16)
             }
             .onChange(of: pickedItem) { newItem in
                 if let newItem {
                     Task {
                         scannedJourneyInfo = ""
-                        errorMessage = nil
+                        isLoading = true
                         
                         if let data = try? await newItem.loadTransferable(type: Data.self),
                            let image = UIImage(data: data) {
                             selectedImage = image
                             
                             ocrService.startOCR(image: image) { info in
+                                isLoading = false
                                 if !info.isEmpty {
                                     scannedJourneyInfo = info
                                 }
                             }
                         } else {
-                            errorMessage = "Failed to convert image."
+                            isLoading = false
+//                            errorMessage = "Failed to convert image."
                         }
                     }
                 }

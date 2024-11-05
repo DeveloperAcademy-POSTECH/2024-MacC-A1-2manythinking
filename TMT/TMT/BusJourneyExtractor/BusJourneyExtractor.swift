@@ -56,7 +56,11 @@ class BusJourneyExtractor {
                 }
             }
         }
-        return extractedInfo.startStop + "," + extractedInfo.busNumber + "," + extractedInfo.endStop
+        
+        if extractedInfo.startStop.isEmpty || extractedInfo.busNumber.isEmpty || extractedInfo.endStop.isEmpty {
+            return ",,"
+        } else {
+            return extractedInfo.startStop + "," + extractedInfo.busNumber + "," + extractedInfo.endStop
+        }
     }
-    
 }
