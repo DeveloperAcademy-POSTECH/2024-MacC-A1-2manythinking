@@ -63,7 +63,7 @@ struct BusStopView: View {
                     .frame(width: 44, height: 44)
                     .tint(.gray)
                 Image(systemName: "location.fill")
-                    .tint(.yellow)
+                    .tint(Color.Basic.yellow500)
             }
         }
     }

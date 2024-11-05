@@ -22,6 +22,8 @@ struct EndStopView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Image("\(colors.pinImage)")
+                            .resizable()
+                            .frame(width: 12, height: 12)
                         Text("Destination")
                             .foregroundStyle(colors.subTextColor)
                     }

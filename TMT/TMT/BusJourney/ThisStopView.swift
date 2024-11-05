@@ -16,8 +16,9 @@ struct ThisStopView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("KOR")
+                .foregroundStyle(Color.Basic.yellow800)
                 .frame(width: 52, height: 21)
-                .background(Color.yellow)
+                .background(Color.Basic.yellow300)
                 .cornerRadius(4)
             Text("\(stopNameRomanized)")
                 .font(.title)

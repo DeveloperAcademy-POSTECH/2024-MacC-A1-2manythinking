@@ -42,12 +42,9 @@ struct BusStopViewWrapper: UIViewRepresentable {
             if annotationView == nil {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true
-                //                이후 asset이 업데이트되면 버스 아이콘 이미지를 추가하기 위한 코드입니다.
-                //                let busStopImage = UIImage(named: "busStopIcon")
-                //                annotationView?.image = busStopImage
-                //                annotationView?.frame.size = CGSize(width: 35, height: 35)
-                annotationView?.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
-                annotationView?.backgroundColor = .black
+                let busStopImage = UIImage(named: "busStopIcon")
+                annotationView?.image = busStopImage
+                annotationView?.frame.size = CGSize(width: 35, height: 35)
                 annotationView?.layer.cornerRadius = 5
             } else {
                 annotationView?.annotation = annotation
