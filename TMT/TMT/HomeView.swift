@@ -16,14 +16,6 @@ struct HomeView: View {
     @State private var isLoading: Bool = false
     @State private var showingAlert = false
     
-    init() {
-        // TODO: blur 추가하기
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
@@ -36,12 +28,16 @@ struct HomeView: View {
                                 self.showingAlert = true
                             }
                             .alert(isPresented: $showingAlert) {
-                                Alert(title: Text("Failed to recognize the image."), message: Text("Image recognition failed during upload. Please upload the image again."), dismissButton: .default(Text("Reupload")))
+                                Alert(
+                                    title: Text("Failed to recognize the image."),
+                                    message: Text("Image recognition failed during upload. Please upload the image again."),
+                                    dismissButton: .default(Text("Reupload"))
+                                )
                             }
                     } else if !scannedJourneyInfo.isEmpty {
                         ScrollView {
                             UploadedPhotoView(selectedImage: $selectedImage)
-                            ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo)
+                            ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo, selectedImage: $selectedImage, isLoading: $isLoading)
                         }
                     } else {
                         if isLoading {

@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ScannedJourneyInfoView: View {
-    @Binding var scannedJourneyInfo: String
     @State private var busNumber: String = ""
     @State private var startStop: String = ""
     @State private var endStop: String = ""
-    @State private var backToHome: Bool = false
+    @State private var pickedItem: PhotosPickerItem? = nil
+    @Binding var scannedJourneyInfo: String
+    @Binding var selectedImage: UIImage?
+    @Binding var isLoading: Bool
+    
+    private let ocrService = OCRService()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,10 +26,7 @@ struct ScannedJourneyInfoView: View {
             uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
             
             HStack(spacing: 0) {
-                Button {
-                    scannedJourneyInfo = ""
-                    backToHome = true
-                } label: {
+                PhotosPicker(selection: $pickedItem, matching: .screenshots) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.Brand.primary, lineWidth: 1)
@@ -33,6 +35,21 @@ struct ScannedJourneyInfoView: View {
                             .foregroundStyle(Color.Brand.primary)
                     }
                     .padding(.trailing, 8)
+                }
+                .onChange(of: pickedItem) { newItem in
+                    Task {
+                        scannedJourneyInfo = ""
+                        if let data = try? await newItem?.loadTransferable(type: Data.self),
+                           let image = UIImage(data: data) {
+                            selectedImage = image
+                            ocrService.startOCR(image: image) { info in
+                                isLoading = false
+                                if !info.isEmpty {
+                                    scannedJourneyInfo = info
+                                }
+                            }
+                        }
+                    }
                 }
                 
                 Button {
@@ -49,10 +66,6 @@ struct ScannedJourneyInfoView: View {
             }
             .frame(height: 52)
             .padding(.vertical, 12.5)
-            
-            if backToHome {
-                HomeView()
-            }
         }
         .onAppear {
             splitScannedInfo()
@@ -86,8 +99,4 @@ struct ScannedJourneyInfoView: View {
         }
         .padding(.bottom, 16)
     }
-}
-
-#Preview {
-    ScannedJourneyInfoView(scannedJourneyInfo: .constant("207,BioTechnology,jukdo Market"))
 }

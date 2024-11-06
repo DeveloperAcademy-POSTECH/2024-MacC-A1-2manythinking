@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct NotUploadedView: View {
-    @State private var pickedItem: PhotosPickerItem?
+    @State private var pickedItem: PhotosPickerItem? = nil
     @Binding var selectedImage: UIImage?
     @Binding var scannedJourneyInfo: String
     @Binding var isLoading: Bool
@@ -30,6 +30,7 @@ struct NotUploadedView: View {
                     .multilineTextAlignment(.leading)
                 Spacer()
             }
+            
             PhotosPicker(
                 selection: $pickedItem,
                 matching: .screenshots
@@ -47,24 +48,15 @@ struct NotUploadedView: View {
                 }
             }
             .onChange(of: pickedItem) { newItem in
-                if let newItem {
-                    Task {
-                        scannedJourneyInfo = ""
-                        isLoading = true
-                        
-                        if let data = try? await newItem.loadTransferable(type: Data.self),
-                           let image = UIImage(data: data) {
-                            selectedImage = image
-                            
-                            ocrService.startOCR(image: image) { info in
-                                isLoading = false
-                                if !info.isEmpty {
-                                    scannedJourneyInfo = info
-                                }
-                            }
-                        } else {
+                Task {
+                    if let data = try? await newItem?.loadTransferable(type: Data.self),
+                       let image = UIImage(data: data) {
+                        selectedImage = image
+                        ocrService.startOCR(image: image) { info in
                             isLoading = false
-                            // TODO: 이미지 변환 자체에 실패하였을 때 에러 처리
+                            if !info.isEmpty {
+                                scannedJourneyInfo = info
+                            }
                         }
                     }
                 }

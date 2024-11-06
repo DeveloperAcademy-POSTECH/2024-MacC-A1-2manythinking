@@ -42,4 +42,18 @@ class OCRService {
             completion("Failed to fetch data: \(error.localizedDescription)")
         }
     }
+    
+//    /// PhotosPicker에서 받은 사진에서 텍스트를 고르는 startOCR 함수를 실행하고 예외처리합니다.
+//    func photoToText(_ image: UIImage) -> String {
+//        let ocrService = OCRService()
+//        var isLoading: Bool = false
+//        
+//        ocrService.startOCR(image: image) { info in
+//            isLoading = false
+//            if !info.isEmpty {
+//                scannedJourneyInfo = info
+//            }
+//        }
+//        return "Hello, World!"
+//    }
 }
