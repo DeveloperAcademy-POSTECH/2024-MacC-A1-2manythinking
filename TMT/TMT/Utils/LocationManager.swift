@@ -18,7 +18,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var remainingStops: Int = 0 {
         didSet {
-            if oldValue == remainingStops {
+            if oldValue != remainingStops {
                 Task {
                     await activityManager?.updateLiveActivity(remainingStops: remainingStops)
                 }
