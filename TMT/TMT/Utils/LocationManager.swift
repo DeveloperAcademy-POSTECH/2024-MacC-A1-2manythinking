@@ -16,11 +16,23 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isFirstLoad = true
     @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
-    private let locationManager = CLLocationManager()
-    private weak var viewModel: BusStopSearchViewModel?
+    @Published var remainingStops: Int = 0 {
+        didSet {
+            if oldValue == remainingStops {
+                Task {
+                    await activityManager?.updateLiveActivity(remainingStops: remainingStops)
+                }
+            }
+        }
+    }
     
-    init(viewModel: BusStopSearchViewModel) {
+    private let locationManager = CLLocationManager()
+    private weak var viewModel: BusSearchViewModel?
+    private weak var activityManager: LiveActivityManager?
+    
+    init(viewModel: BusSearchViewModel, activityManager: LiveActivityManager) {
         self.viewModel = viewModel
+        self.activityManager = activityManager
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -55,7 +67,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 }
                 self.userLocation = location.coordinate
                 
-                self.viewModel?.updateRemainingStops(currentLocation: self.userLocation)
+                self.remainingStops = self.viewModel?.updateRemainingStops(currentLocation: self.userLocation) ?? 0
             }
         }
     }

@@ -8,12 +8,11 @@
 import Foundation
 import MapKit
 
-final class BusStopSearchViewModel: ObservableObject {
+final class BusSearchViewModel: ObservableObject {
     @Published var busStops: [BusStopInfo] = []
     @Published var filteredBusStops: [BusStopInfo] = []
-    @Published var busNumbers = [Int]()
     @Published var remainingStops: Int = 0
-    var journeyStops: [BusStopInfo] = []
+    @Published var journeyStops: [BusStopInfo] = []
     
     private var startStop: BusStopInfo?
     private var endStop: BusStopInfo?
@@ -64,19 +63,6 @@ final class BusStopSearchViewModel: ObservableObject {
             }
             return false
         }
-        fetchBusNumbersList()
-    }
-    
-    /// 검색 결과 배열에는 노선 전체 데이터가 담겨 있어 동일한 버스 번호를 가진 데이터가 많습니다.
-    /// 사용자에게 보여줄 때는 중복된 데이터를 제외하고, 버스 번호만 추출해서 보여줘야 합니다.
-    /// 사용자가 검색한 버스 번호를 추출하여 결과로 보여주기 위해 버스 번호만 추출하기 위해 만든 함수입니다.
-    private func fetchBusNumbersList() {
-        busNumbers = Array(Set(filteredBusStops.compactMap { busStop in
-            if let busNumberString = busStop.busNumber, let busNumber = Int(busNumberString) {
-                return busNumber
-            }
-            return nil
-        }))
     }
     
     func setJourneyStops(startStopString: String, endStopString: String) {
@@ -86,7 +72,18 @@ final class BusStopSearchViewModel: ObservableObject {
         if let validStops = findValidJourneyStops(from: startCandidates, to: endCandidates) {
             self.startStop = validStops.startStop
             self.endStop = validStops.endStop
+
+            if let startOrder = validStops.startStop.stopOrder, let endOrder = validStops.endStop.stopOrder {
+                let filteredStops = busStops.filter {
+                    guard let order = $0.stopOrder else { return false }
+                    return $0.busNumber == startStop?.busNumber && order >= startOrder && order <= endOrder
+                }
+                
+                self.journeyStops = filteredStops
+            }
         }
+        
+        print(journeyStops)
     }
     
     private func searchBusStops(for busStopName: String) -> [BusStopInfo] {
@@ -116,34 +113,27 @@ final class BusStopSearchViewModel: ObservableObject {
     }
     
     /// 실시간으로 남은 정류장 수 업데이트
-    func updateRemainingStops(currentLocation: CLLocationCoordinate2D) {
-        guard let startStop = self.startStop, let endStop = self.endStop else {
-            print("출발 정류장과 하차 정류장을 설정하세요..")
-            return
-        }
-        
-        guard let startIndex = startStop.stopOrder, let endIndex = endStop.stopOrder else {
-            return
-        }
-                
-        journeyStops = busStops.filter { stop in
-            guard let order = stop.stopOrder else { return false }
-            return startStop.busNumber == stop.busNumber && order >= startIndex && order <= endIndex
+    func updateRemainingStops(currentLocation: CLLocationCoordinate2D) -> Int {
+        guard !journeyStops.isEmpty else {
+            print("정류장 설정 plz ..")
+            return 0
         }
         
         var passedStops = 0
         
-        for stop in journeyStops {
+        for (index, stop) in journeyStops.enumerated() {
             guard let stopLatitude = stop.latitude, let stopLongitude = stop.longitude else { continue }
             
             let stopLocation = CLLocation(latitude: stopLatitude, longitude: stopLongitude)
             let userLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
             
             if userLocation.distance(from: stopLocation) < 50.0 {
-                passedStops += 1
+                passedStops = index
+                break
             }
         }
         
         self.remainingStops = max(0, journeyStops.count - passedStops - 1)
+        return self.remainingStops
     }
 }
