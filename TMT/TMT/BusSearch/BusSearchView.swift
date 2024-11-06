@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct BusSearchView: View {
-    @StateObject private var busStopSearchViewModel = BusStopSearchViewModel()
+    @StateObject private var busStopSearchViewModel: BusSearchViewModel
+    @StateObject private var liveActivityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
     @State private var selectedStartStop: BusStopInfo?
@@ -17,9 +18,11 @@ struct BusSearchView: View {
     @State private var tag: Int? = nil
     
     init() {
-        let viewModel = BusStopSearchViewModel()
+        let viewModel = BusSearchViewModel()
+        let liveActivity = LiveActivityManager()
         _busStopSearchViewModel = StateObject(wrappedValue: viewModel)
-        _locationManager = StateObject(wrappedValue: LocationManager(viewModel: viewModel))
+        _liveActivityManager = StateObject(wrappedValue: liveActivity)
+        _locationManager = StateObject(wrappedValue: LocationManager(viewModel: viewModel, activityManager: liveActivity))
     }
     
     var body: some View {

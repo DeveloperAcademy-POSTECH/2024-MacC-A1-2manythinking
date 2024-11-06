@@ -8,13 +8,11 @@
 import Combine
 import ActivityKit
 
-@available(iOS 16.2, *)
 final class LiveActivityManager: ObservableObject {
-    @Published var num: Int = 0
     private var cancellable: Set<AnyCancellable> = Set()
     private var activity: Activity<BusJourneyAttributes>?
-    
-    func startLiveActivity(destinationInfo: BusStopInfo) {
+
+    func startLiveActivity(destinationInfo: BusStopInfo, remainingStops: Int) {
         if ActivityAuthorizationInfo().areActivitiesEnabled {
             // 실행 중인 라이브 액티비티가 있으면 종료됩니다.
             if let _ = activity {
@@ -26,7 +24,7 @@ final class LiveActivityManager: ObservableObject {
             
             let data = BusJourneyAttributes(stopNameKorean: stopNameKorean, stopNameRomanized: stropNameRomanized)
             
-            let initialState = BusJourneyAttributes.ContentState(remainingStopsCount: 0)
+            let initialState = BusJourneyAttributes.ContentState(remainingStopsCount: remainingStops)
             
             let content = ActivityContent(state: initialState, staleDate: nil)
             
@@ -49,28 +47,16 @@ final class LiveActivityManager: ObservableObject {
         }
     }
     
-    // TODO: 값에 변화생기면 라이브 액티비티 update 하는 코드입니다.
-    // 나중에 참고하려고 넣어놨어요. 값 업데이트되면 자동으로 다이나믹 아일랜드 확장형으로 보여줍니다.
-//    func timer() {
-//        Timer.publish(every: 10, on: .main, in: .default)
-//            .autoconnect()
-//            .sink { [self] _ in
-//                num += 1
-//                Task {
-//
-//                    print(num)
-//                    let activity = self.activity
-//                    let newState = BusJourneyAttributes.ContentState(remainingStopsCount: num)
-//                    // 애플워치에서 동작
-//                    let alertConfiguration = AlertConfiguration(
-//                        title: "timer update",
-//                        body: "현재숫자: \(num)",
-//                        sound: .default
-//                    )
-//                    await activity?.update(using: newState, alertConfiguration: alertConfiguration)
-//                }
-//            }
-//            .store(in: &cancellable)
-//    }
-
+    func updateLiveActivity(remainingStops: Int) async {
+        let contentState = BusJourneyAttributes.ContentState(remainingStopsCount: remainingStops)
+        
+        // TODO: 애플워치에 뜨는 알림. title, body 내용 수정해야 함. 애플 워치에 알림 안 띄우고 알림 보내는 방법은 없나 ??...
+        let alertConfig = AlertConfiguration(
+            title: "title",
+            body: "body",
+            sound: .default
+        )
+        
+        await activity?.update(ActivityContent<BusJourneyAttributes.ContentState>(state: contentState, staleDate: nil), alertConfiguration: alertConfig)
+    }
 }
