@@ -13,6 +13,7 @@ final class BusStopSearchViewModel: ObservableObject {
     @Published var filteredBusStops: [BusStopInfo] = []
     @Published var busNumbers = [Int]()
     @Published var remainingStops: Int = 0
+    var journeyStops: [BusStopInfo] = []
     
     private var startStop: BusStopInfo?
     private var endStop: BusStopInfo?
@@ -125,7 +126,7 @@ final class BusStopSearchViewModel: ObservableObject {
             return
         }
                 
-        let journeyStops = busStops.filter { stop in
+        journeyStops = busStops.filter { stop in
             guard let order = stop.stopOrder else { return false }
             return startStop.busNumber == stop.busNumber && order >= startIndex && order <= endIndex
         }

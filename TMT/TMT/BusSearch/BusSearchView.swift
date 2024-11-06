@@ -24,7 +24,7 @@ struct BusSearchView: View {
     
     var body: some View {
         NavigationStack {
-            NavigationLink(destination: MapView(), tag: 1, selection: self.$tag) {
+            NavigationLink(destination: BusStopView(locationManager: locationManager, busStopSearchViewModel: busStopSearchViewModel, endStop: "Youngildae Beach"), tag: 1, selection: self.$tag) {
                 EmptyView()
             }
             Button {
