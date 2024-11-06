@@ -61,7 +61,7 @@ struct BusStopView: View {
             ZStack {
                 Circle()
                     .frame(width: 44, height: 44)
-                    .tint(.gray)
+                    .tint(Color.Basic.grey70)
                 Image(systemName: "location.fill")
                     .tint(Color.Basic.yellow500)
             }
