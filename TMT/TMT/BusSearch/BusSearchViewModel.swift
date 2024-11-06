@@ -82,8 +82,6 @@ final class BusSearchViewModel: ObservableObject {
                 self.journeyStops = filteredStops
             }
         }
-        
-        print(journeyStops)
     }
     
     private func searchBusStops(for busStopName: String) -> [BusStopInfo] {
