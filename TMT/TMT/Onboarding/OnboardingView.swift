@@ -37,10 +37,10 @@ struct OnboardingView: View {
             }
             .padding(16)
             .background {
-                Color.white
+                Color.Basic.white
                     .clipShape(RoundedRectangle(cornerRadius: 16))
             }
-            .frame(height: 600)
+            .frame(maxHeight: 590)
             .padding([.horizontal, .top], 16)
             .padding(.bottom, 34)
         }
@@ -60,7 +60,7 @@ struct OnboardingView: View {
                 Image(systemName: "xmark.circle")
                     .resizable()
                     .frame(width: 24, height: 24)
-                    .foregroundStyle(.gray) // TODO: 색상 수정하기
+                    .foregroundStyle(Color.Basic.grey300)
             }
         }
     }
@@ -69,7 +69,6 @@ struct OnboardingView: View {
         TabView(selection: $currentPage) {
             ForEach(OnboardingStep.allCases.indices, id: \.self) { index in
                 OnboardingStepView(step: OnboardingStep.allCases[index])
-                    .tag(index)
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
