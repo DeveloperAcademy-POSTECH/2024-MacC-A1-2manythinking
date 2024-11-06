@@ -11,7 +11,7 @@ struct UploadedPhotoView: View {
     @Binding var selectedImage: UIImage?
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             if let selectedImage = selectedImage {
                 Image(uiImage: selectedImage)
                     .resizable()

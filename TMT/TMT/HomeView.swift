@@ -19,8 +19,7 @@ struct HomeView: View {
     init() {
         // TODO: blur 추가하기
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-//        appearance.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.9)
+        appearance.configureWithOpaqueBackground()
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
@@ -30,7 +29,7 @@ struct HomeView: View {
             ZStack(alignment: .bottom) {
                 Color.white
                     .ignoresSafeArea()
-                VStack {
+                VStack(spacing: 0) {
                     if scannedJourneyInfo == ",," {
                         NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading)
                             .onAppear {

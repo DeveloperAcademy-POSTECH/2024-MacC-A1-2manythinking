@@ -24,7 +24,7 @@ struct NotUploadedView: View {
                     .bold()
                 Spacer()
             }
-            HStack {
+            HStack(spacing: 0) {
                 Text("Whether you don't know Korean,\nyou can know\nwhere to get off the bus.")
                     .padding(.bottom, 10)
                     .multilineTextAlignment(.leading)

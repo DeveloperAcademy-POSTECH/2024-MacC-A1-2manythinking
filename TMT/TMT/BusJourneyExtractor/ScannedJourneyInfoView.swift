@@ -20,7 +20,7 @@ struct ScannedJourneyInfoView: View {
             uploadedInfoBox(title: "Departure Stop", scannedInfo: $startStop)
             uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
             
-            HStack {
+            HStack(spacing: 0) {
                 Button {
                     scannedJourneyInfo = ""
                     backToHome = true
