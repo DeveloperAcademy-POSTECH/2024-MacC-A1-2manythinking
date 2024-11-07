@@ -26,7 +26,7 @@ struct OnboardingView: View {
                 
                 onboardingTabView()
                     .padding(.bottom, 10)
-                                
+                
                 PrimaryButton(title: onboardingButtonTitle) {
                     if currentPage < OnboardingStep.allCases.count - 1 {
                         currentPage += 1
@@ -43,6 +43,9 @@ struct OnboardingView: View {
             .frame(maxHeight: 590)
             .padding([.horizontal, .top], 16)
             .padding(.bottom, 34)
+            //            .overlay {
+            //                Color.black.opacity(0.5).ignoresSafeArea()
+            //            }
         }
         .ignoresSafeArea(.all)
     }
@@ -50,7 +53,7 @@ struct OnboardingView: View {
     private var onboardingButtonTitle: String {
         currentPage == OnboardingStep.allCases.count - 1 ? "Done" : "Continue"
     }
-
+    
     private func xmarkButton() -> some View {
         HStack {
             Spacer()
@@ -64,7 +67,7 @@ struct OnboardingView: View {
             }
         }
     }
-        
+    
     private func onboardingTabView() -> some View {
         TabView(selection: $currentPage) {
             ForEach(OnboardingStep.allCases.indices, id: \.self) { index in
