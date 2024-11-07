@@ -14,19 +14,17 @@ struct Coordinate: Identifiable {
 }
 
 struct BusStopView: View {
-    @ObservedObject var locationManager: LocationManager
-    @ObservedObject var busStopSearchViewModel: BusSearchViewModel
+    @EnvironmentObject var locationManager: LocationManager
+        @EnvironmentObject var busStopSearchViewModel: BusSearchViewModel
     @State private var coordinatesList: [Coordinate] = []
-    @State private var journeyStops: [BusStopInfo] = []
-    
-    var endStop: String
+    @State private var passedStops: Int = 0
     
     var body: some View {
         ZStack {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
             VStack {
-                ThisStopView(stopNameKorean: journeyStops.first?.stopNameKorean ?? "", stopNameNaver: journeyStops.first?.stopNameNaver ?? "", stopNameRomanized: journeyStops.first?.stopNameRomanized ?? "")
+                ThisStopView(stopNameKorean: busStopSearchViewModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: busStopSearchViewModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: busStopSearchViewModel.journeyStops[passedStops].stopNameRomanized ?? "")
                 HStack {
                     Spacer()
                     controlsView
@@ -34,18 +32,21 @@ struct BusStopView: View {
                         .padding(.top, 23.91)
                 }
                 Spacer()
-                EndStopView(endStop: endStop, remainingStops: busStopSearchViewModel.remainingStops)
+                    EndStopView(endStop: busStopSearchViewModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: busStopSearchViewModel.remainingStops)
+                
             }
-        }
-        // TODO: 테스트 필요
-        .onChange(of: busStopSearchViewModel.remainingStops) { searchResults in
-            journeyStops = busStopSearchViewModel.journeyStops
         }
         .onAppear {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
+            busStopSearchViewModel.searchBusStops(by: busStopSearchViewModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
+            print("coordinatesList: \(coordinatesList)")
+        }
+        // TODO: 실제로 줄어드는지 테스트 필요
+        .onChange(of: busStopSearchViewModel.remainingStops) { searchResults in
+            passedStops = busStopSearchViewModel.journeyStops.count - busStopSearchViewModel.remainingStops
         }
     }
     

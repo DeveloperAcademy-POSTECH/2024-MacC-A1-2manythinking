@@ -26,6 +26,8 @@ struct EndStopView: View {
                             .foregroundStyle(colors.subTextColor)
                     }
                     Text("\(endStop)")
+                        .lineLimit(1)
+                        .truncationMode(.tail)
                 }
                 .padding(.leading, 24)
                 .padding(.vertical, 12)

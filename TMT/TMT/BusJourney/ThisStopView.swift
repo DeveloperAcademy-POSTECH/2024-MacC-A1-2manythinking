@@ -24,12 +24,14 @@ struct ThisStopView: View {
                 .bold()
             Text("\(stopNameKorean)")
                 .padding(.bottom, 18)
-            Text("ENG")
-                .frame(width: 52, height: 21)
-                .background(Color.yellow)
-                .cornerRadius(4)
-            Text("\(stopNameNaver)")
-                .padding(.bottom, 16)
+            if !stopNameNaver.isEmpty {
+                Text("ENG")
+                    .frame(width: 52, height: 21)
+                    .background(Color.yellow)
+                    .cornerRadius(4)
+                Text("\(stopNameNaver)")
+                    .padding(.bottom, 16)
+            }
         }
         .padding(.top, 8)
         .padding(.horizontal, 16)
@@ -56,8 +58,4 @@ struct ThisStopView: View {
                 .foregroundStyle(.black)
         }
     }
-}
-
-#Preview {
-    ThisStopView(stopNameKorean: "포항제철고등학교", stopNameNaver: "Pohang Jecheol High School", stopNameRomanized: "Pohang Je-cheol Go-deung-hak-gyo")
 }
