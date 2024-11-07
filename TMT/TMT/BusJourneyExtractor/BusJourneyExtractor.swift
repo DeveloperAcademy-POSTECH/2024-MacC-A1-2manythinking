@@ -34,7 +34,8 @@ class BusJourneyExtractor {
             sortOfBuses.contains(where: { busType in element.contains(busType) })
         }), firstColorIndex + 2 < filteredArray.count {
             let twoStepsAfterIndex = firstColorIndex + 2
-            if filteredArray[twoStepsAfterIndex] == "Get" {
+            let threeStepsAfterIndex = firstColorIndex + 3
+            if filteredArray[twoStepsAfterIndex] == "Get" || filteredArray[threeStepsAfterIndex] == "Get" {
                 if sortOfBuses.count < 2 {
                     if sortOfBusNumber.count < 2 {
                         extractedInfo = ocrProcessor.verticalOCROneLineType(filteredArray: filteredArray,  arrivalWordsBack: ArrivalWordsBack.allBackWords)

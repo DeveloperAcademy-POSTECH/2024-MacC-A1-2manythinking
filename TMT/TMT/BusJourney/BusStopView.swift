@@ -15,7 +15,7 @@ struct Coordinate: Identifiable {
 
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
-        @EnvironmentObject var busStopSearchViewModel: BusSearchViewModel
+    @EnvironmentObject var busStopSearchViewModel: BusSearchViewModel
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
     
@@ -42,7 +42,6 @@ struct BusStopView: View {
             }
             busStopSearchViewModel.searchBusStops(by: busStopSearchViewModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
-            print("coordinatesList: \(coordinatesList)")
         }
         // TODO: 실제로 줄어드는지 테스트 필요
         .onChange(of: busStopSearchViewModel.remainingStops) { searchResults in
@@ -61,9 +60,9 @@ struct BusStopView: View {
             ZStack {
                 Circle()
                     .frame(width: 44, height: 44)
-                    .tint(.gray)
+                    .tint(Color.Basic.grey70)
                 Image(systemName: "location.fill")
-                    .tint(.yellow)
+                    .tint(Color.Basic.yellow500)
             }
         }
     }

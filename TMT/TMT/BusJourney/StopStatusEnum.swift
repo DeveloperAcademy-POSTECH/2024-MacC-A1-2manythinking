@@ -26,11 +26,11 @@ enum StopStatusEnum {
     var backgroundColor: Color {
         switch self {
         case .oneOrZeroStopsRemaining:
-            return .red
+            return Color.StopLeft.left1
         case .twoStopsRemaining:
-            return .orange
+            return Color.StopLeft.left2
         case .threeStopsRemaining:
-            return .yellow
+            return Color.StopLeft.left3
         case .defaultStatus:
             return .white
         }
@@ -41,7 +41,7 @@ enum StopStatusEnum {
         case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
             return .white
         case .defaultStatus:
-            return .orange
+            return Color.Basic.yellow600
         }
     }
     
@@ -50,16 +50,16 @@ enum StopStatusEnum {
         case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
             return .white
         case .defaultStatus:
-            return .gray
+            return Color.Basic.grey400
         }
     }
     
     var pinImage: String {
         switch self {
         case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return "pin_white"
+            return "PinWhite"
         case .defaultStatus:
-            return "pin_yellow"
+            return "PinYellow"
         }
     }
 }

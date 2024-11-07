@@ -80,10 +80,9 @@ struct ScannedJourneyInfoView: View {
                     // TODO: Start Live Activities, and convert to map.
                     busStopSearchViewModel.setJourneyStops(startStopString: startStop, endStopString: endStop)
                     if busStopSearchViewModel.journeyStops.count == 0 {
-                        // TODO: 버스 루트를 못찾았은 경우 에러처리하기
+                        // TODO: 버스 루트를 못찾은 경우 에러처리하기
                     } else {
                         self.tag = 1
-                        
                     }
                 } label: {
                     ZStack {
