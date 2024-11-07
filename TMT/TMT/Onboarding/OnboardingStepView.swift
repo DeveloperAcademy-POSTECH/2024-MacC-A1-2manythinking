@@ -24,10 +24,11 @@ struct OnboardingStepView: View {
                 .resizable()
                 .frame(height: 329)
         }
+        .foregroundStyle(Color.Basic.black)
+        .padding(.bottom, 24.75)
     }
 }
 
 #Preview {
-    let data = OnboardingStep.onboarding1
-    OnboardingStepView(step: data)
+    OnboardingStepView(step: OnboardingStep.onboarding1)
 }
