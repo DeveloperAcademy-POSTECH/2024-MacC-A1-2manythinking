@@ -32,9 +32,9 @@
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */; };
 		D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */; };
-		D8B3C0882CD0D0F000BB6631 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */; };
 		D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchModel.swift */; };
 		D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */; };
+		D8E0560C2CDCA733000CF2D3 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8E0560B2CDCA733000CF2D3 /* BusStopData.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +78,6 @@
 		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
-		5BB6D2532CD372E500F6A487 /* ThisStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisStopView.swift; sourceTree = "<group>"; };
-		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
-		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -93,9 +89,9 @@
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		D8D377E82CBE95C30043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 		D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewModel.swift; sourceTree = "<group>"; };
+		D8E0560B2CDCA733000CF2D3 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -250,7 +246,7 @@
 		D8D377E42CBE548F0043D103 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */,
+				D8E0560B2CDCA733000CF2D3 /* BusStopData.csv */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -358,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
-				D8B3C0882CD0D0F000BB6631 /* BusStopData.csv in Resources */,
+				D8E0560C2CDCA733000CF2D3 /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
