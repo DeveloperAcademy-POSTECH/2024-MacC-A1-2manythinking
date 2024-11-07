@@ -77,8 +77,11 @@ struct ScannedJourneyInfoView: View {
                     }
                 
                 Button {
-                    // TODO: Start Live Activities, and convert to map.
                     busStopSearchViewModel.setJourneyStops(startStopString: startStop, endStopString: endStop)
+                    
+                    guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
+                    liveActivityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
+
                     if busStopSearchViewModel.journeyStops.count == 0 {
                         // TODO: 버스 루트를 못찾은 경우 에러처리하기
                     } else {
