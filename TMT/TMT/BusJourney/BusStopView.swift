@@ -18,6 +18,7 @@ struct BusStopView: View {
     @ObservedObject var busStopSearchViewModel: BusSearchViewModel
     @State private var coordinatesList: [Coordinate] = []
     @State private var journeyStops: [BusStopInfo] = []
+    @State private var passedStops: Int = 0
     
     var endStop: String
     
@@ -26,7 +27,7 @@ struct BusStopView: View {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
             VStack {
-                ThisStopView(stopNameKorean: journeyStops.first?.stopNameKorean ?? "", stopNameNaver: journeyStops.first?.stopNameNaver ?? "", stopNameRomanized: journeyStops.first?.stopNameRomanized ?? "")
+                ThisStopView(stopNameKorean: journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyStops[passedStops].stopNameRomanized ?? "")
                 HStack {
                     Spacer()
                     controlsView
@@ -39,7 +40,7 @@ struct BusStopView: View {
         }
         // TODO: 테스트 필요
         .onChange(of: busStopSearchViewModel.remainingStops) { searchResults in
-            journeyStops = busStopSearchViewModel.journeyStops
+            passedStops = journeyStops.count - busStopSearchViewModel.remainingStops
         }
         .onAppear {
             if locationManager.isFirstLoad {
