@@ -35,7 +35,6 @@
 		D8B3C0882CD0D0F000BB6631 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */; };
 		D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchModel.swift */; };
 		D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */; };
-		D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EC2CBE95D10043D103 /* BusSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 		D8B3C0872CD0D0F000BB6631 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		D8D377E82CBE95C30043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 		D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewModel.swift; sourceTree = "<group>"; };
-		D8D377EC2CBE95D10043D103 /* BusSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -262,7 +260,6 @@
 			children = (
 				D8D377E82CBE95C30043D103 /* BusSearchModel.swift */,
 				D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */,
-				D8D377EC2CBE95D10043D103 /* BusSearchView.swift */,
 			);
 			path = BusSearch;
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 				5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
 				D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */,
-				D8D377ED2CBE95D10043D103 /* BusSearchView.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
 				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
