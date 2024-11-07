@@ -42,7 +42,7 @@ struct BusStopViewWrapper: UIViewRepresentable {
             if annotationView == nil {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true
-                let busStopImage = UIImage(named: "busStopIcon")
+                let busStopImage = UIImage(named: "BusStopIcon")
                 annotationView?.image = busStopImage
                 annotationView?.frame.size = CGSize(width: 35, height: 35)
                 annotationView?.layer.cornerRadius = 5

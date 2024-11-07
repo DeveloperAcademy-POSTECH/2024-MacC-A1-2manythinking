@@ -57,9 +57,9 @@ enum StopStatusEnum {
     var pinImage: String {
         switch self {
         case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return "pinWhite"
+            return "PinWhite"
         case .defaultStatus:
-            return "pinYellow"
+            return "PinYellow"
         }
     }
 }

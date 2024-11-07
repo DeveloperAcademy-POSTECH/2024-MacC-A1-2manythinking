@@ -27,8 +27,9 @@ struct ThisStopView: View {
                 .padding(.bottom, 18)
             if !stopNameNaver.isEmpty {
                 Text("ENG")
+                    .foregroundStyle(Color.Basic.yellow800)
                     .frame(width: 52, height: 21)
-                    .background(Color.yellow)
+                    .background(Color.Basic.yellow300)
                     .cornerRadius(4)
                 Text("\(stopNameNaver)")
                     .padding(.bottom, 16)
