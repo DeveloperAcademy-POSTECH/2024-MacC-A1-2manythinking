@@ -17,6 +17,26 @@ struct ScannedJourneyInfoView: View {
     @Binding var selectedImage: UIImage?
     @Binding var isLoading: Bool
     
+    @StateObject private var busStopSearchViewModel: BusSearchViewModel
+    @StateObject private var liveActivityManager: LiveActivityManager
+    @StateObject var locationManager: LocationManager
+    
+    @State private var selectedStartStop: BusStopInfo?
+    @State private var selectedEndStop: BusStopInfo?
+    
+    @State private var tag: Int? = nil
+    
+    init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
+        let viewModel = BusSearchViewModel()
+        let liveActivity = LiveActivityManager()
+        _busStopSearchViewModel = StateObject(wrappedValue: viewModel)
+        _liveActivityManager = StateObject(wrappedValue: liveActivity)
+        _locationManager = StateObject(wrappedValue: LocationManager(viewModel: viewModel, activityManager: liveActivity))
+        _scannedJourneyInfo = scannedJourneyInfo
+        _selectedImage = selectedImage
+        _isLoading = isLoading
+    }
+    
     private let ocrService = OCRService()
     
     var body: some View {
@@ -51,9 +71,20 @@ struct ScannedJourneyInfoView: View {
                         }
                     }
                 }
+                NavigationLink(destination: BusStopView().environmentObject(locationManager)
+                    .environmentObject(busStopSearchViewModel), tag: 1, selection: self.$tag) {
+                        EmptyView()
+                    }
                 
                 Button {
                     // TODO: Start Live Activities, and convert to map.
+                    busStopSearchViewModel.setJourneyStops(startStopString: startStop, endStopString: endStop)
+                    if busStopSearchViewModel.journeyStops.count == 0 {
+                        // TODO: 버스 루트를 못찾았은 경우 에러처리하기
+                    } else {
+                        self.tag = 1
+                        
+                    }
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
@@ -67,6 +98,8 @@ struct ScannedJourneyInfoView: View {
             .frame(height: 52)
             .padding(.vertical, 12.5)
         }
+        .environmentObject(locationManager)
+        .environmentObject(busStopSearchViewModel)
         .onAppear {
             splitScannedInfo()
         }
@@ -78,6 +111,15 @@ struct ScannedJourneyInfoView: View {
             busNumber = String(splitted[1])
             startStop = String(splitted[0])
             endStop = String(splitted[2])
+        }
+        if let lastChar = busNumber.last, lastChar == " " {
+            busNumber = String(busNumber.dropLast())
+        }
+        if let lastChar = startStop.last, lastChar == " " {
+            startStop = String(startStop.dropLast())
+        }
+        if let lastChar = endStop.last, lastChar == " " {
+            endStop = String(endStop.dropLast())
         }
     }
     
