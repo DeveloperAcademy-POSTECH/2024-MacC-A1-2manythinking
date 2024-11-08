@@ -21,9 +21,9 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 206,3,19,효자사거리,Hyo-ja Sa-geo-ri,,36.008469,129.338724
 206,3,20,SK뷰2차,SK View I-cha,,36.007872,129.341374
 206,3,21,포항남부경찰서,Po-hang Nam-bu Gyeong-chal-seo,,36.005349,129.34473
-206,3,22,시외버스터미널,Si-oe Bus Terminal,,36.013273,129.350668
-206,3,23,교보생명,Gyo-bo Saeng-myeong,,36.01522,129.35222
-206,3,24,산업은행,Saneom eunhaeng,,36.018107,129.354529
+206,3,22,시외버스터미널,Si-oe Bus Terminal,,36.013409,129.350135
+206,3,23,교보생명,Gyo-bo Saeng-myeong,,36.015692,129.352214
+206,3,24,산업은행,Saneom eunhaeng,,36.017696,129.353862
 206,3,25,고용복지플러스센터,Go-yong Bok-ji Plus Center,,36.023018,129.358069
 206,3,26,GS슈퍼마켓,GS Supermarket,,36.025677,129.360192
 206,3,27,죽도파출소,Juk-do Pa-chul-so,,36.028436,129.362401
@@ -97,11 +97,11 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 209,3,31,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
 209,3,32,형산로타리,Hyeong-san Rotary,,36.011501,129.369179
 209,3,33,형산로터리(무정차),Hyeong-san Rotary (Mu-jeong-cha),,36.011029,129.372525
-209,3,34,현대제철,Hyundai Je-cheol,,36.0072,129.377528
-209,3,35,단지주유소,Dan-ji Ju-yu-so,,36.004102,129.380623
-209,3,36,포스코본사,Posco Bon-sa,,36.000537,129.385233
-209,3,37,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-209,3,38,포스코2문,Posco I-mun,,35.995378,129.392534
+209,3,34,현대제철,Hyundai Je-cheol,,36.006861,129.377091
+209,3,35,단지주유소,Dan-ji Ju-yu-so,,36.003484,129.380538
+209,3,36,포스코본사,Posco Bon-sa,,36.000276,129.384921
+209,3,37,포항스틸야드,Po-hang Steel Yard,,35.997267,129.388871
+209,3,38,포스코2문,Posco I-mun,,35.994695,129.392518
 209,3,39,남구보건소(무정차),Nam-gu Bo-geon-so (Mu-jeong-cha),,35.99336,129.394059
 209,3,40,남구보건소,Nam-gu Bo-geon-so,,35.992607,129.396835
 209,3,41,청림파출소,Cheong-nim Pa-chul-so,,35.995731,129.403449
@@ -213,9 +213,9 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 216,3,40,이마트 이동점,Emart I-dong-jeom,,36.031083,129.338622
 216,3,41,이동그린빌,I-dong GreenVille,,36.028065,129.340019
 216,3,42,이동온천,I-dong On-cheon,,36.024877,129.340873
-216,3,43,대잠그린파크,Dae-jam Green Park,,36.020316,129.341176
-216,3,44,시청,Si-cheong,,36.018018,129.341418
-216,3,45,포항성모병원,Po-hang Seong-mo Byeong-won,,36.015804,129.341274
+216,3,43,대잠그린파크,Dae-jam Green Park,,36.020257,129.340986
+216,3,44,시청,Si-cheong,,36.018325,129.341043
+216,3,45,포항성모병원,Po-hang Seong-mo Byeong-won,,36.0153367,129.340859
 216,3,46,대잠사거리,Dae-jam Sa-geo-ri,,36.011389,129.34449
 216,3,47,상도코아루,Sang-do Koaroo,,36.008293,129.346369
 216,3,48,자이아파트,Xi A-pa-teu,,36.007887,129.341861
@@ -286,11 +286,11 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 219,3,8,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
 219,3,9,형산로타리,Hyeong-san Rotary,,36.011501,129.369179
 219,3,10,형산로터리(무정차),Hyeong-san Rotary (Mu-jeong-cha),,36.011029,129.372525
-219,3,11,현대제철,Hyundai Je-cheol,,36.0072,129.377528
-219,3,12,단지주유소,Dan-ji Ju-yu-so,,36.004102,129.380623
-219,3,13,포스코본사,Posco Bon-sa,,36.000537,129.385233
-219,3,14,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-219,3,15,포스코2문,Posco I-mun,,35.995378,129.392534
+219,3,11,현대제철,Hyundai Je-cheol,,36.006861,129.377091
+219,3,12,단지주유소,Dan-ji Ju-yu-so,,36.003484,129.380538
+219,3,13,포스코본사,Posco Bon-sa,,36.000276,129.384921
+219,3,14,포항스틸야드,Po-hang Steel Yard,,35.997267,129.388871
+219,3,15,포스코2문,Posco I-mun,,35.994695,129.392518
 219,3,16,남구보건소(무정차),Nam-gu Bo-geon-so (Mu-jeong-cha),,35.99336,129.394059
 219,3,17,남구보건소,Nam-gu Bo-geon-so,,35.992607,129.396835
 219,3,18,청림파출소,Cheong-nim Pa-chul-so,,35.995731,129.403449
@@ -311,6 +311,40 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 219,3,33,석리,Seong-ni,,35.987247,129.460149
 219,3,34,신형주택입구,Sin-hyeong Ju-taek Ip-gu,,35.988327,129.472349
 219,3,35,삼양신형아파트,Sam-yang Sin-hyeong A-pa-teu,,35.989494,129.476055
+219,3,36,신형주택입구,Sin-hyeong Ju-taek Ip-gu,,35.988327,129.472349
+219,3,37,석리,Seong-ni,,35.987247,129.460149
+219,3,38,약전리,Yak-jeol-li,,35.988687,129.452389
+219,3,39,황금상가,Hwang-geum Sang-ga,,35.988119,129.448843
+219,3,40,신정리,Sin-jeong-ni,,35.988019,129.445991
+219,3,41,동해초등학교,Dong-hae Cho-deung-hak-gyo,,35.987557,129.441894
+219,3,42,코아루블루인시티,Koaroo Blue In City,,35.981054,129.443897
+219,3,43,동해초등학교,Dong-hae Cho-deung-hak-gyo,,35.987557,129.441894
+219,3,44,동해면행정복지센터,Dong-hae-myeon Haeng-jeong Bok-ji Center,,35.988842,129.44021
+219,3,45,동해환승센터,Dong-hae Hwan-seung Center,,35.98872,129.436783
+219,3,46,공항주유소,Gong-hang Ju-yu-so,,35.990354,129.42863
+219,3,47,화신식물원,Hwa-sin Sing-mu-rwon,,35.991739,129.423883
+219,3,48,포항남부소방서,Po-hang Nam-bu So-bang-seo,,35.992302,129.420302
+219,3,49,해군 항공역사관,Hae-gun Hang-gong Yeok-sa-gwan,,35.995049,129.412731
+219,3,50,해병대BOQ,Hae-byeong-dae BOQ,,35.996531,129.408485
+219,3,51,청림삼거리,Cheong-nim Sam-geo-ri,,35.994466,129.402951
+219,3,52,남구보건소,Nam-gu Bo-geon-so,,35.992607,129.396835
+219,3,53,남보건소(무정차),Nam Bo-geon-so (Mu-jeong-cha),,35.993561,129.394375
+219,3,54,포스코2문,Posco I-mun,,35.995378,129.392534
+219,3,55,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
+219,3,56,포스코본사,Posco Bon-sa,,36.000537,129.385233
+219,3,57,단지주유소,Dan-ji Ju-yu-so,,36.004102,129.380623
+219,3,58,현대제철,Hyundai Je-cheol,,36.0072,129.377528
+219,3,59,형산로터리(무정차),Hyeong-san Rotary (Mu-jeong-cha),,36.011029,129.372525
+219,3,60,형산로터리,Hyeong-san Rotary,,36.011641,129.368446
+219,3,61,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
+219,3,62,대해시장,Dae-hae Si-jang,,36.019766,129.369246
+219,3,63,해도119안전센터,Hae-do I-ril-gu An-jeon Center,,36.022841,129.369901
+219,3,64,고속버스터미널,Go-sok Bus Terminal,,36.027017,129.367614
+219,3,65,오거리,O-geo-ri,,36.031311,129.366234
+219,3,66,죽도시장,Juk-do Si-jang,,36.035694,129.365236
+219,3,67,육거리,Yuk-geo-ri,,36.039702,129.366432
+219,3,68,수인사,Su-in-sa,,36.040963,129.365311
+219,3,69,도심환승센터,Do-sim Hwan-seung Center,,36.043214,129.365284
 302,3,0,문덕차고지,Mun-deok Cha-go-ji,,35.940508,129.389981
 302,3,1,문덕2리,Mun-deok I-ri,,35.940892,129.392206
 302,3,2,운전면허시험장,Un-jeon Myeon-heo Si-heom-jang,,35.942854,129.394748
@@ -425,8 +459,8 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 302,3,111,KT(세명기독병원),KT (Se-myeong Gi-dok Byeong-won),,36.017171,129.360454
 302,3,112,상대지구대,Sang-dae Ji-gu-dae,,36.015184,129.358859
 302,3,113,쌍용사거리,Ssang-yong Sa-geo-ri,,36.015336,129.35494
-302,3,114,교보생명,Gyobo saengmyeong,,36.01522,129.35222
-302,3,115,시외버스터미널,Si-oe Bus Terminal,,36.013273,129.350668
+302,3,114,교보생명,Gyobo saengmyeong,,36.015692,129.352214
+302,3,115,시외버스터미널,Si-oe Bus Terminal,,36.013409,129.350135
 302,3,116,상도코아루,Sang-do Koaroo,,36.008293,129.346369
 302,3,117,포항남부경찰서,Po-hang Nam-bu Gyeong-chal-seo,,36.005349,129.34473
 302,3,118,경북자동차학원,Gyeong-buk Ja-dong-cha Ha-gwon,,35.997923,129.344061
@@ -454,288 +488,291 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 302,3,140,운전면허시험장,Un-jeon Myeon-heo Si-heom-jang,,35.942854,129.394748
 302,3,141,문덕2리,Mun-deok I-ri,,35.940892,129.392206
 302,3,142,문덕차고지,Mun-deok Cha-go-ji,,35.940508,129.389981
-306(기본),3,0,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940508,129.389981
+306(기본),3,0,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940064,129.389507
 306(기본),3,1,문덕2리,Mun-deok I-ri,Mundeok 2 Ri,35.940892,129.392206
 306(기본),3,2,운전면허시험장,Un-jeon Myeon-heo Si-heom-jang,Drivers License Test Center,35.942854,129.394748
 306(기본),3,3,오천읍민운동장,Oh-cheon Eup-min Un-dong-jang,Ocheon Residents Field,35.944972,129.399565
 306(기본),3,4,문덕마을회관,Mun-deok Maeul Hoe-gwan,Mundeok Village Hall,35.953121,129.406484
-306(기본),3,5,문덕1리,Mun-deok Il-ri,Mundeok 1 Ri,35.955453,129.405166
-306(기본),3,6,국민빌라,Guk-min Bil-la,Gungmin Villa,35.957409,129.402765
-306(기본),3,7,준양주택3차,Jun-yang Ju-taek Sam-cha,Junyang House #3,35.960003,129.402824
-306(기본),3,8,문덕사거리,Mun-deok Sa-geori,Mundeok Sageori,35.962298,129.402884
+306(기본),3,5,문덕1리,Mun-deok Il-ri,Mundeok 1 Ri,35.955609,129.404757
+306(기본),3,6,국민빌라,Guk-min Bil-la,Gungmin Villa,35.956759,129.403023
+306(기본),3,7,준양주택3차,Jun-yang Ju-taek Sam-cha,Junyang House #3,35.960904,129.403064
+306(기본),3,8,문덕사거리,Mun-deok Sa-geori,Mundeok Sageori,35.962222,129.403161
 306(기본),3,9,포은중학교,Po-eun Jung-hak-gyo,,35.965344,129.40313
-306(기본),3,10,새마을금고원동지점,Sae-ma-eul Geum-go Won-dong Ji-jeom,,35.967183,129.402646
+306(기본),3,10,새마을금고원동지점,Sae-ma-eul Geum-go Won-dong Ji-jeom,,35.967152,129.403009
 306(기본),3,11,오천농협원동지점,Oh-cheon Nong-hyeop Won-dong Ji-jeom,,35.970007,129.402776
 306(기본),3,12,부영사랑3차,Bu-yeong Sa-rang Sam-cha,Buyeong Sarang #3,35.973022,129.402512
-306(기본),3,13,원리,Won-ri,Wolli,35.975475,129.4021
-306(기본),3,14,원용교,Won-yong Gyo,Wonyonggyo,35.975204,129.408194
-306(기본),3,15,여성장애인복지관,Yeo-seong Jang-ae-in Bok-ji-gwan,,35.971356,129.409493
-306(기본),3,16,냉천수변공원,Nyeong-cheon Su-byeon Gong-won,,35.968319,129.409847
-306(기본),3,17,대궁꿈마을아파트,Dae-gung Kkum Maeul A-pa-teu,,35.963074,129.407645
-306(기본),3,18,문덕초등학교,Mun-deok Cho-deung Hak-gyo,Mundeok Elementary School,35.958952,129.408531
-306(기본),3,19,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.962799,129.414085
-306(기본),3,20,오천환승센터,Oh-cheon Hwan-seung Sent-teo,Ocheon Transfer Center,35.965666,129.414804
-306(기본),3,21,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
-306(기본),3,22,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
-306(기본),3,23,용덕사거리,Yong-deok Sa-geori,Yongdeok Sageori,35.973335,129.414732
-306(기본),3,24,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
-306(기본),3,25,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
-306(기본),3,26,구정1리,Gu-jeong Il-ri,,35.982369,129.410905
-306(기본),3,27,구정리,Gu-jeong-ri,Gujeong-ri,35.98451,129.409809
-306(기본),3,28,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
-306(기본),3,29,청림동,Cheong-rim Dong,,35.991648,129.406801
-306(기본),3,30,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
-306(기본),3,31,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
-306(기본),3,32,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
-306(기본),3,33,남보건소(무정차),Nam Bo-geon-so (Mu-jeong-cha),SouthCommunity Health Center (Non-stop),35.993561,129.394375
-306(기본),3,34,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.995378,129.392534
-306(기본),3,35,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-306(기본),3,36,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000537,129.385233
-306(기본),3,37,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.004102,129.380623
-306(기본),3,38,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.0072,129.377528
-306(기본),3,39,형산로터리(무정차),Hyeong-san Ro-teo-ri (Mu-jeong-cha),Hyungsan Rotary (Non-stop),36.011029,129.372525
-306(기본),3,40,협력회관,Hyeob-ryeok Hoe-gwan,Cooperation Hall,36.01352,129.369234
-306(기본),3,41,초원아파트,Cho-won A-pa-teu,Chowon Apartment,36.014322,129.366743
-306(기본),3,42,세명기독병원,Se-myeong Gi-dok Byeong-won,,36.017612,129.361468
-306(기본),3,43,산업은행,San-eop Eun-haeng,KDB,36.018107,129.354529
-306(기본),3,44,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
-306(기본),3,45,시외버스터미널,Si-oe Beo-seu-teo-mi-neol,Intercity Bus Terminal,36.013273,129.350668
-306(기본),3,46,대잠사거리,Dae-jam Sa-geori,Daejam Sageori,36.011389,129.34449
-306(기본),3,47,포항성모병원,Po-hang Seong-mo Byeong-won,,36.015804,129.341274
-306(기본),3,48,시청,Si-cheong,City Hall,36.018018,129.341418
-306(기본),3,49,대잠그린파크,Dae-jam Geu-rin Pa-keu,Daejam Green Park,36.020316,129.341176
-306(기본),3,50,대잠센트럴하이츠,Dae-jam Sen-teu-reol Hai-cheu,Daejam Central Heights,36.021622,129.339648
-306(기본),3,51,이동사거리,Idong Sa-geori,A moving distance,36.024611,129.338393
-306(기본),3,52,포항건강랜드,Po-hang Geon-gang Raendeu,Pohang Health Land,36.026752,129.332822
-306(기본),3,53,롯데마트,Rot-te Ma-teu,Lotte Mart,36.02798,129.324989
-306(기본),3,54,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029468,129.323726
-306(기본),3,55,현대그린아파트,Hyeon-dae Geu-rin A-pa-teu,Hyeondae Green Apartment,36.030903,129.318607
-306(기본),3,56,포항테크노파크,Po-hang Te-keu-no Pa-keu,Pohang Techno Park,36.031723,129.315805
-306(기본),3,57,LG빌라,LG Bil-la,LG Villa,36.028164,129.314298
-306(기본),3,58,LG빌라입구,LG Bil-la Ip-gu,LG Villa Entrance,36.027269,129.31723
-306(기본),3,59,산책로,Sanchek-ro,Sanchaengno,36.026208,129.320713
-306(기본),3,60,교수아파트,Gyosu A-pa-teu,Teacher Apartment,36.022743,129.325194
-306(기본),3,61,포항제철공고,Po-hang Je-cheol Gong-go,,36.021079,129.325287
-306(기본),3,62,포스텍,Po-seu-teok,Force Tec,36.015169,129.325127
-306(기본),3,63,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
-306(기본),3,64,승리아파트,Seung-ri A-pa-teu,Seungri’s,36.008422,129.328594
-306(기본),3,65,효자동,Hyo-ja-dong,Hyoja-dong,36.006146,129.325785
-306(기본),3,66,유강코아루,Yu-gang Ko-a-ru,An oil-filled nose ring,36.005806,129.321276
-306(기본),3,67,유강청구타운,Yu-gang Cheong-gu Ta-un,Yugang Cheonggu Town,36.005039,129.319561
-306(기본),3,68,유강코아루,Yu-gang Ko-a-ru,Yugang Koaru,36.005806,129.321276
-306(기본),3,69,효자동,Hyo-ja-dong,Hyoja-dong,36.006146,129.325785
-306(기본),3,70,승리아파트,Seung-ri A-pa-teu,Seungni Apartment,36.008422,129.328594
-306(기본),3,71,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
-306(기본),3,72,포스텍,Po-seu-teok,Force Tec,36.015169,129.325127
-306(기본),3,73,포항제철공고,Po-hang Je-cheol Gong-go,,36.021079,129.325287
-306(기본),3,74,산책로,Sanchek-ro,Walkway,36.026208,129.320713
-306(기본),3,75,LG빌라입구,LG Bil-la Ip-gu,LG Villa Entrance,36.027269,129.31723
-306(기본),3,76,LG빌라,LG Bil-la,LG Villa,36.028164,129.314298
-306(기본),3,77,포항테크노파크,Po-hang Te-keu-no Pa-keu,Pohang Techno Park,36.031723,129.315805
-306(기본),3,78,삼성그린아파트,Sam-seong Geu-rin A-pa-teu,Samsung Green Apt,36.030557,129.318938
-306(기본),3,79,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029468,129.323726
-306(기본),3,80,롯데마트,Rot-te Ma-teu,Lotte Mart,36.02798,129.324989
-306(기본),3,81,포스코 교육재단,Po-seu-ko Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
-306(기본),3,82,포항건강랜드,Po-hang Geon-gang Raendeu,Pohang Health Land,36.026752,129.332822
-306(기본),3,83,이동사거리,Idong Sa-geori,Idong Sageori,36.024611,129.338393
-306(기본),3,84,대잠센트럴하이츠,Dae-jam Sen-teu-reol Hai-cheu,Daejam Central Heights,36.021622,129.339648
-306(기본),3,85,대잠그린파크,Dae-jam Geu-rin Pa-keu,Daejam Green Park,36.020316,129.341176
-306(기본),3,86,시청,Si-cheong,City Hall,36.018018,129.341418
-306(기본),3,87,포항성모병원,Po-hang Seong-mo Byeong-won,,36.015804,129.341274
-306(기본),3,88,시외버스터미널,Si-oe Beo-seu-teo-mi-neol,Intercity Bus Terminal,36.013273,129.350668
-306(기본),3,89,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
-306(기본),3,90,산업은행,San-eop Eun-haeng,KDB,36.018107,129.354529
-306(기본),3,91,KT포항지사,KT Po-hang Ji-sa,KT Pohang Branch,36.017031,129.361606
-306(기본),3,92,초원아파트,Cho-won A-pa-teu,Chowon Apartment,36.014322,129.366743
-306(기본),3,93,협력회관,Hyeob-ryeok Hoe-gwan,Cooperation Hall,36.01352,129.369234
-306(기본),3,94,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.0072,129.377528
-306(기본),3,95,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.004102,129.380623
-306(기본),3,96,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000537,129.385233
-306(기본),3,97,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-306(기본),3,98,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.995378,129.392534
-306(기본),3,99,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
-306(기본),3,100,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
-306(기본),3,101,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
-306(기본),3,102,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
-306(기본),3,103,구정리,Gu-jeong-ri,Gujeoung-ri,35.98451,129.409809
-306(기본),3,104,구정1리,Gu-jeong Il-ri,,35.982369,129.410905
-306(기본),3,105,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
-306(기본),3,106,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
-306(기본),3,107,용덕사거리,Yong-deok Sa-geori,Yongdeok Sageori,35.973335,129.414732
-306(기본),3,108,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
-306(기본),3,109,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
-306(기본),3,110,오천환승센터(간선),Oh-cheon Hwan-seung Sent-teo (Gan-seon),Ocheon Transfer Center,35.965759,129.414734
-306(기본),3,111,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.962799,129.414085
-306(기본),3,112,문덕초등학교,Mun-deok Cho-deung Hak-gyo,Mundeok Elementary School,35.958952,129.408531
-306(기본),3,113,대궁꿈마을아파트,Dae-gung Kkum Maeul A-pa-teu,,35.963074,129.407645
-306(기본),3,114,냉천수변공원,Nyeong-cheon Su-byeon Gong-won,,35.968319,129.409847
-306(기본),3,115,여성장애인복지관,Yeo-seong Jang-ae-in Bok-ji-gwan,,35.971356,129.409493
-306(기본),3,116,원용교,Won-yong Gyo,,35.975204,129.408194
-306(기본),3,117,원리,Won-ri,Wolli,35.975475,129.4021
-306(기본),3,118,부영사랑3차,Bu-yeong Sa-rang Sam-cha,Buyeong Sarang #3,35.973022,129.402512
-306(기본),3,119,오천농협원동지점,Oh-cheon Nong-hyeop Won-dong Ji-jeom,,35.970007,129.402776
-306(기본),3,120,새마을금고원동지점,Sae-ma-eul Geum-go Won-dong Ji-jeom,,35.967183,129.402646
-306(기본),3,121,원동초등학교,Won-dong Cho-deung Hak-gyo,Wondong Elementary School,35.965274,129.402809
-306(기본),3,122,문덕사거리,Mun-deok Sa-geori,Mundeok Sageori,35.962298,129.402884
-306(기본),3,123,준양주택3차,Jun-yang Ju-taek Sam-cha,Junyang House #3,35.960003,129.402824
-306(기본),3,124,국민빌라,Guk-min Bil-la,Gungmin Villa,35.957409,129.402765
-306(기본),3,125,문덕1리,Mun-deok Il-ri,Mundeok 1 Ri,35.955453,129.405166
-306(기본),3,126,문덕마을회관,Mun-deok Maeul Hoe-gwan,Mundeok Village Hall,35.953121,129.406484
-306(기본),3,127,오천읍민운동장,Oh-cheon Eup-min Un-dong-jang,Ocheon Residents Field,35.944972,129.399565
-306(기본),3,128,운전면허시험장,Un-jeon Myeon-heo Si-heom-jang,Drivers License Test Center,35.942854,129.394748
-306(기본),3,129,문덕2리,Mun-deok I-ri,Mundeok 2 Ri,35.940892,129.392206
-306(기본),3,130,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940508,129.389981
+306(기본),3,13,원리,Won-ri,Wolli,35.975800,129.402969
+306(기본),3,14,힐스테이트포항,Hil-seu-tei-teu Pohang,,35.975980,129.405090
+306(기본),3,15,원용교,Won-yong Gyo,Wonyonggyo,35.976241,129.407067
+306(기본),3,16,여성장애인복지관,Yeo-seong Jang-ae-in Bok-ji-gwan,,35.971356,129.409493
+306(기본),3,17,냉천수변공원,Nyeong-cheon Su-byeon Gong-won,,35.968319,129.409847
+306(기본),3,18,대궁꿈마을아파트,Dae-gung Kkum Maeul A-pa-teu,,35.963074,129.407645
+306(기본),3,19,문덕초등학교,Mun-deok Cho-deung Hak-gyo,Mundeok Elementary School,35.961476,129.410073
+306(기본),3,20,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.962799,129.414085
+306(기본),3,21,오천환승센터,Oh-cheon Hwan-seung Sent-teo,Ocheon Transfer Center,35.965666,129.414804
+306(기본),3,22,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967617,129.415909
+306(기본),3,23,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.970266,129.416200
+306(기본),3,24,용덕사거리,Yong-deok Sa-geori,Yongdeok Sageori,35.972867,129.415081
+306(기본),3,25,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.975740,129.413859
+306(기본),3,26,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.978755,129.412592
+306(기본),3,27,구정1리,Gu-jeong Il-ri,,35.982393,129.411092
+306(기본),3,28,구정리,Gu-jeong-ri,Gujeong-ri,35.984586,129.409981
+306(기본),3,29,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989226,129.406885
+306(기본),3,30,청림동,Cheong-rim Dong,,35.991648,129.406801
+306(기본),3,31,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.993237,129.405239
+306(기본),3,32,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994578,129.402602
+306(기본),3,33,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992869,129.397055
+306(기본),3,34,남보건소(무정차),Nam Bo-geon-so (Mu-jeong-cha),SouthCommunity Health Center (Non-stop),35.993561,129.394375
+306(기본),3,35,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.995378,129.392534
+306(기본),3,36,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
+306(기본),3,37,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000537,129.385233
+306(기본),3,38,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.004102,129.380623
+306(기본),3,39,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.0072,129.377528
+306(기본),3,40,형산로터리(무정차),Hyeong-san Ro-teo-ri (Mu-jeong-cha),Hyungsan Rotary (Non-stop),36.011029,129.372525
+306(기본),3,41,협력회관,Hyeob-ryeok Hoe-gwan,Cooperation Hall,36.01352,129.369234
+306(기본),3,42,초원아파트,Cho-won A-pa-teu,Chowon Apartment,36.014627,129.367057
+306(기본),3,43,세명기독병원,Se-myeong Gi-dok Byeong-won,,36.017612,129.361468
+306(기본),3,44,산업은행,San-eop Eun-haeng,KDB,36.017696,129.353862
+306(기본),3,45,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.015692,129.352214
+306(기본),3,46,시외버스터미널,Si-oe Beo-seu-teo-mi-neol,Intercity Bus Terminal,36.013409,129.350135
+306(기본),3,47,대잠사거리,Dae-jam Sa-geori,Daejam Sageori,36.011389,129.34449
+306(기본),3,48,포항성모병원,Po-hang Seong-mo Byeong-won,,36.015804,129.341274
+306(기본),3,49,시청,Si-cheong,City Hall,36.018018,129.341418
+306(기본),3,50,대잠그린파크,Dae-jam Geu-rin Pa-keu,Daejam Green Park,36.020316,129.341176
+306(기본),3,51,대잠센트럴하이츠,Dae-jam Sen-teu-reol Hai-cheu,Daejam Central Heights,36.021622,129.339648
+306(기본),3,52,이동사거리,Idong Sa-geori,A moving distance,36.025480,129.336749
+306(기본),3,53,포항건강랜드,Po-hang Geon-gang Raendeu,Pohang Health Land,36.026400,129.333515
+306(기본),3,54,롯데마트,Rot-te Ma-teu,Lotte Mart,36.028399,129.325077
+306(기본),3,55,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029636,129.323545
+306(기본),3,56,현대그린아파트,Hyeon-dae Geu-rin A-pa-teu,Hyeondae Green Apartment,36.030903,129.318607
+306(기본),3,57,포항테크노파크,Po-hang Te-keu-no Pa-keu,Pohang Techno Park,36.031723,129.315805
+306(기본),3,58,LG빌라,LG Bil-la,LG Villa,36.028164,129.314298
+306(기본),3,59,LG빌라입구,LG Bil-la Ip-gu,LG Villa Entrance,36.027269,129.31723
+306(기본),3,60,산책로,Sanchek-ro,Sanchaengno,36.026208,129.320713
+306(기본),3,61,교수아파트,Gyosu A-pa-teu,Teacher Apartment,36.022743,129.325194
+306(기본),3,62,포항제철공고,Po-hang Je-cheol Gong-go,,36.019465,129.324876
+306(기본),3,63,포스텍,Po-seu-teok,Force Tec,36.016091,129.324563
+306(기본),3,64,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.011735,129.326624
+306(기본),3,65,승리아파트,Seung-ri A-pa-teu,Seungri’s,36.008396,129.328409
+306(기본),3,66,효자동,Hyo-ja-dong,Hyoja-dong,36.006309,129.325960
+306(기본),3,67,유강코아루,Yu-gang Ko-a-ru,An oil-filled nose ring,36.007249,129.320123
+306(기본),3,68,유강청구타운,Yu-gang Cheong-gu Ta-un,Yugang Cheonggu Town,36.005039,129.319561
+306(기본),3,69,유강코아루,Yu-gang Ko-a-ru,Yugang Koaru,36.005756,129.321276
+306(기본),3,70,효자동,Hyo-ja-dong,Hyoja-dong,36.006146,129.325785
+306(기본),3,71,승리아파트,Seung-ri A-pa-teu,Seungni Apartment,36.008969,129.328249
+306(기본),3,72,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
+306(기본),3,73,포스텍,Po-seu-teok,Force Tec,36.015169,129.325127
+306(기본),3,74,포항제철공고,Po-hang Je-cheol Gong-go,,36.021079,129.325287
+306(기본),3,75,산책로,Sanchek-ro,Walkway,36.026401,129.320804
+306(기본),3,76,LG빌라입구,LG Bil-la Ip-gu,LG Villa Entrance,36.027393,129.317529
+306(기본),3,77,LG빌라,LG Bil-la,LG Villa,36.028082,129.315120
+306(기본),3,78,포항테크노파크,Po-hang Te-keu-no Pa-keu,Pohang Techno Park,36.031623,129.315631
+306(기본),3,79,삼성그린아파트,Sam-seong Geu-rin A-pa-teu,Samsung Green Apt,36.030557,129.318938
+306(기본),3,80,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029468,129.323726
+306(기본),3,81,롯데마트,Rot-te Ma-teu,Lotte Mart,36.02798,129.324989
+306(기본),3,82,포스코 교육재단,Po-seu-ko Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
+306(기본),3,83,포항건강랜드,Po-hang Geon-gang Raendeu,Pohang Health Land,36.026563,129.332753
+306(기본),3,84,이동사거리,Idong Sa-geori,Idong Sageori,36.024611,129.338393
+306(기본),3,85,대잠센트럴하이츠,Dae-jam Sen-teu-reol Hai-cheu,Daejam Central Heights,36.021602,129.338846
+306(기본),3,86,대잠그린파크,Dae-jam Geu-rin Pa-keu,Daejam Green Park,36.020257,129.340986
+306(기본),3,87,시청,Si-cheong,City Hall,36.018325,129.341043
+306(기본),3,88,포항성모병원,Po-hang Seong-mo Byeong-won,,36.0153367,129.340859
+306(기본),3,89,시외버스터미널,Si-oe Beo-seu-teo-mi-neol,Intercity Bus Terminal,36.013273,129.350668
+306(기본),3,90,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
+306(기본),3,91,산업은행,San-eop Eun-haeng,KDB,36.018107,129.354529
+306(기본),3,92,KT포항지사,KT Po-hang Ji-sa,KT Pohang Branch,36.017031,129.361606
+306(기본),3,93,초원아파트,Cho-won A-pa-teu,Chowon Apartment,36.014322,129.366743
+306(기본),3,94,협력회관,Hyeob-ryeok Hoe-gwan,Cooperation Hall,36.013015,129.369251
+306(기본),3,95,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.006861,129.377091
+306(기본),3,96,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.003484,129.380538
+306(기본),3,97,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000276,129.384921
+306(기본),3,98,포항스틸야드,Po-hang Steel Yard,,35.997267,129.388871
+306(기본),3,99,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.994695,129.392518
+306(기본),3,100,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
+306(기본),3,101,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
+306(기본),3,102,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
+306(기본),3,103,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
+306(기본),3,104,구정리,Gu-jeong-ri,Gujeoung-ri,35.98451,129.409809
+306(기본),3,105,구정1리,Gu-jeong Il-ri,,35.982369,129.410905
+306(기본),3,106,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
+306(기본),3,107,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
+306(기본),3,108,용덕사거리,Yong-deok Sa-geori,Yongdeok Sageori,35.973335,129.414732
+306(기본),3,109,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
+306(기본),3,110,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
+306(기본),3,111,오천환승센터(간선),Oh-cheon Hwan-seung Sent-teo (Gan-seon),Ocheon Transfer Center,35.965759,129.414734
+306(기본),3,112,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.963012,129.413979
+306(기본),3,113,문덕초등학교,Mun-deok Cho-deung Hak-gyo,Mundeok Elementary School,35.961769,129.410164
+306(기본),3,114,대궁꿈마을아파트,Dae-gung Kkum Maeul A-pa-teu,,35.963016,129.407903
+306(기본),3,115,냉천수변공원,Nyeong-cheon Su-byeon Gong-won,,35.968360,129.410092
+306(기본),3,116,여성장애인복지관,Yeo-seong Jang-ae-in Bok-ji-gwan,,35.971546,129.409701
+306(기본),3,117,힐스테이트포항,Hil-seu-tei-teu Pohang,,35.975204,129.408194
+306(기본),3,118,원리,Won-ri,Wolli,35.975475,129.4021
+306(기본),3,119,부영사랑3차,Bu-yeong Sa-rang Sam-cha,Buyeong Sarang #3,35.972753,129.402195
+306(기본),3,120,오천농협원동지점,Oh-cheon Nong-hyeop Won-dong Ji-jeom,,35.969659,129.402487
+306(기본),3,121,새마을금고원동지점,Sae-ma-eul Geum-go Won-dong Ji-jeom,,35.967183,129.402646
+306(기본),3,122,원동초등학교,Won-dong Cho-deung Hak-gyo,Wondong Elementary School,35.965274,129.402809
+306(기본),3,123,문덕사거리,Mun-deok Sa-geori,Mundeok Sageori,35.962298,129.402884
+306(기본),3,124,준양주택3차,Jun-yang Ju-taek Sam-cha,Junyang House #3,35.960003,129.402824
+306(기본),3,125,국민빌라,Guk-min Bil-la,Gungmin Villa,35.957409,129.402765
+306(기본),3,126,문덕1리,Mun-deok Il-ri,Mundeok 1 Ri,35.955453,129.405166
+306(기본),3,127,문덕마을회관,Mun-deok Maeul Hoe-gwan,Mundeok Village Hall,35.953073,129.406221
+306(기본),3,128,오천읍민운동장,Oh-cheon Eup-min Un-dong-jang,Ocheon Residents Field,35.944899,129.399093
+306(기본),3,129,운전면허시험장,Un-jeon Myeon-heo Si-heom-jang,Drivers License Test Center,35.942854,129.394748
+306(기본),3,130,문덕2리,Mun-deok I-ri,Mundeok 2 Ri,35.940892,129.392206
+306(기본),3,131,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940395,129.390300
 308(기본),3,0,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940508,129.389981
 308(기본),3,1,문덕2리,Mun-deok I-ri,Mundeok 2 Ri,35.940892,129.392206
 308(기본),3,2,문충삼거리,Mun-chung Sam-geori,,35.940423,129.39378
 308(기본),3,3,용산아파트,Yong-san A-pa-teu,Yongsan Apartment,35.94063,129.399179
 308(기본),3,4,용산1리,Yong-san Il-ri,Yongsan 1 Ri,35.941986,129.401757
 308(기본),3,5,용산2리,Yong-san I-ri,Yongsan 2 Ri,35.944397,129.40801
-308(기본),3,6,천마아파트,Cheon-ma A-pa-teu,Cheonma Apartment,35.949635,129.409916
-308(기본),3,7,신문덕코아루,Sin-mun-deok Ko-a-ru,a newspaper dukkoaru,35.952185,129.407806
-308(기본),3,8,문덕3리,Mun-deok Sam-ri,Mundeok 3 Ri,35.955175,129.409309
-308(기본),3,9,청호하이츠,Cheong-ho Ha-i-cheu,Cheongho Heights,35.95885,129.410324
-308(기본),3,10,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.962799,129.414085
-308(기본),3,11,오천환승센터,Oh-cheon Hwan-seung Sent-teo,Ocheon Transfer Center,35.965666,129.414804
-308(기본),3,12,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
-308(기본),3,13,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
-308(기본),3,14,용덕사거리,Yong-deok Sa-geori,Yondeok Sageori,35.973335,129.414732
-308(기본),3,15,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
-308(기본),3,16,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
-308(기본),3,17,구정1리,Gu-jeong Il-ri,,35.982369,129.410905
-308(기본),3,18,구정리,Gu-jeong-ri,Gujeong-ri,35.98451,129.409809
-308(기본),3,19,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
-308(기본),3,20,청림동,Cheong-rim Dong,,35.991648,129.406801
-308(기본),3,21,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
-308(기본),3,22,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
-308(기본),3,23,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
-308(기본),3,24,남보건소(무정차),Nam Bo-geon-so (Mu-jeong-cha),SouthCommunity Health Center (Non-stop),35.993561,129.394375
-308(기본),3,25,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.995378,129.392534
-308(기본),3,26,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-308(기본),3,27,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000537,129.385233
-308(기본),3,28,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.004102,129.380623
-308(기본),3,29,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.0072,129.377528
-308(기본),3,30,형산로터리(무정차),Hyeong-san Ro-teo-ri (Mu-jeong-cha),Hyungsan Rotary (Non-stop),36.011029,129.372525
-308(기본),3,31,형산로터리,Hyeong-san Ro-teo-ri,HyungSan Rotary,36.011641,129.368446
-308(기본),3,32,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
-308(기본),3,33,대해시장,Dae-hae Si-jang,Daehae Market,36.019766,129.369246
-308(기본),3,34,해도119안전센터,Hae-do 119 An-jeon Sent-teo,Haedo 119 Fire Emergency Center,36.022841,129.369901
-308(기본),3,35,고속버스터미널,Go-sok Beo-seu-teo-mi-neol,Express Bus Terminal,36.027017,129.367614
-308(기본),3,36,오거리,Oh-geori,Ogeori,36.031311,129.366234
-308(기본),3,37,죽도시장,Juk-do Si-jang,Jukdo Market,36.035694,129.365236
-308(기본),3,38,육거리,Yuk-geori,Yukgeori,36.039702,129.366432
-308(기본),3,39,북부시장,Buk-bu Si-jang,Bukbu Market,36.045141,129.367968
-308(기본),3,40,선린병원,Seon-rin Byeong-won,Seollin Hospital,36.047755,129.367636
-308(기본),3,41,건강가정다문화센터,Geon-gang Ga-jeong Da-mun-hwa Sent-teo,,36.047859,129.365578
-308(기본),3,42,우현우방아파트,Wi-hyeon U-bang A-pa-teu,Woobang lu sell Apartment,#N/A,#N/A
-308(기본),3,43,유성여자고등학교,Yu-seong Yeo-ja Go-deung Hak-gyo,,36.053857,129.358442
-308(기본),3,44,영신고등학교,Yeong-sin Go-deung Hak-gyo,Yeongsin High School,36.061333,129.353375
-308(기본),3,45,포항 중앙고등학교,Po-hang Jung-ang Go-deung Hak-gyo,Pohang Jungang High School,36.064004,129.351887
-308(기본),3,46,중앙고->달전,Jung-ang Go -> Dal-jeon,,#N/A,#N/A
-308(기본),3,47,달전(무정차),Dal-jeon (Mu-jeong-cha),Months ago (Non-stop),36.076862,129.343733
-308(기본),3,48,달전리,Dal-jeon-ri,Daljeonlli,36.036139,129.289069
-308(기본),3,49,성곡검문소,Seong-gok Geom-mun-so,Seonggok Checkpoint,36.083182,129.342607
-308(기본),3,50,선린대학교입구,Seon-rin Daehak-gyo Ip-gu,,36.089246,129.340923
-308(기본),3,51,성곡1리,Seong-gok Il-ri,Seonggok 1 Ri,36.091176,129.341673
-308(기본),3,52,초곡삼구트리니엔,Cho-gok Sam-gu Teu-ri-ni-en,Chogok Samgutrinien,36.097132,129.335715
-308(기본),3,53,초곡초등학교,Cho-gok Cho-deung Hak-gyo,Chogok Elementary School,36.096508,129.334561
-308(기본),3,54,초곡리슈빌,Cho-gok Ri-shu-bil,Chogokrishville,36.096007,129.332762
-308(기본),3,55,선린대학후문,Seon-rin Daehak Hu-mun,,36.093433,129.333464
-308(기본),3,56,지엔하임아파트,Ji-en-ha-im A-pa-teu,Zienheim Apartments,36.093413,129.338037
-308(기본),3,57,초곡지구,Cho-gok Ji-gu,Chogok district,36.095591,129.340025
-308(기본),3,58,흥해공고,Hung-hae Gong-go,Heunghae Technical High School,36.103991,129.342287
-308(기본),3,59,남성리,Nam-seong-ri,Namseongni,35.974296,129.355338
-308(기본),3,60,흥해환승센터,Hung-hae Hwan-seung Sent-teo,Heunghae Transfer Center,36.110357,129.347259
-308(기본),3,61,마산사거리(방통대),Ma-san Sa-geori (Bang-tong-dae),,36.111442,129.342328
-308(기본),3,62,한동맨션,Han-dong Maen-syeon,Handong Mansion,36.111973,129.338421
-308(기본),3,63,북송리,Buk-song-ri,Buksongni,36.112418,129.322195
-308(기본),3,64,흥해서부초등학교,Hung-hae Seo-bu Cho-deung Hak-gyo,,36.113042,129.317058
-308(기본),3,65,매산리,Mae-san-ri,Maesalli,36.112987,129.310444
-308(기본),3,66,농업기술센터,Nong-eop Gi-sul Sent-teo,Agricultural Technology Center,36.11388,129.304774
-308(기본),3,67,백련마을,Baeg-ryeon Maeul,Baengnyeon Village,36.114338,129.301817
-308(기본),3,68,용연지입구,Yong-yeon Ji Ip-gu,,36.118596,129.297449
-308(기본),3,69,용연저수지,Yong-yeon Jeo-su-ji,Yongyeon Reservoir,36.124344,129.294752
-308(기본),3,70,아랫범촌,A-raet Beom-chon,Araetbeomchon,36.127933,129.288954
-308(기본),3,71,호리,Ho-ri,Hori,36.12862,129.282915
-308(기본),3,72,가척,Ga-cheok,a family crest,36.129535,129.276802
-308(기본),3,73,사정1리,Sa-jeong Il-ri,Sajeong 1 Ri,36.130209,129.271785
-308(기본),3,74,토성2리,To-seong I-ri,Toseong 2 Ri,36.128475,129.267722
-308(기본),3,75,신광면행정복지센터,Sin-gwang Myeon Haeng-jeong Bok-ji Sent-teo,,36.128459,129.263125
+308(기본),3,6,포항아이파크아파트,Pohang Ai-pakeu Apateu,,35.947142,129.409091
+308(기본),3,7,천마아파트,Cheon-ma A-pa-teu,Cheonma Apartment,35.949635,129.409916
+308(기본),3,8,신문덕코아루,Sin-mun-deok Ko-a-ru,a newspaper dukkoaru,35.952185,129.407806
+308(기본),3,9,문덕3리,Mun-deok Sam-ri,Mundeok 3 Ri,35.955175,129.409309
+308(기본),3,10,청호하이츠,Cheong-ho Ha-i-cheu,Cheongho Heights,35.95885,129.410324
+308(기본),3,11,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.962799,129.414085
+308(기본),3,12,오천환승센터,Oh-cheon Hwan-seung Sent-teo,Ocheon Transfer Center,35.965666,129.414804
+308(기본),3,13,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
+308(기본),3,14,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
+308(기본),3,15,용덕사거리,Yong-deok Sa-geori,Yondeok Sageori,35.973335,129.414732
+308(기본),3,16,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
+308(기본),3,17,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
+308(기본),3,18,구정1리,Gu-jeong Il-ri,,35.982393,129.411092
+308(기본),3,19,구정리,Gu-jeong-ri,Gujeong-ri,35.984586,129.409981
+308(기본),3,20,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
+308(기본),3,21,청림동,Cheong-rim Dong,,35.991648,129.406801
+308(기본),3,22,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
+308(기본),3,23,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
+308(기본),3,24,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
+308(기본),3,25,남보건소(무정차),Nam Bo-geon-so (Mu-jeong-cha),SouthCommunity Health Center (Non-stop),35.993561,129.394375
+308(기본),3,26,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.995378,129.392534
+308(기본),3,27,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
+308(기본),3,28,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000537,129.385233
+308(기본),3,29,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.004102,129.380623
+308(기본),3,30,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.0072,129.377528
+308(기본),3,31,형산로터리(무정차),Hyeong-san Ro-teo-ri (Mu-jeong-cha),Hyungsan Rotary (Non-stop),36.011029,129.372525
+308(기본),3,32,형산로터리,Hyeong-san Ro-teo-ri,HyungSan Rotary,36.011641,129.368446
+308(기본),3,33,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
+308(기본),3,34,대해시장,Dae-hae Si-jang,Daehae Market,36.019766,129.369246
+308(기본),3,35,해도119안전센터,Hae-do 119 An-jeon Sent-teo,Haedo 119 Fire Emergency Center,36.022841,129.369901
+308(기본),3,36,고속버스터미널,Go-sok Beo-seu-teo-mi-neol,Express Bus Terminal,36.027017,129.367614
+308(기본),3,37,오거리,Oh-geori,Ogeori,36.031311,129.366234
+308(기본),3,38,죽도시장,Juk-do Si-jang,Jukdo Market,36.035694,129.365236
+308(기본),3,39,육거리,Yuk-geori,Yukgeori,36.039702,129.366432
+308(기본),3,40,북부시장,Buk-bu Si-jang,Bukbu Market,36.045141,129.367968
+308(기본),3,41,선린병원,Seon-rin Byeong-won,Seollin Hospital,36.047755,129.367636
+308(기본),3,42,선린병원후문,Seollin Byeong-won Humun,,36.047859,129.365578
+308(기본),3,43,우현우방아파트,Wi-hyeon U-bang A-pa-teu,Woobang lu sell Apartment,36.050690,129.359913
+308(기본),3,44,유성여자고등학교,Yu-seong Yeo-ja Go-deung Hak-gyo,,36.053857,129.358442
+308(기본),3,45,영신고등학교,Yeong-sin Go-deung Hak-gyo,Yeongsin High School,36.061333,129.353375
+308(기본),3,46,포항 중앙고등학교,Po-hang Jung-ang Go-deung Hak-gyo,Pohang Jungang High School,36.064004,129.351887
+308(기본),3,47,중앙고->달전,Jung-ang Go -> Dal-jeon,,#N/A,#N/A
+308(기본),3,48,달전(무정차),Dal-jeon (Mu-jeong-cha),Months ago (Non-stop),36.076862,129.343733
+308(기본),3,49,달전리,Dal-jeon-ri,Daljeonlli,36.036139,129.289069
+308(기본),3,50,성곡검문소,Seong-gok Geom-mun-so,Seonggok Checkpoint,36.083182,129.342607
+308(기본),3,51,선린대학교입구,Seon-rin Daehak-gyo Ip-gu,,36.089246,129.340923
+308(기본),3,52,성곡1리,Seong-gok Il-ri,Seonggok 1 Ri,36.091176,129.341673
+308(기본),3,53,초곡삼구트리니엔,Cho-gok Sam-gu Teu-ri-ni-en,Chogok Samgutrinien,36.097132,129.335715
+308(기본),3,54,초곡초등학교,Cho-gok Cho-deung Hak-gyo,Chogok Elementary School,36.096508,129.334561
+308(기본),3,55,초곡리슈빌,Cho-gok Ri-shu-bil,Chogokrishville,36.096007,129.332762
+308(기본),3,56,초서초등학교,Cho-seo Cho-deung-hak-gyo,,36.093433,129.333464
+308(기본),3,57,지엔하임아파트,Ji-en-ha-im A-pa-teu,Zienheim Apartments,36.093413,129.338037
+308(기본),3,58,초곡지구,Cho-gok Ji-gu,Chogok district,36.095591,129.340025
+308(기본),3,59,흥해공고,Hung-hae Gong-go,Heunghae Technical High School,36.103991,129.342287
+308(기본),3,60,남성리,Nam-seong-ri,Namseongni,35.974296,129.355338
+308(기본),3,61,흥해환승센터,Hung-hae Hwan-seung Sent-teo,Heunghae Transfer Center,36.110357,129.347259
+308(기본),3,62,마산사거리(방통대),Ma-san Sa-geori (Bang-tong-dae),,36.111442,129.342328
+308(기본),3,63,한동맨션,Han-dong Maen-syeon,Handong Mansion,36.111973,129.338421
+308(기본),3,64,북송리,Buk-song-ri,Buksongni,36.112418,129.322195
+308(기본),3,65,흥해서부초등학교,Hung-hae Seo-bu Cho-deung Hak-gyo,,36.113042,129.317058
+308(기본),3,66,매산리,Mae-san-ri,Maesalli,36.112987,129.310444
+308(기본),3,67,농업기술센터,Nong-eop Gi-sul Sent-teo,Agricultural Technology Center,36.11388,129.304774
+308(기본),3,68,백련마을,Baeg-ryeon Maeul,Baengnyeon Village,36.114338,129.301817
+308(기본),3,69,용연지입구,Yong-yeon Ji Ip-gu,,36.118596,129.297449
+308(기본),3,70,용연저수지,Yong-yeon Jeo-su-ji,Yongyeon Reservoir,36.124344,129.294752
+308(기본),3,71,아랫범촌,A-raet Beom-chon,Araetbeomchon,36.127933,129.288954
+308(기본),3,72,호리,Ho-ri,Hori,36.12862,129.282915
+308(기본),3,73,가척,Ga-cheok,a family crest,36.129535,129.276802
+308(기본),3,74,사정1리,Sa-jeong Il-ri,Sajeong 1 Ri,36.130209,129.271785
+308(기본),3,75,토성2리,To-seong I-ri,Toseong 2 Ri,36.128475,129.267722
 308(기본),3,76,신광면행정복지센터,Sin-gwang Myeon Haeng-jeong Bok-ji Sent-teo,,36.128459,129.263125
-308(기본),3,77,토성2리,To-seong I-ri,Toseong 2 Ri,36.128475,129.267722
-308(기본),3,78,사정1리,Sa-jeong Il-ri,Sajeong 1 Ri,36.130209,129.271785
-308(기본),3,79,가척,Ga-cheok,a family crest,36.129535,129.276802
-308(기본),3,80,호리,Ho-ri,Hori,36.12862,129.282915
-308(기본),3,81,아랫범촌,A-raet Beom-chon,Araetbeomchon,36.127933,129.288954
-308(기본),3,82,용연저수지,Yong-yeon Jeo-su-ji,Yongyeon Reservoir,36.124344,129.294752
-308(기본),3,83,용연지입구,Yong-yeon Ji Ip-gu,,36.118596,129.297449
-308(기본),3,84,백련마을,Baeg-ryeon Maeul,Baengnyeon Village,36.114338,129.301817
-308(기본),3,85,농업기술센터,Nong-eop Gi-sul Sent-teo,Agricultural Technology Center,36.11388,129.304774
-308(기본),3,86,매산리,Mae-san-ri,Maesalli,36.112987,129.310444
-308(기본),3,87,흥해서부초등학교,Hung-hae Seo-bu Cho-deung Hak-gyo,,36.113042,129.317058
-308(기본),3,88,북송리,Buk-song-ri,Buksongni,36.112418,129.322195
-308(기본),3,89,한동맨션,Han-dong Maen-syeon,Handong Mansion,36.111973,129.338421
-308(기본),3,90,마산사거리(방통대),Ma-san Sa-geori (Bang-tong-dae),,36.111442,129.342328
-308(기본),3,91,흥해환승센터,Hung-hae Hwan-seung Sent-teo,Heunghae Transfer Center,36.110357,129.347259
-308(기본),3,92,남성리,Nam-seong-ri,Namseongni,35.974296,129.355338
-308(기본),3,93,흥해읍행정복지센터,Hung-hae Eup Haeng-jeong Bok-ji Sent-teo,,36.108203,129.343281
-308(기본),3,94,흥해공고,Hung-hae Gong-go,Heunghae Technical High School,36.103991,129.342287
-308(기본),3,95,초곡지구,Cho-gok Ji-gu,Chogok district,36.095591,129.340025
-308(기본),3,96,지엔하임아파트,Ji-en-ha-im A-pa-teu,Zienheim Apartments,36.093413,129.338037
-308(기본),3,97,선린대학후문,Seon-rin Daehak Hu-mun,,36.093433,129.333464
-308(기본),3,98,초곡리슈빌,Cho-gok Ri-shu-bil,Chogokrishville,36.096007,129.332762
-308(기본),3,99,초곡초등학교,Cho-gok Cho-deung Hak-gyo,Chogok Elementary School,36.096508,129.334561
-308(기본),3,100,초곡삼구트리니엔,Cho-gok Sam-gu Teu-ri-ni-en,Chogok Samgutrinien,36.097132,129.335715
-308(기본),3,101,성곡1리,Seong-gok Il-ri,Seonggok 1 Ri,36.091176,129.341673
-308(기본),3,102,선린대학교입구,Seon-rin Daehak-gyo Ip-gu,,36.089246,129.340923
-308(기본),3,103,성곡검문소,Seong-gok Geom-mun-so,Seonggok Checkpoint,36.083182,129.342607
-308(기본),3,104,달전리,Dal-jeon-ri,Daljeonlli,36.036139,129.289069
-308(기본),3,105,달전->중앙고,Dal-jeon -> Jung-ang Go,,#N/A,#N/A
-308(기본),3,106,포항 중앙고등학교,Po-hang Jung-ang Go-deung Hak-gyo,Pohang Jungang High School,36.064004,129.351887
-308(기본),3,107,영신고등학교,Yeong-sin Go-deung Hak-gyo,Yeongsin High School,36.061333,129.353375
-308(기본),3,108,유성여자고등학교,Yu-seong Yeo-ja Go-deung Hak-gyo,,36.053857,129.358442
-308(기본),3,109,우현우방아파트,Wi-hyeon U-bang A-pa-teu,Woobang lu sell Apartment,#N/A,#N/A
-308(기본),3,110,대동우방아파트,Dae-dong U-bang A-pa-teu,,36.049733,129.362173
-308(기본),3,111,건강가정다문화센터,Geon-gang Ga-jeong Da-mun-hwa Sent-teo,,36.047859,129.365578
-308(기본),3,112,선린병원,Seon-rin Byeong-won,Seollin Hospital,36.047755,129.367636
-308(기본),3,113,북부시장,Buk-bu Si-jang,Bukbu Market,36.045141,129.367968
-308(기본),3,114,국민건강보험공단,Guk-min Geon-gang Bo-heom Gong-dan,National Health Insurance Service,36.041924,129.367056
-308(기본),3,115,중앙상가,Jung-ang Sang-ga,Jungang Commercial Center,36.037844,129.3654
-308(기본),3,116,죽도시장,Juk-do Si-jang,Jukdo Market,36.035694,129.365236
-308(기본),3,117,오거리,Oh-geori,Ogeori,36.031311,129.366234
-308(기본),3,118,고속버스터미널,Go-sok Beo-seu-teo-mi-neol,Express Bus Terminal,36.027017,129.367614
-308(기본),3,119,해도119안전센터,Hae-do 119 An-jeon Sent-teo,Haedo 119 Fire Emergency Center,36.022841,129.369901
-308(기본),3,120,대해시장,Dae-hae Si-jang,Daehae Market,36.019766,129.369246
-308(기본),3,121,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
-308(기본),3,122,형산로타리,Hyeong-san Ro-teo-ri,,36.011501,129.369179
-308(기본),3,123,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.0072,129.377528
-308(기본),3,124,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.004102,129.380623
-308(기본),3,125,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000537,129.385233
-308(기본),3,126,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-308(기본),3,127,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.995378,129.392534
-308(기본),3,128,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
-308(기본),3,129,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
-308(기본),3,130,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
-308(기본),3,131,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
-308(기본),3,132,구정리,Gu-jeong-ri,Gujeong-ri,35.98451,129.409809
-308(기본),3,133,구정1리,Gu-jeong Il-ri,,35.982369,129.410905
-308(기본),3,134,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
-308(기본),3,135,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
-308(기본),3,136,용덕사거리,Yong-deok Sa-geori,Yongdeok Sageori,35.973335,129.414732
-308(기본),3,137,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
-308(기본),3,138,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
-308(기본),3,139,오천환승센터(간선),Oh-cheon Hwan-seung Sent-teo (Ganseon),Ocheon Transfer Center (transit),35.965759,129.414734
-308(기본),3,140,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.962799,129.414085
-308(기본),3,141,청호하이츠,Cheong-ho Ha-i-cheu,Cheongho Heights,35.95885,129.410324
-308(기본),3,142,문덕3리,Mun-deok Sam-ri,Mundeok 3 Ri,35.955175,129.409309
-308(기본),3,143,신문덕코아루,Sin-mun-deok Ko-a-ru,a newspaper dukkoaru,35.952185,129.407806
-308(기본),3,144,천마아파트,Cheon-ma A-pa-teu,Cheonma Apartment,35.949635,129.409916
-308(기본),3,145,용산2리,Yong-san I-ri,Yongsan 2 Ri,35.944397,129.40801
-308(기본),3,146,용산1리,Yong-san Il-ri,Yongsan 1 Ri,35.941986,129.401757
-308(기본),3,147,용산아파트,Yong-san A-pa-teu,Yongsan Apartment,35.94063,129.399179
-308(기본),3,148,문충삼거리,Mun-chung Sam-geori,,35.940423,129.39378
-308(기본),3,149,문덕2리,Mun-deok I-ri,Mundeok 2 Ri,35.940892,129.392206
-308(기본),3,150,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940508,129.389981
+308(기본),3,77,신광면행정복지센터,Sin-gwang Myeon Haeng-jeong Bok-ji Sent-teo,,36.128459,129.263125
+308(기본),3,78,토성2리,To-seong I-ri,Toseong 2 Ri,36.128475,129.267722
+308(기본),3,79,사정1리,Sa-jeong Il-ri,Sajeong 1 Ri,36.130209,129.271785
+308(기본),3,80,가척,Ga-cheok,a family crest,36.129535,129.276802
+308(기본),3,81,호리,Ho-ri,Hori,36.12862,129.282915
+308(기본),3,82,아랫범촌,A-raet Beom-chon,Araetbeomchon,36.127933,129.288954
+308(기본),3,83,용연저수지,Yong-yeon Jeo-su-ji,Yongyeon Reservoir,36.124344,129.294752
+308(기본),3,84,용연지입구,Yong-yeon Ji Ip-gu,,36.118596,129.297449
+308(기본),3,85,백련마을,Baeg-ryeon Maeul,Baengnyeon Village,36.114338,129.301817
+308(기본),3,86,농업기술센터,Nong-eop Gi-sul Sent-teo,Agricultural Technology Center,36.11388,129.304774
+308(기본),3,87,매산리,Mae-san-ri,Maesalli,36.112987,129.310444
+308(기본),3,88,흥해서부초등학교,Hung-hae Seo-bu Cho-deung Hak-gyo,,36.113042,129.317058
+308(기본),3,89,북송리,Buk-song-ri,Buksongni,36.112418,129.322195
+308(기본),3,90,한동맨션,Han-dong Maen-syeon,Handong Mansion,36.111973,129.338421
+308(기본),3,91,마산사거리(방통대),Ma-san Sa-geori (Bang-tong-dae),,36.111442,129.342328
+308(기본),3,92,흥해환승센터,Hung-hae Hwan-seung Sent-teo,Heunghae Transfer Center,36.110357,129.347259
+308(기본),3,93,남성리,Nam-seong-ri,Namseongni,35.974296,129.355338
+308(기본),3,94,흥해읍행정복지센터,Hung-hae Eup Haeng-jeong Bok-ji Sent-teo,,36.108203,129.343281
+308(기본),3,95,흥해공고,Hung-hae Gong-go,Heunghae Technical High School,36.103991,129.342287
+308(기본),3,96,초곡지구,Cho-gok Ji-gu,Chogok district,36.095591,129.340025
+308(기본),3,97,지엔하임아파트,Ji-en-ha-im A-pa-teu,Zienheim Apartments,36.093413,129.338037
+308(기본),3,98,초서초등학교,Cho-seo Cho-deung-hak-gyo,,36.093433,129.333464
+308(기본),3,99,초곡리슈빌,Cho-gok Ri-shu-bil,Chogokrishville,36.096007,129.332762
+308(기본),3,100,초곡초등학교,Cho-gok Cho-deung Hak-gyo,Chogok Elementary School,36.096508,129.334561
+308(기본),3,101,초곡삼구트리니엔,Cho-gok Sam-gu Teu-ri-ni-en,Chogok Samgutrinien,36.097132,129.335715
+308(기본),3,102,성곡1리,Seong-gok Il-ri,Seonggok 1 Ri,36.091176,129.341673
+308(기본),3,103,선린대학교입구,Seon-rin Daehak-gyo Ip-gu,,36.089246,129.340923
+308(기본),3,104,성곡검문소,Seong-gok Geom-mun-so,Seonggok Checkpoint,36.083182,129.342607
+308(기본),3,105,달전리,Dal-jeon-ri,Daljeonlli,36.036139,129.289069
+308(기본),3,106,달전->중앙고,Dal-jeon -> Jung-ang Go,,#N/A,#N/A
+308(기본),3,107,포항 중앙고등학교,Po-hang Jung-ang Go-deung Hak-gyo,Pohang Jungang High School,36.064004,129.351887
+308(기본),3,108,영신고등학교,Yeong-sin Go-deung Hak-gyo,Yeongsin High School,36.061333,129.353375
+308(기본),3,109,유성여자고등학교,Yu-seong Yeo-ja Go-deung Hak-gyo,,36.053857,129.358442
+308(기본),3,110,우현우방아파트,Wi-hyeon U-bang A-pa-teu,Woobang lu sell Apartment,36.050758,129.360209
+308(기본),3,111,대동우방아파트,Dae-dong U-bang A-pa-teu,,36.049733,129.362173
+308(기본),3,112,선린병원후문,Seollin Byeong-won Humun,,36.047859,129.365578
+308(기본),3,113,선린병원,Seon-rin Byeong-won,Seollin Hospital,36.047755,129.367636
+308(기본),3,114,북부시장,Buk-bu Si-jang,Bukbu Market,36.045141,129.367968
+308(기본),3,115,국민건강보험공단,Guk-min Geon-gang Bo-heom Gong-dan,National Health Insurance Service,36.041924,129.367056
+308(기본),3,116,중앙상가,Jung-ang Sang-ga,Jungang Commercial Center,36.037844,129.3654
+308(기본),3,117,죽도시장,Juk-do Si-jang,Jukdo Market,36.035694,129.365236
+308(기본),3,118,오거리,Oh-geori,Ogeori,36.031311,129.366234
+308(기본),3,119,고속버스터미널,Go-sok Beo-seu-teo-mi-neol,Express Bus Terminal,36.027017,129.367614
+308(기본),3,120,해도119안전센터,Hae-do 119 An-jeon Sent-teo,Haedo 119 Fire Emergency Center,36.022841,129.369901
+308(기본),3,121,대해시장,Dae-hae Si-jang,Daehae Market,36.019766,129.369246
+308(기본),3,122,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
+308(기본),3,123,형산로타리,Hyeong-san Ro-teo-ri,,36.011501,129.369179
+308(기본),3,124,현대제철,Hyeon-dae Je-cheol,Hyundai Steel,36.006861,129.377091
+308(기본),3,125,단지주유소,Dan-ji Ju-yu-so,Danji Gas Station,36.003484,129.380538
+308(기본),3,126,포스코본사,Po-seu-ko Bon-sa,POSCO Head Office,36.000276,129.384921
+308(기본),3,127,포항스틸야드,Po-hang Steel Yard,,35.997267,129.388871
+308(기본),3,128,포스코2문,Po-seu-ko I Mun,POSCO 2nd Gate,35.994695,129.392518
+308(기본),3,129,남구보건소,Nam-gu Bo-geon-so,Namgu Public Health Center,35.992607,129.396835
+308(기본),3,130,청림삼거리,Cheong-rim Sam-geori,Cheongnim Three way Intersection,35.994466,129.402951
+308(기본),3,131,청림초등학교,Cheong-rim Cho-deung Hak-gyo,Cheongnim Elementary School,35.992528,129.405691
+308(기본),3,132,청림진달래아파트,Cheong-rim Jin-dal-rae A-pa-teu,,35.989479,129.40681
+308(기본),3,133,구정리,Gu-jeong-ri,Gujeong-ri,35.98451,129.409809
+308(기본),3,134,구정1리,Gu-jeong Il-ri,,35.982369,129.410905
+308(기본),3,135,구정3리,Gu-jeong Sam-ri,Gujeong 3 Ri,35.979194,129.412248
+308(기본),3,136,해병대서문,Hae-byeong-dae Seo-mun,Marine Corps Seomun,35.976683,129.413324
+308(기본),3,137,용덕사거리,Yong-deok Sa-geori,Yongdeok Sageori,35.973335,129.414732
+308(기본),3,138,오천초등학교,Oh-cheon Cho-deung Hak-gyo,Ocheon Elementary School,35.971474,129.415523
+308(기본),3,139,오천농협세계지점,Oh-cheon Nong-hyeop Se-gye Ji-jeom,Ocheon Nonghyup Segye Branch,35.967967,129.41584
+308(기본),3,140,오천환승센터(간선),Oh-cheon Hwan-seung Sent-teo (Ganseon),Ocheon Transfer Center (transit),35.965759,129.414734
+308(기본),3,141,오천읍행정복지센터,Oh-cheon Eup Haeng-jeong Bok-ji Sent-teo,,35.963012,129.413979
+308(기본),3,142,청호하이츠,Cheong-ho Ha-i-cheu,Cheongho Heights,35.95885,129.410324
+308(기본),3,143,문덕3리,Mun-deok Sam-ri,Mundeok 3 Ri,35.955175,129.409309
+308(기본),3,144,신문덕코아루,Sin-mun-deok Ko-a-ru,a newspaper dukkoaru,35.952185,129.407806
+308(기본),3,145,천마아파트,Cheon-ma A-pa-teu,Cheonma Apartment,35.949635,129.409916
+308(기본),3,146,포항아이파크아파트,Pohang Ai-pakeu Apateu,,35.947749,129.408849
+308(기본),3,147,용산2리,Yong-san I-ri,Yongsan 2 Ri,35.944397,129.40801
+308(기본),3,148,용산1리,Yong-san Il-ri,Yongsan 1 Ri,35.941986,129.401757
+308(기본),3,149,용산아파트,Yong-san A-pa-teu,Yongsan Apartment,35.94063,129.399179
+308(기본),3,150,문충삼거리,Mun-chung Sam-geori,,35.940423,129.39378
+308(기본),3,151,문덕2리,Mun-deok I-ri,Mundeok 2 Ri,35.940892,129.392206
+308(기본),3,152,문덕차고지,Mun-deok Cha-go-ji,Mundeok Garage,35.940508,129.389981
 600(기본-산대),3,0,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.07731,129.401999
 600(기본-산대),3,1,청소년수련관,Cheong-son Yeon-su-ryeon-gwan,Youth Center,36.073611,129.398143
 600(기본-산대),3,2,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071182,129.399063
@@ -750,7 +787,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 600(기본-산대),3,11,영일대 해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
 600(기본-산대),3,12,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.052196,129.373372
 600(기본-산대),3,13,롯데백화점,Rot-te Baek-hwa-jeom,Lotte Dept. Store,36.048811,129.370957
-600(기본-산대),3,14,건강가정다문화센터,Geon-gang Ga-jeong Da-mun-hwa Sent-teo,,36.047859,129.365578
+600(기본-산대),3,14,선린병원후문,Seollin Byeong-won Humun,,36.047859,129.365578
 600(기본-산대),3,15,도심환승센터,Do-sim Hwan-seung Sent-teo,an urban Bus Transfer Center,36.043214,129.365284
 600(기본-산대),3,16,서산사거리,Seo-san Sa-geori,Seosan Sageori,36.039567,129.363552
 600(기본-산대),3,17,롯데시네마,Lotte Si-ne-ma,Byeongjeom Lotte Cinema,36.037396,129.362394
@@ -759,9 +796,9 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 600(기본-산대),3,20,죽도파출소,Juk-do Pa-chul-so,Jukdo Police Office,36.028436,129.362401
 600(기본-산대),3,21,GS슈퍼마켓,GS Syoo-peo-ma-ket,GS Supermarket,36.025677,129.360192
 600(기본-산대),3,22,고용복지플러스센터,Go-yong Bok-ji Peul-leo-seu Sent-teo,Employment & Welfare Plus Center,36.023018,129.358069
-600(기본-산대),3,23,산업은행,San-eop Eun-haeng,KDB,36.018107,129.354529
-600(기본-산대),3,24,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
-600(기본-산대),3,25,시외버스터미널,Si-oe Beo-seu Teo-mi-nal,Intercity Bus Terminal,36.013273,129.350668
+600(기본-산대),3,23,산업은행,San-eop Eun-haeng,KDB,36.017696,129.353862
+600(기본-산대),3,24,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.015692,129.352214
+600(기본-산대),3,25,시외버스터미널,Si-oe Beo-seu Teo-mi-nal,Intercity Bus Terminal,36.013409,129.350135
 600(기본-산대),3,26,한전포항지사,Han-jeon Po-hang Ji-sa,,36.010571,129.346573
 600(기본-산대),3,27,효자사거리,Hyo-ja Sa-geori,Hyoja Sageori,36.008469,129.338724
 600(기본-산대),3,28,SK뷰1차,SK Byu Il-cha,SK View #1,36.007827,129.335351
@@ -776,114 +813,80 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 600(기본-산대),3,37,안강중학교,An-gang Jung-hak-gyo,,35.991379,129.229829
 600(기본-산대),3,38,백년예식장,Baek-nyeon Ye-sik-jang,,35.991985,129.226065
 600(기본-산대),3,39,안강파출소,An-gang Pa-chul-so,Angang Police Office,35.992345,129.223977
-600(기본-산대),3,40,안강제일초등학교,An-gang Je-il Cho-deung Hak-gyo,Jeil Elementary School,35.992938,129.220185
-600(기본-산대),3,41,안강서부터미널(상),An-gang Seo-bu Teo-mi-nal (Sang),,35.993248,129.215465
-600(기본-산대),3,42,경주예일고등학교,Gyeong-ju Ye-il Go-deung Hak-gyo,,35.994047,129.211848
+600(기본-산대),3,40,제일초등학교,Je-il Cho-deung Hak-gyo,Jeil Elementary School,35.992938,129.220185
+600(기본-산대),3,41,안강LH아파트,Angang LH Apateu,,35.993641,129.215444
+600(기본-산대),3,42,경주예일고,Gyeong-ju Ye-il Go,,35.994047,129.211848
 600(기본-산대),3,43,미루병원,Mi-ru Byeong-won,,35.994409,129.2092
 600(기본-산대),3,44,한신청실아파트,Han-sin Cheong-sil A-pa-teu,Hansin.Cheongsil Apt.,35.994733,129.207036
 600(기본-산대),3,45,표충각,Pyo-chung-gak,Pyochunggak,35.995606,129.204444
-600(기본-산대),3,46,풍산금속,Pung-san Geum-sok,Pungsan Metal,35.99743,129.196206
-600(기본-산대),3,47,산대리입구,San-dae-ri Ip-gu,,35.99908,129.19616
-600(기본-산대),3,48,산대초등학교,San-dae Cho-deung Hak-gyo,,36.001575,129.196831
-600(기본-산대),3,49,안강우방아파트,An-gang Woo-bang A-pa-teu,Ubang Apartment,36.004236,129.197285
+600(기본-산대),3,46,풍산금속입구,Pung-san Geum-sok Ipgu,Pungsan Metal,35.99743,129.196206
+600(기본-산대),3,47,산대3리 회관앞,Sandae 3-ri Hoe-gwan-ap,,35.999126,129.196337
+600(기본-산대),3,48,새마을금고,Sae-maeul-geum-go,KFCC,36.001708,129.196884
+600(기본-산대),3,49,우방아파트,Woo-bang A-pa-teu,Ubang Apartment,36.004236,129.197285
 600(기본-산대),3,50,새터입구,Sae-teo Ip-gu,Saeteo Entrance,36.005032,129.196226
 600(기본-산대),3,51,에덴아파트,E-den A-pa-teu,Eden Apartment,36.004094,129.193461
-600(기본-산대),3,52,안강삼도타운,An-gang Sam-do Ta-un,,36.002318,129.193023
+600(기본-산대),3,52,삼도아파트,Samdo Apateu,,36.002401,129.192885
 600(기본-산대),3,53,안강골프연습장,An-gang Gol-peu Yeon-seup-jang,Angang Golf Zone,36.000418,129.189026
-600(기본-산대),3,54,산대리한동아파트,San-dae-ri Han-dong A-pa-teu,,36.000428,129.183524
+600(기본-산대),3,54,화성한동타운,Hwa-seong Handong-town,,36.000620,129.183704
 600(기본-산대),3,55,안강골프연습장,An-gang Gol-peu Yeon-seup-jang,Angang Golf Zone,36.000418,129.189026
-600(기본-산대),3,56,안강삼도타운,An-gang Sam-do Ta-un,,36.002318,129.193023
+600(기본-산대),3,56,삼도아파트,Samdo Apateu,,36.002329,129.192987
 600(기본-산대),3,57,에덴아파트,E-den A-pa-teu,Eden Apartment,36.004094,129.193461
 600(기본-산대),3,58,새터입구,Sae-teo Ip-gu,Saeteo Entrance,36.005032,129.196226
-600(기본-산대),3,59,안강우방아파트,An-gang Woo-bang A-pa-teu,Ubang Apartment,36.004236,129.197285
-600(기본-산대),3,60,산대초등학교,San-dae Cho-deung Hak-gyo,,36.001575,129.196831
-600(기본-산대),3,61,산대리입구,San-dae-ri Ip-gu,,35.99908,129.19616
-600(기본-산대),3,62,풍산금속,Pung-san Geum-sok,Pungsan Metal,35.99743,129.196206
+600(기본-산대),3,59,우방아파트,Woo-bang A-pa-teu,Ubang Apartment,36.004236,129.197285
+600(기본-산대),3,60,새마을금고,Sae-maeul-geum-go,KFCC,36.001731,129.196750
+600(기본-산대),3,61,산대3리 회관앞,Sandae 3-ri Hoe-gwan-ap,,35.999215,129.196165
+600(기본-산대),3,62,풍산금속,Pung-san Geum-sok Ipgu,Pungsan Metal,35.99743,129.196206
 600(기본-산대),3,63,표충각,Pyo-chung-gak,Pyochunggak,35.995606,129.204444
 600(기본-산대),3,64,한신청실아파트,Han-sin Cheong-sil A-pa-teu,Hansin.Cheongsil Apt.,35.994733,129.207036
 600(기본-산대),3,65,미루병원,Mi-ru Byeong-won,,35.994409,129.2092
-600(기본-산대),3,66,경주예일고등학교,Gyeong-ju Ye-il Go-deung Hak-gyo,,35.994047,129.211848
-600(기본-산대),3,67,안강서부터미널(하),An-gang Seo-bu Teo-mi-nal (Ha),,35.993232,129.215576
-600(기본-산대),3,68,안강제일초등학교,An-gang Je-il Cho-deung Hak-gyo,Jeil Elementary School,35.992938,129.220185
-600(기본-산대),3,69,안강시장,An-gang Si-jang,Market,35.992469,129.222517
+600(기본-산대),3,66,경주예일고,Gyeong-ju Ye-il Go,,35.994047,129.211848
+600(기본-산대),3,67,안강LH아파트,Angang LH Apateu,,35.993431,129.215527
+600(기본-산대),3,68,제일초등학교,Je-il Cho-deung Hak-gyo,Jeil Elementary School,35.992938,129.220185
+600(기본-산대),3,69,시장입구,Si-jang Ipgu,Market,35.992503,129.222512
 600(기본-산대),3,70,안강우체국,An-gang U-che-guk,Angang Post Office,35.99214,129.224631
 600(기본-산대),3,71,백년예식장,Baek-nyeon Ye-sik-jang,,35.991985,129.226065
-600(기본-산대),3,72,안강중학교,An-gang Jung-hak-gyo,,35.991379,129.229829
-600(기본-산대),3,73,양동마을,Yang-dong Ma-eul,Yangdong Village,35.988648,129.255868
-600(기본-산대),3,74,인동리,In-dong-ri,Indong,35.985514,129.261168
-600(기본-산대),3,75,강동,Gang-dong,Gangdong,35.987513,129.274764
-600(기본-산대),3,76,유금리입구,Yu-geum-ri Ip-gu,,35.995424,129.287807
-600(기본-산대),3,77,유금리,Yu-geum-ri,,35.996965,129.291912
-600(기본-산대),3,78,형강마을,Hyeong-gang Ma-eul,,35.99718,129.303548
-600(기본-산대),3,79,자명리,Ja-myeong-ri,,35.9985,129.307312
-600(기본-산대),3,80,유강터널출구,Yu-gang Teo-neol Chul-gu,River Tunnel Exit,35.999412,129.310687
-600(기본-산대),3,81,유강정수장인근,Yu-gang Jeong-su-jang In-geun,Yugang Purification Plant Ingeun,36.001625,129.315553
-600(기본-산대),3,82,유강고가,Yu-gang Go-ga,,36.003183,129.319318
-600(기본-산대),3,83,효자건널목,Hyo-ja Geon-neol-mok,Hyoja Crossing,36.004992,129.323835
-600(기본-산대),3,84,SK뷰1차,SK Byu Il-cha,SK View #1,36.007827,129.335351
-600(기본-산대),3,85,효자사거리,Hyo-ja Sa-geori,Hyoja Sageori,36.008469,129.338724
-600(기본-산대),3,86,대잠사거리,Dae-jam Sa-geori,Daejam Sageori,36.011389,129.34449
-600(기본-산대),3,87,시외버스터미널,Si-oe Beo-seu Teo-mi-nal,Intercity Bus Terminal,36.013273,129.350668
-600(기본-산대),3,88,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
-600(기본-산대),3,89,산업은행,San-eop Eun-haeng,KDB,36.018107,129.354529
-600(기본-산대),3,90,고용복지플러스센터,Go-yong Bok-ji Peul-leo-seu Sent-teo,Employment & Welfare Plus Center,36.023018,129.358069
-600(기본-산대),3,91,GS슈퍼마켓,GS Syoo-peo-ma-ket,GS Supermarket,36.025677,129.360192
-600(기본-산대),3,92,죽도파출소,Juk-do Pa-chul-so,Jukdo Police Office,36.028436,129.362401
-600(기본-산대),3,93,홈플러스(오거리),Hom-peul-leo-seu (O-geori),,36.030979,129.364774
-600(기본-산대),3,94,농협포항시지부,Nong-hyeop Po-hang Si-ji-bu,Nonghyup Pohangsi Branch,36.034241,129.36387
-600(기본-산대),3,95,롯데시네마,Lotte Si-ne-ma,ByeongJeom Lotte Cinema,36.037506,129.362364
-600(기본-산대),3,96,서산사거리,Seo-san Sa-geori,Seosan Sageori,36.039567,129.363552
-600(기본-산대),3,97,도심환승센터,Do-sim Hwan-seung Sent-teo,an urban Bus Transfer Center,36.043214,129.365284
-600(기본-산대),3,98,세무서,Se-mu-seo,Tax Office,36.044777,129.365164
-600(기본-산대),3,99,건강가정다문화센터,Geon-gang Ga-jeong Da-mun-hwa Sent-teo,,36.047859,129.365578
-600(기본-산대),3,100,롯데백화점,Rot-te Baek-hwa-jeom,Lotte Dept. Store,36.048811,129.370957
-600(기본-산대),3,101,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.052196,129.373372
-600(기본-산대),3,102,영일대 해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
-600(기본-산대),3,103,롯데아파트,Rot-te A-pa-teu,Lotte Apartment,36.057957,129.377506
-600(기본-산대),3,104,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Sent-teo,Duho-dong Administration & Welfare Center,36.060222,129.380042
-600(기본-산대),3,105,설머리물회지구,Seol-meo-ri Mul-hwe Ji-gu,,36.065774,129.384722
-600(기본-산대),3,106,노인복지회관,No-in Bok-ji Hoe-gwan,Senior Welfare Center,36.066924,129.386482
-600(기본-산대),3,107,환호해맞이그린빌,Hwan-ho Hae-mat-i Geu-rin-bil,Hwanho Haemaji Green Ville,36.068297,129.391057
-600(기본-산대),3,108,환호공원,Hwan-ho Gong-won,Hwanho Park,36.069004,129.394441
-600(기본-산대),3,109,라메르웨딩컨벤션,Ra-me-reu We-ding Keon-beon-syeon,,36.069702,129.396504
-600(기본-산대),3,110,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071182,129.399063
-600(기본-산대),3,111,청소년수련관,Cheong-son Yeon-su-ryeon-gwan,Youth Center,36.073611,129.398143
-600(기본-산대),3,112,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.07731,129.401999
-219,3,36,신형주택입구,Sin-hyeong Ju-taek Ip-gu,,35.988327,129.472349
-219,3,37,석리,Seong-ni,,35.987247,129.460149
-219,3,38,약전리,Yak-jeol-li,,35.988687,129.452389
-219,3,39,황금상가,Hwang-geum Sang-ga,,35.988119,129.448843
-219,3,40,신정리,Sin-jeong-ni,,35.988019,129.445991
-219,3,41,동해초등학교,Dong-hae Cho-deung-hak-gyo,,35.987557,129.441894
-219,3,42,코아루블루인시티,Koaroo Blue In City,,35.981054,129.443897
-219,3,43,동해초등학교,Dong-hae Cho-deung-hak-gyo,,35.987557,129.441894
-219,3,44,동해면행정복지센터,Dong-hae-myeon Haeng-jeong Bok-ji Center,,35.988842,129.44021
-219,3,45,동해환승센터,Dong-hae Hwan-seung Center,,35.98872,129.436783
-219,3,46,공항주유소,Gong-hang Ju-yu-so,,35.990354,129.42863
-219,3,47,화신식물원,Hwa-sin Sing-mu-rwon,,35.991739,129.423883
-219,3,48,포항남부소방서,Po-hang Nam-bu So-bang-seo,,35.992302,129.420302
-219,3,49,해군 항공역사관,Hae-gun Hang-gong Yeok-sa-gwan,,35.995049,129.412731
-219,3,50,해병대BOQ,Hae-byeong-dae BOQ,,35.996531,129.408485
-219,3,51,청림삼거리,Cheong-nim Sam-geo-ri,,35.994466,129.402951
-219,3,52,남구보건소,Nam-gu Bo-geon-so,,35.992607,129.396835
-219,3,53,남보건소(무정차),Nam Bo-geon-so (Mu-jeong-cha),,35.993561,129.394375
-219,3,54,포스코2문,Posco I-mun,,35.995378,129.392534
-219,3,55,포항스틸야드,Po-hang Steel Yard,,35.998299,129.388148
-219,3,56,포스코본사,Posco Bon-sa,,36.000537,129.385233
-219,3,57,단지주유소,Dan-ji Ju-yu-so,,36.004102,129.380623
-219,3,58,현대제철,Hyundai Je-cheol,,36.0072,129.377528
-219,3,59,형산로터리(무정차),Hyeong-san Rotary (Mu-jeong-cha),,36.011029,129.372525
-219,3,60,형산로터리,Hyeong-san Rotary,,36.011641,129.368446
-219,3,61,장애인생산품판매시설,Jang-ae-in Saeng-san-pum Pan-mae Si-seol,,36.016089,129.37019
-219,3,62,대해시장,Dae-hae Si-jang,,36.019766,129.369246
-219,3,63,해도119안전센터,Hae-do I-ril-gu An-jeon Center,,36.022841,129.369901
-219,3,64,고속버스터미널,Go-sok Bus Terminal,,36.027017,129.367614
-219,3,65,오거리,O-geo-ri,,36.031311,129.366234
-219,3,66,죽도시장,Juk-do Si-jang,,36.035694,129.365236
-219,3,67,육거리,Yuk-geo-ri,,36.039702,129.366432
-219,3,68,수인사,Su-in-sa,,36.040963,129.365311
-219,3,69,도심환승센터,Do-sim Hwan-seung Center,,36.043214,129.365284
-207(기본),3,0,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.077248,129.401686
+600(기본-산대),3,72,안강사거리,Angang Sa-geori,Angang Sageori,35.991188,129.230240
+600(기본-산대),3,73,안강중학교,An-gang Jung-hak-gyo,,35.991379,129.229829
+600(기본-산대),3,74,양동마을,Yang-dong Ma-eul,Yangdong Village,35.988648,129.255868
+600(기본-산대),3,75,인동,In-dong,Indong,35.985514,129.261168
+600(기본-산대),3,76,강동,Gang-dong,Gangdong,35.987513,129.274764
+600(기본-산대),3,77,유금리입구,Yu-geum-ri Ip-gu,,35.995424,129.287807
+600(기본-산대),3,78,유금리,Yu-geum-ri,,35.996965,129.291912
+600(기본-산대),3,79,형강마을,Hyeong-gang Ma-eul,,35.99718,129.303548
+600(기본-산대),3,80,자명리,Ja-myeong-ri,,35.9985,129.307312
+600(기본-산대),3,81,유강터널출구,Yu-gang Teo-neol Chul-gu,River Tunnel Exit,35.999412,129.310687
+600(기본-산대),3,82,유강정수장인근,Yu-gang Jeong-su-jang In-geun,Yugang Purification Plant Ingeun,36.001625,129.315553
+600(기본-산대),3,83,유강고가,Yu-gang Go-ga,,36.003183,129.319318
+600(기본-산대),3,84,효자건널목,Hyo-ja Geon-neol-mok,Hyoja Crossing,36.004992,129.323835
+600(기본-산대),3,85,SK뷰1차,SK Byu Il-cha,SK View #1,36.007827,129.335351
+600(기본-산대),3,86,효자사거리,Hyo-ja Sa-geori,Hyoja Sageori,36.008469,129.338724
+600(기본-산대),3,87,대잠사거리,Dae-jam Sa-geori,Daejam Sageori,36.011389,129.34449
+600(기본-산대),3,88,시외버스터미널,Si-oe Beo-seu Teo-mi-nal,Intercity Bus Terminal,36.013273,129.350668
+600(기본-산대),3,89,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
+600(기본-산대),3,90,산업은행,San-eop Eun-haeng,KDB,36.018107,129.354529
+600(기본-산대),3,91,고용복지플러스센터,Go-yong Bok-ji Peul-leo-seu Sent-teo,Employment & Welfare Plus Center,36.023018,129.358069
+600(기본-산대),3,92,GS슈퍼마켓,GS Syoo-peo-ma-ket,GS Supermarket,36.025677,129.360192
+600(기본-산대),3,93,죽도파출소,Juk-do Pa-chul-so,Jukdo Police Office,36.028436,129.362401
+600(기본-산대),3,94,홈플러스(오거리),Hom-peul-leo-seu (O-geori),,36.030979,129.364774
+600(기본-산대),3,95,농협포항시지부,Nong-hyeop Po-hang Si-ji-bu,Nonghyup Pohangsi Branch,36.034241,129.36387
+600(기본-산대),3,96,롯데시네마,Lotte Si-ne-ma,ByeongJeom Lotte Cinema,36.037506,129.362364
+600(기본-산대),3,97,서산사거리,Seo-san Sa-geori,Seosan Sageori,36.039567,129.363552
+600(기본-산대),3,98,도심환승센터,Do-sim Hwan-seung Sent-teo,an urban Bus Transfer Center,36.043214,129.365284
+600(기본-산대),3,99,세무서,Se-mu-seo,Tax Office,36.044777,129.365164
+600(기본-산대),3,100,선린병원후문,Seollin Byeong-won Humun,,36.047859,129.365578
+600(기본-산대),3,101,롯데백화점,Rot-te Baek-hwa-jeom,Lotte Dept. Store,36.048811,129.370957
+600(기본-산대),3,102,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.052196,129.373372
+600(기본-산대),3,103,영일대 해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
+600(기본-산대),3,104,롯데아파트,Rot-te A-pa-teu,Lotte Apartment,36.057957,129.377506
+600(기본-산대),3,105,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Sent-teo,Duho-dong Administration & Welfare Center,36.060222,129.380042
+600(기본-산대),3,106,설머리물회지구,Seol-meo-ri Mul-hwe Ji-gu,,36.065774,129.384722
+600(기본-산대),3,107,노인복지회관,No-in Bok-ji Hoe-gwan,Senior Welfare Center,36.066924,129.386482
+600(기본-산대),3,108,환호해맞이그린빌,Hwan-ho Hae-mat-i Geu-rin-bil,Hwanho Haemaji Green Ville,36.068297,129.391057
+600(기본-산대),3,109,환호공원,Hwan-ho Gong-won,Hwanho Park,36.069004,129.394441
+600(기본-산대),3,110,라메르웨딩컨벤션,Ra-me-reu We-ding Keon-beon-syeon,,36.069702,129.396504
+600(기본-산대),3,111,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071182,129.399063
+600(기본-산대),3,112,청소년수련관,Cheong-son Yeon-su-ryeon-gwan,Youth Center,36.073611,129.398143
+600(기본-산대),3,113,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.07731,129.401999
 207(기본),3,0,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.077248,129.401686
 207(기본),3,1,양덕한마음체육관,Yang-deok Han-maeum Che-yuk-gwan,Yangdeok Hanmaeum Gymnasium,36.078189,129.40639
 207(기본),3,2,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,,36.07902,129.409196
@@ -914,9 +917,9 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,27,죽도파출소,Juk-do Pa-chul-so,Jukdo Police Office,36.028436,129.362401
 207(기본),3,28,GS슈퍼마켓,GS Supermarket,GS Supermarket,36.025677,129.360192
 207(기본),3,29,고용복지플러스센터,Go-yong Bok-ji Plus Center,Employment & Welfare Plus Center,36.023018,129.358069
-207(기본),3,30,산업은행,San-eob Eun-haeng,KDB,36.017758,129.353873
-207(기본),3,31,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.015711,129.352234
-207(기본),3,32,시외버스터미널,Si-oe Bus Terminal,Intercity Bus Terminal,36.013287,129.350316
+207(기본),3,30,산업은행,San-eob Eun-haeng,KDB,36.017696,129.353862
+207(기본),3,31,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.015692,129.352214
+207(기본),3,32,시외버스터미널,Si-oe Bus Terminal,Intercity Bus Terminal,36.013409,129.350135
 207(기본),3,33,대잠사거리,Dae-jam Sageori,Daejam Sageori,36.011389,129.34449
 207(기본),3,34,포항성모병원,Po-hang Seong-mo Byeong-won,,36.010577,129.339612
 207(기본),3,35,영일대입구,Yeong-il-dae Ip-gu,Yeongildae Entrance,36.012892,129.336525
@@ -929,16 +932,16 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,42,포스코교육재단,Posco Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
 207(기본),3,43,포항제철고등학교,Pohang Je-cheol Go-deung-hak-gyo,Pohang Iron and Steel High School,36.029999,129.326403
 207(기본),3,44,효자그린아파트,Hyo-ja Green A-pa-teu,Hyoja Green Apartment,36.032375,129.32588
-207(기본),3,45,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029577,129.323537
+207(기본),3,45,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029636,129.323545
 207(기본),3,46,현대그린아파트,Hyun-dai Green A-pa-teu,Hyeondae Green Apartment,36.030903,129.318607
-207(기본),3,47,포항테크노파크,Po-hang Techno Park,Pohang Techno Park,36.031723,129.315805
+207(기본),3,47,포항테크노파크,Po-hang Techno Park,Pohang Techno Park,36.031520,129.315592
 207(기본),3,48,LG빌라,LG Villa,LG Villa,36.028164,129.314298
 207(기본),3,49,LG빌라입구,LG Villa Ip-gu,LG Villa Entrance,36.027269,129.31723
 207(기본),3,50,산책로,San-chaeng-no,Sanchaengno,36.026208,129.320713
 207(기본),3,51,교수아파트,Gyo-su A-pa-teu,Teacher Apartment,36.022743,129.325194
-207(기본),3,52,포항제철공고,Po-hang Je-cheol Gong-go,,36.019458,129.324884
-207(기본),3,53,포스텍,Postech,Force Tec,36.016082,129.324605
-207(기본),3,54,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.011751,129.326565
+207(기본),3,52,포항제철공고,Po-hang Je-cheol Gong-go,,36.019465,129.324876
+207(기본),3,53,포스텍,Postech,Force Tec,36.016091,129.324563
+207(기본),3,54,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.011735,129.326624
 207(기본),3,55,효곡동행정복지센터,Hyogok-dong Haeng-jeong Bok-ji Center,,36.010241,129.328481
 207(기본),3,56,효자아트홀,Hyo-ja Art Hall,Hyoja Art Hall,36.011527,129.332519
 207(기본),3,57,효자웰빙아울렛,Hyo-ja Well-being Outlet,Hyoja Wellbeing Outlet,36.011206,129.335607
@@ -975,3 +978,4 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,88,장량하수처리장,Jang-nyang Ha-su Cheo-ri-jang,Jangnyang Sewage Treatment Plant,36.082183,129.409836
 207(기본),3,89,북부장애인복지회관,Buk-bu Jang-ae-in Bok-ji-hoe-gwan,,36.079316,129.409049
 207(기본),3,90,양덕한마음체육관,Yang-deok Han-ma-eum Che-yuk-gwan,Yangdeok Hanmaeum Gymnasium,36.078453,129.40626
+207(기본),3,91,양덕차고지,Yang-deok Cha-go-ji,Yangdeok Garage,36.077248,129.401686

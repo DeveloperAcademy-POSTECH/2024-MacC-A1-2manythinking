@@ -37,8 +37,7 @@ struct BusStopViewWrapper: UIViewRepresentable {
                 return annotationView
             }
             let identifier = "BusStop"
-            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-            
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)\
             if annotationView == nil {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true

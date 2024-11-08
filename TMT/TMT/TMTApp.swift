@@ -12,6 +12,7 @@ struct TMTApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+//            BusStopSearchTest(scannedJourneyInfo: .constant(""))
         }
     }
 }
