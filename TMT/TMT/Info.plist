@@ -8,5 +8,14 @@
 	<array>
 		<string>location</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchScreenBack</string>
+		<key>UIImageName</key>
+		<string>LaunchScreenLogo</string>
+		<key>UILaunchScreen</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>
