@@ -12,7 +12,7 @@ final class LiveActivityManager: ObservableObject {
     private var cancellable: Set<AnyCancellable> = Set()
     private var activity: Activity<BusJourneyAttributes>?
 
-    func startLiveActivity(destinationInfo: BusStopInfo, remainingStops: Int) {
+    func startLiveActivity(destinationInfo: BusStop, remainingStops: Int) {
         if ActivityAuthorizationInfo().areActivitiesEnabled {
             // 실행 중인 라이브 액티비티가 있으면 종료됩니다.
             if let _ = activity {

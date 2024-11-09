@@ -21,8 +21,8 @@ struct ScannedJourneyInfoView: View {
     @StateObject private var liveActivityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
-    @State private var selectedStartStop: BusStopInfo?
-    @State private var selectedEndStop: BusStopInfo?
+    @State private var selectedStartStop: BusStop?
+    @State private var selectedEndStop: BusStop?
     
     @State private var tag: Int? = nil
     
@@ -77,7 +77,7 @@ struct ScannedJourneyInfoView: View {
                     }
                 
                 Button {
-                    busStopSearchViewModel.setJourneyStops(startStopString: startStop, endStopString: endStop)
+                    busStopSearchViewModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
                     
                     guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
                     liveActivityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
