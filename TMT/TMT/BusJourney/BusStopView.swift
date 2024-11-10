@@ -40,7 +40,7 @@ struct BusStopView: View {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
-            busStopSearchViewModel.searchBusStops(by: busStopSearchViewModel.journeyStops.first?.busNumber ?? "")
+            busStopSearchViewModel.searchBusStops(byNumber: busStopSearchViewModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
         }
         // TODO: 실제로 줄어드는지 테스트 필요
@@ -69,7 +69,7 @@ struct BusStopView: View {
     
     /// 좌표의 옵셔널을 제거합니다.
     private func getValidCoordinates() -> [Coordinate] {
-        busStopSearchViewModel.filteredBusStops.compactMap { stop in
+        busStopSearchViewModel.filteredBusDataForNumber.compactMap { stop in
             guard let latitude = stop.latitude,
                   let longitude = stop.longitude else {
                 return nil

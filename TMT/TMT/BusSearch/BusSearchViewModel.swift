@@ -9,13 +9,13 @@ import Foundation
 import MapKit
 
 final class BusSearchViewModel: ObservableObject {
-    @Published var busStops: [BusStopInfo] = []
-    @Published var filteredBusStops: [BusStopInfo] = []
+    @Published var allBusData: [BusStop] = []
+    @Published var filteredBusDataForNumber: [BusStop] = []
     @Published var remainingStops: Int = 0
-    @Published var journeyStops: [BusStopInfo] = []
+    @Published var journeyStops: [BusStop] = []
     
-    private var startStop: BusStopInfo?
-    private var endStop: BusStopInfo?
+    private var startStop: BusStop?
+    private var endStop: BusStop?
     
     init() {
         loadCSV()
@@ -45,7 +45,7 @@ final class BusSearchViewModel: ObservableObject {
     @MainActor
     private func apply(_ searchResponse: [[String]]) {
         for response in searchResponse {
-            self.busStops.append(BusStopInfo(busNumber: response[0].isEmpty ? nil : response[0],
+            self.allBusData.append(BusStop(busNumber: response[0].isEmpty ? nil : response[0],
                                              busType: response[1].isEmpty ? nil : Int(response[1]),
                                              stopOrder: response[2].isEmpty ? nil : Int(response[2]),
                                              stopNameKorean: response[3].isEmpty ? nil : response[3],
@@ -56,24 +56,40 @@ final class BusSearchViewModel: ObservableObject {
         }
     }
     
-    func searchBusStops(by number: String) {
-        filteredBusStops = busStops.filter { busStop in
+    // MARK: 출발 및 하차 정류장 설정
+    func setJourneyStops(busNumberString: String, startStopString: String, endStopString: String) {
+        searchBusStops(byNumber: busNumberString)
+        
+        let startCandidates = searchBusStops(byName: startStopString)
+        let endCandidates = searchBusStops(byName: endStopString)
+
+        findJourneyStopsSequence(from: startCandidates, to: endCandidates)
+    }
+    
+    // MARK: 버스 데이터 검색 (버스 번호, 정류장 이름)
+    func searchBusStops(byNumber number: String) {
+        filteredBusDataForNumber = allBusData.filter { busStop in
             if let busNumber = busStop.busNumber {
-                // TODO: 추후 여러 방면을 가진 노선들에 대한 처리 필요. ex) 207(기본), 207(상행), 207(하행)
                 return busNumber.contains(number)
             }
             return false
         }
     }
+
+    private func searchBusStops(byName name: String) -> [BusStop] {
+        return filteredBusDataForNumber.filter {
+            name.contains($0.stopNameNaver ?? "") || name.contains($0.stopNameKorean ?? "")
+        }
+    }
     
-    func setJourneyStops(startStopString: String, endStopString: String) {
-        let startCandidates = searchBusStops(for: startStopString)
-        let endCandidates = searchBusStops(for: endStopString)
-        if let validStops = findValidJourneyStops(from: startCandidates, to: endCandidates) {
+    // MARK: 출뱔 정류장부터 하차 정류장까지 배열 찾기
+    func findJourneyStopsSequence(from startCandidates: [BusStop], to endCandidates: [BusStop]) {
+        if let validStops = findValidStartAndEndStops(from: startCandidates, to: endCandidates) {
             self.startStop = validStops.startStop
             self.endStop = validStops.endStop
+            
             if let startOrder = validStops.startStop.stopOrder, let endOrder = validStops.endStop.stopOrder {
-                let filteredStops = busStops.filter {
+                let filteredStops = allBusData.filter {
                     guard let order = $0.stopOrder else { return false }
                     return $0.busNumber == startStop?.busNumber && order >= startOrder && order <= endOrder
                 }
@@ -82,11 +98,7 @@ final class BusSearchViewModel: ObservableObject {
         }
     }
     
-    private func searchBusStops(for busStopName: String) -> [BusStopInfo] {
-        return busStops.filter { busStopName.contains($0.stopNameNaver ?? "") || busStopName.contains($0.stopNameKorean ?? "") }
-    }
-    
-    private func findValidJourneyStops(from startCandidates: [BusStopInfo], to endCandidates: [BusStopInfo]) -> (startStop: BusStopInfo, endStop: BusStopInfo)? {
+    private func findValidStartAndEndStops(from startCandidates: [BusStop], to endCandidates: [BusStop]) -> (startStop: BusStop, endStop: BusStop)? {
         let startOrders = startCandidates.compactMap { $0.stopOrder }
         let endOrders = endCandidates.compactMap { $0.stopOrder }
         guard let startMin = startOrders.min(), let endMin = endOrders.min(),
@@ -128,6 +140,7 @@ final class BusSearchViewModel: ObservableObject {
         }
         
         self.remainingStops = max(0, journeyStops.count - passedStops - 1)
+        
         return self.remainingStops
     }
 }
