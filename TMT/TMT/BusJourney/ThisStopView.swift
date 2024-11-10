@@ -62,13 +62,13 @@ struct ThisStopView: View {
                 .foregroundStyle(.black)
         }
         .alert("End Navigation", isPresented: $showingAlert) {
-            Button() {
+            Button {
                 showingAlert = false
             } label: {
                 Text("Stay")
                     .foregroundStyle(.blue)
             }
-            Button() {
+            Button {
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Exit")

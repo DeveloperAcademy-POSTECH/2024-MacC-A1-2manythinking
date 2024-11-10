@@ -28,7 +28,7 @@ struct HomeView: View {
                                 self.showingAlert = true
                             }
                             .alert("Failed to recognize the image.", isPresented: $showingAlert) {
-                                Button() {
+                                Button {
                                     showingAlert = false
                                 } label: {
                                     Text("Reupload")
