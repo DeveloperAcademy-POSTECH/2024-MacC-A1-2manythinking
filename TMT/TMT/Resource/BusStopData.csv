@@ -895,7 +895,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,5,삼성쉐르빌,Sam-seong Swereubil,Samsung Chereville,36.0865,129.405079
 207(기본),3,6,풍림아이원,Pung-nim Ai-won,Poonglim Iwant,36.084969,129.401663
 207(기본),3,7,농협하나로클럽,Nong-hyeop Ha-na-ro Club,NH Hanaroclub,36.081899,129.39859
-207(기본),3,8,농협양덕지점,Nong-hyeop Yang-deok Ji-jeom,Nonghyup Yangdeok Branch,36.080083,129.396745
+207(기본),3,8,농협 양덕지점,Nong-hyeop Yang-deok Ji-jeom,Nonghyup Yangdeok Branch,36.080083,129.396745
 207(기본),3,9,청소년수련관,Cheong-so-nyeon Su-ryeon-gwan,Youth Center,36.073502,129.397843
 207(기본),3,10,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071182,129.399063
 207(기본),3,11,라메르웨딩컨벤션,Ramereu Wedding Convention,,36.069702,129.396504
@@ -906,7 +906,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,16,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Center,Duho-dong Administration & Welfare Center,36.06034,129.378882
 207(기본),3,17,롯데아파트,Lotte A-pa-teu,Lotte Apartment,36.057957,129.377506
 207(기본),3,18,우방비치타운,U-bang Beach Town,Ubang Beach Town,36.054774,129.376284
-207(기본),3,19,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053208,129.374828
+207(기본),3,19,영일대 해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053208,129.374828
 207(기본),3,20,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.051393,129.371833
 207(기본),3,21,롯데백화점,Lotte Baek-hwa-jeom,Lotte Dept. Store,36.048811,129.370957
 207(기본),3,22,북부시장/채움병원,Buk-bu Si-jang/Chae-um Byeong-won,,36.04604,129.369426
@@ -929,7 +929,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,39,생명공학연구소,Saeng-myeong Gong-hak Yeon-gu-so,Biotechnology Research Institute,36.012563,129.326489
 207(기본),3,40,포스텍,Postech,Force Tec,36.015169,129.325127
 207(기본),3,41,포항제철공고,Po-hang Je-cheol Gong-go,,36.021079,129.325287
-207(기본),3,42,포스코교육재단,Posco Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
+207(기본),3,42,포스코 교육재단,Posco Gyo-yuk Jae-dan,POSCO Education Foundation,36.026276,129.326635
 207(기본),3,43,포항제철고등학교,Pohang Je-cheol Go-deung-hak-gyo,Pohang Iron and Steel High School,36.029999,129.326403
 207(기본),3,44,효자그린아파트,Hyo-ja Green A-pa-teu,Hyoja Green Apartment,36.032375,129.32588
 207(기본),3,45,포항제철유치원,Po-hang Je-cheol Yu-chi-won,Pohang Steel Kindergarten,36.029636,129.323545
@@ -948,7 +948,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,58,포항성모병원,Po-hang Seong-mo Byeong-won,,36.011145,129.340524
 207(기본),3,59,대잠사거리,Dae-jam Sa-geo-ri,Daejam Sageori,36.011017,129.34451
 207(기본),3,60,시외버스터미널,Si-oe Bus Terminal,Intercity Bus Terminal,36.013273,129.350668
-207(기본),3,61,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.01522,129.35222
+207(기본),3,61,교보생명,Gyo-bo Saeng-myeong,Kyobo Life Insurance,36.015595,129.352648
 207(기본),3,62,산업은행,San-eob Eun-haeng,KDB,36.018107,129.354529
 207(기본),3,63,고용복지플러스센터,Go-yong Bok-ji Plus Center,Employment & Welfare Plus Center,36.022987,129.358409
 207(기본),3,64,GS슈퍼마켓,GS Supermarket,GS Supermarket,36.025657,129.360522
@@ -960,7 +960,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,70,북부시장/채움병원,Buk-bu Si-jang/Chae-um Byeong-won,,36.045839,129.369553
 207(기본),3,71,롯데백화점,Lotte Baek-hwa-jeom,Lotte Dept. Store,36.049595,129.37143
 207(기본),3,72,포항세관,Po-hang Se-gwan,Pohang Customs Office,36.052196,129.373372
-207(기본),3,73,영일대해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
+207(기본),3,73,영일대 해수욕장,Yeong-il-dae Hae-su-yok-jang,Yeongildae Beach,36.053985,129.376316
 207(기본),3,74,롯데아파트,Lotte A-pa-teu,Lotte Apartment,36.057092,129.377508
 207(기본),3,75,두호동행정복지센터,Du-ho-dong Haeng-jeong Bok-ji Center,Duho-dong Administration & Welfare Center,36.06123,129.380113
 207(기본),3,76,설머리물회지구,Seol-meori Mul-hoe-ji-gu,,36.065624,129.385045
@@ -970,7 +970,7 @@ BusNumber,BusType,StopOrder,StopNameKorean,StopNameRomanized,StopNameNaver,Latit
 207(기본),3,80,라메르웨딩컨벤션,Ramereu Wedding Convention,,36.069553,129.397632
 207(기본),3,81,환호여중,Hwan-ho Yeo-jung,Hwanho Yeojung,36.071316,129.39935
 207(기본),3,82,청소년수련관,Cheong-so-nyeon Su-ryeon-gwan,Youth Center,36.073611,129.398143
-207(기본),3,83,농협양덕지점,Nong-hyeop Yangdeok Ji-jeom,Nonghyup Yangdeok Branch,36.080099,129.397067
+207(기본),3,83,농협 양덕지점,Nong-hyeop Yangdeok Ji-jeom,Nonghyup Yangdeok Branch,36.080099,129.397067
 207(기본),3,84,농협하나로클럽,Nong-hyeop Ha-na-ro Club,NH Hanaroclub,36.081696,129.398603
 207(기본),3,85,풍림아이원,Pung-nim Ai-won,Poonglim Iwant,36.085295,129.402012
 207(기본),3,86,삼성쉐르빌,Sam-seong cherville,Samsung Chereville,36.086204,129.405669

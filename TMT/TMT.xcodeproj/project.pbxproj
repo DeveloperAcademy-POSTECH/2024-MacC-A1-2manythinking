@@ -11,6 +11,7 @@
 		5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */; };
 		5B2D9A122CCA1553001FF6CC /* ScanJourneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */; };
 		5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */; };
+		5B3047FE2CE0EDA300D74A4F /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5B3047FD2CE0EDA300D74A4F /* BusStopData.csv */; };
 		5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
 		5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* BusStopView.swift */; };
@@ -22,7 +23,6 @@
 		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */; };
 		5BD4367B2CDDE41A0089B684 /* BusStopSearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4367A2CDDE4120089B684 /* BusStopSearchTest.swift */; };
-		5BD436812CDE066D0089B684 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5BD436802CDE066D0089B684 /* BusStopData.csv */; };
 		D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* ButtonComponent.swift */; };
 		D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
@@ -67,6 +67,7 @@
 		5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStatusEnum.swift; sourceTree = "<group>"; };
 		5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanJourneyVC.swift; sourceTree = "<group>"; };
 		5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyExtractor.swift; sourceTree = "<group>"; };
+		5B3047FD2CE0EDA300D74A4F /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewWrapper.swift; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BD4367A2CDDE4120089B684 /* BusStopSearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopSearchTest.swift; sourceTree = "<group>"; };
-		5BD436802CDE066D0089B684 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		D8D377E42CBE548F0043D103 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				5BD436802CDE066D0089B684 /* BusStopData.csv */,
+				5B3047FD2CE0EDA300D74A4F /* BusStopData.csv */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -357,7 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
-				5BD436812CDE066D0089B684 /* BusStopData.csv in Resources */,
+				5B3047FE2CE0EDA300D74A4F /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +421,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4S9N87385A;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -452,7 +452,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4S9N87385A;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -603,7 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 4S9N87385A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -644,7 +644,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 4S9N87385A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
