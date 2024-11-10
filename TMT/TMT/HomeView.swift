@@ -27,12 +27,15 @@ struct HomeView: View {
                             .onAppear {
                                 self.showingAlert = true
                             }
-                            .alert(isPresented: $showingAlert) {
-                                Alert(
-                                    title: Text("Failed to recognize the image."),
-                                    message: Text("Image recognition failed during upload. Please upload the image again."),
-                                    dismissButton: .default(Text("Reupload"))
-                                )
+                            .alert("Failed to recognize the image.", isPresented: $showingAlert) {
+                                Button() {
+                                    showingAlert = false
+                                } label: {
+                                    Text("Reupload")
+                                        .foregroundStyle(.blue)
+                                }
+                            } message: {
+                                Text("Image recognition failed during upload. Please upload the image again.")
                             }
                     } else if !scannedJourneyInfo.isEmpty {
                         ScrollView {
