@@ -29,6 +29,7 @@ struct HomeView: View {
                             }
                             .alert("Failed to recognize the image.", isPresented: $showingAlert) {
                                 Button {
+                                    scannedJourneyInfo = ""
                                     showingAlert = false
                                 } label: {
                                     Text("Reupload")
