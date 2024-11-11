@@ -75,6 +75,7 @@ struct ThisStopView: View {
             } label: {
                 Text("Exit")
                     .foregroundStyle(.blue)
+                    .fontWeight(.bold)
             }
         } message: {
             Text("Are you sure you want to return to Home? Your navigation will end.")
@@ -89,6 +90,5 @@ struct ThisStopView: View {
         stopNameRomanized: "Yeong-il-dae Hae-su-yok-jang"
     )
     .environmentObject(LiveActivityManager()) // LiveActivityManager 환경 객체 추가
-    
 }
 
