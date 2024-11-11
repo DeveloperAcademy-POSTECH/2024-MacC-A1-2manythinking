@@ -64,6 +64,7 @@ struct ThisStopView: View {
         .alert("End Navigation", isPresented: $showingAlert) {
             Button {
                 showingAlert = false
+                
             } label: {
                 Text("Stay")
                     .foregroundStyle(.blue)
@@ -73,6 +74,7 @@ struct ThisStopView: View {
             } label: {
                 Text("Exit")
                     .foregroundStyle(.blue)
+                    .fontWeight(.bold)
             }
         } message: {
             Text("Are you sure you want to return to Home? Your navigation will end.")

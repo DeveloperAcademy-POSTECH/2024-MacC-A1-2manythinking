@@ -13,6 +13,7 @@ struct ScannedJourneyInfoView: View {
     @State private var startStop: String = ""
     @State private var endStop: String = ""
     @State private var pickedItem: PhotosPickerItem? = nil
+    @State private var newScannedInfo: String = ""
     @Binding var scannedJourneyInfo: String
     @Binding var selectedImage: UIImage?
     @Binding var isLoading: Bool
@@ -21,10 +22,10 @@ struct ScannedJourneyInfoView: View {
     @StateObject private var liveActivityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
-    @State private var selectedStartStop: BusStop?
-    @State private var selectedEndStop: BusStop?
-    
     @State private var tag: Int? = nil
+    @State private var showingAlert: Bool = false
+    @State private var showingPhotosPicker: Bool = false
+    @State private var hasError: Bool = false
     
     init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
         let viewModel = BusSearchViewModel()
@@ -37,40 +38,74 @@ struct ScannedJourneyInfoView: View {
         _isLoading = isLoading
     }
     
-    private let ocrService = OCRService()
+    
     
     var body: some View {
         VStack(alignment: .leading) {
             uploadedInfoBox(title: "Bus Number", scannedInfo: $busNumber)
             uploadedInfoBox(title: "Departure Stop", scannedInfo: $startStop)
             uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
+
+            if hasError {
+                HStack {
+                    VStack {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                        Spacer()
+                    }
+                    Text("As the information was entered incorrectly, please reupload the screenshot.")
+                }
+                .foregroundStyle(Color.Basic.red600)
+            }
             
             HStack(spacing: 0) {
-                PhotosPicker(selection: $pickedItem, matching: .screenshots) {
+                Button {
+                    showingAlert = true
+                } label: {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.Brand.primary, lineWidth: 1)
-                        
-                        Text("Reupload")
-                            .foregroundStyle(Color.Brand.primary)
-                    }
-                    .padding(.trailing, 8)
-                }
-                .onChange(of: pickedItem) {
-                    Task {
-                        scannedJourneyInfo = ""
-                        if let data = try? await pickedItem?.loadTransferable(type: Data.self),
-                           let image = UIImage(data: data) {
-                            selectedImage = image
-                            ocrService.startOCR(image: image) { info in
-                                isLoading = false
-                                if !info.isEmpty {
-                                    scannedJourneyInfo = info
-                                }
-                            }
+                        if !hasError {
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.Brand.primary, lineWidth: 1)
+                            Text("Reupload")
+                                .foregroundStyle(Color.Brand.primary)
+                        } else {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.Basic.grey900)
+                                .stroke(Color.Basic.grey900)
+                            Text("Reupload")
+                                .foregroundStyle(.white)
                         }
                     }
                 }
+                .padding(.trailing, 8)
+                .alert("Information will disappear.", isPresented: $showingAlert) {
+                    Button {
+                        showingAlert = false
+                    } label: {
+                        Text("Cancel")
+                            .foregroundStyle(.blue)
+                    }
+                    
+                    Button {
+                        showingAlert = false
+                        showingPhotosPicker = true
+                    } label: {
+                        Text("Confirm")
+                            .foregroundStyle(.blue)
+                            .fontWeight(.bold)
+                    }
+                } message: {
+                    Text("The previously uploaded image information will disappear. Do you want to proceed?")
+                }
+                
+                PhotosPicker(selection: $pickedItem, matching: .screenshots) {
+                    EmptyView()
+                }
+                .onChange(of: pickedItem) {
+                    print("executed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    loadImage(from: pickedItem)
+                }
+                .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem)
+                
                 NavigationLink(destination: BusStopView().environmentObject(locationManager)
                     .environmentObject(busStopSearchViewModel), tag: 1, selection: self.$tag) {
                         EmptyView()
@@ -78,24 +113,27 @@ struct ScannedJourneyInfoView: View {
                 
                 Button {
                     busStopSearchViewModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
-                    
                     guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
                     liveActivityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
-
-                    if busStopSearchViewModel.journeyStops.count == 0 {
-                        // TODO: 버스 루트를 못찾은 경우 에러처리하기
-                    } else {
-                        self.tag = 1
-                    }
+                    self.tag = 1
                 } label: {
                     ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.Brand.primary)
-                            .stroke(Color.Brand.primary)
-                        Text("Start")
-                            .foregroundStyle(.black)
+                        if !hasError {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.Brand.primary)
+                                .stroke(Color.Brand.primary)
+                            Text("Start")
+                                .foregroundStyle(.black)
+                        } else {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.Basic.grey100)
+                                .stroke(Color.Basic.grey100)
+                            Text("Start")
+                                .foregroundStyle(.white)
+                        }
                     }
                 }
+                .disabled(hasError)
             }
             .frame(height: 52)
             .padding(.vertical, 12.5)
@@ -103,16 +141,50 @@ struct ScannedJourneyInfoView: View {
         .environmentObject(locationManager)
         .environmentObject(busStopSearchViewModel)
         .onAppear {
+            newScannedInfo = scannedJourneyInfo
             splitScannedInfo()
         }
     }
     
+    // TODO: 잘못된 이미지를 재재업로드하면 처음의 info 값이 튀어나옴...
+    private func loadImage(from item: PhotosPickerItem?) {
+        Task {
+            guard let item = item else { return }
+            if let data = try? await item.loadTransferable(type: Data.self),
+               let image = UIImage(data: data) {
+                selectedImage = image
+                isLoading = true
+                newScannedInfo = ""
+                
+                OCRService.shared.startOCR(image: image) { info in
+                    DispatchQueue.main.async {
+                        isLoading = false
+                        hasError = false
+                        print("hasError: \(hasError)")
+                        print("info: \(info)")
+                        if info.isEmpty {
+                            hasError = true
+                        } else {
+                            self.newScannedInfo = info
+                        }
+                        splitScannedInfo()
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     private func splitScannedInfo() {
-        let splitted = scannedJourneyInfo.split(separator: ",")
+        let splitted = newScannedInfo.split(separator: ",")
         if splitted.count >= 3 {
             busNumber = String(splitted[1])
             startStop = String(splitted[0])
             endStop = String(splitted[2])
+        } else {
+            busNumber = ""
+            startStop = ""
+            endStop = ""
         }
         if let lastChar = busNumber.last, lastChar == " " {
             busNumber = String(busNumber.dropLast())
