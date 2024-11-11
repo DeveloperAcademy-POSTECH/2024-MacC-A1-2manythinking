@@ -47,9 +47,9 @@ struct NotUploadedView: View {
                     .foregroundStyle(Color.Basic.yellow600)
                 }
             }
-            .onChange(of: pickedItem) { newItem in
+            .onChange(of: pickedItem) {
                 Task {
-                    if let data = try? await newItem?.loadTransferable(type: Data.self),
+                    if let data = try? await pickedItem?.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
                         selectedImage = image
                         ocrService.startOCR(image: image) { info in

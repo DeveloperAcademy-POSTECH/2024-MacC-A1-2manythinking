@@ -56,10 +56,10 @@ struct ScannedJourneyInfoView: View {
                     }
                     .padding(.trailing, 8)
                 }
-                .onChange(of: pickedItem) { newItem in
+                .onChange(of: pickedItem) {
                     Task {
                         scannedJourneyInfo = ""
-                        if let data = try? await newItem?.loadTransferable(type: Data.self),
+                        if let data = try? await pickedItem?.loadTransferable(type: Data.self),
                            let image = UIImage(data: data) {
                             selectedImage = image
                             ocrService.startOCR(image: image) { info in
