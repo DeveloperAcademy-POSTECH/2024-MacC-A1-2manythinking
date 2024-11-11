@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ThisStopView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var showingAlert = false
+    
     var stopNameKorean: String
     var stopNameNaver: String
     var stopNameRomanized: String
@@ -54,10 +56,26 @@ struct ThisStopView: View {
     
     private var backButton: some View {
         Button {
-            self.presentationMode.wrappedValue.dismiss()
+            showingAlert = true
         } label: {
             Image(systemName: "chevron.left")
                 .foregroundStyle(.black)
+        }
+        .alert("End Navigation", isPresented: $showingAlert) {
+            Button {
+                showingAlert = false
+            } label: {
+                Text("Stay")
+                    .foregroundStyle(.blue)
+            }
+            Button {
+                self.presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Exit")
+                    .foregroundStyle(.blue)
+            }
+        } message: {
+            Text("Are you sure you want to return to Home? Your navigation will end.")
         }
     }
 }

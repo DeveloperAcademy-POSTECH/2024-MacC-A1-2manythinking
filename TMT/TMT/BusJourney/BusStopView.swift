@@ -33,7 +33,6 @@ struct BusStopView: View {
                 }
                 Spacer()
                     EndStopView(endStop: busStopSearchViewModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: busStopSearchViewModel.remainingStops)
-                
             }
         }
         .onAppear {
