@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ThisStopView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var activityManager: LiveActivityManager
     @State private var showingAlert = false
     
     var stopNameKorean: String
@@ -70,6 +71,7 @@ struct ThisStopView: View {
             }
             Button {
                 self.presentationMode.wrappedValue.dismiss()
+                activityManager.endLiveActivity()
             } label: {
                 Text("Exit")
                     .foregroundStyle(.blue)
