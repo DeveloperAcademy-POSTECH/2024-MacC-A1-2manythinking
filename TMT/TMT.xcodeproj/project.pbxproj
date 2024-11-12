@@ -153,6 +153,8 @@
 				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
 				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
 				5B2D9A112CCA1521001FF6CC /* OCRService.swift */,
+				D81D9D962CE3435F004F2024 /* Models */,
+				D81D9D972CE34367004F2024 /* Views */,
 			);
 			path = BusJourneyScanned;
 			sourceTree = "<group>";
