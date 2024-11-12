@@ -17,7 +17,8 @@ struct ScannedJourneyInfoView: View {
     @Binding var selectedImage: UIImage?
     @Binding var isLoading: Bool
     
-    @StateObject private var busStopSearchViewModel: BusSearchViewModel
+    @StateObject private var searchModel: BusSearchViewModel
+    @StateObject private var journeyModel: BusJourneyViewModel
     @StateObject private var activityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
@@ -27,11 +28,13 @@ struct ScannedJourneyInfoView: View {
     @State private var tag: Int? = nil
     
     init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
-        let viewModel = BusSearchViewModel()
-        let liveActivity = LiveActivityManager()
-        _busStopSearchViewModel = StateObject(wrappedValue: viewModel)
-        _activityManager = StateObject(wrappedValue: liveActivity)
-        _locationManager = StateObject(wrappedValue: LocationManager(viewModel: viewModel, activityManager: liveActivity))
+        let searchModel = BusSearchViewModel()
+        let journeyModel = BusJourneyViewModel(searchModel: searchModel)
+        let activityManager = LiveActivityManager()
+        _searchModel = StateObject(wrappedValue: searchModel)
+        _journeyModel = StateObject(wrappedValue: journeyModel)
+        _activityManager = StateObject(wrappedValue: activityManager)
+        _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
         _scannedJourneyInfo = scannedJourneyInfo
         _selectedImage = selectedImage
         _isLoading = isLoading
@@ -71,18 +74,21 @@ struct ScannedJourneyInfoView: View {
                         }
                     }
                 }
-                NavigationLink(destination: BusStopView().environmentObject(locationManager)
-                    .environmentObject(busStopSearchViewModel).environmentObject(activityManager), tag: 1, selection: self.$tag) {
+                NavigationLink(destination: BusStopView()
+                    .environmentObject(locationManager)
+                    .environmentObject(searchModel)
+                    .environmentObject(activityManager)
+                    .environmentObject(journeyModel), tag: 1, selection: self.$tag) {
                         EmptyView()
                     }
                 
                 Button {
-                    busStopSearchViewModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
+                    journeyModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
                     
-                    guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
+                    guard let endStop = journeyModel.journeyStops.last else { return }
                     activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
-
-                    if busStopSearchViewModel.journeyStops.count == 0 {
+                    
+                    if journeyModel.journeyStops.isEmpty {
                         // TODO: 버스 루트를 못찾은 경우 에러처리하기
                     } else {
                         self.tag = 1
@@ -100,8 +106,6 @@ struct ScannedJourneyInfoView: View {
             .frame(height: 52)
             .padding(.vertical, 12.5)
         }
-        .environmentObject(locationManager)
-        .environmentObject(busStopSearchViewModel)
         .onAppear {
             splitScannedInfo()
         }
@@ -144,3 +148,4 @@ struct ScannedJourneyInfoView: View {
         .padding(.bottom, 16)
     }
 }
+
