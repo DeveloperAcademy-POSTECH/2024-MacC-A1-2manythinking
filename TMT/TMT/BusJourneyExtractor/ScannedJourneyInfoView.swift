@@ -103,7 +103,7 @@ struct ScannedJourneyInfoView: View {
                 .onChange(of: pickedItem) {
                     loadImage(from: pickedItem)
                 }
-                .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem)
+                .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                 
                 NavigationLink(destination: BusStopView().environmentObject(locationManager)
                     .environmentObject(busStopSearchViewModel), tag: 1, selection: self.$tag) {
