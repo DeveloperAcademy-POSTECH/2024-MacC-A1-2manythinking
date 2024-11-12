@@ -2,14 +2,13 @@
 name: "\U0001F198 Bug report template"
 about: Create a report to help us improve
 title: ''
-labels: bug
+labels: "\U0001F41E bug"
 assignees: ''
 
 ---
 
 ## Description
 > 어떤 문제가 발생했는지 명확하고 간결하게 설명해주세요.
-
 
 
 </br>
@@ -22,13 +21,10 @@ assignees: ''
 3. Scroll down to '....'
 4. See error
 
-
-
 </br>
 
 ## Expected behavior
 > 정상적인 동작을 설명해주세요.
-
 
 
 </br>
@@ -37,14 +33,12 @@ assignees: ''
 > 가능하다면 스크린샷을 첨부해주세요.
 
 
-
 </br>
 
 ## Smartphone (please complete the following information)
 
- - Device: [e.g. iPhone6] 
- - OS: [e.g. iOS8.1]
-
+ - Device: [e.g. iPhone6] **iPhone 15**
+ - OS: [e.g. iOS8.1] **iOS 18.0.1**
 
 </br>
 
