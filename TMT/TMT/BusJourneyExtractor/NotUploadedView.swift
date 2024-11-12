@@ -13,8 +13,7 @@ struct NotUploadedView: View {
     @Binding var selectedImage: UIImage?
     @Binding var scannedJourneyInfo: String
     @Binding var isLoading: Bool
-    
-    private let ocrService = OCRService()
+    @Binding var hasError: Bool
     
     var body: some View {
         VStack {
@@ -47,15 +46,20 @@ struct NotUploadedView: View {
                     .foregroundStyle(Color.Basic.yellow600)
                 }
             }
-            .onChange(of: pickedItem) { newItem in
+            .onChange(of: pickedItem) {
                 Task {
-                    if let data = try? await newItem?.loadTransferable(type: Data.self),
+                    if let data = try? await pickedItem?.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
                         selectedImage = image
+                        isLoading = true
+                        let ocrService = OCRService()
+                        
                         ocrService.startOCR(image: image) { info in
                             isLoading = false
                             if !info.isEmpty {
                                 scannedJourneyInfo = info
+                            } else {
+                                hasError = true
                             }
                         }
                     }
