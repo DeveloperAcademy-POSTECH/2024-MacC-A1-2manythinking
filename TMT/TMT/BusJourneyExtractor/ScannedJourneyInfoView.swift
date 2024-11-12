@@ -101,7 +101,6 @@ struct ScannedJourneyInfoView: View {
                     EmptyView()
                 }
                 .onChange(of: pickedItem) {
-                    print("executed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                     loadImage(from: pickedItem)
                 }
                 .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem)
@@ -155,13 +154,12 @@ struct ScannedJourneyInfoView: View {
                 selectedImage = image
                 isLoading = true
                 newScannedInfo = ""
+                let ocrService = OCRService()
                 
-                OCRService.shared.startOCR(image: image) { info in
+                ocrService.startOCR(image: image) { info in
                     DispatchQueue.main.async {
                         isLoading = false
                         hasError = false
-                        print("hasError: \(hasError)")
-                        print("info: \(info)")
                         if info.isEmpty {
                             hasError = true
                         } else {

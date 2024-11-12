@@ -9,12 +9,7 @@ import Vision
 import UIKit
 
 class OCRService {
-    static let shared = OCRService()
-    private var currentInfo: String = ""
-    private init() {}
-    
     func startOCR(image: UIImage, completion: @escaping (String) -> Void) {
-        currentInfo = ""
         guard let cgImage = image.cgImage else {
             completion("Failed while processing image.")
             return
@@ -37,8 +32,7 @@ class OCRService {
             } else {
                 let busJourneyInfo = BusJourneyExtractor.analyzeText(recognizedText)
                 DispatchQueue.main.async {
-                    self.currentInfo = busJourneyInfo ?? ""
-                    completion(self.currentInfo)
+                    completion(busJourneyInfo ?? "")
                 }
             }
         }

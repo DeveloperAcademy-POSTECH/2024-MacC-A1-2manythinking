@@ -119,9 +119,6 @@ class OCRProcessor {
         }
         
         getEndStopInHorizontal(filteredArray: filteredArray)
-        print("startstop: \(startStop)")
-        print("busNumber: \(busNumber)")
-        print("endstop: \(endStop)")
         return (startStop, busNumber, endStop)
     }
     
