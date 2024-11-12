@@ -1,5 +1,5 @@
 //
-//  BusSearchModel.swift
+//  BusSearchItem.swift
 //  TMT
 //
 //  Created by 김유빈 on 10/15/24.

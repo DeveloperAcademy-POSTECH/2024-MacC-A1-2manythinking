@@ -28,9 +28,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     private weak var activityManager: LiveActivityManager?
-    private weak var journeyModel: JourneySettingViewModel?
+    private weak var journeyModel: JourneySettingModel?
     
-    init(activityManager: LiveActivityManager, journeyModel: JourneySettingViewModel) {
+    init(activityManager: LiveActivityManager, journeyModel: JourneySettingModel) {
         self.activityManager = activityManager
         self.journeyModel = journeyModel
         super.init()

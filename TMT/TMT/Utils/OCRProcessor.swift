@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OCRProcessor {
+final class OCRProcessor {
     private var startStop: String = ""
     private var busNumber: String = ""
     private var endStop: String = ""
@@ -172,11 +172,5 @@ class OCRProcessor {
         } else {
             print("Failed to extract busStopToGetOff.")
         }
-    }
-}
-
-extension String {
-    func matches(_ pattern: String) -> Bool {
-        return self.range(of: pattern, options: .regularExpression) != nil
     }
 }

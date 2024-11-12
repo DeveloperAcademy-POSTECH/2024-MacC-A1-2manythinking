@@ -8,7 +8,7 @@
 import Vision
 import UIKit
 
-class OCRService {
+final class OCRService {
     func startOCR(image: UIImage, completion: @escaping (String) -> Void) {
         guard let cgImage = image.cgImage else {
             completion("Failed while processing image.")

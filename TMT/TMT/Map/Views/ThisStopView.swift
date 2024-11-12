@@ -81,3 +81,14 @@ struct ThisStopView: View {
         }
     }
 }
+
+#Preview {
+    ThisStopView(
+        stopNameKorean: "영일대 해수욕장",
+        stopNameNaver: "Yeongildae Beach",
+        stopNameRomanized: "Yeong-il-dae Hae-su-yok-jang"
+    )
+    .environmentObject(LiveActivityManager()) // LiveActivityManager 환경 객체 추가
+    
+}
+

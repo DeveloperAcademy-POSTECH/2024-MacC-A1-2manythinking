@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BusJourneyExtractor {
+final class BusJourneyExtractor {
     private static var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
     
     static func analyzeText(_ recognizedString: String) -> String? {
