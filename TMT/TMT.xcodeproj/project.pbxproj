@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */; };
 		5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */; };
-		5B2D9A122CCA1553001FF6CC /* ScanJourneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */; };
+		5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* OCRService.swift */; };
 		5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */; };
 		5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
@@ -64,7 +64,7 @@
 /* Begin PBXFileReference section */
 		5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedPhotoView.swift; sourceTree = "<group>"; };
 		5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStatusEnum.swift; sourceTree = "<group>"; };
-		5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanJourneyVC.swift; sourceTree = "<group>"; };
+		5B2D9A112CCA1521001FF6CC /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
 		5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyExtractor.swift; sourceTree = "<group>"; };
 		5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewWrapper.swift; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */,
 				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
 				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
-				5B2D9A112CCA1521001FF6CC /* ScanJourneyVC.swift */,
+				5B2D9A112CCA1521001FF6CC /* OCRService.swift */,
 			);
 			path = BusJourneyExtractor;
 			sourceTree = "<group>";
@@ -376,7 +376,7 @@
 				D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */,
 				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
 				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
-				5B2D9A122CCA1553001FF6CC /* ScanJourneyVC.swift in Sources */,
+				5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */,
 				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
 				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */,

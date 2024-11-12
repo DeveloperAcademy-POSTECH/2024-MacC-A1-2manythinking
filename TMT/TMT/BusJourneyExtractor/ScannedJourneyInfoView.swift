@@ -45,7 +45,7 @@ struct ScannedJourneyInfoView: View {
             uploadedInfoBox(title: "Bus Number", scannedInfo: $busNumber)
             uploadedInfoBox(title: "Departure Stop", scannedInfo: $startStop)
             uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
-
+            
             if hasError {
                 HStack {
                     VStack {
@@ -113,7 +113,7 @@ struct ScannedJourneyInfoView: View {
                 Button {
                     busStopSearchViewModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
                     guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
-                    liveActivityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
+                    activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
                     self.tag = 1
                 } label: {
                     ZStack {
@@ -145,7 +145,6 @@ struct ScannedJourneyInfoView: View {
         }
     }
     
-    // TODO: 잘못된 이미지를 재재업로드하면 처음의 info 값이 튀어나옴...
     private func loadImage(from item: PhotosPickerItem?) {
         Task {
             guard let item = item else { return }
@@ -154,20 +153,17 @@ struct ScannedJourneyInfoView: View {
                 selectedImage = image
                 isLoading = true
                 newScannedInfo = ""
-                let ocrService = OCRService()
                 
+                let ocrService = OCRService()
                 ocrService.startOCR(image: image) { info in
-                    DispatchQueue.main.async {
-                        isLoading = false
-                        hasError = false
-                        if info.isEmpty {
-                            hasError = true
-                        } else {
-                            self.newScannedInfo = info
-                        }
-                        splitScannedInfo()
+                    isLoading = false
+                    hasError = false
+                    if info.isEmpty {
+                        hasError = true
+                    } else {
+                        self.newScannedInfo = info
                     }
-                    
+                    splitScannedInfo()
                 }
             }
         }

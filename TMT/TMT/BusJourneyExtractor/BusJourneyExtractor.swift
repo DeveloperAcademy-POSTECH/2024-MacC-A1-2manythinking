@@ -8,11 +8,10 @@
 import Foundation
 
 class BusJourneyExtractor {
-    private static var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
-    
     static func analyzeText(_ recognizedString: String) -> String? {
         let ocrProcessor = OCRProcessor()
         
+        var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
         var sortOfBuses: [String] = []
         var sortOfBusNumber: [String] = []
         

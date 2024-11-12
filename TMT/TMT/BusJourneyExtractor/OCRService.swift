@@ -23,14 +23,13 @@ class OCRService {
             }
             
             let recognizedText = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
-            print("recognizedText: \(recognizedText)")
+            let busJourneyInfo = BusJourneyExtractor.analyzeText(recognizedText)
             
-            if recognizedText == "" {
+            if busJourneyInfo == ",," {
                 DispatchQueue.main.async {
                     completion("")
                 }
             } else {
-                let busJourneyInfo = BusJourneyExtractor.analyzeText(recognizedText)
                 DispatchQueue.main.async {
                     completion(busJourneyInfo ?? "")
                 }
