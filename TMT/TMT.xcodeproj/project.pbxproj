@@ -22,6 +22,7 @@
 		5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2532CD372E500F6A487 /* ThisStopView.swift */; };
 		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */; };
+		D81D9D3C2CE21CD1004F2024 /* JourneySettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingViewModel.swift */; };
 		D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* ButtonComponent.swift */; };
 		D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
@@ -78,6 +79,7 @@
 		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D81D9D3B2CE21CD1004F2024 /* JourneySettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingViewModel.swift; sourceTree = "<group>"; };
 		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,11 +154,12 @@
 		5BCE456F2CC389FE00CF38CE /* BusJourney */ = {
 			isa = PBXGroup;
 			children = (
-				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
 				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
 				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
-				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
 				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
+				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
+				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
+				D81D9D3B2CE21CD1004F2024 /* JourneySettingViewModel.swift */,
 			);
 			path = BusJourney;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
 				D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */,
+				D81D9D3C2CE21CD1004F2024 /* JourneySettingViewModel.swift in Sources */,
 				5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

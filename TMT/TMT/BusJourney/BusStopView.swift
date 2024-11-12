@@ -15,7 +15,8 @@ struct Coordinate: Identifiable {
 
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
-    @EnvironmentObject var busStopSearchViewModel: BusSearchViewModel
+    @EnvironmentObject var searchModel: BusSearchViewModel
+    @EnvironmentObject var journeyModel: JourneySettingViewModel
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
     
@@ -23,28 +24,34 @@ struct BusStopView: View {
         ZStack {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
+            
             VStack {
-                ThisStopView(stopNameKorean: busStopSearchViewModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: busStopSearchViewModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: busStopSearchViewModel.journeyStops[passedStops].stopNameRomanized ?? "")
+                ThisStopView(stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
+                
                 HStack {
                     Spacer()
+                    
                     controlsView
                         .padding(.trailing, 15.48)
                         .padding(.top, 23.91)
                 }
+                
                 Spacer()
-                    EndStopView(endStop: busStopSearchViewModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: busStopSearchViewModel.remainingStops)
+                
+                EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
             }
         }
         .onAppear {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
-            busStopSearchViewModel.searchBusStops(byNumber: busStopSearchViewModel.journeyStops.first?.busNumber ?? "")
+            
+            searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
         }
         // TODO: 실제로 줄어드는지 테스트 필요
-        .onChange(of: busStopSearchViewModel.remainingStops) { 
-            passedStops = busStopSearchViewModel.journeyStops.count - busStopSearchViewModel.remainingStops
+        .onChange(of: locationManager.remainingStops) {
+            passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
         }
     }
     
@@ -60,6 +67,7 @@ struct BusStopView: View {
                 Circle()
                     .frame(width: 44, height: 44)
                     .tint(Color.Basic.grey70)
+                
                 Image(systemName: "location.fill")
                     .tint(Color.Basic.yellow500)
             }
@@ -68,7 +76,7 @@ struct BusStopView: View {
     
     /// 좌표의 옵셔널을 제거합니다.
     private func getValidCoordinates() -> [Coordinate] {
-        busStopSearchViewModel.filteredBusDataForNumber.compactMap { stop in
+        searchModel.filteredBusDataForNumber.compactMap { stop in
             guard let latitude = stop.latitude,
                   let longitude = stop.longitude else {
                 return nil

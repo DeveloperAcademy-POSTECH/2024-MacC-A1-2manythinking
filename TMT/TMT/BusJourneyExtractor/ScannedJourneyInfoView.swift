@@ -18,7 +18,8 @@ struct ScannedJourneyInfoView: View {
     @Binding var selectedImage: UIImage?
     @Binding var isLoading: Bool
     
-    @StateObject private var busStopSearchViewModel: BusSearchViewModel
+    @StateObject private var searchModel: BusSearchViewModel
+    @StateObject private var journeyModel: JourneySettingViewModel
     @StateObject private var activityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
@@ -28,11 +29,13 @@ struct ScannedJourneyInfoView: View {
     @State private var hasError: Bool = false
     
     init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
-        let viewModel = BusSearchViewModel()
-        let liveActivity = LiveActivityManager()
-        _busStopSearchViewModel = StateObject(wrappedValue: viewModel)
-        _activityManager = StateObject(wrappedValue: liveActivity)
-        _locationManager = StateObject(wrappedValue: LocationManager(viewModel: viewModel, activityManager: liveActivity))
+        let searchModel = BusSearchViewModel()
+        let journeyModel = JourneySettingViewModel(searchModel: searchModel)
+        let activityManager = LiveActivityManager()
+        _searchModel = StateObject(wrappedValue: searchModel)
+        _journeyModel = StateObject(wrappedValue: journeyModel)
+        _activityManager = StateObject(wrappedValue: activityManager)
+        _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
         _scannedJourneyInfo = scannedJourneyInfo
         _selectedImage = selectedImage
         _isLoading = isLoading
@@ -104,15 +107,19 @@ struct ScannedJourneyInfoView: View {
                     loadImage(from: pickedItem)
                 }
                 .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
-                
-                NavigationLink(destination: BusStopView().environmentObject(locationManager)
-                    .environmentObject(busStopSearchViewModel).environmentObject(activityManager), tag: 1, selection: self.$tag) {
+
+                NavigationLink(destination: BusStopView()
+                    .environmentObject(locationManager)
+                    .environmentObject(searchModel)
+                    .environmentObject(activityManager)
+                    .environmentObject(journeyModel), tag: 1, selection: self.$tag) {
                         EmptyView()
                     }
                 
                 Button {
-                    busStopSearchViewModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
-                    guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
+                    journeyModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
+                    
+                    guard let endStop = journeyModel.journeyStops.last else { return }
                     activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
                     self.tag = 1
                 } label: {
@@ -137,8 +144,6 @@ struct ScannedJourneyInfoView: View {
             .frame(height: 52)
             .padding(.vertical, 12.5)
         }
-        .environmentObject(locationManager)
-        .environmentObject(busStopSearchViewModel)
         .onAppear {
             newScannedInfo = scannedJourneyInfo
             splitScannedInfo()
@@ -210,3 +215,4 @@ struct ScannedJourneyInfoView: View {
         .padding(.bottom, 16)
     }
 }
+

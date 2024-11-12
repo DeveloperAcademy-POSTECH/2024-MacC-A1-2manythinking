@@ -27,12 +27,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     private let locationManager = CLLocationManager()
-    private weak var viewModel: BusSearchViewModel?
     private weak var activityManager: LiveActivityManager?
+    private weak var journeyModel: JourneySettingViewModel?
     
-    init(viewModel: BusSearchViewModel, activityManager: LiveActivityManager) {
-        self.viewModel = viewModel
+    init(activityManager: LiveActivityManager, journeyModel: JourneySettingViewModel) {
         self.activityManager = activityManager
+        self.journeyModel = journeyModel
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -67,7 +67,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 }
                 self.userLocation = location.coordinate
                 
-                self.remainingStops = self.viewModel?.updateRemainingStops(currentLocation: self.userLocation) ?? 0
+                self.remainingStops = self.journeyModel?.updateRemainingStops(currentLocation: self.userLocation) ?? 0
             }
         }
     }
