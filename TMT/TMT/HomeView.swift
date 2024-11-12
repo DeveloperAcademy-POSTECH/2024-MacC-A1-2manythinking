@@ -14,6 +14,7 @@ struct HomeView: View {
     @State private var scannedJourneyInfo: String = ""
     @State private var selectedImage: UIImage? = nil
     @State private var isLoading: Bool = false
+    @State private var hasError: Bool = false
     @State private var showingAlert = false
     
     var body: some View {
@@ -22,8 +23,8 @@ struct HomeView: View {
                 Color.white
                     .ignoresSafeArea()
                 VStack(spacing: 0) {
-                    if scannedJourneyInfo == ",," {
-                        NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading)
+                    if scannedJourneyInfo == "" && hasError {
+                        NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
                             .onAppear {
                                 self.showingAlert = true
                             }
@@ -31,6 +32,7 @@ struct HomeView: View {
                                 Button {
                                     scannedJourneyInfo = ""
                                     showingAlert = false
+                                    hasError = false
                                 } label: {
                                     Text("Reupload")
                                         .foregroundStyle(.blue)
@@ -46,13 +48,13 @@ struct HomeView: View {
                     } else {
                         if isLoading {
                             ZStack {
-                                NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading)
+                                NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
                                     .disabled(isLoading)
                                 ProgressView()
                             }
                         }
                         else {
-                            NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading)
+                            NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
                         }
                     }
                     Spacer()

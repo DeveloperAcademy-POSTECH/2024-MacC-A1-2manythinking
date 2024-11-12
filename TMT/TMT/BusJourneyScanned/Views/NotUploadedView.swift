@@ -13,6 +13,7 @@ struct NotUploadedView: View {
     @Binding var selectedImage: UIImage?
     @Binding var scannedJourneyInfo: String
     @Binding var isLoading: Bool
+    @Binding var hasError: Bool
     
     var body: some View {
         VStack {
@@ -50,12 +51,15 @@ struct NotUploadedView: View {
                     if let data = try? await pickedItem?.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
                         selectedImage = image
+                        isLoading = true
                         let ocrService = OCRService()
                         
                         ocrService.startOCR(image: image) { info in
                             isLoading = false
                             if !info.isEmpty {
                                 scannedJourneyInfo = info
+                            } else {
+                                hasError = true
                             }
                         }
                     }

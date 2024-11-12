@@ -117,9 +117,14 @@ struct ScannedJourneyInfoView: View {
                     }
                 
                 Button {
+<<<<<<< HEAD:TMT/TMT/BusJourneyScanned/Views/ScannedJourneyInfoView.swift
                     journeyModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
                     
                     guard let endStop = journeyModel.journeyStops.last else { return }
+=======
+                    busStopSearchViewModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
+                    guard let endStop = busStopSearchViewModel.journeyStops.last else { return }
+>>>>>>> 631db0c (fix: #83 Edit alert issue in ScannedJourneyInfo):TMT/TMT/BusJourneyExtractor/ScannedJourneyInfoView.swift
                     activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
                     self.tag = 1
                 } label: {
@@ -159,7 +164,11 @@ struct ScannedJourneyInfoView: View {
                 isLoading = true
                 newScannedInfo = ""
                 
+<<<<<<< HEAD:TMT/TMT/BusJourneyScanned/Views/ScannedJourneyInfoView.swift
                 let ocrService = OCRService.shared
+=======
+                let ocrService = OCRService()
+>>>>>>> 631db0c (fix: #83 Edit alert issue in ScannedJourneyInfo):TMT/TMT/BusJourneyExtractor/ScannedJourneyInfoView.swift
                 ocrService.startOCR(image: image) { info in
                     isLoading = false
                     hasError = false

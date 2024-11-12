@@ -7,12 +7,17 @@
 
 import Foundation
 
+<<<<<<< HEAD:TMT/TMT/Utils/BusJourneyExtractor.swift
 final class BusJourneyExtractor {
     private static var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
     
+=======
+class BusJourneyExtractor {
+>>>>>>> 631db0c (fix: #83 Edit alert issue in ScannedJourneyInfo):TMT/TMT/BusJourneyExtractor/BusJourneyExtractor.swift
     static func analyzeText(_ recognizedString: String) -> String? {
         let ocrProcessor = OCRProcessor()
         
+        var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
         var sortOfBuses: [String] = []
         var sortOfBusNumber: [String] = []
         
