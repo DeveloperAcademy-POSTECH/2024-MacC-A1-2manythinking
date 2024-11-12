@@ -3,14 +3,12 @@ name: "\U0001F4A1 General issue template"
 about: Use this template for any other issues
 title: ''
 labels: ''
-assignees: ''
+assignees: dbqls200
 
 ---
 
 ## Description
 > 설명을 작성하세요.
-
-
 
 
 </br>
@@ -19,8 +17,6 @@ assignees: ''
 
 - [ ] todo
 - [ ] todo
-
-
 
 </br>
 
