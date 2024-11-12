@@ -158,9 +158,7 @@ struct ScannedJourneyInfoView: View {
                 selectedImage = image
                 isLoading = true
                 newScannedInfo = ""
-                let ocrService = OCRService()
                 
-<<<<<<< HEAD:TMT/TMT/BusJourneyScanned/Views/ScannedJourneyInfoView.swift
                 let ocrService = OCRService.shared
                 ocrService.startOCR(image: image) { info in
                     isLoading = false
@@ -169,18 +167,6 @@ struct ScannedJourneyInfoView: View {
                         hasError = true
                     } else {
                         self.newScannedInfo = info
-=======
-                ocrService.startOCR(image: image) { info in
-                    DispatchQueue.main.async {
-                        isLoading = false
-                        hasError = false
-                        if info.isEmpty {
-                            hasError = true
-                        } else {
-                            self.newScannedInfo = info
-                        }
-                        splitScannedInfo()
->>>>>>> b5df324 (fix: #83 delete some comments and test code):TMT/TMT/BusJourneyExtractor/ScannedJourneyInfoView.swift
                     }
                     splitScannedInfo()
                 }
