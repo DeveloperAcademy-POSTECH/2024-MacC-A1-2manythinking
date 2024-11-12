@@ -43,7 +43,7 @@ struct BusStopView: View {
             coordinatesList = getValidCoordinates()
         }
         // TODO: 실제로 줄어드는지 테스트 필요
-        .onChange(of: busStopSearchViewModel.remainingStops) { searchResults in
+        .onChange(of: busStopSearchViewModel.remainingStops) { 
             passedStops = busStopSearchViewModel.journeyStops.count - busStopSearchViewModel.remainingStops
         }
     }

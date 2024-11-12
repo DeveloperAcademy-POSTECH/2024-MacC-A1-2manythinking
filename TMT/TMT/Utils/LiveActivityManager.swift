@@ -44,6 +44,8 @@ final class LiveActivityManager: ObservableObject {
         
         Task {
             await activity?.end(ActivityContent(state: finalContent, staleDate: nil), dismissalPolicy: dismissalpolicy)
+            
+            activity = nil
         }
     }
     
