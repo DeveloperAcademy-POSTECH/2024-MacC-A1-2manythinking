@@ -50,7 +50,9 @@ struct NotUploadedView: View {
                     if let data = try? await pickedItem?.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
                         selectedImage = image
-                        OCRService.shared.startOCR(image: image) { info in
+                        let ocrService = OCRService()
+                        
+                        ocrService.startOCR(image: image) { info in
                             isLoading = false
                             if !info.isEmpty {
                                 scannedJourneyInfo = info
