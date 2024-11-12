@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import MapKit
 
 final class BusSearchViewModel: ObservableObject {
     @Published var allBusData: [BusStop] = []
