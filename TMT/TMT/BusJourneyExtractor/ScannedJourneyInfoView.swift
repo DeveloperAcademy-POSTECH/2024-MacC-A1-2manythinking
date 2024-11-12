@@ -18,7 +18,7 @@ struct ScannedJourneyInfoView: View {
     @Binding var isLoading: Bool
     
     @StateObject private var searchModel: BusSearchViewModel
-    @StateObject private var journeyModel: BusJourneyViewModel
+    @StateObject private var journeyModel: JourneySettingViewModel
     @StateObject private var activityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
@@ -29,7 +29,7 @@ struct ScannedJourneyInfoView: View {
     
     init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
         let searchModel = BusSearchViewModel()
-        let journeyModel = BusJourneyViewModel(searchModel: searchModel)
+        let journeyModel = JourneySettingViewModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
         _searchModel = StateObject(wrappedValue: searchModel)
         _journeyModel = StateObject(wrappedValue: journeyModel)
