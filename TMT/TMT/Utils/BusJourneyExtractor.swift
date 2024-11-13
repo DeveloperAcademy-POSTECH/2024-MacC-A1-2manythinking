@@ -33,7 +33,7 @@ class BusJourneyExtractor {
             BusNumber.allNumbers.contains(where: { element.contains($0) }) && !element.contains("명")
         }
         ocrProcessor.getBusNumber(sortOfBusNumber: sortOfBusNumber)
-        
+
         // MARK: - 버스 경로 생김새에 따라 분기처리합니다.
         if let firstColorIndex = filteredArray.firstIndex(where: { element in
             sortOfBuses.contains(where: { busType in element.contains(busType) })

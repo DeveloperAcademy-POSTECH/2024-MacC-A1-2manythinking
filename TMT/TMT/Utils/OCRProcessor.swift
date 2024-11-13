@@ -66,7 +66,8 @@ final class OCRProcessor {
             }
             if firstIndex < secondIndex {
                 let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-                endStop = stringArrayToStirng(stringArray: result)
+                let filteredResult = result.filter { $0 != "ETA" }
+                endStop = stringArrayToStirng(stringArray: filteredResult)
             }
         } else {
             print("Failed to extract busStopToGetOff.")
