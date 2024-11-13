@@ -18,8 +18,8 @@ struct ScannedJourneyInfoView: View {
     @Binding var selectedImage: UIImage?
     @Binding var isLoading: Bool
     
-    @StateObject private var searchModel: BusSearchViewModel
-    @StateObject private var journeyModel: JourneySettingViewModel
+    @StateObject private var searchModel: BusSearchModel
+    @StateObject private var journeyModel: JourneySettingModel
     @StateObject private var activityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
     
@@ -29,8 +29,8 @@ struct ScannedJourneyInfoView: View {
     @State private var hasError: Bool = false
     
     init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
-        let searchModel = BusSearchViewModel()
-        let journeyModel = JourneySettingViewModel(searchModel: searchModel)
+        let searchModel = BusSearchModel()
+        let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
         _searchModel = StateObject(wrappedValue: searchModel)
         _journeyModel = StateObject(wrappedValue: journeyModel)

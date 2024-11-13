@@ -15,8 +15,8 @@ struct Coordinate: Identifiable {
 
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
-    @EnvironmentObject var searchModel: BusSearchViewModel
-    @EnvironmentObject var journeyModel: JourneySettingViewModel
+    @EnvironmentObject var searchModel: BusSearchModel
+    @EnvironmentObject var journeyModel: JourneySettingModel
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
     
