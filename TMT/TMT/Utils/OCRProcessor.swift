@@ -172,9 +172,3 @@ class OCRProcessor {
         }
     }
 }
-
-extension String {
-    func matches(_ pattern: String) -> Bool {
-        return self.range(of: pattern, options: .regularExpression) != nil
-    }
-}

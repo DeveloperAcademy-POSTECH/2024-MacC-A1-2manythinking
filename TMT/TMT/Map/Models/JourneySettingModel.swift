@@ -1,5 +1,5 @@
 //
-//  JourneySettingViewModel.swift
+//  JourneySettingModel.swift
 //  TMT
 //
 //  Created by 김유빈 on 11/11/24.
@@ -8,15 +8,15 @@
 import Foundation
 import MapKit
 
-final class JourneySettingViewModel: ObservableObject {
+final class JourneySettingModel: ObservableObject {
     @Published var journeyStops: [BusStop] = []
     
     private var startStop: BusStop?
     private var endStop: BusStop?
     
-    private let searchModel: BusSearchViewModel
+    private let searchModel: BusSearchModel
     
-    init(searchModel: BusSearchViewModel) {
+    init(searchModel: BusSearchModel) {
         self.searchModel = searchModel
     }
     

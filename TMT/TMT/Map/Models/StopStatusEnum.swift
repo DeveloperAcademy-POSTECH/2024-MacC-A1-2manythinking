@@ -1,5 +1,5 @@
 //
-//  RemainingStopsEnum.swift
+//  StopStatusEnum.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 11/2/24.

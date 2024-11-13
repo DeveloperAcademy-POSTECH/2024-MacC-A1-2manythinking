@@ -22,7 +22,9 @@
 		5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2532CD372E500F6A487 /* ThisStopView.swift */; };
 		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */; };
-		D81D9D3C2CE21CD1004F2024 /* JourneySettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingViewModel.swift */; };
+		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
+		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
+		D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* ButtonComponent.swift */; };
 		D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
@@ -34,8 +36,8 @@
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */; };
 		D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */; };
-		D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchModel.swift */; };
-		D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */; };
+		D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchItem.swift */; };
+		D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +81,9 @@
 		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D81D9D3B2CE21CD1004F2024 /* JourneySettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingViewModel.swift; sourceTree = "<group>"; };
+		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
+		D81D9E992CE47F0D004F2024 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D81D9E9B2CE47F12004F2024 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,8 +96,8 @@
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		D8D377E82CBE95C30043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
-		D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewModel.swift; sourceTree = "<group>"; };
+		D8D377E82CBE95C30043D103 /* BusSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchItem.swift; sourceTree = "<group>"; };
+		D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -137,31 +141,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B2D9A0E2CCA14FB001FF6CC /* BusJourneyExtractor */ = {
+		5B2D9A0E2CCA14FB001FF6CC /* BusJourneyScanned */ = {
 			isa = PBXGroup;
 			children = (
-				5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */,
-				5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */,
-				5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */,
-				5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */,
-				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
-				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
-				5B2D9A112CCA1521001FF6CC /* OCRService.swift */,
+				D81D9E952CE47E06004F2024 /* Models */,
+				D81D9E942CE47E01004F2024 /* Views */,
 			);
-			path = BusJourneyExtractor;
+			path = BusJourneyScanned;
 			sourceTree = "<group>";
 		};
-		5BCE456F2CC389FE00CF38CE /* BusJourney */ = {
+		5BCE456F2CC389FE00CF38CE /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
-				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
+				D81D9E962CE47E7B004F2024 /* Models */,
+				D81D9E972CE47E82004F2024 /* Views */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		D81D9E912CE47D84004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E922CE47D8B004F2024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */,
+				D858729B2CD4A15F001CC467 /* OnboardingStepView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D81D9E932CE47DBC004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8D377E82CBE95C30043D103 /* BusSearchItem.swift */,
+				D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E942CE47E01004F2024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */,
+				5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */,
+				5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D81D9E952CE47E06004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
+				5B2D9A112CCA1521001FF6CC /* OCRService.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E962CE47E7B004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
+				D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E972CE47E82004F2024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
 				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
-				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
-				D81D9D3B2CE21CD1004F2024 /* JourneySettingViewModel.swift */,
+				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
+				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
 			);
-			path = BusJourney;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D81D9E982CE47F02004F2024 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D81D9E992CE47F0D004F2024 /* String.swift */,
+				D81D9E9B2CE47F12004F2024 /* Color.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D826488D2CD3553B000A448D /* UIComponent */ = {
@@ -186,6 +255,8 @@
 			children = (
 				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
 				D844BCD92CC147390059E31F /* LiveActivityManager.swift */,
+				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
+				5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -217,10 +288,11 @@
 				5B85B1C12CD91CC000469D03 /* HomeView.swift */,
 				D88F3AF32CD34DD700C0B657 /* Onboarding */,
 				D8D377E72CBE95B80043D103 /* BusSearch */,
-				5B2D9A0E2CCA14FB001FF6CC /* BusJourneyExtractor */,
-				5BCE456F2CC389FE00CF38CE /* BusJourney */,
+				5B2D9A0E2CCA14FB001FF6CC /* BusJourneyScanned */,
+				5BCE456F2CC389FE00CF38CE /* Map */,
 				D844BCD82CC1472E0059E31F /* Utils */,
 				D826488D2CD3553B000A448D /* UIComponent */,
+				D81D9E982CE47F02004F2024 /* Extension */,
 				D8D377E42CBE548F0043D103 /* Resource */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
@@ -239,9 +311,8 @@
 		D88F3AF32CD34DD700C0B657 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */,
-				D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */,
-				D858729B2CD4A15F001CC467 /* OnboardingStepView.swift */,
+				D81D9E912CE47D84004F2024 /* Models */,
+				D81D9E922CE47D8B004F2024 /* Views */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -257,8 +328,7 @@
 		D8D377E72CBE95B80043D103 /* BusSearch */ = {
 			isa = PBXGroup;
 			children = (
-				D8D377E82CBE95C30043D103 /* BusSearchModel.swift */,
-				D8D377EA2CBE95CA0043D103 /* BusSearchViewModel.swift */,
+				D81D9E932CE47DBC004F2024 /* Models */,
 			);
 			path = BusSearch;
 			sourceTree = "<group>";
@@ -376,7 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D377E92CBE95C30043D103 /* BusSearchModel.swift in Sources */,
+				D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */,
 				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
 				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
 				5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */,
@@ -389,15 +459,17 @@
 				D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */,
-				D8D377EB2CBE95CA0043D103 /* BusSearchViewModel.swift in Sources */,
+				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
 				5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
 				D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */,
+				D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */,
+				D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
 				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
 				D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */,
-				D81D9D3C2CE21CD1004F2024 /* JourneySettingViewModel.swift in Sources */,
+				D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */,
 				5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

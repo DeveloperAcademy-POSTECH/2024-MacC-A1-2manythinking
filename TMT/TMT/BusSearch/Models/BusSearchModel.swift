@@ -1,5 +1,5 @@
 //
-//  BusSearchViewModel.swift
+//  BusSearchModel.swift
 //  TMT
 //
 //  Created by 김유빈 on 10/15/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class BusSearchViewModel: ObservableObject {
+final class BusSearchModel: ObservableObject {
     @Published var allBusData: [BusStop] = []
     @Published var filteredBusDataForNumber: [BusStop] = []
     
