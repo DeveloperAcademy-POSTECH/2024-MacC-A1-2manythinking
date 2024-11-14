@@ -30,7 +30,7 @@ struct BusJourneyLiveActivity: Widget {
                 RemainingStopsCircleView(remainingStopsCount: context.state.remainingStopsCount)
             }
             .activityBackgroundTint(.white.opacity(0.7)) // TODO: 배경색 수정
-            .activitySystemActionForegroundColor(Color.white)
+            .activitySystemActionForegroundColor(.basicWhite)
             .padding(.horizontal, 15)
             .padding(.vertical, 17.5)
             
@@ -44,10 +44,10 @@ struct BusJourneyLiveActivity: Widget {
                         Image("PinYellow")
                             .resizable()
                             .frame(width: 12, height: 12)
-                            .foregroundStyle(Color.Brand.primary)
+                            .foregroundStyle(.brandPrimary)
 
                         Text("Destination")
-                            .foregroundStyle(Color.Brand.primary)
+                            .foregroundStyle(.brandPrimary)
                             .font(.system(size: 14))
                     }
                     .padding(.top, 18)
@@ -70,7 +70,7 @@ struct BusJourneyLiveActivity: Widget {
             } minimal: {
                 Text("\(context.state.remainingStopsCount)")
             }
-            .keylineTint(Color.Brand.primary)
+            .keylineTint(.brandPrimary)
         }
     }
 }
@@ -87,12 +87,12 @@ struct DestinationView: View {
                 
                 Text("Destination")
                     .font(.system(size: 14))
-                    .foregroundStyle(Color.Basic.blackOpacity40)
+                    .foregroundStyle(.basicBlackOpacity40)
             }
 
             HStack(alignment: .top, spacing: 17) {
                 Text("KOR")
-                    .foregroundStyle(Color.Basic.blackOpacity40)
+                    .foregroundStyle(.basicBlackOpacity40)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(context.attributes.stopNameRomanized)
@@ -102,7 +102,7 @@ struct DestinationView: View {
                     Text(context.attributes.stopNameKorean)
                         .font(.system(size: 16, weight: .medium))
                 }
-                .foregroundStyle(Color.Basic.black)
+                .foregroundStyle(.basicBlack)
                 
                 Spacer()
             }
@@ -126,15 +126,15 @@ struct RemainingStopsCircleView: View {
     private var circleColor: Color {
         switch remainingStopsCount {
         case 0:
-            return Color.StopLeft.readyOpacity
+            return .readyOpacity
         case 1:
-            return Color.StopLeft.left1Opacity
+            return .left1Opacity
         case 2:
-            return Color.StopLeft.left2Opacity
+            return .left2Opacity
         case 3:
-            return Color.StopLeft.left3Opacity
+            return .left3Opacity
         default:
-            return Color.Brand.primaryOpacity70
+            return .brandPrimaryOpacity70
         }
     }
     
@@ -178,15 +178,15 @@ struct RemainingStopsTextView: View {
     private var textColor: Color {
         switch remainingStopsCount {
         case 0:
-            return Color.StopLeft.ready
+            return .ready
         case 1:
-            return Color.StopLeft.left1
+            return .left1
         case 2:
-            return Color.StopLeft.left2
+            return .left2
         case 3:
-            return Color.StopLeft.left3
+            return .left3
         default:
-            return Color.Brand.primary
+            return .brandPrimary
         }
     }
 }
@@ -197,7 +197,7 @@ struct DestinationDetailView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             Text("KOR")
-                .foregroundStyle(Color.Basic.yellow300)
+                .foregroundStyle(.yellow300)
                 .font(.system(size: 16))
             
             VStack(alignment: .leading, spacing: 4) {
@@ -207,7 +207,7 @@ struct DestinationDetailView: View {
                 
                 Text(context.attributes.stopNameKorean)
             }
-            .foregroundStyle(Color.Basic.white)
+            .foregroundStyle(.basicWhite)
             .font(.system(size: 18, weight: .medium))
             
             Spacer()

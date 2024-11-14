@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PrimaryButton: View {
     var title: String
-    var color = Color.Brand.primary
+    var color: Color = .brandPrimary
     var action: () -> Void
     
     var body: some View {
@@ -19,7 +19,7 @@ struct PrimaryButton: View {
             RoundedRectangle(cornerRadius: 8)
                 .overlay {
                     Text(title)
-                        .foregroundStyle(Color.Basic.black)
+                        .foregroundStyle(.basicBlack)
                         .font(.system(size: 18, weight: .medium)) // TODO: 서체 수정
                         .padding(10)
                 }

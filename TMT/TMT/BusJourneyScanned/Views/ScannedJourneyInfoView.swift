@@ -57,7 +57,7 @@ struct ScannedJourneyInfoView: View {
                     }
                     Text("As the information was entered incorrectly, please reupload the screenshot.")
                 }
-                .foregroundStyle(Color.Basic.red600)
+                .foregroundStyle(.red600)
             }
             
             HStack(spacing: 0) {
@@ -67,13 +67,13 @@ struct ScannedJourneyInfoView: View {
                     ZStack {
                         if !hasError {
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.Brand.primary, lineWidth: 1)
+                                .stroke(.brandPrimary, lineWidth: 1)
                             Text("Reupload")
-                                .foregroundStyle(Color.Brand.primary)
+                                .foregroundStyle(.brandPrimary)
                         } else {
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.Basic.grey900)
-                                .stroke(Color.Basic.grey900)
+                                .fill(.grey900)
+                                .stroke(.grey900)
                             Text("Reupload")
                                 .foregroundStyle(.white)
                         }
@@ -126,16 +126,16 @@ struct ScannedJourneyInfoView: View {
                     ZStack {
                         if !hasError {
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.Brand.primary)
-                                .stroke(Color.Brand.primary)
+                                .fill(.brandPrimary)
+                                .stroke(.brandPrimary)
                             Text("Start")
                                 .foregroundStyle(.black)
                         } else {
                             RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.Basic.grey100)
-                                .stroke(Color.Basic.grey100)
+                                .fill(.grey100)
+                                .stroke(.grey100)
                             Text("Start")
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.basicWhite)
                         }
                     }
                 }
@@ -199,7 +199,7 @@ struct ScannedJourneyInfoView: View {
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
-                .foregroundStyle(Color.Basic.grey300)
+                .foregroundStyle(.grey300)
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
                 .bold()
                 .font(.title)
@@ -207,8 +207,8 @@ struct ScannedJourneyInfoView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(
                     RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(Color.Basic.grey100, lineWidth: 1)
-                        .background(Color.white.cornerRadius(8))
+                        .strokeBorder(.grey100, lineWidth: 1)
+                        .background(Color.basicWhite.cornerRadius(8))
                 )
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }

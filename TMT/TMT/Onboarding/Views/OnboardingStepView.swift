@@ -24,7 +24,7 @@ struct OnboardingStepView: View {
                 .resizable()
                 .frame(height: 329)
         }
-        .foregroundStyle(Color.Basic.black)
+        .foregroundStyle(.basicBlack)
         .padding(.bottom, 24.75)
     }
 }
