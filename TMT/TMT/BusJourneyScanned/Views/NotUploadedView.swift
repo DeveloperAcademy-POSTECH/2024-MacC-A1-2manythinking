@@ -9,16 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct NotUploadedView: View {
+    @StateObject private var inputDisplayModel = InputDisplayModel()
     @State private var pickedItem: PhotosPickerItem? = nil
-    @State private var scannedJourneyInfo: (busNumber: String, startStop: String, endStop: String) = ("", "", "")
-    @State private var selectedImage: UIImage? = nil
-    @State private var isLoading: Bool = false
-    @State private var hasError: Bool = false
     @State private var showingAlert = false
     @State private var tag: Int? = nil
-    
-    
-    let ocrStarter = OCRStarterManager()
     
     var body: some View {
         ZStack {
@@ -36,7 +30,7 @@ struct NotUploadedView: View {
                     Spacer()
                 }
                 
-                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo, selectedImage: $selectedImage), tag: 1, selection: self.$tag) {
+                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $inputDisplayModel.scannedJourneyInfo).environmentObject(inputDisplayModel), tag: 1, selection: self.$tag) {
                     EmptyView()
                 }
                 
@@ -57,46 +51,27 @@ struct NotUploadedView: View {
                     }
                 }
                 .onChange(of: pickedItem) {
-                    loadImage(from: pickedItem)
+                    inputDisplayModel.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
+                            print("hasError: \(inputDisplayModel.showAlertScreen)")
+                            if !inputDisplayModel.showAlertScreen {
+                                self.tag = 1
+                            }
+                        }
                 }
-            }
-            .alert("Failed to recognize the image.", isPresented: $hasError) {
-                Button {
-                    hasError = false
-                } label: {
-                    Text("Reupload")
-                        .foregroundStyle(.blue)
+                .alert("Failed to recognize the image.", isPresented: $inputDisplayModel.showAlertScreen) {
+                    Button {
+                        inputDisplayModel.showAlertScreen = false
+                    } label: {
+                        Text("Reupload")
+                            .foregroundStyle(.blue)
+                    }
+                } message: {
+                    Text("Image recognition failed during upload. Please upload the image again.")
                 }
-            } message: {
-                Text("Image recognition failed during upload. Please upload the image again.")
             }
             
-            if isLoading {
+            if inputDisplayModel.isLoading {
                 ProgressView()
-            }
-        }
-    }
-    
-    private func loadImage(from item: PhotosPickerItem?) {
-        Task {
-            guard let item = item else { return }
-            if let data = try? await item.loadTransferable(type: Data.self),
-               let image = UIImage(data: data) {
-                selectedImage = image
-                isLoading = true
-                hasError = false
-                
-                ocrStarter.startOCR(image: image) { info in
-                    isLoading = false
-                    if info.busNumber.isEmpty && info.startStop.isEmpty && info.endStop.isEmpty {
-                        hasError = true
-                    } else {
-                        print("info: \(info)")
-                        scannedJourneyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: info)
-                        print("scannedJourneyInfo: \(scannedJourneyInfo)")
-                        self.tag = 1
-                    }
-                }
             }
         }
     }

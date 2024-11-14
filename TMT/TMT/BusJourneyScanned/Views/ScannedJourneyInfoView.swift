@@ -9,14 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct ScannedJourneyInfoView: View {
-//    @State private var busNumber: String = ""
-//    @State private var startStop: String = ""
-//    @State private var endStop: String = ""
-    @State private var pickedItem: PhotosPickerItem? = nil
-    @Binding var scannedJourneyInfo: (busNumber: String, startStop: String, endStop: String)
-    @Binding var selectedImage: UIImage?
-    @State var isLoading: Bool = false
-    
+    @EnvironmentObject var inputDisplayModel: InputDisplayModel
     @StateObject private var searchModel: BusSearchModel
     @StateObject private var journeyModel: JourneySettingModel
     @StateObject private var activityManager: LiveActivityManager
@@ -25,22 +18,19 @@ struct ScannedJourneyInfoView: View {
     @State private var tag: Int? = nil
     @State private var showingAlert: Bool = false
     @State private var showingPhotosPicker: Bool = false
-    @State private var hasError: Bool = false
     @State private var isShowingOnboarding = false
+    @State private var pickedItem: PhotosPickerItem? = nil
     
-    init(scannedJourneyInfo: Binding<(busNumber: String, startStop: String, endStop: String)>, selectedImage: Binding<UIImage?>) {
+    init(scannedJourneyInfo: Binding<(busNumber: String, startStop: String, endStop: String)>) {
         let searchModel = BusSearchModel()
         let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
+        
         _searchModel = StateObject(wrappedValue: searchModel)
         _journeyModel = StateObject(wrappedValue: journeyModel)
         _activityManager = StateObject(wrappedValue: activityManager)
         _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
-        _scannedJourneyInfo = scannedJourneyInfo
-        _selectedImage = selectedImage
     }
-    
-    private let ocrStarter = OCRStarterManager()
     
     var body: some View {
         ScrollView {
@@ -48,15 +38,20 @@ struct ScannedJourneyInfoView: View {
                 Color.white
                     .ignoresSafeArea()
                 VStack {
-                    UploadedPhotoView(selectedImage: $selectedImage)
-                        .padding(.horizontal, 16)
+                    if !inputDisplayModel.showAlertScreen {
+                        UploadedPhotoView(selectedImage: $inputDisplayModel.selectedImage)
+                            .padding(.horizontal, 16)
+                    } else {
+                        UploadedPhotoView(selectedImage: .constant(nil))
+                            .padding(.horizontal, 16)
+                    }
                     
                     VStack(alignment: .leading) {
-                        uploadedInfoBox(title: "Bus Number", scannedInfo: $scannedJourneyInfo.busNumber)
-                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $scannedJourneyInfo.startStop)
-                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $scannedJourneyInfo.endStop)
+                        uploadedInfoBox(title: "Bus Number", scannedInfo: $inputDisplayModel.scannedJourneyInfo.busNumber)
+                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $inputDisplayModel.scannedJourneyInfo.startStop)
+                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $inputDisplayModel.scannedJourneyInfo.endStop)
                         
-                        if hasError {
+                        if inputDisplayModel.showAlertText {
                             HStack {
                                 VStack {
                                     Image(systemName: "exclamationmark.triangle.fill")
@@ -72,7 +67,7 @@ struct ScannedJourneyInfoView: View {
                                 showingAlert = true
                             } label: {
                                 ZStack {
-                                    if !hasError {
+                                    if !inputDisplayModel.showAlertText {
                                         RoundedRectangle(cornerRadius: 8)
                                             .stroke(Color.Brand.primary, lineWidth: 1)
                                         Text("Reupload")
@@ -98,6 +93,8 @@ struct ScannedJourneyInfoView: View {
                                 Button {
                                     showingAlert = false
                                     showingPhotosPicker = true
+                                    inputDisplayModel.scannedJourneyInfo = ("", "", "")
+                                    inputDisplayModel.selectedImage = nil
                                 } label: {
                                     Text("Confirm")
                                         .foregroundStyle(.blue)
@@ -111,7 +108,7 @@ struct ScannedJourneyInfoView: View {
                                 EmptyView()
                             }
                             .onChange(of: pickedItem) {
-                                loadImage(from: pickedItem)
+                                inputDisplayModel.loadImage(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
                             }
                             .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                             
@@ -124,14 +121,14 @@ struct ScannedJourneyInfoView: View {
                                 }
                             
                             Button {
-                                journeyModel.setJourneyStops(busNumberString: scannedJourneyInfo.busNumber, startStopString: scannedJourneyInfo.startStop, endStopString: scannedJourneyInfo.endStop)
+                                journeyModel.setJourneyStops(busNumberString: inputDisplayModel.scannedJourneyInfo.busNumber, startStopString: inputDisplayModel.scannedJourneyInfo.startStop, endStopString: inputDisplayModel.scannedJourneyInfo.endStop)
                                 
                                 guard let endStop = journeyModel.journeyStops.last else { return }
                                 activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
                                 self.tag = 1
                             } label: {
                                 ZStack {
-                                    if !hasError {
+                                    if !inputDisplayModel.showAlertText {
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(Color.Brand.primary)
                                             .stroke(Color.Brand.primary)
@@ -146,7 +143,7 @@ struct ScannedJourneyInfoView: View {
                                     }
                                 }
                             }
-                            .disabled(hasError)
+                            .disabled(inputDisplayModel.showAlertText)
                         }
                         .frame(height: 52)
                         .padding(.vertical, 12.5)
@@ -167,37 +164,6 @@ struct ScannedJourneyInfoView: View {
                 } label: {
                     Label("Info", systemImage: "info.circle")
                         .font(.title2)
-                }
-            }
-//            .onAppear {
-//                let journeyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: scannedJourneyInfo)
-//                busNumber = journeyInfo.busNumber
-//                startStop = journeyInfo.startStop
-//                endStop = journeyInfo.endStop
-//            }
-        }
-    }
-    
-    func loadImage(from item: PhotosPickerItem?) {
-        Task {
-//            var scannedJourneyInfo: String = ""
-            
-            guard let item = item else { return }
-            if let data = try? await item.loadTransferable(type: Data.self),
-               let image = UIImage(data: data) {
-                selectedImage = image
-                isLoading = true
-                hasError = false
-//                scannedJourneyInfo = ""
-                
-                
-                ocrStarter.startOCR(image: image) { info in
-                    isLoading = false
-                    if info.busNumber.isEmpty && info.startStop.isEmpty && info.endStop.isEmpty {
-                        hasError = true
-                    } else {
-                        scannedJourneyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: info)
-                    }
                 }
             }
         }

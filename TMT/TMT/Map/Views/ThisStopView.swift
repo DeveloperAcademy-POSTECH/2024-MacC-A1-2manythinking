@@ -67,16 +67,15 @@ struct ThisStopView: View {
                 showingAlert = false
                 
             } label: {
-                Text("Stay")
-                    .foregroundStyle(.blue)
+                Text("Cancel")
+                    .foregroundStyle(Color.Basic.red600)
             }
             Button {
                 self.presentationMode.wrappedValue.dismiss()
                 activityManager.endLiveActivity()
             } label: {
                 Text("Exit")
-                    .foregroundStyle(.blue)
-                    .fontWeight(.bold)
+                    .foregroundStyle(Color.Bus.blue)
             }
         } message: {
             Text("Are you sure you want to return to Home? Your navigation will end.")

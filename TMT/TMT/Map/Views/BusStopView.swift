@@ -49,9 +49,9 @@ struct BusStopView: View {
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
         }
-        // TODO: 실제로 줄어드는지 테스트 필요
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
+            print("passedStops: \(passedStops)")
         }
     }
     

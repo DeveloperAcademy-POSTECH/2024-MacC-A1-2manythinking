@@ -24,8 +24,14 @@ struct UploadedPhotoView: View {
                             .stroke(.grey200, lineWidth: 1.5)
                     )
                     .clipped()
-                    .padding(.bottom, 10)
+//                    .padding(.bottom, 10)
+            } else {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.white)
+                    .stroke(Color.Basic.grey200, lineWidth: 1.5)
+                    .frame(maxWidth: .infinity, minHeight: 360, maxHeight: 360, alignment: .center)
             }
         }
+        .padding(.bottom, 10)
     }
 }
