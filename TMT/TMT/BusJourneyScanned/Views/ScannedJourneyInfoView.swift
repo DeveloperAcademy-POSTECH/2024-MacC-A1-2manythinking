@@ -9,9 +9,9 @@ import SwiftUI
 import PhotosUI
 
 struct ScannedJourneyInfoView: View {
-    @State private var busNumber: String = ""
-    @State private var startStop: String = ""
-    @State private var endStop: String = ""
+//    @State private var busNumber: String = ""
+//    @State private var startStop: String = ""
+//    @State private var endStop: String = ""
     @State private var pickedItem: PhotosPickerItem? = nil
     @Binding var scannedJourneyInfo: (busNumber: String, startStop: String, endStop: String)
     @Binding var selectedImage: UIImage?
@@ -52,9 +52,9 @@ struct ScannedJourneyInfoView: View {
                         .padding(.horizontal, 16)
                     
                     VStack(alignment: .leading) {
-                        uploadedInfoBox(title: "Bus Number", scannedInfo: $busNumber)
-                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $startStop)
-                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
+                        uploadedInfoBox(title: "Bus Number", scannedInfo: $scannedJourneyInfo.busNumber)
+                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $scannedJourneyInfo.startStop)
+                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $scannedJourneyInfo.endStop)
                         
                         if hasError {
                             HStack {
@@ -124,7 +124,7 @@ struct ScannedJourneyInfoView: View {
                                 }
                             
                             Button {
-                                journeyModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
+                                journeyModel.setJourneyStops(busNumberString: scannedJourneyInfo.busNumber, startStopString: scannedJourneyInfo.startStop, endStopString: scannedJourneyInfo.endStop)
                                 
                                 guard let endStop = journeyModel.journeyStops.last else { return }
                                 activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
@@ -169,36 +169,36 @@ struct ScannedJourneyInfoView: View {
                         .font(.title2)
                 }
             }
-            .onAppear {
-                let journeyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: scannedJourneyInfo)
-                busNumber = journeyInfo.busNumber
-                startStop = journeyInfo.startStop
-                endStop = journeyInfo.endStop
-            }
+//            .onAppear {
+//                let journeyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: scannedJourneyInfo)
+//                busNumber = journeyInfo.busNumber
+//                startStop = journeyInfo.startStop
+//                endStop = journeyInfo.endStop
+//            }
         }
     }
     
     func loadImage(from item: PhotosPickerItem?) {
         Task {
-            var scannedJourneyInfo: String = ""
+//            var scannedJourneyInfo: String = ""
+            
             guard let item = item else { return }
             if let data = try? await item.loadTransferable(type: Data.self),
                let image = UIImage(data: data) {
                 selectedImage = image
                 isLoading = true
-                scannedJourneyInfo = ""
+                hasError = false
+//                scannedJourneyInfo = ""
                 
                 
-                //                ocrService.startOCR(image: image) { info in
-                //                    isLoading = false
-                //                    hasError = false
-                //                    if info.isEmpty {
-                //                        hasError = true
-                //                    } else {
-                //                        scannedJourneyInfo = info
-                //                    }
-                ////                    let data = NewManager().splitScannedInfo(scannedJourneyInfo: scannedJourneyInfo)
-                //                }
+                ocrStarter.startOCR(image: image) { info in
+                    isLoading = false
+                    if info.busNumber.isEmpty && info.startStop.isEmpty && info.endStop.isEmpty {
+                        hasError = true
+                    } else {
+                        scannedJourneyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: info)
+                    }
+                }
             }
         }
     }

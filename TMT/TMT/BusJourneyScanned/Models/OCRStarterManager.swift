@@ -25,15 +25,6 @@ class OCRStarterManager {
             let recognizedText = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
             let busJourneyInfo = OCRProcessorManager.analyzeText(recognizedText)
             
-            //            if busJourneyInfo == ",," {
-            //                DispatchQueue.main.async {
-            //                    completion("")
-            //                }
-            //            } else {
-            //                DispatchQueue.main.async {
-            //                    completion(busJourneyInfo ?? "")
-            //                }
-            //            }
             DispatchQueue.main.async {
                 completion(busJourneyInfo)
             }
@@ -52,17 +43,19 @@ class OCRStarterManager {
     }
     
     func splitScannedInfo(scannedJourneyInfo: (busNumber: String, startStop: String, endStop: String)) -> (busNumber: String, startStop: String, endStop: String) {
-        var busNumber = ""
-        var startStop = ""
-        var endStop = ""
+        var busNumber = scannedJourneyInfo.busNumber
+        var startStop = scannedJourneyInfo.startStop
+        var endStop = scannedJourneyInfo.endStop
         
-        if let lastChar = busNumber.last, lastChar == " " {
+        if let lastChar = scannedJourneyInfo.busNumber.last, lastChar == " " {
             busNumber = String(scannedJourneyInfo.busNumber.dropLast())
         }
-        if let lastChar = startStop.last, lastChar == " " {
+        
+        if let lastChar = scannedJourneyInfo.startStop.last, lastChar == " " {
             startStop = String(scannedJourneyInfo.startStop.dropLast())
         }
-        if let lastChar = endStop.last, lastChar == " " {
+        
+        if let lastChar = scannedJourneyInfo.endStop.last, lastChar == " " {
             endStop = String(scannedJourneyInfo.endStop.dropLast())
         }
         

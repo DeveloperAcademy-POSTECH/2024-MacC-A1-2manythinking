@@ -17,6 +17,9 @@ struct NotUploadedView: View {
     @State private var showingAlert = false
     @State private var tag: Int? = nil
     
+    
+    let ocrStarter = OCRStarterManager()
+    
     var body: some View {
         ZStack {
             VStack {
@@ -54,26 +57,7 @@ struct NotUploadedView: View {
                     }
                 }
                 .onChange(of: pickedItem) {
-                    Task {
-                        if let data = try? await pickedItem?.loadTransferable(type: Data.self),
-                           let image = UIImage(data: data) {
-                            selectedImage = image
-                            isLoading = true
-                            let ocrStarter = OCRStarterManager()
-                            
-                            ocrStarter.startOCR(image: image) { info in
-                                isLoading = false
-                                if info.busNumber.isEmpty && info.startStop.isEmpty && info.endStop.isEmpty {
-                                    hasError = true
-                                } else {
-                                    print("info: \(info)")
-                                    scannedJourneyInfo = info
-                                    self.tag = 1
-                                }
-                            }
-                        }
-                        
-                    }
+                    loadImage(from: pickedItem)
                 }
             }
             .alert("Failed to recognize the image.", isPresented: $hasError) {
@@ -89,6 +73,30 @@ struct NotUploadedView: View {
             
             if isLoading {
                 ProgressView()
+            }
+        }
+    }
+    
+    private func loadImage(from item: PhotosPickerItem?) {
+        Task {
+            guard let item = item else { return }
+            if let data = try? await item.loadTransferable(type: Data.self),
+               let image = UIImage(data: data) {
+                selectedImage = image
+                isLoading = true
+                hasError = false
+                
+                ocrStarter.startOCR(image: image) { info in
+                    isLoading = false
+                    if info.busNumber.isEmpty && info.startStop.isEmpty && info.endStop.isEmpty {
+                        hasError = true
+                    } else {
+                        print("info: \(info)")
+                        scannedJourneyInfo = ocrStarter.splitScannedInfo(scannedJourneyInfo: info)
+                        print("scannedJourneyInfo: \(scannedJourneyInfo)")
+                        self.tag = 1
+                    }
+                }
             }
         }
     }
