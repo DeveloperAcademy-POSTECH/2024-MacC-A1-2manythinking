@@ -1,5 +1,5 @@
 //
-//  OCRProcessor.swift
+//  OCRExtractorManager.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/29/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OCRProcessor {
+class OCRExtractorManager {
     private var startStop: String = ""
     private var busNumber: String = ""
     private var endStop: String = ""
@@ -45,7 +45,7 @@ class OCRProcessor {
     }
     
     /// OCR이 세로로 읽히고, 버스 경로에 하나의 버스만 존재하며, 환승이 없는 경우
-    func verticalOCROneLineType(filteredArray: [String],arrivalWordsBack: [String]) -> (startStop: String, busNumber: String, endStop: String) {
+    func verticalOneLineType(filteredArray: [String],arrivalWordsBack: [String]) -> (startStop: String, busNumber: String, endStop: String) {
         if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
            let secondIndex = filteredArray.firstIndex(of: busNumber),
            firstIndex < secondIndex {
@@ -66,18 +66,17 @@ class OCRProcessor {
             }
             if firstIndex < secondIndex {
                 let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
-                let filteredResult = result.filter { $0 != "ETA" }
-                endStop = stringArrayToStirng(stringArray: filteredResult)
+                endStop = stringArrayToStirng(stringArray: result)
             }
         } else {
             print("Failed to extract busStopToGetOff.")
         }
         
-        return (startStop, busNumber, endStop)
+        return (busNumber, startStop, endStop)
     }
     
     /// OCR이 세로로 읽히고, 버스 경로에 여러개의 버스가 존재하며, 환승이 없는 경우
-    func verticalOCRMultipleLineType(filteredArray: [String], arrivalWordsBack: [String]) -> (startStop: String, busNumber: String, endStop: String) {
+    func verticalMultipleLineType(filteredArray: [String], arrivalWordsBack: [String]) -> (startStop: String, busNumber: String, endStop: String) {
         if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
            let secondIndex = filteredArray.firstIndex(of: busNumber),
            firstIndex < secondIndex {
@@ -104,11 +103,11 @@ class OCRProcessor {
         }
         
         busNumber = busNumber.filter { $0.isNumber }
-        return (startStop, busNumber, endStop)
+        return (busNumber, startStop, endStop)
     }
     
     /// OCR이 가로로 읽히고, 버스 경로에 하나의 버스만 존재하며, 환승이 없는 경우
-    func horizontalOCROneLineType(filteredArray: [String], sortOfBuses: [String]) -> (startStop: String, busNumber: String, endStop: String) {
+    func horizontalOneLineType(filteredArray: [String], sortOfBuses: [String]) -> (startStop: String, busNumber: String, endStop: String) {
         print("filteredArray: \(filteredArray)")
         if let firstIndex = filteredArray.firstIndex(of: sortOfBuses[0]),
            let secondIndex = filteredArray.firstIndex(where: { $0 == "ETA" || $0 == busNumber }),
@@ -120,11 +119,11 @@ class OCRProcessor {
         }
         
         getEndStopInHorizontal(filteredArray: filteredArray)
-        return (startStop, busNumber, endStop)
+        return (busNumber, startStop, endStop)
     }
     
     /// OCR이 가로로 읽히고, 버스 경로에 여러개의 버스가 존재하며, 환승이 없는 경우
-    func horizontalOCRMultipleLineType(filteredArray: [String], sortOfBuses: [String]) -> (startStop: String, busNumber: String, endStop: String) {
+    func horizontalMultipleLineType(filteredArray: [String], sortOfBuses: [String]) -> (startStop: String, busNumber: String, endStop: String) {
         if let firstIndex = filteredArray.firstIndex(of: sortOfBuses[0]),
            let secondIndex = filteredArray.firstIndex(where: { $0 == "ETA" || $0 == busNumber }),
            firstIndex < secondIndex {
@@ -137,7 +136,7 @@ class OCRProcessor {
         getEndStopInHorizontal(filteredArray: filteredArray)
         busNumber = busNumber.filter { $0.isNumber }
         
-        return (startStop, busNumber, endStop)
+        return (busNumber, startStop, endStop)
     }
     
     func getBusNumber(sortOfBusNumber: [String]) {
