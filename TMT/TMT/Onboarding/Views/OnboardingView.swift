@@ -19,7 +19,7 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.black.opacity(0.5)
+            Color.basicBlack.opacity(0.5)
             
             VStack(spacing: 0) {
                 xmarkButton()
@@ -37,15 +37,12 @@ struct OnboardingView: View {
             }
             .padding(16)
             .background {
-                Color.Basic.white
+                Color.basicWhite
                     .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .frame(maxHeight: 590)
             .padding([.horizontal, .top], 16)
             .padding(.bottom, 34)
-            //            .overlay {
-            //                Color.black.opacity(0.5).ignoresSafeArea()
-            //            }
         }
         .ignoresSafeArea(.all)
     }
@@ -63,7 +60,7 @@ struct OnboardingView: View {
                 Image(systemName: "xmark.circle")
                     .resizable()
                     .frame(width: 24, height: 24)
-                    .foregroundStyle(Color.Basic.grey300)
+                    .foregroundStyle(.grey300)
             }
         }
     }

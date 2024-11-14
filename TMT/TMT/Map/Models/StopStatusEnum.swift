@@ -26,11 +26,11 @@ enum StopStatusEnum {
     var backgroundColor: Color {
         switch self {
         case .oneOrZeroStopsRemaining:
-            return Color.StopLeft.left1
+            return .left1
         case .twoStopsRemaining:
-            return Color.StopLeft.left2
+            return .left2
         case .threeStopsRemaining:
-            return Color.StopLeft.left3
+            return .left3
         case .defaultStatus:
             return .white
         }
@@ -41,7 +41,7 @@ enum StopStatusEnum {
         case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
             return .white
         case .defaultStatus:
-            return Color.Basic.yellow600
+            return .yellow600
         }
     }
     
@@ -50,7 +50,7 @@ enum StopStatusEnum {
         case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
             return .white
         case .defaultStatus:
-            return Color.Basic.grey400
+            return .grey400
         }
     }
     

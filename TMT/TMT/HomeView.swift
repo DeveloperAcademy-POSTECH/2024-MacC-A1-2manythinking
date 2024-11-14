@@ -20,7 +20,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
-                Color.white
+                Color.basicWhite
                     .ignoresSafeArea()
                 VStack(spacing: 0) {
                     if scannedJourneyInfo == "" && hasError {

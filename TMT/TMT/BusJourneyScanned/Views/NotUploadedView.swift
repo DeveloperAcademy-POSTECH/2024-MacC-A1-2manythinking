@@ -43,7 +43,7 @@ struct NotUploadedView: View {
                         Image(systemName: "photo")
                         Text("Upload Path Screenshot")
                     }
-                    .foregroundStyle(Color.Basic.yellow600)
+                    .foregroundStyle(.yellow600)
                 }
             }
             .onChange(of: pickedItem) {
