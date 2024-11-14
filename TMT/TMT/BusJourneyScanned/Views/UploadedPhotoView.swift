@@ -24,7 +24,6 @@ struct UploadedPhotoView: View {
                             .stroke(.grey200, lineWidth: 1.5)
                     )
                     .clipped()
-//                    .padding(.bottom, 10)
             } else {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.white)

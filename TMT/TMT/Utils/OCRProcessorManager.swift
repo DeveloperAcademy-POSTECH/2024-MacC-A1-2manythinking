@@ -8,7 +8,7 @@
 import Foundation
 
 class OCRProcessorManager {
-    static func analyzeText(_ recognizedString: String) -> (String, String, String) {
+    static func analyzeText(_ recognizedString: String) -> ScannedJourneyInfo {
         let ocrExtractor = OCRExtractorManager()
         
         var extractedInfo: (busNumber: String, startStop: String, endStop: String) = ("", "", "")
@@ -57,12 +57,6 @@ class OCRProcessorManager {
             }
         }
         
-        return extractedInfo
-        
-//        if extractedInfo.startStop.isEmpty || extractedInfo.busNumber.isEmpty || extractedInfo.endStop.isEmpty {
-//            return ",,"
-//        } else {
-//            return extractedInfo.startStop + "," + extractedInfo.busNumber + "," + extractedInfo.endStop
-//        }
+        return ScannedJourneyInfo(busNumber: extractedInfo.busNumber, startStop: extractedInfo.startStop, endStop: extractedInfo.endStop)
     }
 }

@@ -21,7 +21,7 @@ struct ScannedJourneyInfoView: View {
     @State private var isShowingOnboarding = false
     @State private var pickedItem: PhotosPickerItem? = nil
     
-    init(scannedJourneyInfo: Binding<(busNumber: String, startStop: String, endStop: String)>) {
+    init(scannedJourneyInfo: Binding<ScannedJourneyInfo>) {
         let searchModel = BusSearchModel()
         let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
@@ -33,10 +33,10 @@ struct ScannedJourneyInfoView: View {
     }
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                Color.white
-                    .ignoresSafeArea()
+        ZStack {
+            Color.white
+                .ignoresSafeArea()
+            ScrollView {
                 VStack {
                     if !inputDisplayModel.showAlertScreen {
                         UploadedPhotoView(selectedImage: $inputDisplayModel.selectedImage)
@@ -93,7 +93,7 @@ struct ScannedJourneyInfoView: View {
                                 Button {
                                     showingAlert = false
                                     showingPhotosPicker = true
-                                    inputDisplayModel.scannedJourneyInfo = ("", "", "")
+                                    inputDisplayModel.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
                                     inputDisplayModel.selectedImage = nil
                                 } label: {
                                     Text("Confirm")
@@ -150,23 +150,25 @@ struct ScannedJourneyInfoView: View {
                     }
                     .padding(.horizontal, 16)
                 }
-                if isShowingOnboarding {
-                    OnboardingView(isShowingOnboarding: $isShowingOnboarding)
-                        .onDisappear {
-                            isShowingOnboarding = false
-                        }
-                }
             }
-            .navigationBarBackButtonHidden()
-            .toolbar {
-                Button {
-                    isShowingOnboarding = true
-                } label: {
-                    Label("Info", systemImage: "info.circle")
-                        .font(.title2)
-                }
+            
+            if isShowingOnboarding {
+                OnboardingView(isShowingOnboarding: $isShowingOnboarding)
+                    .onDisappear {
+                        isShowingOnboarding = false
+                    }
             }
         }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            Button {
+                isShowingOnboarding = true
+            } label: {
+                Label("Info", systemImage: "info.circle")
+                    .font(.title2)
+            }
+        }
+        
     }
     
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {

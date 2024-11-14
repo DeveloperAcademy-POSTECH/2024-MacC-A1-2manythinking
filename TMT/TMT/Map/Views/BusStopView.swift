@@ -51,7 +51,6 @@ struct BusStopView: View {
         }
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
-            print("passedStops: \(passedStops)")
         }
     }
     

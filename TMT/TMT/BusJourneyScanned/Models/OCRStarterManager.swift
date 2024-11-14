@@ -9,7 +9,7 @@ import Vision
 import UIKit
 
 class OCRStarterManager {
-    func startOCR(image: UIImage, completion: @escaping ((busNumber: String, startStop: String, endStop: String)) -> Void) {
+    func startOCR(image: UIImage, completion: @escaping (ScannedJourneyInfo) -> Void) {
         guard let cgImage = image.cgImage else {
             print("Failed while processing image.")
             return
@@ -42,7 +42,8 @@ class OCRStarterManager {
         }
     }
     
-    func splitScannedInfo(scannedJourneyInfo: (busNumber: String, startStop: String, endStop: String)) -> (busNumber: String, startStop: String, endStop: String) {
+    /// 읽은 문자열의 마지막에 띄어쓰기가 있는 경우 제거해줍니다.
+    func splitScannedInfo(scannedJourneyInfo: ScannedJourneyInfo) -> ScannedJourneyInfo {
         var busNumber = scannedJourneyInfo.busNumber
         var startStop = scannedJourneyInfo.startStop
         var endStop = scannedJourneyInfo.endStop
@@ -59,6 +60,7 @@ class OCRStarterManager {
             endStop = String(scannedJourneyInfo.endStop.dropLast())
         }
         
-        return (busNumber, startStop, endStop)
+        return scannedJourneyInfo
     }
+    
 }

@@ -52,11 +52,10 @@ struct NotUploadedView: View {
                 }
                 .onChange(of: pickedItem) {
                     inputDisplayModel.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
-                            print("hasError: \(inputDisplayModel.showAlertScreen)")
-                            if !inputDisplayModel.showAlertScreen {
-                                self.tag = 1
-                            }
+                        if !inputDisplayModel.showAlertScreen {
+                            self.tag = 1
                         }
+                    }
                 }
                 .alert("Failed to recognize the image.", isPresented: $inputDisplayModel.showAlertScreen) {
                     Button {

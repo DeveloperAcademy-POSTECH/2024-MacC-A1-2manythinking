@@ -13,10 +13,11 @@ class InputDisplayModel: ObservableObject {
     @Published var showAlertScreen: Bool = false
     @Published var showAlertText: Bool = false
     @Published var selectedImage: UIImage? = nil
-    @Published var scannedJourneyInfo: (busNumber: String, startStop: String, endStop: String) = ("", "", "")
+    @Published var scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
     
     let ocrStarter = OCRStarterManager()
     
+    /// 이미지를 로드하고 OCR을 진행하여 필요한 값을 뽑아냅니다.
     func loadImage(from item: PhotosPickerItem?, viewCategory: String, completion: @escaping () -> Void) {
         Task {
             guard let item = item else { return }
