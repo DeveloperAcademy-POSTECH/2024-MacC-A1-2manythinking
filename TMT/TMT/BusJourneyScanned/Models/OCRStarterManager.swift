@@ -23,6 +23,7 @@ class OCRStarterManager {
             }
             
             let recognizedText = observations.compactMap { $0.topCandidates(1).first?.string }.joined(separator: "\n")
+            print("recognizedText: \(recognizedText)")
             let busJourneyInfo = OCRProcessorManager.analyzeText(recognizedText)
             
             DispatchQueue.main.async {
@@ -60,7 +61,7 @@ class OCRStarterManager {
             endStop = String(scannedJourneyInfo.endStop.dropLast())
         }
         
-        return scannedJourneyInfo
+        return ScannedJourneyInfo(busNumber: busNumber, startStop: startStop, endStop: endStop)
     }
     
 }

@@ -20,9 +20,9 @@ struct ScannedJourneyInfoView: View {
     @State private var showingPhotosPicker: Bool = false
     @State private var isShowingOnboarding = false
     @State private var pickedItem: PhotosPickerItem? = nil
-    @Binding var stack: NavigationPath
+    @Binding var path: [String]
     
-    init(scannedJourneyInfo: Binding<ScannedJourneyInfo>, stack: Binding<NavigationPath>) {
+    init(scannedJourneyInfo: Binding<ScannedJourneyInfo>, path: Binding<[String]>) {
         let searchModel = BusSearchModel()
         let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
@@ -31,7 +31,7 @@ struct ScannedJourneyInfoView: View {
         _journeyModel = StateObject(wrappedValue: journeyModel)
         _activityManager = StateObject(wrappedValue: activityManager)
         _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
-        _stack = stack
+        _path = path
     }
     
     var body: some View {
@@ -114,11 +114,12 @@ struct ScannedJourneyInfoView: View {
                             }
                             .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                             
-                            NavigationLink(destination: BusStopView(stack: $stack)
+                            NavigationLink(destination: BusStopView(path: $path)
                                 .environmentObject(locationManager)
                                 .environmentObject(searchModel)
                                 .environmentObject(activityManager)
-                                .environmentObject(journeyModel), tag: 1, selection: self.$tag) {
+                                .environmentObject(journeyModel)
+                                .environmentObject(imageHandler), tag: 1, selection: $tag) {
                                     EmptyView()
                                 }
                             
@@ -127,7 +128,8 @@ struct ScannedJourneyInfoView: View {
                                 
                                 guard let endStop = journeyModel.journeyStops.last else { return }
                                 activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
-                                self.tag = 1
+                                tag = 1
+                                path.append("BusStop")
                             } label: {
                                 ZStack {
                                     if !imageHandler.showAlertText {

@@ -9,11 +9,11 @@ import SwiftUI
 import PhotosUI
 
 struct NotUploadedView: View {
-    @StateObject private var imageHandler = ImageHandlerModel()
+    @EnvironmentObject var imageHandler: ImageHandlerModel
     @State private var pickedItem: PhotosPickerItem? = nil
     @State private var showingAlert = false
     @State private var tag: Int? = nil
-    @Binding var stack: NavigationPath
+    @Binding var path: [String]
     
     var body: some View {
         ZStack {
@@ -31,7 +31,7 @@ struct NotUploadedView: View {
                     Spacer()
                 }
                 
-                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo).environmentObject(imageHandler), tag: 1, selection: self.$tag) {
+                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo, path: $path).environmentObject(imageHandler), tag: 1, selection: $tag) {
                     EmptyView()
                 }
                 
@@ -54,7 +54,8 @@ struct NotUploadedView: View {
                 .onChange(of: pickedItem) {
                     imageHandler.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
                         if !imageHandler.showAlertScreen {
-                            self.tag = 1
+                            tag = 1
+                            path.append("ScannedJourneyInfo")
                         }
                     }
                 }

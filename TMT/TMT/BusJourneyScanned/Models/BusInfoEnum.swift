@@ -10,7 +10,7 @@ enum BusColor: String, CaseIterable {
     case general = "General"
     case express = "Express"
     case green = "Green"
-
+    
     static var allColors: [String] {
         return BusColor.allCases.map { $0.rawValue }
     }
@@ -39,7 +39,7 @@ enum BusNumber: String, CaseIterable {
     case bus5000 = "5000"
     case bus9000 = "9000"
     case bus580 = "580"
-
+    
     static var allNumbers: [String] {
         return BusNumber.allCases.map { $0.rawValue }
     }
@@ -49,7 +49,7 @@ enum ArrivalWordsFront: String, CaseIterable {
     case min = "min"
     case interval = "Interval:"
     case no = "No"
-
+    
     static var allFrontWords: [String] {
         return ArrivalWordsFront.allCases.map { $0.rawValue }
     }
@@ -61,7 +61,7 @@ enum ArrivalWordsBack: String, CaseIterable {
     case everyday = "Everyday"
     case weekends = "Weekends"
     case eta = "ETA"
-
+    
     static var allBackWords: [String] {
         return ArrivalWordsBack.allCases.map { $0.rawValue }
     }

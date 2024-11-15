@@ -10,17 +10,19 @@ import PhotosUI
 
 struct HomeView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
+    
     @State private var isShowingOnboarding = false
-    @State var stack: NavigationPath = NavigationPath()
+    @State var path: [String] = []
     
     var body: some View {
-        NavigationStack(path: $stack) {
+        NavigationStack(path: $path) {
             ZStack(alignment: .bottom) {
                 Color.basicWhite
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
-                    NotUploadedView(stack: $stack)
+                    NotUploadedView(path: $path)
                     Spacer()
                 }
                 .padding(.horizontal, 16)
@@ -46,6 +48,7 @@ struct HomeView: View {
                 }
             }
         }
+        .environmentObject(imageHandler)
     }
 }
 

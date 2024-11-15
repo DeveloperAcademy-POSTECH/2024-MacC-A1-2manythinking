@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ThisStopView: View {
     @EnvironmentObject var activityManager: LiveActivityManager
+    @EnvironmentObject var imageHandler: ImageHandlerModel
     @State private var showingAlert = false
-    @Binding var stack: NavigationPath
+    @Binding var path: [String]
     
     var stopNameKorean: String
     var stopNameNaver: String
@@ -42,7 +43,6 @@ struct ThisStopView: View {
         .padding(.horizontal, 16)
         .frame(width: 393, alignment: .leading)
         
-        // TODO: 블러처리와 흰 화면을 동시에 쌓을 수 있는 방법 찾기
         .background (
             Rectangle()
                 .fill(.ultraThinMaterial)
@@ -67,11 +67,12 @@ struct ThisStopView: View {
                 showingAlert = false
             } label: {
                 Text("Cancel")
-                    .foregroundStyle(.red600)
+                    .tint(.red600)
             }
             Button {
-                stack = .init()
                 activityManager.endLiveActivity()
+                imageHandler.selectedImage = nil
+                path.removeAll()
             } label: {
                 Text("Exit")
                     .foregroundStyle(.busBlue)

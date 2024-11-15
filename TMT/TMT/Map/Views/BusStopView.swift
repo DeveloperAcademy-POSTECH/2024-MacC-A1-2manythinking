@@ -20,7 +20,7 @@ struct BusStopView: View {
     
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
-    @Binding var stack: NavigationPath
+    @Binding var path: [String]
     
     var body: some View {
         ZStack {
@@ -28,7 +28,7 @@ struct BusStopView: View {
                 .edgesIgnoringSafeArea(.vertical)
             
             VStack {
-                ThisStopView(stack: $stack, stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
+                ThisStopView(path: $path, stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
                 
                 HStack {
                     Spacer()
