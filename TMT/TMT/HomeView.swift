@@ -11,15 +11,16 @@ import PhotosUI
 struct HomeView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
     @State private var isShowingOnboarding = false
+    @State var stack: NavigationPath = NavigationPath()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $stack) {
             ZStack(alignment: .bottom) {
                 Color.basicWhite
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
-                    NotUploadedView()
+                    NotUploadedView(stack: $stack)
                     Spacer()
                 }
                 .padding(.horizontal, 16)

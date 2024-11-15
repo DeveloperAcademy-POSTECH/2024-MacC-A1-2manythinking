@@ -20,8 +20,9 @@ struct ScannedJourneyInfoView: View {
     @State private var showingPhotosPicker: Bool = false
     @State private var isShowingOnboarding = false
     @State private var pickedItem: PhotosPickerItem? = nil
+    @Binding var stack: NavigationPath
     
-    init(scannedJourneyInfo: Binding<ScannedJourneyInfo>) {
+    init(scannedJourneyInfo: Binding<ScannedJourneyInfo>, stack: Binding<NavigationPath>) {
         let searchModel = BusSearchModel()
         let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
@@ -30,6 +31,7 @@ struct ScannedJourneyInfoView: View {
         _journeyModel = StateObject(wrappedValue: journeyModel)
         _activityManager = StateObject(wrappedValue: activityManager)
         _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
+        _stack = stack
     }
     
     var body: some View {
@@ -59,7 +61,7 @@ struct ScannedJourneyInfoView: View {
                                 }
                                 Text("As the information was entered incorrectly, please reupload the screenshot.")
                             }
-                            .foregroundStyle(Color.Basic.red600)
+                            .foregroundStyle(.red600)
                         }
                         
                         HStack(spacing: 0) {
@@ -74,8 +76,8 @@ struct ScannedJourneyInfoView: View {
                                             .foregroundStyle(Color.Brand.primary)
                                     } else {
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color.Basic.grey900)
-                                            .stroke(Color.Basic.grey900)
+                                            .fill(.grey900)
+                                            .stroke(.grey900)
                                         Text("Reupload")
                                             .foregroundStyle(.white)
                                     }
@@ -112,7 +114,7 @@ struct ScannedJourneyInfoView: View {
                             }
                             .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                             
-                            NavigationLink(destination: BusStopView()
+                            NavigationLink(destination: BusStopView(stack: $stack)
                                 .environmentObject(locationManager)
                                 .environmentObject(searchModel)
                                 .environmentObject(activityManager)
@@ -136,8 +138,8 @@ struct ScannedJourneyInfoView: View {
                                             .foregroundStyle(.black)
                                     } else {
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color.Basic.grey100)
-                                            .stroke(Color.Basic.grey100)
+                                            .fill(.grey100)
+                                            .stroke(.grey100)
                                         Text("Start")
                                             .foregroundStyle(.white)
                                     }

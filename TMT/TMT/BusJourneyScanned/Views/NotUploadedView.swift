@@ -13,6 +13,7 @@ struct NotUploadedView: View {
     @State private var pickedItem: PhotosPickerItem? = nil
     @State private var showingAlert = false
     @State private var tag: Int? = nil
+    @Binding var stack: NavigationPath
     
     var body: some View {
         ZStack {
@@ -47,7 +48,7 @@ struct NotUploadedView: View {
                             Image(systemName: "photo")
                             Text("Upload Path Screenshot")
                         }
-                        .foregroundStyle(Color.Basic.yellow600)
+                        .foregroundStyle(.yellow600)
                     }
                 }
                 .onChange(of: pickedItem) {

@@ -17,8 +17,10 @@ struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
+    
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
+    @Binding var stack: NavigationPath
     
     var body: some View {
         ZStack {
@@ -26,18 +28,15 @@ struct BusStopView: View {
                 .edgesIgnoringSafeArea(.vertical)
             
             VStack {
-                ThisStopView(stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
+                ThisStopView(stack: $stack, stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
                 
                 HStack {
                     Spacer()
-                    
                     controlsView
                         .padding(.trailing, 15.48)
                         .padding(.top, 23.91)
                 }
-                
                 Spacer()
-                
                 EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
             }
         }
