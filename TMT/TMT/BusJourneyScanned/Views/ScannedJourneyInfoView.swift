@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct ScannedJourneyInfoView: View {
-    @EnvironmentObject var inputDisplayModel: InputDisplayModel
+    @EnvironmentObject var imageHandler: ImageHandlerModel
     @StateObject private var searchModel: BusSearchModel
     @StateObject private var journeyModel: JourneySettingModel
     @StateObject private var activityManager: LiveActivityManager
@@ -40,8 +40,8 @@ struct ScannedJourneyInfoView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack {
-                    if !inputDisplayModel.showAlertScreen {
-                        UploadedPhotoView(selectedImage: $inputDisplayModel.selectedImage)
+                    if !imageHandler.showAlertScreen {
+                        UploadedPhotoView(selectedImage: $imageHandler.selectedImage)
                             .padding(.horizontal, 16)
                     } else {
                         UploadedPhotoView(selectedImage: .constant(nil))
@@ -49,11 +49,11 @@ struct ScannedJourneyInfoView: View {
                     }
                     
                     VStack(alignment: .leading) {
-                        uploadedInfoBox(title: "Bus Number", scannedInfo: $inputDisplayModel.scannedJourneyInfo.busNumber)
-                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $inputDisplayModel.scannedJourneyInfo.startStop)
-                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $inputDisplayModel.scannedJourneyInfo.endStop)
+                        uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
+                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
+                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
                         
-                        if inputDisplayModel.showAlertText {
+                        if imageHandler.showAlertText {
                             HStack {
                                 VStack {
                                     Image(systemName: "exclamationmark.triangle.fill")
@@ -69,7 +69,7 @@ struct ScannedJourneyInfoView: View {
                                 showingAlert = true
                             } label: {
                                 ZStack {
-                                    if !inputDisplayModel.showAlertText {
+                                    if !imageHandler.showAlertText {
                                         RoundedRectangle(cornerRadius: 8)
                                             .stroke(Color.Brand.primary, lineWidth: 1)
                                         Text("Reupload")
@@ -95,8 +95,8 @@ struct ScannedJourneyInfoView: View {
                                 Button {
                                     showingAlert = false
                                     showingPhotosPicker = true
-                                    inputDisplayModel.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
-                                    inputDisplayModel.selectedImage = nil
+                                    imageHandler.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
+                                    imageHandler.selectedImage = nil
                                 } label: {
                                     Text("Confirm")
                                         .foregroundStyle(.blue)
@@ -110,7 +110,7 @@ struct ScannedJourneyInfoView: View {
                                 EmptyView()
                             }
                             .onChange(of: pickedItem) {
-                                inputDisplayModel.loadImage(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
+                                imageHandler.loadImage(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
                             }
                             .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                             
@@ -123,14 +123,14 @@ struct ScannedJourneyInfoView: View {
                                 }
                             
                             Button {
-                                journeyModel.setJourneyStops(busNumberString: inputDisplayModel.scannedJourneyInfo.busNumber, startStopString: inputDisplayModel.scannedJourneyInfo.startStop, endStopString: inputDisplayModel.scannedJourneyInfo.endStop)
+                                journeyModel.setJourneyStops(busNumberString: imageHandler.scannedJourneyInfo.busNumber, startStopString: imageHandler.scannedJourneyInfo.startStop, endStopString: imageHandler.scannedJourneyInfo.endStop)
                                 
                                 guard let endStop = journeyModel.journeyStops.last else { return }
                                 activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
                                 self.tag = 1
                             } label: {
                                 ZStack {
-                                    if !inputDisplayModel.showAlertText {
+                                    if !imageHandler.showAlertText {
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(Color.Brand.primary)
                                             .stroke(Color.Brand.primary)
@@ -145,7 +145,7 @@ struct ScannedJourneyInfoView: View {
                                     }
                                 }
                             }
-                            .disabled(inputDisplayModel.showAlertText)
+                            .disabled(imageHandler.showAlertText)
                         }
                         .frame(height: 52)
                         .padding(.vertical, 12.5)

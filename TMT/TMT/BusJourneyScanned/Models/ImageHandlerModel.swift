@@ -1,5 +1,5 @@
 //
-//  InputDisplayModel.swift
+//  ImageHandlerMode;.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 11/14/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-class InputDisplayModel: ObservableObject {
+class ImageHandlerModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var showAlertScreen: Bool = false
     @Published var showAlertText: Bool = false

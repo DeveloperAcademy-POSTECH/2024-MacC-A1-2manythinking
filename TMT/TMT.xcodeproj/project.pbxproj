@@ -12,7 +12,7 @@
 		5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */; };
 		5B2D9A182CCA36EA001FF6CC /* OCRProcessorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */; };
 		5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */; };
-		5B50F1872CE5D19100E2EC41 /* InputDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* InputDisplayModel.swift */; };
+		5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */; };
 		5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
 		5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* BusStopView.swift */; };
@@ -72,7 +72,7 @@
 		5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRStarterManager.swift; sourceTree = "<group>"; };
 		5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessorManager.swift; sourceTree = "<group>"; };
 		5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewWrapper.swift; sourceTree = "<group>"; };
-		5B50F1862CE5D14F00E2EC41 /* InputDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDisplayModel.swift; sourceTree = "<group>"; };
+		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
 		5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */,
-				5B50F1862CE5D14F00E2EC41 /* InputDisplayModel.swift */,
+				5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */,
 				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
 				5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */,
 			);
@@ -457,7 +457,7 @@
 				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
 				5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */,
 				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
-				5B50F1872CE5D19100E2EC41 /* InputDisplayModel.swift in Sources */,
+				5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */,
 				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
 				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */,

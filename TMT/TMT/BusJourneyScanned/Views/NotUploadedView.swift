@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct NotUploadedView: View {
-    @StateObject private var inputDisplayModel = InputDisplayModel()
+    @StateObject private var imageHandler = ImageHandlerModel()
     @State private var pickedItem: PhotosPickerItem? = nil
     @State private var showingAlert = false
     @State private var tag: Int? = nil
@@ -31,7 +31,7 @@ struct NotUploadedView: View {
                     Spacer()
                 }
                 
-                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $inputDisplayModel.scannedJourneyInfo).environmentObject(inputDisplayModel), tag: 1, selection: self.$tag) {
+                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo).environmentObject(imageHandler), tag: 1, selection: self.$tag) {
                     EmptyView()
                 }
                 
@@ -52,15 +52,15 @@ struct NotUploadedView: View {
                     }
                 }
                 .onChange(of: pickedItem) {
-                    inputDisplayModel.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
-                        if !inputDisplayModel.showAlertScreen {
+                    imageHandler.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
+                        if !imageHandler.showAlertScreen {
                             self.tag = 1
                         }
                     }
                 }
-                .alert("Failed to recognize the image.", isPresented: $inputDisplayModel.showAlertScreen) {
+                .alert("Failed to recognize the image.", isPresented: $imageHandler.showAlertScreen) {
                     Button {
-                        inputDisplayModel.showAlertScreen = false
+                        imageHandler.showAlertScreen = false
                     } label: {
                         Text("Reupload")
                             .foregroundStyle(.blue)
@@ -70,7 +70,7 @@ struct NotUploadedView: View {
                 }
             }
             
-            if inputDisplayModel.isLoading {
+            if imageHandler.isLoading {
                 ProgressView()
             }
         }
