@@ -42,7 +42,6 @@ struct ThisStopView: View {
         .padding(.top, 8)
         .padding(.horizontal, 16)
         .frame(width: 393, alignment: .leading)
-        
         .background (
             Rectangle()
                 .fill(.ultraThinMaterial)

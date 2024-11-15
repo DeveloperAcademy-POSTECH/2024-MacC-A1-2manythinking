@@ -23,11 +23,12 @@ class ImageHandlerModel: ObservableObject {
             guard let item = item else { return }
             if let data = try? await item.loadTransferable(type: Data.self),
                let image = UIImage(data: data) {
-                selectedImage = image
-                isLoading = true
-                showAlertScreen = false
-                showAlertText = false
-                
+                DispatchQueue.main.async {
+                    self.selectedImage = image
+                    self.isLoading = true
+                    self.showAlertScreen = false
+                    self.showAlertText = false
+                }
                 ocrStarter.startOCR(image: image) { info in
                     self.isLoading = false
                     if info.busNumber.isEmpty && info.startStop.isEmpty && info.endStop.isEmpty {
