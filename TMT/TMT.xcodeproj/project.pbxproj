@@ -24,6 +24,10 @@
 		5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2532CD372E500F6A487 /* ThisStopView.swift */; };
 		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */; };
+		5BF33C1B2CE8A939006F17EC /* EndStopView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF33C1A2CE8A939006F17EC /* EndStopView 2.swift */; };
+		5BF33C1D2CE8AADA006F17EC /* StopStatusEnum 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF33C1C2CE8AADA006F17EC /* StopStatusEnum 2.swift */; };
+		5BF33C212CE8C799006F17EC /* BusStopView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF33C202CE8C799006F17EC /* BusStopView 2.swift */; };
+		D802CD162CE5CDFF00AF7078 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
@@ -86,6 +90,9 @@
 		5BB6D2532CD372E500F6A487 /* ThisStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisStopView.swift; sourceTree = "<group>"; };
 		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
+		5BF33C1A2CE8A939006F17EC /* EndStopView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndStopView 2.swift"; sourceTree = "<group>"; };
+		5BF33C1C2CE8AADA006F17EC /* StopStatusEnum 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StopStatusEnum 2.swift"; sourceTree = "<group>"; };
+		5BF33C202CE8C799006F17EC /* BusStopView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BusStopView 2.swift"; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
 		D81D9E992CE47F0D004F2024 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -216,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
+				5BF33C1C2CE8AADA006F17EC /* StopStatusEnum 2.swift */,
 				D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */,
 			);
 			path = Models;
@@ -225,9 +233,11 @@
 			isa = PBXGroup;
 			children = (
 				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
+				5BF33C202CE8C799006F17EC /* BusStopView 2.swift */,
 				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
 				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
 				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
+				5BF33C1A2CE8A939006F17EC /* EndStopView 2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,11 +469,14 @@
 				D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */,
 				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
 				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
+				5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */,
+				5BF33C212CE8C799006F17EC /* BusStopView 2.swift in Sources */,
 				5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */,
 				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
 				5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */,
 				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
 				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
+				5BF33C1B2CE8A939006F17EC /* EndStopView 2.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */,
@@ -479,6 +492,7 @@
 				D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */,
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
 				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
+				5BF33C1D2CE8AADA006F17EC /* StopStatusEnum 2.swift in Sources */,
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
 				D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */,
 				D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */,
