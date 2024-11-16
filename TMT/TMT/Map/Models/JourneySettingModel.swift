@@ -14,6 +14,8 @@ final class JourneySettingModel: ObservableObject {
     private var startStop: BusStop?
     private var endStop: BusStop?
     
+    private var lastPassedStopIndex: Int = -1
+    
     private let searchModel: BusSearchModel
     
     init(searchModel: BusSearchModel) {
@@ -26,12 +28,12 @@ final class JourneySettingModel: ObservableObject {
         
         let startCandidates = searchModel.searchBusStops(byName: startStopString)
         let endCandidates = searchModel.searchBusStops(byName: endStopString)
-
+        
         findJourneyStopsSequence(from: startCandidates, to: endCandidates)
     }
-
-    // MARK: 출뱔 정류장부터 하차 정류장까지 배열 찾기
-    func findJourneyStopsSequence(from startCandidates: [BusStop], to endCandidates: [BusStop]) {
+    
+    // MARK: 출발 정류장부터 하차 정류장까지 배열 찾기
+    private func findJourneyStopsSequence(from startCandidates: [BusStop], to endCandidates: [BusStop]) {
         if let validStops = findValidStartAndEndStops(from: startCandidates, to: endCandidates) {
             self.startStop = validStops.startStop
             self.endStop = validStops.endStop
@@ -73,21 +75,18 @@ final class JourneySettingModel: ObservableObject {
             return 0
         }
         
-        var passedStops = 0
-        
         for (index, stop) in journeyStops.enumerated() {
-            guard let stopLatitude = stop.latitude, let stopLongitude = stop.longitude else { continue }
+            guard index > lastPassedStopIndex, let stopLatitude = stop.latitude, let stopLongitude = stop.longitude else { continue }
             
             let stopLocation = CLLocation(latitude: stopLatitude, longitude: stopLongitude)
             let userLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
             
             if userLocation.distance(from: stopLocation) < 50.0 {
-                passedStops = index
+                lastPassedStopIndex = index
                 break
             }
         }
-                
-        return max(0, journeyStops.count - passedStops - 1)
+        
+        return max(0, journeyStops.count - lastPassedStopIndex - 1)
     }
-
 }
