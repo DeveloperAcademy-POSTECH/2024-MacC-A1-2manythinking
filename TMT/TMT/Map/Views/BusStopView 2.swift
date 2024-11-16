@@ -25,23 +25,19 @@ struct BusStopView2: View {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
             
-            // 만든 endstopview 다시 정렬하기
             VStack {
-                ThisStopView(stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
-                
+                EndStopView2(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
+                    .padding(.top, 17.04)
+                Spacer()
                 HStack {
                     Spacer()
-                    
                     controlsView
-                        .padding(.trailing, 15.48)
-                        .padding(.top, 23.91)
+                        .padding(.trailing, 18.25)
                 }
-                
-                Spacer()
-                
-                EndStopView2(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
+                // TODO: bottom sheet 또는 선택된 정류장 정보 뷰 들어가야함.
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
@@ -50,7 +46,6 @@ struct BusStopView2: View {
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
         }
-        // TODO: 실제로 줄어드는지 테스트 필요
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
         }
@@ -67,10 +62,10 @@ struct BusStopView2: View {
             ZStack {
                 Circle()
                     .frame(width: 44, height: 44)
-                    .foregroundStyle(.grey70)
+                    .foregroundStyle(.basicWhite)
                 
                 Image(systemName: "location.fill")
-                    .foregroundStyle(.yellow500)
+                    .foregroundStyle(.brandPrimary)
             }
         }
     }
