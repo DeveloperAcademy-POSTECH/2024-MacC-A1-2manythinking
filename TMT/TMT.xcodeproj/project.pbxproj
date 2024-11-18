@@ -3,25 +3,137 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */; };
+		5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */; };
+		5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* OCRService.swift */; };
+		5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */; };
+		5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */; };
+		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
+		5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* BusStopView.swift */; };
+		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
+		5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */; };
+		5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */; };
+		5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85B1C12CD91CC000469D03 /* HomeView.swift */; };
+		5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */; };
+		5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2532CD372E500F6A487 /* ThisStopView.swift */; };
+		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
+		5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */; };
+		D802CD142CE5CDDF00AF7078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
+		D802CD152CE5CDF600AF7078 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
+		D802CD162CE5CDFF00AF7078 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
+		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
+		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
+		D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
+		D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* ButtonComponent.swift */; };
+		D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */; };
+		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
+		D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBE2CC120010059E31F /* SwiftUI.framework */; };
+		D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D844BCD92CC147390059E31F /* LiveActivityManager.swift */; };
+		D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858729B2CD4A15F001CC467 /* OnboardingStepView.swift */; };
 		D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396C2CA933CD00FFE8ED /* TMTApp.swift */; };
-		D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867396E2CA933CD00FFE8ED /* ContentView.swift */; };
 		D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */; };
+		D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */; };
+		D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchItem.swift */; };
+		D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D844BCCE2CC120030059E31F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D86739612CA933CD00FFE8ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D844BCB92CC120010059E31F;
+			remoteInfo = TMTWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D844BCD52CC120030059E31F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedPhotoView.swift; sourceTree = "<group>"; };
+		5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStatusEnum.swift; sourceTree = "<group>"; };
+		5B2D9A112CCA1521001FF6CC /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
+		5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyExtractor.swift; sourceTree = "<group>"; };
+		5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewWrapper.swift; sourceTree = "<group>"; };
+		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
+		5B6DA5B72CBE551400613ACB /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
+		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessor.swift; sourceTree = "<group>"; };
+		5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotUploadedView.swift; sourceTree = "<group>"; };
+		5B85B1C12CD91CC000469D03 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
+		5BB6D2532CD372E500F6A487 /* ThisStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisStopView.swift; sourceTree = "<group>"; };
+		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
+		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
+		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
+		D81D9E992CE47F0D004F2024 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		D81D9E9B2CE47F12004F2024 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
+		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D844BCBE2CC120010059E31F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D844BCD92CC147390059E31F /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		D858729B2CD4A15F001CC467 /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		D86739692CA933CD00FFE8ED /* TMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867396C2CA933CD00FFE8ED /* TMTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMTApp.swift; sourceTree = "<group>"; };
-		D867396E2CA933CD00FFE8ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D86739702CA933CE00FFE8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86739732CA933CE00FFE8ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		D8D377E82CBE95C30043D103 /* BusSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchItem.swift; sourceTree = "<group>"; };
+		D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D844BCB92CC120010059E31F /* TMTWidgetExtension */;
+		};
+		D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TMTWidgetLiveActivity.swift,
+			);
+			target = D86739682CA933CD00FFE8ED /* TMT */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D844BCC02CC120010059E31F /* TMTWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		D844BCB72CC120010059E31F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */,
+				D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D86739662CA933CD00FFE8ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -32,10 +144,132 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B2D9A0E2CCA14FB001FF6CC /* BusJourneyScanned */ = {
+			isa = PBXGroup;
+			children = (
+				D81D9E952CE47E06004F2024 /* Models */,
+				D81D9E942CE47E01004F2024 /* Views */,
+			);
+			path = BusJourneyScanned;
+			sourceTree = "<group>";
+		};
+		5BCE456F2CC389FE00CF38CE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D81D9E962CE47E7B004F2024 /* Models */,
+				D81D9E972CE47E82004F2024 /* Views */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		D81D9E912CE47D84004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E922CE47D8B004F2024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D88F3AF12CD34DD200C0B657 /* OnboardingView.swift */,
+				D858729B2CD4A15F001CC467 /* OnboardingStepView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D81D9E932CE47DBC004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8D377E82CBE95C30043D103 /* BusSearchItem.swift */,
+				D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E942CE47E01004F2024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */,
+				5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */,
+				5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D81D9E952CE47E06004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
+				5B2D9A112CCA1521001FF6CC /* OCRService.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E962CE47E7B004F2024 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
+				D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D81D9E972CE47E82004F2024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
+				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
+				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
+				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D81D9E982CE47F02004F2024 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D81D9E992CE47F0D004F2024 /* String.swift */,
+				D81D9E9B2CE47F12004F2024 /* Color.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D826488D2CD3553B000A448D /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D826488E2CD35550000A448D /* ButtonComponent.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		D844BCBB2CC120010059E31F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D844BCBC2CC120010059E31F /* WidgetKit.framework */,
+				D844BCBE2CC120010059E31F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D844BCD82CC1472E0059E31F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
+				D844BCD92CC147390059E31F /* LiveActivityManager.swift */,
+				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
+				5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D86739602CA933CD00FFE8ED = {
 			isa = PBXGroup;
 			children = (
 				D867396B2CA933CD00FFE8ED /* TMT */,
+				D844BCC02CC120010059E31F /* TMTWidget */,
+				D844BCBB2CC120010059E31F /* Frameworks */,
 				D867396A2CA933CD00FFE8ED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				D86739692CA933CD00FFE8ED /* TMT.app */,
+				D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +286,17 @@
 		D867396B2CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXGroup;
 			children = (
+				D803DE332CD8A80C00C36D17 /* Info.plist */,
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
-				D867396E2CA933CD00FFE8ED /* ContentView.swift */,
+				5B85B1C12CD91CC000469D03 /* HomeView.swift */,
+				D88F3AF32CD34DD700C0B657 /* Onboarding */,
+				D8D377E72CBE95B80043D103 /* BusSearch */,
+				5B2D9A0E2CCA14FB001FF6CC /* BusJourneyScanned */,
+				5BCE456F2CC389FE00CF38CE /* Map */,
+				D844BCD82CC1472E0059E31F /* Utils */,
+				D826488D2CD3553B000A448D /* UIComponent */,
+				D81D9E982CE47F02004F2024 /* Extension */,
+				D8D377E42CBE548F0043D103 /* Resource */,
 				D86739702CA933CE00FFE8ED /* Assets.xcassets */,
 				D86739722CA933CE00FFE8ED /* Preview Content */,
 			);
@@ -67,9 +311,56 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D88F3AF32CD34DD700C0B657 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D81D9E912CE47D84004F2024 /* Models */,
+				D81D9E922CE47D8B004F2024 /* Views */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D8D377E42CBE548F0043D103 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D8D377E72CBE95B80043D103 /* BusSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D81D9E932CE47DBC004F2024 /* Models */,
+			);
+			path = BusSearch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D844BCB92CC120010059E31F /* TMTWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D844BCD22CC120030059E31F /* Build configuration list for PBXNativeTarget "TMTWidgetExtension" */;
+			buildPhases = (
+				D844BCB62CC120010059E31F /* Sources */,
+				D844BCB72CC120010059E31F /* Frameworks */,
+				D844BCB82CC120010059E31F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D844BCC02CC120010059E31F /* TMTWidget */,
+			);
+			name = TMTWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = TMTWidgetExtension;
+			productReference = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D86739682CA933CD00FFE8ED /* TMT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D86739772CA933CE00FFE8ED /* Build configuration list for PBXNativeTarget "TMT" */;
@@ -77,10 +368,12 @@
 				D86739652CA933CD00FFE8ED /* Sources */,
 				D86739662CA933CD00FFE8ED /* Frameworks */,
 				D86739672CA933CD00FFE8ED /* Resources */,
+				D844BCD52CC120030059E31F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D844BCCF2CC120030059E31F /* PBXTargetDependency */,
 			);
 			name = TMT;
 			productName = TMT;
@@ -94,9 +387,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					D844BCB92CC120010059E31F = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					D86739682CA933CD00FFE8ED = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -116,16 +412,26 @@
 			projectRoot = "";
 			targets = (
 				D86739682CA933CD00FFE8ED /* TMT */,
+				D844BCB92CC120010059E31F /* TMTWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D844BCB82CC120010059E31F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D802CD142CE5CDDF00AF7078 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D86739672CA933CD00FFE8ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
+				5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,18 +439,128 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D844BCB62CC120010059E31F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D802CD152CE5CDF600AF7078 /* Color.swift in Sources */,
+				D802CD162CE5CDFF00AF7078 /* String.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D86739652CA933CD00FFE8ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D867396F2CA933CD00FFE8ED /* ContentView.swift in Sources */,
+				D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */,
+				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
+				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
+				5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */,
+				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
+				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
+				5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */,
+				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
+				5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */,
+				5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */,
+				D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
+				5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */,
+				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
+				5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */,
+				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
+				D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */,
+				D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */,
+				D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */,
+				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
+				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
+				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
+				D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */,
+				D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */,
+				5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D844BCCF2CC120030059E31F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D844BCB92CC120010059E31F /* TMTWidgetExtension */;
+			targetProxy = D844BCCE2CC120030059E31F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		D844BCD32CC120030059E31F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMTWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D844BCD42CC120030059E31F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMTWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		D86739752CA933CE00FFE8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -273,25 +689,35 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMT/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BusDot;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Authorization is required to provide drop-off instructions based on the user's location.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,31 +730,50 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = 7P5S729LQZ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TMT/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BusDot;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Authorization is required to provide drop-off instructions based on the user's location.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D844BCD22CC120030059E31F /* Build configuration list for PBXNativeTarget "TMTWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D844BCD32CC120030059E31F /* Debug */,
+				D844BCD42CC120030059E31F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D86739642CA933CD00FFE8ED /* Build configuration list for PBXProject "TMT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
