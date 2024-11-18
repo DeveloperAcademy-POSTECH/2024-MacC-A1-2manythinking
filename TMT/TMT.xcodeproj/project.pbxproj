@@ -9,22 +9,23 @@
 /* Begin PBXBuildFile section */
 		5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */; };
 		5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */; };
-		5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* OCRService.swift */; };
-		5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */; };
+		5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */; };
+		5B2D9A182CCA36EA001FF6CC /* OCRProcessorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */; };
 		5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */; };
+		5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */; };
+		5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
 		5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* BusStopView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
-		5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */; };
+		5B7B01DE2CD0CA5900B6009E /* OCRExtractorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B01DD2CD0CA5200B6009E /* OCRExtractorManager.swift */; };
 		5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */; };
 		5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85B1C12CD91CC000469D03 /* HomeView.swift */; };
 		5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */; };
 		5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2532CD372E500F6A487 /* ThisStopView.swift */; };
 		5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */; };
-		D802CD142CE5CDDF00AF7078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
-		D802CD152CE5CDF600AF7078 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
-		D802CD162CE5CDFF00AF7078 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
+		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
+		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
 		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
 		D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
@@ -70,13 +71,15 @@
 /* Begin PBXFileReference section */
 		5B04FC502CD9BBFD00163877 /* UploadedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedPhotoView.swift; sourceTree = "<group>"; };
 		5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopStatusEnum.swift; sourceTree = "<group>"; };
-		5B2D9A112CCA1521001FF6CC /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
-		5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusJourneyExtractor.swift; sourceTree = "<group>"; };
+		5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRStarterManager.swift; sourceTree = "<group>"; };
+		5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessorManager.swift; sourceTree = "<group>"; };
 		5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewWrapper.swift; sourceTree = "<group>"; };
+		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
+		5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessor.swift; sourceTree = "<group>"; };
+		5B7B01DD2CD0CA5200B6009E /* OCRExtractorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRExtractorManager.swift; sourceTree = "<group>"; };
 		5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotUploadedView.swift; sourceTree = "<group>"; };
 		5B85B1C12CD91CC000469D03 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
@@ -201,8 +204,10 @@
 		D81D9E952CE47E06004F2024 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */,
+				5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */,
 				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
-				5B2D9A112CCA1521001FF6CC /* OCRService.swift */,
+				5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,8 +263,8 @@
 			children = (
 				5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */,
 				D844BCD92CC147390059E31F /* LiveActivityManager.swift */,
-				5B2D9A172CCA36E0001FF6CC /* BusJourneyExtractor.swift */,
-				5B7B01DD2CD0CA5200B6009E /* OCRProcessor.swift */,
+				5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */,
+				5B7B01DD2CD0CA5200B6009E /* OCRExtractorManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -422,7 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D802CD142CE5CDDF00AF7078 /* Assets.xcassets in Resources */,
+				5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,8 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D802CD152CE5CDF600AF7078 /* Color.swift in Sources */,
-				D802CD162CE5CDFF00AF7078 /* String.swift in Sources */,
+				5BF33BF52CE70E37006F17EC /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,13 +459,15 @@
 				D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */,
 				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
 				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
-				5B2D9A122CCA1553001FF6CC /* OCRService.swift in Sources */,
+				5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */,
+				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
+				5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */,
 				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
 				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
 				5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */,
-				5B7B01DE2CD0CA5900B6009E /* OCRProcessor.swift in Sources */,
+				5B7B01DE2CD0CA5900B6009E /* OCRExtractorManager.swift in Sources */,
 				D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */,
@@ -476,7 +482,7 @@
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
 				D88F3AF22CD34DD200C0B657 /* OnboardingView.swift in Sources */,
 				D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */,
-				5B2D9A182CCA36EA001FF6CC /* BusJourneyExtractor.swift in Sources */,
+				5B2D9A182CCA36EA001FF6CC /* OCRProcessorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

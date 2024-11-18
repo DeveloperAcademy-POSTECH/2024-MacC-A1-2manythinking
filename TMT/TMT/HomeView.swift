@@ -10,53 +10,19 @@ import PhotosUI
 
 struct HomeView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
+    
     @State private var isShowingOnboarding = false
-    @State private var scannedJourneyInfo: String = ""
-    @State private var selectedImage: UIImage? = nil
-    @State private var isLoading: Bool = false
-    @State private var hasError: Bool = false
-    @State private var showingAlert = false
+    @State var path: [String] = []
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack(alignment: .bottom) {
                 Color.basicWhite
                     .ignoresSafeArea()
+                
                 VStack(spacing: 0) {
-                    if scannedJourneyInfo == "" && hasError {
-                        NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
-                            .onAppear {
-                                self.showingAlert = true
-                            }
-                            .alert("Failed to recognize the image.", isPresented: $showingAlert) {
-                                Button {
-                                    scannedJourneyInfo = ""
-                                    showingAlert = false
-                                    hasError = false
-                                } label: {
-                                    Text("Reupload")
-                                        .foregroundStyle(.blue)
-                                }
-                            } message: {
-                                Text("Image recognition failed during upload. Please upload the image again.")
-                            }
-                    } else if !scannedJourneyInfo.isEmpty {
-                        ScrollView {
-                            UploadedPhotoView(selectedImage: $selectedImage)
-                            ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo, selectedImage: $selectedImage, isLoading: $isLoading)
-                        }
-                    } else {
-                        if isLoading {
-                            ZStack {
-                                NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
-                                    .disabled(isLoading)
-                                ProgressView()
-                            }
-                        }
-                        else {
-                            NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
-                        }
-                    }
+                    NotUploadedView(path: $path)
                     Spacer()
                 }
                 .padding(.horizontal, 16)
@@ -82,6 +48,7 @@ struct HomeView: View {
                 }
             }
         }
+        .environmentObject(imageHandler)
     }
 }
 

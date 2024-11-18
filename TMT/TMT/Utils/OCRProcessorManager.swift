@@ -1,5 +1,5 @@
 //
-//  BusJourneyExtractor.swift
+//  OCRProcessorManager.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/24/24.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class BusJourneyExtractor {
-    static func analyzeText(_ recognizedString: String) -> String? {
-        let ocrProcessor = OCRProcessor()
+class OCRProcessorManager {
+    static func analyzeText(_ recognizedString: String) -> ScannedJourneyInfo {
+        let ocrExtractor = OCRExtractorManager()
         
-        var extractedInfo: (startStop: String, busNumber: String, endStop: String) = ("", "", "")
+        var extractedInfo: (busNumber: String, startStop: String, endStop: String) = ("", "", "")
         var sortOfBuses: [String] = []
         var sortOfBusNumber: [String] = []
         
@@ -19,15 +19,15 @@ class BusJourneyExtractor {
         let firstMinIndex = stringInArray.enumerated().filter({ $0.element.contains("min") }).first?.offset ?? 0
         stringInArray.remove(at: firstMinIndex)
         
-        let slicedArray = ocrProcessor.extractBusJourney(stringInArray: stringInArray)
+        let slicedArray = ocrExtractor.extractBusJourney(stringInArray: stringInArray)
         let filteredArray = slicedArray.filter { !$0.matches("\\b\\d+m\\b(?!in)") && $0 != "Best" && $0 != "route" }
         
         sortOfBuses = filteredArray.filter { BusColor.allColors.contains($0) }
         sortOfBusNumber = filteredArray.filter { element in
             BusNumber.allNumbers.contains(where: { element.contains($0) }) && !element.contains("명")
         }
-        ocrProcessor.getBusNumber(sortOfBusNumber: sortOfBusNumber)
-
+        ocrExtractor.getBusNumber(sortOfBusNumber: sortOfBusNumber)
+        
         // MARK: - 버스 경로 생김새에 따라 분기처리합니다.
         if let firstColorIndex = filteredArray.firstIndex(where: { element in
             sortOfBuses.contains(where: { busType in element.contains(busType) })
@@ -37,9 +37,9 @@ class BusJourneyExtractor {
             if filteredArray[twoStepsAfterIndex] == "Get" || filteredArray[threeStepsAfterIndex] == "Get" {
                 if sortOfBuses.count < 2 {
                     if sortOfBusNumber.count < 2 {
-                        extractedInfo = ocrProcessor.verticalOCROneLineType(filteredArray: filteredArray,  arrivalWordsBack: ArrivalWordsBack.allBackWords)
+                        extractedInfo = ocrExtractor.verticalOneLineType(filteredArray: filteredArray,  arrivalWordsBack: ArrivalWordsBack.allBackWords)
                     } else {
-                        extractedInfo = ocrProcessor.verticalOCRMultipleLineType(filteredArray: filteredArray, arrivalWordsBack: ArrivalWordsBack.allBackWords)
+                        extractedInfo = ocrExtractor.verticalMultipleLineType(filteredArray: filteredArray, arrivalWordsBack: ArrivalWordsBack.allBackWords)
                     }
                 } else {
                     // TODO: 환승 노선은 다음 이터레이션에 구현될 예정입니다.
@@ -47,9 +47,9 @@ class BusJourneyExtractor {
             } else {
                 if sortOfBuses.count < 2 {
                     if sortOfBusNumber.count < 2 {
-                        extractedInfo = ocrProcessor.horizontalOCROneLineType(filteredArray: filteredArray, sortOfBuses: sortOfBuses)
+                        extractedInfo = ocrExtractor.horizontalOneLineType(filteredArray: filteredArray, sortOfBuses: sortOfBuses)
                     } else {
-                        extractedInfo = ocrProcessor.horizontalOCRMultipleLineType(filteredArray: filteredArray, sortOfBuses: sortOfBuses)
+                        extractedInfo = ocrExtractor.horizontalMultipleLineType(filteredArray: filteredArray, sortOfBuses: sortOfBuses)
                     }
                 } else {
                     // TODO: 환승 노선은 다음 이터레이션에 구현될 예정입니다.
@@ -57,10 +57,6 @@ class BusJourneyExtractor {
             }
         }
         
-        if extractedInfo.startStop.isEmpty || extractedInfo.busNumber.isEmpty || extractedInfo.endStop.isEmpty {
-            return ",,"
-        } else {
-            return extractedInfo.startStop + "," + extractedInfo.busNumber + "," + extractedInfo.endStop
-        }
+        return ScannedJourneyInfo(busNumber: extractedInfo.busNumber, startStop: extractedInfo.startStop, endStop: extractedInfo.endStop)
     }
 }
