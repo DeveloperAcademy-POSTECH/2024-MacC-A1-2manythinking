@@ -13,7 +13,7 @@ struct Coordinate: Identifiable {
     var longtitude: Double
 }
 
-struct BusStopView2: View {
+struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
