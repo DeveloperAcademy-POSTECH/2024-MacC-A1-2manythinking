@@ -1,5 +1,5 @@
 //
-//  MapView.swift
+//  BusStopView.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/15/24.

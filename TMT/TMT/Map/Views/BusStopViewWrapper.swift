@@ -1,5 +1,5 @@
 //
-//  MapViewWrapper.swift
+//  BusStopViewWrapper.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/24/24.
