@@ -10,13 +10,14 @@ import SwiftUI
 struct Coordinate: Identifiable {
     var id = UUID()
     var latitude: Double
-    var longtitude: Double
+    var longitude: Double
 }
 
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
+    @StateObject var sharedViewModel = SharedViewModel()
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
@@ -42,6 +43,14 @@ struct BusStopView: View {
                         .padding(.trailing, 17)
                         .padding(.bottom, 26)
                 }
+                Spacer()
+                EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
+                if sharedViewModel.isTapped == true {
+                    SelectedBusStopView()
+                }
+            }
+        }
+        .environmentObject(sharedViewModel)
                 // TODO: bottom sheet 또는 선택된 정류장 정보 뷰 들어가야함.
             }
         }
@@ -60,7 +69,7 @@ struct BusStopView: View {
     }
     
     private var busStopViewWrapper: some View {
-        BusStopViewWrapper(region: $locationManager.region, coordinatesList: coordinatesList)
+        BusStopViewWrapper(sharedViewModel: sharedViewModel, region: $locationManager.region, coordinatesList: coordinatesList)
     }
     
     private var controlsView: some View {
@@ -102,7 +111,7 @@ struct BusStopView: View {
                   let longitude = stop.longitude else {
                 return nil
             }
-            return Coordinate(latitude: latitude, longtitude: longitude)
+            return Coordinate(latitude: latitude, longitude: longitude)
         }
     }
 }

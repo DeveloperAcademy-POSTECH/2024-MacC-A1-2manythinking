@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-class ImageHandlerModel: ObservableObject {
+final class ImageHandlerModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var showAlertScreen: Bool = false
     @Published var showAlertText: Bool = false
