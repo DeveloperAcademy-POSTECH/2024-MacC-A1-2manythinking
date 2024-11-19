@@ -67,8 +67,6 @@ struct BusStopViewWrapper: UIViewRepresentable {
                 view.frame.size = CGSize(width: 35, height: 35)
                 view.layer.cornerRadius = 5
                 parent.selectedStopManager.selectedIndex = annotation.index
-                print("wow selected!!!!")
-                print("index: \(annotation.index)")
                 parent.selectedStopManager.isTapped = true
             }
         }
