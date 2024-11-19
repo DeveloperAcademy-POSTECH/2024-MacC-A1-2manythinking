@@ -14,8 +14,7 @@ struct SelectedBusStopView: View {
     
     var body: some View {
         VStack {
-            if let stopOrder = stopOrder {
-                Text("searchModel: \(searchModel.filteredBusDataForNumber[stopOrder].stopNameKorean)")
+            if let stopOrder = stopOrder {                Text("searchModel: \(searchModel.filteredBusDataForNumber[stopOrder].stopNameKorean)")
             } else {
                 Text("Error is occured. Please try again.")
             }
@@ -27,9 +26,14 @@ struct SelectedBusStopView: View {
             Text("SelectedBusStopView")
                 .background()
         }
+        .onAppear(perform: updateStateOrder)
         .onChange(of: selectedStopManager.selectedIndex) {
-            stopOrder = selectedStopManager.selectedIndex
+            updateStateOrder()
         }
         
+    }
+    
+    private func updateStateOrder() {
+        stopOrder = selectedStopManager.selectedIndex
     }
 }
