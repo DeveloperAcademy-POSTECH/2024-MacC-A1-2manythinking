@@ -8,9 +8,25 @@
 import SwiftUI
 import MapKit
 
+final class IndexedAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    var index: Int
+    
+    init(coordinate: CLLocationCoordinate2D, index: Int) {
+        self.coordinate = coordinate
+        self.index = index
+    }
+}
+
+final class SelectedStopManager: ObservableObject {
+    @Published var isTapped: Bool = false
+    @Published var selectedIndex: Int? = 0
+}
+
 struct BusStopViewWrapper: UIViewRepresentable {
     @ObservedObject var selectedStopManager: SelectedStopManager
     @Binding var region: MKCoordinateRegion
+    @Binding var isUpdateRequested: Bool
     var coordinatesList: [Coordinate]
     
     class Coordinator: NSObject, MKMapViewDelegate {
@@ -50,10 +66,8 @@ struct BusStopViewWrapper: UIViewRepresentable {
             if let indexedAnnotation = annotation as? IndexedAnnotation {
                 if indexedAnnotation.index == parent.selectedStopManager.selectedIndex && parent.selectedStopManager.isTapped {
                     annotationView?.image = UIImage(named: "SelectedBusStopIcon")
-                    // TODO: 선택한 버스 아이콘이 가장 가운데에 가게 지도 다시 위치 잡아주기
                 } else {
                     annotationView?.image = UIImage(named: "BusStopIcon")
-                    // TODO: 선택한 버스 아이콘이 가장 가운데에 가게 지도 다시 위치 잡아주기
                 }
                 annotationView?.frame.size = CGSize(width: 35, height: 35)
                 annotationView?.layer.cornerRadius = 5
@@ -68,6 +82,10 @@ struct BusStopViewWrapper: UIViewRepresentable {
                 view.layer.cornerRadius = 5
                 parent.selectedStopManager.selectedIndex = annotation.index
                 parent.selectedStopManager.isTapped = true
+                mapView.setRegion(MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude),
+                    span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                ), animated: true)
             }
         }
     }
@@ -88,7 +106,12 @@ struct BusStopViewWrapper: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: MKMapView, context: Context) {
-        mapView.setRegion(region, animated: true)
+        if isUpdateRequested {
+            mapView.setRegion(region, animated: true)
+            DispatchQueue.main.async {
+                isUpdateRequested = false
+            }
+        }
         mapView.removeAnnotations(mapView.annotations)
         
         let annotations = coordinatesList.enumerated().map { index, stop in
@@ -99,19 +122,4 @@ struct BusStopViewWrapper: UIViewRepresentable {
         }
         mapView.addAnnotations(annotations)
     }
-}
-
-final class IndexedAnnotation: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
-    var index: Int
-    
-    init(coordinate: CLLocationCoordinate2D, index: Int) {
-        self.coordinate = coordinate
-        self.index = index
-    }
-}
-
-final class SelectedStopManager: ObservableObject {
-    @Published var isTapped: Bool = false
-    @Published var selectedIndex: Int? = 0
 }

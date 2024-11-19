@@ -23,6 +23,7 @@ struct BusStopView: View {
     
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
+    @State private var isUpdateRequested: Bool = false
     @Binding var path: [String]
     
     var body: some View {
@@ -45,6 +46,8 @@ struct BusStopView: View {
                 }
                 Spacer()
                 EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
+                
+                // TODO: 추후 위치는 재배치 해야합니다!
                 if selectedStopManager.isTapped == true {
                     SelectedBusStopView()
                 }
@@ -56,7 +59,6 @@ struct BusStopView: View {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
-            
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
         }
@@ -66,18 +68,18 @@ struct BusStopView: View {
     }
     
     private var busStopViewWrapper: some View {
-        BusStopViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, coordinatesList: coordinatesList)
+        BusStopViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
     }
     
     private var controlsView: some View {
         Button {
             locationManager.findCurrentLocation()
+            isUpdateRequested = true
         } label: {
             ZStack {
                 Circle()
                     .frame(width: 44, height: 44)
                     .foregroundStyle(.basicWhite)
-                
                 Image(systemName: "location.fill")
                     .foregroundStyle(.brandPrimary)
             }
