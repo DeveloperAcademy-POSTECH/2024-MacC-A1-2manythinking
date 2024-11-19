@@ -17,7 +17,7 @@ struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
-    @StateObject var sharedViewModel = SharedViewModel()
+    @StateObject var selectedStopManager = SelectedStopManager()
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
@@ -45,15 +45,12 @@ struct BusStopView: View {
                 }
                 Spacer()
                 EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
-                if sharedViewModel.isTapped == true {
+                if selectedStopManager.isTapped == true {
                     SelectedBusStopView()
                 }
             }
         }
-        .environmentObject(sharedViewModel)
-                // TODO: bottom sheet 또는 선택된 정류장 정보 뷰 들어가야함.
-            }
-        }
+        .environmentObject(selectedStopManager)
         .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             if locationManager.isFirstLoad {
@@ -69,7 +66,7 @@ struct BusStopView: View {
     }
     
     private var busStopViewWrapper: some View {
-        BusStopViewWrapper(sharedViewModel: sharedViewModel, region: $locationManager.region, coordinatesList: coordinatesList)
+        BusStopViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, coordinatesList: coordinatesList)
     }
     
     private var controlsView: some View {

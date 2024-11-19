@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct BusStopViewWrapper: UIViewRepresentable {
-    @ObservedObject var sharedViewModel: SharedViewModel
+    @ObservedObject var selectedStopManager: SelectedStopManager
     @Binding var region: MKCoordinateRegion
     var coordinatesList: [Coordinate]
     
@@ -48,7 +48,7 @@ struct BusStopViewWrapper: UIViewRepresentable {
             }
             
             if let indexedAnnotation = annotation as? IndexedAnnotation {
-                if indexedAnnotation.index == parent.sharedViewModel.selectedIndex && parent.sharedViewModel.isTapped {
+                if indexedAnnotation.index == parent.selectedStopManager.selectedIndex && parent.selectedStopManager.isTapped {
                     annotationView?.image = UIImage(named: "SelectedBusStopIcon")
                     // TODO: 선택한 버스 아이콘이 가장 가운데에 가게 지도 다시 위치 잡아주기
                 } else {
@@ -66,8 +66,8 @@ struct BusStopViewWrapper: UIViewRepresentable {
                 view.image = UIImage(named: "SelectedBusStopIcon")
                 view.frame.size = CGSize(width: 35, height: 35)
                 view.layer.cornerRadius = 5
-                parent.sharedViewModel.selectedIndex = annotation.index
-                parent.sharedViewModel.isTapped = true
+                parent.selectedStopManager.selectedIndex = annotation.index
+                parent.selectedStopManager.isTapped = true
             }
         }
     }
@@ -111,7 +111,7 @@ final class IndexedAnnotation: NSObject, MKAnnotation {
     }
 }
 
-final class SharedViewModel: ObservableObject {
+final class SelectedStopManager: ObservableObject {
     @Published var isTapped: Bool = false
     @Published var selectedIndex: Int = 0
 }
