@@ -28,9 +28,12 @@ struct BusStopViewWrapper: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
     @Binding var isUpdateRequested: Bool
     var coordinatesList: [Coordinate]
+    var updateInterval: TimeInterval = 5
     
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: BusStopViewWrapper
+        var timer: Timer?
+        private var isUserInteractionInProgress = false
         
         init(_ parent: BusStopViewWrapper) {
             self.parent = parent
@@ -88,6 +91,23 @@ struct BusStopViewWrapper: UIViewRepresentable {
                 ), animated: true)
             }
         }
+        
+        func updateMapRegionTimer(for mapView: MKMapView) {
+            timer = Timer.scheduledTimer(withTimeInterval: parent.updateInterval, repeats: true) { [weak self] _ in
+                guard let self = self else { return }
+                if !isUserInteractionInProgress {
+                    mapView.setRegion(parent.region, animated: true)
+                }
+            }
+        }
+        
+        func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+            isUserInteractionInProgress = true
+        }
+        
+        func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+            isUserInteractionInProgress = false
+        }
     }
     
     func makeCoordinator() -> Coordinator {
@@ -102,6 +122,7 @@ struct BusStopViewWrapper: UIViewRepresentable {
         mapView.setRegion(region, animated: true)
         mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 16.75, bottom: 90, right: 0)
         mapView.mapType = .mutedStandard
+        context.coordinator.updateMapRegionTimer(for: mapView)
         return mapView
     }
     
@@ -109,9 +130,10 @@ struct BusStopViewWrapper: UIViewRepresentable {
         if isUpdateRequested {
             mapView.setRegion(region, animated: true)
             DispatchQueue.main.async {
-                isUpdateRequested = false
+                self.isUpdateRequested = false
             }
         }
+        mapView.setRegion(region, animated: true)
         mapView.removeAnnotations(mapView.annotations)
         
         let annotations = coordinatesList.enumerated().map { index, stop in
@@ -121,5 +143,11 @@ struct BusStopViewWrapper: UIViewRepresentable {
             )
         }
         mapView.addAnnotations(annotations)
+        if selectedStopManager.isTapped, let index = selectedStopManager.selectedIndex {
+            mapView.setRegion(MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: annotations[index].coordinate.latitude, longitude: annotations[index].coordinate.longitude),
+                span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+            ), animated: true)
+        }
     }
 }
