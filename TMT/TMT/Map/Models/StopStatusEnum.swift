@@ -8,12 +8,14 @@
 import SwiftUI
 
 enum StopStatusEnum {
-    case oneOrZeroStopsRemaining, twoStopsRemaining, threeStopsRemaining, defaultStatus
+    case zeroStopRemaining, oneStopRemaining, twoStopsRemaining, threeStopsRemaining, defaultStatus
     
     init(remainingStops: Int) {
         switch remainingStops {
-        case 0...1:
-            self = .oneOrZeroStopsRemaining
+        case 0:
+            self = .zeroStopRemaining
+        case 1:
+            self = .oneStopRemaining
         case 2:
             self = .twoStopsRemaining
         case 3:
@@ -25,7 +27,9 @@ enum StopStatusEnum {
     
     var backgroundColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining:
+        case .zeroStopRemaining:
+            return .left0
+        case .oneStopRemaining:
             return .left1
         case .twoStopsRemaining:
             return .left2
@@ -38,7 +42,9 @@ enum StopStatusEnum {
     
     var leftStopNumberColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining:
+        case .zeroStopRemaining:
+            return .left0
+        case .oneStopRemaining:
             return .left1
         case .twoStopsRemaining:
             return .left2
@@ -51,7 +57,9 @@ enum StopStatusEnum {
     
     var leftStopTextColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining:
+        case .zeroStopRemaining:
+            return .left0
+        case .oneStopRemaining:
             return .left1
         case .twoStopsRemaining:
             return .left2
@@ -64,19 +72,10 @@ enum StopStatusEnum {
     
     var destinationColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
+        case .zeroStopRemaining, .oneStopRemaining, .twoStopsRemaining, .threeStopsRemaining:
             return .basicWhite
         case .defaultStatus:
             return .yellow900
-        }
-    }
-    
-    var pinImage: String {
-        switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return "PinWhite"
-        case .defaultStatus:
-            return "PinYellow"
         }
     }
 }

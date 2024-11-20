@@ -66,9 +66,9 @@ struct EndStopView: View {
     }
     
     /// EndStopView의 메인 컬러를 판단합니다.
-    private func mainColor(remainingStops: Int) -> (backgroundColor: Color, leftStopNumberColor: Color, leftStopTextColor: Color, destinationColor: Color, pinImage: String) {
+    private func mainColor(remainingStops: Int) -> (backgroundColor: Color, leftStopNumberColor: Color, leftStopTextColor: Color, destinationColor: Color) {
         let status = StopStatusEnum(remainingStops: remainingStops)
-        return (status.backgroundColor, status.leftStopNumberColor, status.leftStopTextColor, status.destinationColor, status.pinImage)
+        return (status.backgroundColor, status.leftStopNumberColor, status.leftStopTextColor, status.destinationColor)
     }
 }
 
