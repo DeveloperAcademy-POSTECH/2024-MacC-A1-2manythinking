@@ -8,12 +8,14 @@
 import SwiftUI
 
 enum StopStatusEnum {
-    case oneOrZeroStopsRemaining, twoStopsRemaining, threeStopsRemaining, defaultStatus
+    case zeroStopRemaining, oneStopRemaining, twoStopsRemaining, threeStopsRemaining, defaultStatus
     
     init(remainingStops: Int) {
         switch remainingStops {
-        case 0...1:
-            self = .oneOrZeroStopsRemaining
+        case 0:
+            self = .zeroStopRemaining
+        case 1:
+            self = .oneStopRemaining
         case 2:
             self = .twoStopsRemaining
         case 3:
@@ -25,41 +27,55 @@ enum StopStatusEnum {
     
     var backgroundColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining:
+        case .zeroStopRemaining:
+            return .left0
+        case .oneStopRemaining:
             return .left1
         case .twoStopsRemaining:
             return .left2
         case .threeStopsRemaining:
             return .left3
         case .defaultStatus:
-            return .white
+            return .yellow500
         }
     }
     
-    var textColor: Color {
+    var leftStopNumberColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return .white
+        case .zeroStopRemaining:
+            return .left0
+        case .oneStopRemaining:
+            return .left1
+        case .twoStopsRemaining:
+            return .left2
+        case .threeStopsRemaining:
+            return .left3
         case .defaultStatus:
-            return .yellow600
+            return .basicBlack
         }
     }
     
-    var subTextColor: Color {
+    var leftStopTextColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return .white
+        case .zeroStopRemaining:
+            return .left0
+        case .oneStopRemaining:
+            return .left1
+        case .twoStopsRemaining:
+            return .left2
+        case .threeStopsRemaining:
+            return .left3
         case .defaultStatus:
-            return .grey400
+            return .grey300
         }
     }
     
-    var pinImage: String {
+    var destinationColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return "PinWhite"
+        case .zeroStopRemaining, .oneStopRemaining, .twoStopsRemaining, .threeStopsRemaining:
+            return .basicWhite
         case .defaultStatus:
-            return "PinYellow"
+            return .yellow900
         }
     }
 }

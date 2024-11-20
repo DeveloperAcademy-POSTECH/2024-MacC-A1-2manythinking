@@ -8,61 +8,70 @@
 import SwiftUI
 
 struct EndStopView: View {
-    var endStop: String
+    var endStopNameKorean: String
+    var endStopNameRomanized: String
+    var endStopNameNaver: String
     var remainingStops: Int
     
     var body: some View {
-        let colors = getMainColor(remainingStops: remainingStops)
-        ZStack {
-            RoundedRectangle(cornerRadius: 16)
-                .fill(colors.backgroundColor)
-                .frame(height: 65)
-                .shadow(color: .black.opacity(0.25), radius: 2.5, x: 0, y: 2)
-            HStack {
-                VStack(alignment: .leading, spacing: 0) {
-                    HStack {
-                        Image("\(colors.pinImage)")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                        Text("Destination")
-                            .foregroundStyle(colors.subTextColor)
-                    }
-                    Text("\(endStop)")
-                        .lineLimit(1)
-                        .truncationMode(.tail)
+        let colors = mainColor(remainingStops: remainingStops)
+        VStack(spacing: 0) {
+            Text("Destination")
+                .foregroundStyle(colors.destinationColor)
+                .frame(width: 361, height: 38)
+                .offset(y: -10)
+                .background {
+                    RoundedRectangle(cornerRadius: 20)
+                        .trim(from: 0.5, to: 1)
+                        .foregroundStyle(colors.backgroundColor)
                 }
-                .padding(.leading, 24)
-                .padding(.vertical, 12)
-                
-                Spacer(minLength: 24)
-                
-                HStack {
-                    Text("\(remainingStops)")
-                        .font(.title)
-                        .bold()
-                    VStack {
-                        Spacer()
-                        Text("left")
-                    }
-                }
-                .frame(height: 18)
-                .padding(.trailing, 24)
+            
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Korean")
+                    .foregroundStyle(.grey200)
+                    .font(.footnote)
+                Text("\(endStopNameKorean)")
+                    .foregroundStyle(.yellow900)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                Text("[\(endStopNameRomanized)]")
+                    .foregroundStyle(.yellow900)
+                    .font(.footnote)
+                Divider()
+                    .foregroundStyle(.grey100)
+                    .padding(.vertical, 9)
+                Text("English")
+                    .foregroundStyle(.grey200)
+                    .font(.footnote)
+                Text("\(endStopNameNaver)")
+                    .foregroundStyle(.yellow900)
+                    .font(.title2)
+                    .fontWeight(.bold)
             }
-            .foregroundStyle(colors.textColor)
-            .cornerRadius(16)
+            .padding(.horizontal, 16)
+            .padding(.top, 5)
+            .padding(.bottom, 11.88)
+            .frame(width: 361)
+            .background {
+                UnevenRoundedRectangle(cornerRadii: .init(
+                    topLeading: 0,
+                    bottomLeading: 15,
+                    bottomTrailing: 15,
+                    topTrailing: 0
+                ))
+                .foregroundStyle(.basicWhite)
+            }
+            .offset(y: -19)
         }
-        .padding(.bottom, 18)
-        .padding(.leading, 16.25)
-        .padding(.trailing, 16.75)
     }
     
     /// EndStopView의 메인 컬러를 판단합니다.
-    private func getMainColor(remainingStops: Int) -> (backgroundColor: Color, textColor: Color, subTextColor: Color, pinImage: String) {
+    private func mainColor(remainingStops: Int) -> (backgroundColor: Color, leftStopNumberColor: Color, leftStopTextColor: Color, destinationColor: Color) {
         let status = StopStatusEnum(remainingStops: remainingStops)
-        return (status.backgroundColor, status.textColor, status.subTextColor, status.pinImage)
+        return (status.backgroundColor, status.leftStopNumberColor, status.leftStopTextColor, status.destinationColor)
     }
 }
 
 #Preview {
-    EndStopView(endStop: "Youngildae Beach", remainingStops: 20)
+    EndStopView(endStopNameKorean: "포항제철고등학교", endStopNameRomanized: "[Pohang Je-cheol Go-deung-hak-gyo", endStopNameNaver: "Pohang Jecheol High School", remainingStops: 4)
 }

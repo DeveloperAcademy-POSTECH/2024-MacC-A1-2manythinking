@@ -1,5 +1,5 @@
 //
-//  MapView.swift
+//  BusStopView.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/15/24.
@@ -17,6 +17,8 @@ struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
+    @EnvironmentObject var activityManager: LiveActivityManager
+    @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
@@ -28,18 +30,22 @@ struct BusStopView: View {
                 .edgesIgnoringSafeArea(.vertical)
             
             VStack {
-                ThisStopView(path: $path, stopNameKorean: journeyModel.journeyStops[passedStops].stopNameKorean ?? "", stopNameNaver: journeyModel.journeyStops[passedStops].stopNameNaver ?? "", stopNameRomanized: journeyModel.journeyStops[passedStops].stopNameRomanized ?? "")
-                
+                EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
+                    .padding(.top, 16)
+                    .padding(.leading ,16)
+                    .padding(.trailing, 17)
+                Spacer()
                 HStack {
                     Spacer()
+                    endButton
                     controlsView
-                        .padding(.trailing, 15.48)
-                        .padding(.top, 23.91)
+                        .padding(.trailing, 17)
+                        .padding(.bottom, 26)
                 }
-                Spacer()
-                EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
+                // TODO: bottom sheet 또는 선택된 정류장 정보 뷰 들어가야함.
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
@@ -64,11 +70,28 @@ struct BusStopView: View {
             ZStack {
                 Circle()
                     .frame(width: 44, height: 44)
-                    .foregroundStyle(.grey70)
+                    .foregroundStyle(.basicWhite)
                 
                 Image(systemName: "location.fill")
-                    .foregroundStyle(.yellow500)
+                    .foregroundStyle(.brandPrimary)
             }
+        }
+    }
+    
+    // 임의로 버튼을 만들어 놓았습니다. 추후 bottom sheet에 적용될 예정입니다.
+    private var endButton: some View {
+        Button {
+            activityManager.endLiveActivity()
+            imageHandler.selectedImage = nil
+            path.removeAll()
+        } label: {
+            Text("End")
+                .foregroundStyle(.basicWhite)
+                .frame(width: 69, height: 38)
+                .background {
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundStyle(.brandPrimary)
+                }
         }
     }
     

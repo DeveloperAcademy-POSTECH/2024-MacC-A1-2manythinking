@@ -459,6 +459,7 @@
 				D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */,
 				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
 				5BD0A4122CD67BD400AE88BF /* ScannedJourneyInfoView.swift in Sources */,
+				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
 				5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */,
 				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
 				5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */,

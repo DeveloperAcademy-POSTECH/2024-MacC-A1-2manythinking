@@ -73,7 +73,7 @@ struct ScannedJourneyInfoView: View {
                                         RoundedRectangle(cornerRadius: 8)
                                             .stroke(Color.Brand.primary, lineWidth: 1)
                                         Text("Reupload")
-                                            .foregroundStyle(Color.Brand.primary)
+                                            .foregroundStyle(.brandPrimary)
                                     } else {
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(.grey900)
@@ -123,28 +123,21 @@ struct ScannedJourneyInfoView: View {
                                     EmptyView()
                                 }
                             
-                            Button {
-                                journeyModel.setJourneyStops(busNumberString: imageHandler.scannedJourneyInfo.busNumber, startStopString: imageHandler.scannedJourneyInfo.startStop, endStopString: imageHandler.scannedJourneyInfo.endStop)
-                                
-                                guard let endStop = journeyModel.journeyStops.last else { return }
-                                activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
-                                tag = 1
-                                path.append("BusStop")
-                            } label: {
-                                ZStack {
-                                    if !imageHandler.showAlertText {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color.Brand.primary)
-                                            .stroke(Color.Brand.primary)
-                                        Text("Start")
-                                            .foregroundStyle(.black)
-                                    } else {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(.grey100)
-                                            .stroke(.grey100)
-                                        Text("Start")
-                                            .foregroundStyle(.white)
-                                    }
+                            PrimaryButton(title: "Start", color: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
+                                if !imageHandler.showAlertText {
+                                    journeyModel.setJourneyStops(
+                                        busNumberString: imageHandler.scannedJourneyInfo.busNumber,
+                                        startStopString: imageHandler.scannedJourneyInfo.startStop,
+                                        endStopString: imageHandler.scannedJourneyInfo.endStop
+                                    )
+                                    
+                                    guard let endStop = journeyModel.journeyStops.last else { return }
+                                    activityManager.startLiveActivity(
+                                        destinationInfo: endStop,
+                                        remainingStops: locationManager.remainingStops
+                                    )
+                                    tag = 1
+                                    path.append("BusStop")
                                 }
                             }
                             .disabled(imageHandler.showAlertText)
