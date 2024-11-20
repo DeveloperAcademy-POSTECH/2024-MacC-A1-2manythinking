@@ -28,7 +28,7 @@ struct HomeView: View {
                 .padding(.horizontal, 16)
                 
                 if isShowingOnboarding {
-                    OnboardingView(isShowingOnboarding: $isShowingOnboarding)
+                    OnboardingModalView(isShowingOnboarding: $isShowingOnboarding)
                         .onDisappear {
                             hasSeenOnboarding = true
                         }
@@ -38,9 +38,10 @@ struct HomeView: View {
                 Button {
                     isShowingOnboarding = true
                 } label: {
-                    Label("Info", systemImage: "info.circle")
-                        .font(.title2)
+                    Image(systemName: "info.circle")
+                        .foregroundStyle(.grey600)
                 }
+                .disabled(isShowingOnboarding)
             }
             .onAppear {
                 if !hasSeenOnboarding {

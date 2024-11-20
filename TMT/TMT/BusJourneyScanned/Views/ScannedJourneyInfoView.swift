@@ -150,7 +150,7 @@ struct ScannedJourneyInfoView: View {
             }
             
             if isShowingOnboarding {
-                OnboardingView(isShowingOnboarding: $isShowingOnboarding)
+                OnboardingModalView(isShowingOnboarding: $isShowingOnboarding)
                     .onDisappear {
                         isShowingOnboarding = false
                     }
@@ -161,9 +161,10 @@ struct ScannedJourneyInfoView: View {
             Button {
                 isShowingOnboarding = true
             } label: {
-                Label("Info", systemImage: "info.circle")
-                    .font(.title2)
+                Image(systemName: "info.circle")
+                    .foregroundStyle(.grey600)
             }
+            .disabled(isShowingOnboarding)
         }
         
     }
