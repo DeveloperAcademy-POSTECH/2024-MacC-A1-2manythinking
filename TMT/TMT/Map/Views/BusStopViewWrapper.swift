@@ -95,7 +95,7 @@ struct BusStopViewWrapper: UIViewRepresentable {
         func updateMapRegionTimer(for mapView: MKMapView) {
             timer = Timer.scheduledTimer(withTimeInterval: parent.updateInterval, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
-                if !isUserInteractionInProgress {
+                if !isUserInteractionInProgress && !parent.selectedStopManager.isTapped {
                     mapView.setRegion(parent.region, animated: true)
                 }
             }

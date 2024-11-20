@@ -26,28 +26,7 @@ struct EndStopView: View {
                         .foregroundStyle(colors.backgroundColor)
                 }
             
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Korean")
-                    .foregroundStyle(.grey200)
-                    .font(.footnote)
-                Text("\(endStopNameKorean)")
-                    .foregroundStyle(.yellow900)
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Text("[\(endStopNameRomanized)]")
-                    .foregroundStyle(.yellow900)
-                    .font(.footnote)
-                Divider()
-                    .foregroundStyle(.grey100)
-                    .padding(.vertical, 9)
-                Text("English")
-                    .foregroundStyle(.grey200)
-                    .font(.footnote)
-                Text("\(endStopNameNaver)")
-                    .foregroundStyle(.yellow900)
-                    .font(.title2)
-                    .fontWeight(.bold)
-            }
+            BusStopDetailView(stopNameKorean: endStopNameKorean, stopNameRomanized: endStopNameRomanized, stopNameNaver: endStopNameNaver)
             .padding(.horizontal, 16)
             .padding(.top, 5)
             .padding(.bottom, 11.88)
@@ -70,8 +49,4 @@ struct EndStopView: View {
         let status = StopStatusEnum(remainingStops: remainingStops)
         return (status.backgroundColor, status.leftStopNumberColor, status.leftStopTextColor, status.destinationColor)
     }
-}
-
-#Preview {
-    EndStopView(endStopNameKorean: "포항제철고등학교", endStopNameRomanized: "[Pohang Je-cheol Go-deung-hak-gyo", endStopNameNaver: "Pohang Jecheol High School", remainingStops: 4)
 }

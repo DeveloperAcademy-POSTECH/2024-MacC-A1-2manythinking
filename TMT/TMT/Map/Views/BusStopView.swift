@@ -36,12 +36,12 @@ struct BusStopView: View {
                     .padding(.leading ,16)
                     .padding(.trailing, 17)
                 Spacer()
+                endButton // bottom sheet 적용되면 삭제될 예정
                 HStack {
                     Spacer()
-                    endButton
                     controlsView
-                        .padding(.trailing, 17)
-                        .padding(.bottom, 26)
+                        .padding(.trailing, 28)
+                        .padding(.bottom, 19.64)
                 }
                 if selectedStopManager.isTapped == true {
                     SelectedBusStopView()
