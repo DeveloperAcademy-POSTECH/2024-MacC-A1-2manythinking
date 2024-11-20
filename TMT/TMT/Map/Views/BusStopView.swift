@@ -31,13 +31,16 @@ struct BusStopView: View {
             
             VStack {
                 EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
-                    .padding(.top, 17.04)
+                    .padding(.top, 16)
+                    .padding(.leading ,16)
+                    .padding(.trailing, 17)
                 Spacer()
                 HStack {
                     Spacer()
                     endButton
                     controlsView
-                        .padding(.trailing, 18.25)
+                        .padding(.trailing, 17)
+                        .padding(.bottom, 26)
                 }
                 // TODO: bottom sheet 또는 선택된 정류장 정보 뷰 들어가야함.
             }

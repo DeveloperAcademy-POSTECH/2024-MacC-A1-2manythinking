@@ -18,7 +18,7 @@ struct EndStopView: View {
         VStack(spacing: 0) {
             Text("Destination")
                 .foregroundStyle(colors.destinationColor)
-                .frame(width: 355, height: 40.2)
+                .frame(width: 361, height: 38)
                 .offset(y: -10)
                 .background {
                     RoundedRectangle(cornerRadius: 20)
@@ -30,7 +30,6 @@ struct EndStopView: View {
                 Text("Korean")
                     .foregroundStyle(.grey200)
                     .font(.footnote)
-                    .padding(.top, 5.34)
                 Text("\(endStopNameKorean)")
                     .foregroundStyle(.yellow900)
                     .font(.title2)
@@ -49,9 +48,10 @@ struct EndStopView: View {
                     .font(.title2)
                     .fontWeight(.bold)
             }
-            .padding(.leading, 16)
-            .padding(.bottom, 11.48)
-            .frame(width: 355, height: 145)
+            .padding(.horizontal, 16)
+            .padding(.top, 5)
+            .padding(.bottom, 11.88)
+            .frame(width: 361)
             .background {
                 UnevenRoundedRectangle(cornerRadii: .init(
                     topLeading: 0,
@@ -61,7 +61,7 @@ struct EndStopView: View {
                 ))
                 .foregroundStyle(.basicWhite)
             }
-            .offset(y: -20.1)
+            .offset(y: -19)
         }
     }
     
