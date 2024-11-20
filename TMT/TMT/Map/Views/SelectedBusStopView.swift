@@ -19,11 +19,9 @@ struct SelectedBusStopView: View {
                 Button {
                     selectedStopManager.isTapped = false
                 } label: {
-                    // TODO: 하이파이랑 똑같이 커스텀이 안되는데, 이미지 에셋 요청하기
-                    // x 버튼 사이즈도 바꿔야함.
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(Color(red: 0.5, green: 0.5, blue: 0.5).opacity(0.5))
-                        .frame(width: 30, height: 30)
+                        .font(.system(size: 30))
                 }
             }
             if let stopOrder = stopOrder {

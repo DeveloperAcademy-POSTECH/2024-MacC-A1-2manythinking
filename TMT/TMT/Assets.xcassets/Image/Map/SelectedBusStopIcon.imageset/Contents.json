@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "SelectedBusStopIcon.png",
+      "filename" : "BusStop_icon_Click4 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SelectedBusStopIcon 1.png",
+      "filename" : "BusStop_icon_Click4 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "SelectedBusStopIcon 2.png",
+      "filename" : "BusStop_icon_Click4.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

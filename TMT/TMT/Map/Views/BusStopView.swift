@@ -30,7 +30,6 @@ struct BusStopView: View {
         ZStack {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
-            
             VStack {
                 EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
                     .padding(.top, 16)
@@ -44,10 +43,6 @@ struct BusStopView: View {
                         .padding(.trailing, 17)
                         .padding(.bottom, 26)
                 }
-                Spacer()
-                EndStopView(endStop: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
-                
-                // TODO: 추후 위치는 재배치 해야합니다!
                 if selectedStopManager.isTapped == true {
                     SelectedBusStopView()
                 }
@@ -76,13 +71,14 @@ struct BusStopView: View {
             locationManager.findCurrentLocation()
             isUpdateRequested = true
         } label: {
-            ZStack {
-                Circle()
-                    .frame(width: 44, height: 44)
-                    .foregroundStyle(.basicWhite)
-                Image(systemName: "location.fill")
-                    .foregroundStyle(.brandPrimary)
-            }
+            Image(systemName: "location.fill")
+                .foregroundStyle(.yellow500)
+                .background {
+                    Circle()
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(.basicWhite)
+                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+                }
         }
     }
     
