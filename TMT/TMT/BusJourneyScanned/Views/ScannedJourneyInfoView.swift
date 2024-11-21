@@ -123,7 +123,7 @@ struct ScannedJourneyInfoView: View {
                                     EmptyView()
                                 }
                             
-                            PrimaryButton(title: "Start", color: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
+                            FilledButton(title: "Start", fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
                                 if !imageHandler.showAlertText {
                                     journeyModel.setJourneyStops(
                                         busNumberString: imageHandler.scannedJourneyInfo.busNumber,
