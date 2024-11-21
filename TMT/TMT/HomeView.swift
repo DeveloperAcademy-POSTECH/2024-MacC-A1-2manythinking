@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct HomeView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
     @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
     
     @State private var isShowingInformation = false
@@ -40,10 +40,8 @@ struct HomeView: View {
                 }
                 .disabled(isShowingInformation)
             }
-            .onAppear {
-                if !hasSeenOnboarding {
-                    isShowingOnboarding = true
-                }
+            .fullScreenCover(isPresented: $shouldShowOnboarding) {
+                OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
             }
         }
         .environmentObject(imageHandler)

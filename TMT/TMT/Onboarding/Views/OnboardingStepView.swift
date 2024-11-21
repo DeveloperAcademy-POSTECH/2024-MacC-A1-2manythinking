@@ -11,24 +11,50 @@ struct OnboardingStepView: View {
     var step: OnboardingStep
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(step.title)
-                .font(.system(size: 22, weight: .bold)) // TODO: 서체 수정하기
+        ZStack {
+            if step == .introFinish {
+                Color.yellow50
+                    .ignoresSafeArea(.all)
+            }
             
-            Text(step.description)
-                .font(.system(size: 16)) // TODO: 서체 수정하기
-                .multilineTextAlignment(.leading)
-                .padding(.bottom, 6)
-            
-            Image(step.image)
-                .resizable()
-                .frame(height: 329)
+            VStack(spacing: 0) {
+                HStack(spacing: 0) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(step.title)
+                            .lineLimit(2)
+                            .font(.system(size: 28, weight: .bold)) // TODO: 서체 수정하기
+                        
+                        if let description = step.description {
+                            Text(description)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundStyle(.brandPrimary)
+                                .padding(.bottom, 6)
+                        }
+                    }
+                    .padding(.top, 61)
+                    .padding(.horizontal, 24)
+                    
+                    Spacer()
+                }
+                
+                Spacer()
+                
+                LottieView(animationFileName: step.image, loopMode: .loop)
+                    .frame(maxWidth: 270, maxHeight: 531)
+                    .padding(.bottom, 48)
+            }
         }
-        .foregroundStyle(.basicBlack)
-        .padding(.bottom, 24.75)
     }
 }
 
 #Preview {
-    OnboardingStepView(step: OnboardingStep.onboarding1)
+    OnboardingStepView(step: OnboardingStep.goNaverMap)
+}
+#Preview {
+    OnboardingStepView(step: OnboardingStep.capture)
+}
+#Preview {
+    OnboardingStepView(step: OnboardingStep.introFinish)
 }
