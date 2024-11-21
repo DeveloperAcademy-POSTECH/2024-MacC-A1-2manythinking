@@ -18,7 +18,7 @@ struct ScannedJourneyInfoView: View {
     @State private var tag: Int? = nil
     @State private var showingAlert: Bool = false
     @State private var showingPhotosPicker: Bool = false
-    @State private var isShowingOnboarding = false
+    @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
     @Binding var path: [String]
     
@@ -149,22 +149,22 @@ struct ScannedJourneyInfoView: View {
                 }
             }
             
-            if isShowingOnboarding {
-                OnboardingModalView(isShowingOnboarding: $isShowingOnboarding)
+            if isShowingInformation {
+                InformationModalView(isShowingInformation: $isShowingInformation)
                     .onDisappear {
-                        isShowingOnboarding = false
+                        isShowingInformation = false
                     }
             }
         }
         .navigationBarBackButtonHidden()
         .toolbar {
             Button {
-                isShowingOnboarding = true
+                isShowingInformation = true
             } label: {
                 Image(systemName: "info.circle")
                     .foregroundStyle(.grey600)
             }
-            .disabled(isShowingOnboarding)
+            .disabled(isShowingInformation)
         }
         
     }

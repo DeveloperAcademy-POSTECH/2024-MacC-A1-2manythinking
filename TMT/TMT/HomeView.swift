@@ -12,7 +12,7 @@ struct HomeView: View {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
     @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
     
-    @State private var isShowingOnboarding = false
+    @State private var isShowingInformation = false
     @State var path: [String] = []
     
     var body: some View {
@@ -27,21 +27,18 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, 16)
                 
-                if isShowingOnboarding {
-                    OnboardingModalView(isShowingOnboarding: $isShowingOnboarding)
-                        .onDisappear {
-                            hasSeenOnboarding = true
-                        }
+                if isShowingInformation {
+                    InformationModalView(isShowingInformation: $isShowingInformation)
                 }
             }
             .toolbar {
                 Button {
-                    isShowingOnboarding = true
+                    isShowingInformation = true
                 } label: {
                     Image(systemName: "info.circle")
                         .foregroundStyle(.grey600)
                 }
-                .disabled(isShowingOnboarding)
+                .disabled(isShowingInformation)
             }
             .onAppear {
                 if !hasSeenOnboarding {

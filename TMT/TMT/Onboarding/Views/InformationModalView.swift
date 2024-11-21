@@ -7,20 +7,25 @@
 
 import SwiftUI
 
-struct OnboardingModalView: View {
-    @Binding var isShowingOnboarding: Bool
+struct InformationModalView: View {
+    @Binding var isShowingInformation: Bool
     @Environment(\.openURL) var openLink
 
+    private let title = "Prepare your screenshot"
+    private let description = "If you don't have a screenshot,\ngo to NAVER Map and take a screen capture"
+    private let filledButtonTitle = "Go to Naver Map"
+    private let outlinedButtonTitle = "I have a screenshot"
+    
     var body: some View {
         ZStack {
             Color.basicBlackOpacity60
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("Prepare your screenshot")
+                Text(title)
                     .foregroundStyle(.basicBlack)
                     .font(.system(size: 24, weight: .bold)) // TODO: 서체 수정
                 
-                Text("If you don't have a screenshot,\ngo to NAVER Map and take a screen capture")
+                Text(description)
                     .foregroundStyle(.brandPrimary)
                     .font(.system(size: 16, weight: .medium)) // TODO: 서체 수정
                     .padding(.top, -4)
@@ -32,12 +37,12 @@ struct OnboardingModalView: View {
                     .scaledToFit()
                     .frame(minHeight: 230)
                 
-                FilledButton(title: "Go to Naver Map") {
+                FilledButton(title: filledButtonTitle) {
                     openNaverMap()
                 }
                 
-                OutlinedButton(title: "I have a screenshot") {
-                    isShowingOnboarding = false
+                OutlinedButton(title: outlinedButtonTitle) {
+                    isShowingInformation = false
                 }
             }
             .padding(16)
@@ -56,14 +61,16 @@ struct OnboardingModalView: View {
         if let openApp = URL(string: "navermap:"),
            UIApplication.shared.canOpenURL(openApp) {
             UIApplication.shared.open(openApp, options: [:], completionHandler: nil)
-            isShowingOnboarding = false
+            
+            isShowingInformation = false
         } else {
             openLink(URL(string: "https://apps.apple.com/kr/app/naver-map-navigation/id311867728")!)
-            isShowingOnboarding = false
+            
+            isShowingInformation = false
         }
     }
 }
 
 #Preview {
-    OnboardingModalView(isShowingOnboarding: .constant(true))
+    InformationModalView(isShowingInformation: .constant(true))
 }
