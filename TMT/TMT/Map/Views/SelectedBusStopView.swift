@@ -31,8 +31,7 @@ struct SelectedBusStopView: View {
                 Text("Error is occured. Please try again.")
             }
         }
-        .padding(.horizontal, 32)
-        .padding(.bottom, 32)
+        .padding([.horizontal, .bottom], 32)
         .padding(.top, 12)
         .background {
             Rectangle()
