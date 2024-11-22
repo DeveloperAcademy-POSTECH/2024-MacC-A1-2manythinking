@@ -10,47 +10,50 @@ import SwiftUI
 struct Coordinate: Identifiable {
     var id = UUID()
     var latitude: Double
-    var longtitude: Double
+    var longitude: Double
 }
 
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
+    @StateObject var selectedStopManager = SelectedStopManager()
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
+    @State private var isUpdateRequested: Bool = false
     @Binding var path: [String]
     
     var body: some View {
         ZStack {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
-            
             VStack {
                 EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
                     .padding(.top, 16)
                     .padding(.leading ,16)
                     .padding(.trailing, 17)
                 Spacer()
+                endButton // bottom sheet 적용되면 삭제될 예정
                 HStack {
                     Spacer()
-                    endButton
                     controlsView
-                        .padding(.trailing, 17)
-                        .padding(.bottom, 26)
+                        .padding(.trailing, 28)
+                        .padding(.bottom, 19.64)
                 }
-                // TODO: bottom sheet 또는 선택된 정류장 정보 뷰 들어가야함.
+                if selectedStopManager.isTapped == true {
+                    SelectedBusStopView()
+                }
             }
         }
+        .environmentObject(selectedStopManager)
         .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             if locationManager.isFirstLoad {
                 locationManager.findCurrentLocation()
             }
-            
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
         }
@@ -60,21 +63,22 @@ struct BusStopView: View {
     }
     
     private var busStopViewWrapper: some View {
-        BusStopViewWrapper(region: $locationManager.region, coordinatesList: coordinatesList)
+        BusStopViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
     }
     
     private var controlsView: some View {
         Button {
             locationManager.findCurrentLocation()
+            isUpdateRequested = true
         } label: {
-            ZStack {
-                Circle()
-                    .frame(width: 44, height: 44)
-                    .foregroundStyle(.basicWhite)
-                
-                Image(systemName: "location.fill")
-                    .foregroundStyle(.brandPrimary)
-            }
+            Image(systemName: "location.fill")
+                .foregroundStyle(.yellow500)
+                .background {
+                    Circle()
+                        .frame(width: 44, height: 44)
+                        .foregroundStyle(.basicWhite)
+                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+                }
         }
     }
     
@@ -102,7 +106,7 @@ struct BusStopView: View {
                   let longitude = stop.longitude else {
                 return nil
             }
-            return Coordinate(latitude: latitude, longtitude: longitude)
+            return Coordinate(latitude: latitude, longitude: longitude)
         }
     }
 }

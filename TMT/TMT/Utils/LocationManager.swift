@@ -48,7 +48,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let longitude = location.coordinate.longitude
             
             region = MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: latitude + 0.001, longitude: longitude),
+                center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
                 span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
             )
         }
