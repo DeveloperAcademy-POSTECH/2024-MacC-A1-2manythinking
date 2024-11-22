@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingIntroView: View {
     private let title = "BusDot helps\nnot miss your stop."
+    private let fileName = "BusDotIntro"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -19,7 +20,7 @@ struct OnboardingIntroView: View {
             
             Spacer()
             
-            LottieView(animationFileName: "BusDotIntro", loopMode: .loop)
+            LottieView(animationFileName: fileName, loopMode: .loop)
                 .frame(minHeight: 460)
                 .padding(.bottom, 169)
         }
