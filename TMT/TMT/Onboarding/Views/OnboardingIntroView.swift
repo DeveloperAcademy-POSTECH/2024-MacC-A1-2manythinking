@@ -13,7 +13,6 @@ struct OnboardingIntroView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(title)
-                .lineLimit(2)
                 .font(.system(size: 28, weight: .bold)) // TODO: 서체 수정하기
                 .padding(.top, 61)
                 .padding(.horizontal, 24)
