@@ -9,10 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct HomeView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
     @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
     
-    @State private var isShowingOnboarding = false
+    @State private var isShowingInformation = false
     @State var path: [String] = []
     
     var body: some View {
@@ -27,25 +27,21 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, 16)
                 
-                if isShowingOnboarding {
-                    OnboardingView(isShowingOnboarding: $isShowingOnboarding)
-                        .onDisappear {
-                            hasSeenOnboarding = true
-                        }
+                if isShowingInformation {
+                    InformationModalView(isShowingInformation: $isShowingInformation)
                 }
             }
             .toolbar {
                 Button {
-                    isShowingOnboarding = true
+                    isShowingInformation = true
                 } label: {
-                    Label("Info", systemImage: "info.circle")
-                        .font(.title2)
+                    Image(systemName: "info.circle")
+                        .foregroundStyle(.grey600)
                 }
+                .disabled(isShowingInformation)
             }
-            .onAppear {
-                if !hasSeenOnboarding {
-                    isShowingOnboarding = true
-                }
+            .fullScreenCover(isPresented: $shouldShowOnboarding) {
+                OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
             }
         }
         .environmentObject(imageHandler)

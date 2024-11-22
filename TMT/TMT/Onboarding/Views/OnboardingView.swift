@@ -8,74 +8,66 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @Binding var isShowingOnboarding: Bool
-    @State private var currentPage = 0
+    @Binding var shouldShowOnboarding: Bool
     
-    init(isShowingOnboarding: Binding<Bool>) {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .black
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
-        self._isShowingOnboarding = isShowingOnboarding
-    }
+    @State private var currentPage = 0
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.basicBlack.opacity(0.5)
+            onboardingTabView()
             
-            VStack(spacing: 0) {
-                xmarkButton()
-                
-                onboardingTabView()
-                    .padding(.bottom, 10)
-                
-                PrimaryButton(title: onboardingButtonTitle) {
-                    if currentPage < OnboardingStep.allCases.count - 1 {
-                        currentPage += 1
-                    } else {
-                        isShowingOnboarding.toggle()
-                    }
+            if onboardingButtonTitle == "Next" {
+                OutlinedButton(title: onboardingButtonTitle) {
+                    goToNextPage()
                 }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 53)
+            } else {
+                FilledButton(title: onboardingButtonTitle) {
+                    goToNextPage()
+                }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 53)
             }
-            .padding(16)
-            .background {
-                Color.basicWhite
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-            }
-            .frame(maxHeight: 590)
-            .padding([.horizontal, .top], 16)
-            .padding(.bottom, 34)
         }
         .ignoresSafeArea(.all)
+        .background(.basicWhite)
     }
     
     private var onboardingButtonTitle: String {
-        currentPage == OnboardingStep.allCases.count - 1 ? "Done" : "Continue"
-    }
-    
-    private func xmarkButton() -> some View {
-        HStack {
-            Spacer()
-            Button {
-                isShowingOnboarding = false
-            } label: {
-                Image(systemName: "xmark.circle")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .foregroundStyle(.grey300)
-            }
+        switch currentPage {
+        case 0:
+            return "Let's GO"
+        case OnboardingStep.allCases.count:
+            return "Okay, I got it"
+        default:
+            return "Next"
         }
     }
     
     private func onboardingTabView() -> some View {
         TabView(selection: $currentPage) {
+            OnboardingIntroView()
+                .tag(0)
+            
             ForEach(OnboardingStep.allCases.indices, id: \.self) { index in
                 OnboardingStepView(step: OnboardingStep.allCases[index])
+                    .tag(index + 1)
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                        .disabled(true)
+    }
+    
+    private func goToNextPage() {
+        if currentPage < OnboardingStep.allCases.count {
+            currentPage += 1
+        } else {
+            shouldShowOnboarding = false
+        }
     }
 }
 
 #Preview {
-    OnboardingView(isShowingOnboarding: .constant(true))
+    OnboardingView(shouldShowOnboarding: .constant(true))
 }
