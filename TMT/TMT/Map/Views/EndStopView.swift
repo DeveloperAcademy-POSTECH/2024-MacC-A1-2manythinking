@@ -15,6 +15,7 @@ struct EndStopView: View {
     
     var body: some View {
         let colors = mainColor(remainingStops: remainingStops)
+        
         VStack(spacing: 0) {
             Text("Destination")
                 .foregroundStyle(colors.destinationColor)
@@ -26,21 +27,23 @@ struct EndStopView: View {
                         .foregroundStyle(colors.backgroundColor)
                 }
             
-            BusStopDetailView(stopNameKorean: endStopNameKorean, stopNameRomanized: endStopNameRomanized, stopNameNaver: endStopNameNaver)
-            .padding(.horizontal, 16)
-            .padding(.top, 5)
-            .padding(.bottom, 11.88)
-            .frame(width: 361)
-            .background {
-                UnevenRoundedRectangle(cornerRadii: .init(
-                    topLeading: 0,
-                    bottomLeading: 15,
-                    bottomTrailing: 15,
-                    topTrailing: 0
-                ))
-                .foregroundStyle(.basicWhite)
-            }
-            .offset(y: -19)
+            BusStopDetailView(stopNameKorean: endStopNameKorean,
+                              stopNameRomanized: endStopNameRomanized,
+                              stopNameNaver: endStopNameNaver)
+                .padding(.horizontal, 16)
+                .padding(.top, 5)
+                .padding(.bottom, 11.88)
+                .frame(width: 361)
+                .background {
+                    UnevenRoundedRectangle(cornerRadii: .init(
+                        topLeading: 0,
+                        bottomLeading: 15,
+                        bottomTrailing: 15,
+                        topTrailing: 0
+                    ))
+                    .foregroundStyle(.basicWhite)
+                }
+                .offset(y: -19)
         }
     }
     

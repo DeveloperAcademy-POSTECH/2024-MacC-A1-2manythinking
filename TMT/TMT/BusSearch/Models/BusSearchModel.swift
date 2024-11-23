@@ -40,13 +40,13 @@ final class BusSearchModel: ObservableObject {
     private func apply(_ searchResponse: [[String]]) {
         for response in searchResponse {
             self.allBusData.append(BusStop(busNumber: response[0].isEmpty ? nil : response[0],
-                                             busType: response[1].isEmpty ? nil : Int(response[1]),
-                                             stopOrder: response[2].isEmpty ? nil : Int(response[2]),
-                                             stopNameKorean: response[3].isEmpty ? nil : response[3],
-                                             stopNameRomanized: response[4].isEmpty ? nil : response[4],
-                                             stopNameNaver: response[5].isEmpty ? nil : response[5],
-                                             latitude: response[6].isEmpty ? nil : Double(response[6]),
-                                             longitude: response[7].isEmpty ? nil : Double(response[7].dropLast(1))))
+                                           busType: response[1].isEmpty ? nil : Int(response[1]),
+                                           stopOrder: response[2].isEmpty ? nil : Int(response[2]),
+                                           stopNameKorean: response[3].isEmpty ? nil : response[3],
+                                           stopNameRomanized: response[4].isEmpty ? nil : response[4],
+                                           stopNameNaver: response[5].isEmpty ? nil : response[5],
+                                           latitude: response[6].isEmpty ? nil : Double(response[6]),
+                                           longitude: response[7].isEmpty ? nil : Double(response[7].dropLast(1))))
         }
     }
     
@@ -59,7 +59,7 @@ final class BusSearchModel: ObservableObject {
             return false
         }
     }
-
+    
     func searchBusStops(byName name: String) -> [BusStop] {
         return filteredBusDataForNumber.filter {
             name.contains($0.stopNameNaver ?? "") || name.contains($0.stopNameKorean ?? "")
