@@ -12,18 +12,14 @@ struct BusStopsSheetView: View {
     @EnvironmentObject var journeyModel: JourneySettingModel
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                // TODO: 남은 정류장 수 밑에 뜨는 선 수정하기. 그림자
-                Rectangle()
-                    .foregroundStyle(.basicBlack.opacity(0.25))
-                    .shadow(radius: 2.5, y: 2)
-                    .frame(height: 2)
-                
-                // TODO: 현재 정류장 표시도 해야 함.
-                ForEach(searchModel.filteredBusDataForNumber) { stop in
-                    let isPartOfJourney = journeyModel.journeyStops.contains { $0.stopOrder == stop.stopOrder }
-                    BusStopRow(stop: stop, isPartOfJourney: isPartOfJourney)
+        VStack(spacing: 4) {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    // TODO: 현재 정류장 표시도 해야 함.
+                    ForEach(searchModel.filteredBusDataForNumber) { stop in
+                        let isPartOfJourney = journeyModel.journeyStops.contains { $0.stopOrder == stop.stopOrder }
+                        BusStopRowView(stop: stop, isPartOfJourney: isPartOfJourney)
+                    }
                 }
             }
         }
@@ -32,7 +28,7 @@ struct BusStopsSheetView: View {
 
 // TODO: 선 양 끝에 둥근 처리하기
 
-struct BusStopRow: View {
+struct BusStopRowView: View {
     let stop: BusStop
     let isPartOfJourney: Bool
     //    let isCurrentStop: Bool
@@ -40,8 +36,8 @@ struct BusStopRow: View {
     var body: some View {
         HStack(spacing: 0) {
             journeyIndicator
-
-            stopInfoView
+            
+            busStopInfoView
         }
     }
     
@@ -58,9 +54,9 @@ struct BusStopRow: View {
             .foregroundStyle(isPartOfJourney ? .brandPrimary : .grey100)
     }
     
-    private var stopInfoView: some View {
+    private var busStopInfoView: some View {
         VStack(alignment: .leading, spacing: 0) {
-            stopNameView
+            busStopNamesView
             
             Divider()
                 .background(isPartOfJourney ? .grey50 : .grey100)
@@ -68,42 +64,27 @@ struct BusStopRow: View {
         .background(isPartOfJourney ? .basicWhite : .grey30) // TODO: 색상 추가되면 변경하기
     }
     
-    private var stopNameView: some View {
-        // TODO: 정류장 이름 데이터 없을 때 대처하기. 뭐로 넣지
+    private var busStopNamesView: some View {
         // TODO: 서체 적용하기
         Group {
-            if let korean = stop.stopNameKorean,
-               let romanized = stop.stopNameRomanized,
-               let translated = stop.stopNameNaver {
-                VStack(alignment: .leading, spacing: 0) {
-                    
-                    Text(korean)
-                        .font(.headline) // TODO: 서체
-                        .foregroundStyle(.grey500) // TODO: 디자인 답변 오면 색상 수정하기
-                    
-                    Text("[\(romanized)]")
+            VStack(alignment: .leading, spacing: 0) {
+                Text(stop.stopNameKorean ?? "")
+                    .font(.headline) // TODO: 서체
+                    .foregroundStyle(.grey500) // TODO: 디자인 답변 오면 색상 수정하기
+                
+                Text("[\(stop.stopNameRomanized ?? "")]")
+                    .font(.subheadline) // TODO: 서체
+                    .foregroundStyle(.grey300)
+                
+                if isPartOfJourney {
+                    Text(stop.stopNameNaver ?? "")
                         .font(.subheadline) // TODO: 서체
-                        .foregroundStyle(.grey300)
-                    
-                    if isPartOfJourney {
-                        Text(translated)
-                            .font(.subheadline) // TODO: 서체
-                            .foregroundStyle(.grey500) // TODO: 디자인 답변 오면 색상 수정하기
-                    }
+                        .foregroundStyle(.grey500) // TODO: 디자인 답변 오면 색상 수정하기
                 }
-                .lineLimit(1)
-                .padding(10)
-            } else {
-                missingDataView
             }
-        }
-    }
-    
-    private var missingDataView: some View {
-        Text("데이터 없음")
+            .lineLimit(1)
             .padding(10)
-            .padding(.vertical, 15)
-            .foregroundStyle(isPartOfJourney ? .basicBlack : .grey400)
+        }
     }
 }
 
@@ -111,25 +92,9 @@ struct BusStopRow: View {
     let searchModel = BusSearchModel()
     let journeyModel = JourneySettingModel(searchModel: searchModel)
     
-    searchModel.filteredBusDataForNumber = [
-        BusStop(stopOrder: 0, stopNameKorean: "종각역"),
-        BusStop(stopOrder: 1, stopNameKorean: "종각역", stopNameRomanized: "Jonggak-yeok", stopNameNaver: "Jonggak Station"),
-        BusStop(stopOrder: 2, stopNameKorean: "을지로입구역", stopNameRomanized: "Euljiro-ipgu-yeok", stopNameNaver: "Euljiro Station"),
-        BusStop(stopOrder: 3, stopNameKorean: "죽전역", stopNameRomanized: "Juk-jeon-yeok", stopNameNaver: "Jukjeon Station"),
-        BusStop(stopOrder: 4, stopNameKorean: "강남역", stopNameRomanized: "Gang-nam-yeok", stopNameNaver: "Gangnam Station"),
-        
-        BusStop(stopOrder: 5, stopNameKorean: "강남역", stopNameRomanized: "Gang-nam-yeok", stopNameNaver: "Gangnam Station"),
-        BusStop(stopOrder: 6, stopNameKorean: "죽전역", stopNameRomanized: "Juk-jeon-yeok", stopNameNaver: "Jukjeon Station"),
-        BusStop(stopOrder: 7, stopNameKorean: "을지로입구역을지로입구역을지로입구역ㅇㅇㅇd", stopNameRomanized: "Euljiro-iㅇㅇㅇㅇㅇㅇㅇㄴㅇㅁㄴㅇㅁㄹㅇㄹㅇㄴㄹㄴㅇㄹㅇㄴㄹㅇㄴㄹpgu-yeok", stopNameNaver: "Euljiro Station"),
-        BusStop(stopOrder: 8, stopNameKorean: "종각역", stopNameRomanized: "Jonggak-yeok", stopNameNaver: "Jonggak Station"),
-        BusStop(stopOrder: 9, stopNameKorean: "서울역", stopNameRomanized: "Seoul-yeok", stopNameNaver: "Seoul Station")
-    ]
+    searchModel.filteredBusDataForNumber = BusStop.busStopDummy
     
-    journeyModel.journeyStops = [
-        BusStop(stopOrder: 1, stopNameKorean: "종각역", stopNameRomanized: "Jonggak-yeok", stopNameNaver: "Jonggak Station"),
-        BusStop(stopOrder: 2, stopNameKorean: "을지로입구역", stopNameRomanized: "Euljiro-ipgu-yeok", stopNameNaver: "Euljiro Station"),
-        BusStop(stopOrder: 3, stopNameKorean: "죽전역", stopNameRomanized: "Juk-jeon-yeok", stopNameNaver: "Jukjeon Station")
-    ]
+    journeyModel.journeyStops = BusStop.journeyStopDummy
     
     return BusStopsSheetView()
         .environmentObject(searchModel)
