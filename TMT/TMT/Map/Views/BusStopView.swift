@@ -110,3 +110,23 @@ struct BusStopView: View {
         }
     }
 }
+
+#Preview {
+    // Mock 데이터 및 객체 초기화
+    let searchModel = BusSearchModel()
+    let journeyModel = JourneySettingModel(searchModel: searchModel)
+    let activityManager = LiveActivityManager()
+    let imageHandler = ImageHandlerModel()
+    let locationManager = LocationManager(activityManager: activityManager, journeyModel: journeyModel)
+    
+    searchModel.filteredBusDataForNumber = BusStop.busStopDummy
+
+    journeyModel.journeyStops = BusStop.journeyStopDummy
+    
+    return BusStopView(path: .constant([]))
+        .environmentObject(locationManager)
+        .environmentObject(searchModel)
+        .environmentObject(journeyModel)
+        .environmentObject(activityManager)
+        .environmentObject(imageHandler)
+}
