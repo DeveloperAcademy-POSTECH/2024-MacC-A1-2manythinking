@@ -41,7 +41,7 @@ struct ScannedJourneyInfoView: View {
             VStack {
                 ScrollView {
                     if !imageHandler.showAlertScreen {
-                        UploadedPhotoView(selectedImage: $imageHandler.selectedImage) 
+                        UploadedPhotoView(selectedImage: $imageHandler.selectedImage)
                     } else {
                         UploadedPhotoView(selectedImage: .constant(nil))
                     }
@@ -50,35 +50,34 @@ struct ScannedJourneyInfoView: View {
                         uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
                         uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
                         uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
-                        
-                        if imageHandler.showAlertText {
-                            HStack {
-                                VStack {
-                                    Image(systemName: "exclamationmark.triangle.fill")
-                                    Spacer()
-                                }
-                                Text("As the information was entered incorrectly, please reupload the screenshot.")
-                            }
-                            .foregroundStyle(.red600)
-                        }
                     }
                 }
+                
+                if imageHandler.showAlertText {
+                    HStack {
+                        VStack {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                            Spacer()
+                        }
+                        .frame(height: 340)
+                        Text("As the information was entered incorrectly, please reupload the screenshot.")
+                    }
+                    .foregroundStyle(.red600)
+                }
+                
                 HStack(spacing: 0) {
-                    Button {
-                        showingAlert = true
-                    } label: {
-                        ZStack {
-                            if !imageHandler.showAlertText {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.Brand.primary, lineWidth: 1)
-                                Text("Reupload")
-                                    .foregroundStyle(.brandPrimary)
-                            } else {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(.grey900)
-                                    .stroke(.grey900)
-                                Text("Reupload")
-                                    .foregroundStyle(.white)
+                    Group {
+                        if imageHandler.showAlertText {
+                            FilledButton(title: "Reupload", fillColor: .basicBlack, textColor: .basicWhite) {
+                                showingAlert = true
+                            }
+                        } else {
+                            OutlinedButton(
+                                title: "Reupload",
+                                strokeColor: .brandPrimary,
+                                textColor: .brandPrimary
+                            ) {
+                                showingAlert = true
                             }
                         }
                     }
@@ -122,7 +121,10 @@ struct ScannedJourneyInfoView: View {
                             EmptyView()
                         }
                     
-                    FilledButton(title: "Start", fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
+                    FilledButton(
+                        title: "Start",
+                        fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary
+                    ) {
                         if !imageHandler.showAlertText {
                             journeyModel.setJourneyStops(
                                 busNumberString: imageHandler.scannedJourneyInfo.busNumber,
@@ -186,3 +188,6 @@ struct ScannedJourneyInfoView: View {
     }
 }
 
+#Preview {
+    ScannedJourneyInfoView(scannedJourneyInfo: .constant(ScannedJourneyInfo(busNumber: "207", startStop: "1", endStop: "2")), path: .constant(["ScannedJourneyInfoView"]))
+}
