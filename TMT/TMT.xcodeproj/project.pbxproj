@@ -28,6 +28,7 @@
 		5BEEBC192CEBB3E3000272F5 /* SelectedBusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEEBC182CEBB3CF000272F5 /* SelectedBusStopView.swift */; };
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
+		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
 		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
 		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
 		D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
@@ -53,6 +54,8 @@
 		D88F3AF22CD34DD200C0B657 /* InformationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F3AF12CD34DD200C0B657 /* InformationModalView.swift */; };
 		D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchItem.swift */; };
 		D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */; };
+		D8E054DD2CF1AF89006B1879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054DC2CF1AF89006B1879 /* View.swift */; };
+		D8E054DE2CF1AF89006B1879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054DC2CF1AF89006B1879 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,7 @@
 		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BD0A4112CD67BC300AE88BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BEEBC182CEBB3CF000272F5 /* SelectedBusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBusStopView.swift; sourceTree = "<group>"; };
+		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
 		D81D9E992CE47F0D004F2024 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		D88F3AF12CD34DD200C0B657 /* InformationModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationModalView.swift; sourceTree = "<group>"; };
 		D8D377E82CBE95C30043D103 /* BusSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchItem.swift; sourceTree = "<group>"; };
 		D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
+		D8E054DC2CF1AF89006B1879 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -185,6 +190,33 @@
 				D81D9E972CE47E82004F2024 /* Views */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		D801A1B82CF2212000AD0D64 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		D801A1BB2CF229CA00AD0D64 /* DestinationCard */ = {
+			isa = PBXGroup;
+			children = (
+				5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */,
+				5BEEBC182CEBB3CF000272F5 /* SelectedBusStopView.swift */,
+				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
+				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
+			);
+			path = DestinationCard;
+			sourceTree = "<group>";
+		};
+		D801A1BD2CF22AA500AD0D64 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				D859D1502CEB2A6E00478166 /* BusStopsSheetView.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		D81D9E912CE47D84004F2024 /* Models */ = {
@@ -248,13 +280,10 @@
 		D81D9E972CE47E82004F2024 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */,
-				5BEEBC182CEBB3CF000272F5 /* SelectedBusStopView.swift */,
 				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
 				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
-				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
-				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
-				D859D1502CEB2A6E00478166 /* BusStopsSheetView.swift */,
+				D801A1BB2CF229CA00AD0D64 /* DestinationCard */,
+				D801A1BD2CF22AA500AD0D64 /* BottomSheet */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +293,7 @@
 			children = (
 				D81D9E992CE47F0D004F2024 /* String.swift */,
 				D81D9E9B2CE47F12004F2024 /* Color.swift */,
+				D8E054DC2CF1AF89006B1879 /* View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -348,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */,
+				D801A1B82CF2212000AD0D64 /* Test */,
 			);
 			path = BusStop;
 			sourceTree = "<group>";
@@ -503,6 +534,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E054DD2CF1AF89006B1879 /* View.swift in Sources */,
 				5BF33BF52CE70E37006F17EC /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +564,7 @@
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
+				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
 				5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */,
 				D876BF312CECE89E0098B68E /* OnboardingView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
@@ -542,6 +575,7 @@
 				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
 				D88F3AF22CD34DD200C0B657 /* InformationModalView.swift in Sources */,
+				D8E054DE2CF1AF89006B1879 /* View.swift in Sources */,
 				D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */,
 				5B2D9A182CCA36EA001FF6CC /* OCRProcessorManager.swift in Sources */,
 				D859D1512CEB2A6E00478166 /* BusStopsSheetView.swift in Sources */,
@@ -565,9 +599,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -584,6 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Development;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -601,9 +638,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -620,6 +659,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Distribution;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -756,10 +796,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -781,6 +823,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Development;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -797,10 +840,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -822,6 +867,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Distribution;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
