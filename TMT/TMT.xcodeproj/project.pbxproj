@@ -12,11 +12,11 @@
 		5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */; };
 		5B2D9A182CCA36EA001FF6CC /* OCRProcessorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */; };
 		5B4EFCE02CEDB0800096FA0C /* BusStopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */; };
-		5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */; };
+		5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */; };
 		5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */; };
 		5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
-		5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* BusStopView.swift */; };
+		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
 		5B7B01DE2CD0CA5900B6009E /* OCRExtractorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7B01DD2CD0CA5200B6009E /* OCRExtractorManager.swift */; };
 		5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */; };
@@ -88,11 +88,11 @@
 		5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRStarterManager.swift; sourceTree = "<group>"; };
 		5B2D9A172CCA36E0001FF6CC /* OCRProcessorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRProcessorManager.swift; sourceTree = "<group>"; };
 		5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
-		5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopViewWrapper.swift; sourceTree = "<group>"; };
+		5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
 		5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
-		5B6DA5B72CBE551400613ACB /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
+		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		5B7B01DD2CD0CA5200B6009E /* OCRExtractorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRExtractorManager.swift; sourceTree = "<group>"; };
 		5B83D51D2CD7D80900633B3C /* NotUploadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotUploadedView.swift; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 		D81D9E972CE47E82004F2024 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
-				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
+				5B6DA5B72CBE551400613ACB /* MapView.swift */,
+				5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */,
 				D801A1BB2CF229CA00AD0D64 /* DestinationCard */,
 				D801A1BD2CF22AA500AD0D64 /* BottomSheet */,
 			);
@@ -553,7 +553,7 @@
 				5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */,
 				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
 				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
-				5B6DA5B82CBE551400613ACB /* BusStopView.swift in Sources */,
+				5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */,
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5BEEBC192CEBB3E3000272F5 /* SelectedBusStopView.swift in Sources */,
 				5BB6D2542CD372E900F6A487 /* ThisStopView.swift in Sources */,
@@ -562,7 +562,7 @@
 				D876BF2F2CECE8820098B68E /* OnboardingIntroView.swift in Sources */,
 				D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
-				5B4F87342CC973F4000329C2 /* BusStopViewWrapper.swift in Sources */,
+				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
 				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
 				5BB6D2582CD3DD1100F6A487 /* EndStopView.swift in Sources */,
@@ -599,11 +599,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -620,7 +618,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Development;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -638,11 +635,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -659,7 +654,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Distribution;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -796,12 +790,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -823,7 +815,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Development;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -840,12 +831,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -867,7 +856,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Distribution;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

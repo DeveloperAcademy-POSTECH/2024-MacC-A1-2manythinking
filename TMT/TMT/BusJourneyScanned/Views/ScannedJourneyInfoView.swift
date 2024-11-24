@@ -114,7 +114,7 @@ struct ScannedJourneyInfoView: View {
                             }
                             .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                             
-                            NavigationLink(destination: BusStopView(path: $path)
+                            NavigationLink(destination: MapView(path: $path)
                                 .environmentObject(locationManager)
                                 .environmentObject(searchModel)
                                 .environmentObject(activityManager)

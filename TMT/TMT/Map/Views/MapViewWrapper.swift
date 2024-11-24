@@ -1,5 +1,5 @@
 //
-//  BusStopViewWrapper.swift
+//  MapViewWrapper.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/24/24.
@@ -23,7 +23,7 @@ final class SelectedStopManager: ObservableObject {
     @Published var selectedIndex: Int? = 0
 }
 
-struct BusStopViewWrapper: UIViewRepresentable {
+struct MapViewWrapper: UIViewRepresentable {
     @ObservedObject var selectedStopManager: SelectedStopManager
     @Binding var region: MKCoordinateRegion
     @Binding var isUpdateRequested: Bool
@@ -31,11 +31,11 @@ struct BusStopViewWrapper: UIViewRepresentable {
     var updateInterval: TimeInterval = 5
     
     class Coordinator: NSObject, MKMapViewDelegate {
-        var parent: BusStopViewWrapper
+        var parent: MapViewWrapper
         var timer: Timer?
         private var isUserInteractionInProgress = false
         
-        init(_ parent: BusStopViewWrapper) {
+        init(_ parent: MapViewWrapper) {
             self.parent = parent
         }
         

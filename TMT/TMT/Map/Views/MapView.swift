@@ -1,5 +1,5 @@
 //
-//  BusStopView.swift
+//  MapView.swift
 //  TMT
 //
 //  Created by Choi Minkyeong on 10/15/24.
@@ -13,7 +13,7 @@ struct Coordinate: Identifiable {
     var longitude: Double
 }
 
-struct BusStopView: View {
+struct MapView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
@@ -23,30 +23,43 @@ struct BusStopView: View {
     
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
-    @State private var isUpdateRequested: Bool = false
+    @State private var isUpdateRequested = false
+    @State private var isShowingBottomSheet = true
+    
     @Binding var path: [String]
     
     var body: some View {
         ZStack {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
+            
             VStack {
-                EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "", remainingStops: locationManager.remainingStops)
-                    .padding(.top, 16)
-                    .padding(.leading ,16)
-                    .padding(.trailing, 17)
+                EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "",
+                            endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "",
+                            endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "",
+                            remainingStops: locationManager.remainingStops)
+                .padding([.top, .leading], 16)
+                .padding(.trailing, 17)
+                
                 Spacer()
-                endButton // bottom sheet 적용되면 삭제될 예정
+                
                 HStack {
                     Spacer()
-                    controlsView
-                        .padding(.trailing, 28)
-                        .padding(.bottom, 19.64)
+                    
+                    myLocationButton
+                        .padding(.trailing, 30)
+                        .padding(.bottom, 120)
                 }
+                
                 if selectedStopManager.isTapped == true {
                     SelectedBusStopView()
                 }
             }
+        }
+        // TODO: 바텀시트 수정하기. 디테일 잡기
+        // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
+        .bottomSheet(isPresented: $isShowingBottomSheet) {
+            sheetView
         }
         .environmentObject(selectedStopManager)
         .toolbar(.hidden, for: .navigationBar)
@@ -62,31 +75,60 @@ struct BusStopView: View {
         }
     }
     
+    // MARK: - Views / Map
     private var busStopViewWrapper: some View {
-        BusStopViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
+        MapViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
     }
     
-    private var controlsView: some View {
+    private var myLocationButton: some View {
         Button {
             locationManager.findCurrentLocation()
             isUpdateRequested = true
         } label: {
-            Image(systemName: "location.fill")
-                .foregroundStyle(.yellow500)
-                .background {
-                    Circle()
-                        .frame(width: 44, height: 44)
-                        .foregroundStyle(.basicWhite)
-                        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+            Circle()
+                .frame(width: 44, height: 44)
+                .foregroundStyle(.basicWhite)
+                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+                .overlay {
+                    Image(systemName: "location.fill")
+                        .foregroundStyle(.yellow500)
                 }
         }
     }
     
-    // 임의로 버튼을 만들어 놓았습니다. 추후 bottom sheet에 적용될 예정입니다.
+    // MARK: - Views / Bottom Sheet
+    private var sheetView: some View {
+        VStack(spacing: 3) {
+            Rectangle()
+                .frame(height: 100)
+                .foregroundStyle(.basicWhite)
+                .shadow(color: .basicBlack.opacity(0.25), radius: 2.5, y: 2)
+                .overlay {
+                    HStack(alignment: .bottom, spacing: 6) {
+                        Text("\(locationManager.remainingStops)")
+                            .font(.system(size: 45))
+                        
+                        Text("Stops Left")
+                            .font(.system(size: 20))
+                        
+                        Spacer()
+                        
+                        endButton
+                    }
+                    .padding(.top, 26)
+                    .padding(.horizontal, 35)
+                    .padding(.bottom, 32)
+                }
+            
+            BusStopsSheetView()
+        }
+    }
+    
     private var endButton: some View {
         Button {
             activityManager.endLiveActivity()
             imageHandler.selectedImage = nil
+            isShowingBottomSheet = false
             path.removeAll()
         } label: {
             Text("End")
@@ -99,6 +141,7 @@ struct BusStopView: View {
         }
     }
     
+    // MARK: - logic
     /// 좌표의 옵셔널을 제거합니다.
     private func getValidCoordinates() -> [Coordinate] {
         searchModel.filteredBusDataForNumber.compactMap { stop in
@@ -120,10 +163,10 @@ struct BusStopView: View {
     let locationManager = LocationManager(activityManager: activityManager, journeyModel: journeyModel)
     
     searchModel.filteredBusDataForNumber = BusStop.busStopDummy
-
+    
     journeyModel.journeyStops = BusStop.journeyStopDummy
     
-    return BusStopView(path: .constant([]))
+    return MapView(path: .constant([]))
         .environmentObject(locationManager)
         .environmentObject(searchModel)
         .environmentObject(journeyModel)
