@@ -13,20 +13,30 @@ struct BusStopsSheetView: View {
     
     var body: some View {
         VStack(spacing: 4) {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    // TODO: 현재 정류장 표시도 해야 함.
-                    ForEach(searchModel.filteredBusDataForNumber) { stop in
-                        let isPartOfJourney = journeyModel.journeyStops.contains { $0.stopOrder == stop.stopOrder }
-                        BusStopRowView(stop: stop, isPartOfJourney: isPartOfJourney)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        // TODO: 현재 정류장 표시도 해야 함.
+                        ForEach(searchModel.filteredBusDataForNumber) { stop in
+                            let isPartOfJourney = journeyModel.journeyStops.contains { $0.stopOrder == stop.stopOrder }
+                            
+                            BusStopRowView(stop: stop, isPartOfJourney: isPartOfJourney)
+                                .id(stop.stopOrder)
+                        }
+                    }
+                    .onAppear {
+                        proxy.scrollTo(journeyModel.journeyStops.first!.stopOrder)
+                    }
+                    // TODO: 정류장 지나칠 때마다 스크롤 위치 변화하는지 테스트 필요
+                    .onChange(of: journeyModel.lastPassedStopIndex) {
+                        proxy.scrollTo(journeyModel.journeyStops[journeyModel.lastPassedStopIndex].stopOrder)
+                        
                     }
                 }
             }
         }
     }
 }
-
-// TODO: 선 양 끝에 둥근 처리하기
 
 struct BusStopRowView: View {
     let stop: BusStop
@@ -42,6 +52,7 @@ struct BusStopRowView: View {
     }
     
     private var journeyIndicator: some View {
+        // TODO: 선 양 끝에 둥근 처리하기
         Rectangle()
             .frame(width: 8)
             .overlay {
@@ -65,26 +76,23 @@ struct BusStopRowView: View {
     }
     
     private var busStopNamesView: some View {
-        // TODO: 서체 적용하기
-        Group {
-            VStack(alignment: .leading, spacing: 0) {
-                Text(stop.stopNameKorean ?? "")
-                    .font(.headline) // TODO: 서체
-                    .foregroundStyle(.grey500) // TODO: 디자인 답변 오면 색상 수정하기
-                
-                Text("[\(stop.stopNameRomanized ?? "")]")
+        VStack(alignment: .leading, spacing: 0) {
+            Text(stop.stopNameKorean ?? "")
+                .font(.headline) // TODO: 서체
+                .foregroundStyle(.basicBlack)
+            
+            Text("[\(stop.stopNameRomanized ?? "")]")
+                .font(.subheadline) // TODO: 서체
+                .foregroundStyle(.grey300)
+            
+            if isPartOfJourney {
+                Text(stop.stopNameNaver ?? "")
                     .font(.subheadline) // TODO: 서체
-                    .foregroundStyle(.grey300)
-                
-                if isPartOfJourney {
-                    Text(stop.stopNameNaver ?? "")
-                        .font(.subheadline) // TODO: 서체
-                        .foregroundStyle(.grey500) // TODO: 디자인 답변 오면 색상 수정하기
-                }
+                    .foregroundStyle(.basicBlack)
             }
-            .lineLimit(1)
-            .padding(10)
         }
+        .multilineTextAlignment(.leading)
+        .padding(10)
     }
 }
 
