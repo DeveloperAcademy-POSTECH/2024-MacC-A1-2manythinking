@@ -83,8 +83,10 @@ struct MapViewWrapper: UIViewRepresentable {
                 view.image = UIImage(named: "SelectedBusStopIcon")
                 view.frame.size = CGSize(width: 35, height: 35)
                 view.layer.cornerRadius = 5
+                
                 parent.selectedStopManager.selectedIndex = annotation.index
                 parent.selectedStopManager.isTapped = true
+                
                 mapView.setRegion(MKCoordinateRegion(
                     center: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude),
                     span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)

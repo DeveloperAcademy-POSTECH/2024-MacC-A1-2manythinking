@@ -13,13 +13,6 @@ struct Coordinate: Identifiable {
     var longitude: Double
 }
 
-struct BusStopDetail {
-    var endStopNameKorean: String
-    var endStopNameRomanized: String
-    var endStopNameNaver: String
-    var remainingStops: Int?
-}
-
 struct BusStopView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
@@ -31,33 +24,34 @@ struct BusStopView: View {
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
     @State private var isUpdateRequested: Bool = false
-    @State private var endStopDetail: BusStopDetail = .init(endStopNameKorean: "", endStopNameRomanized: "", endStopNameNaver: "", remainingStops: 0)
-    @State private var tappedStopDetail: BusStopDetail = .init(endStopNameKorean: "", endStopNameRomanized: "", endStopNameNaver: "", remainingStops: 0)
-    @State private var stopOrder: Int? = 0
+    @State private var endStop: BusStop = BusStop()
+    @State private var tappedStop: BusStop = BusStop()
     @Binding var path: [String]
     
     var body: some View {
         ZStack {
             busStopViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
+            
             if selectedStopManager.isTapped {
-                Color.black.opacity(0.3) // TODO: 투명 배경으로 변경하기
+                Color.black.opacity(0)
                     .ignoresSafeArea()
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         selectedStopManager.isTapped = false
                     }
-                TappedStopView(stopOrder: $stopOrder, tappedStopDetail: $tappedStopDetail)
+                TappedStopView(tappedStop: $tappedStop)
                     .offset(x: -5, y: 50)
                     .position(
                         x: UIScreen.main.bounds.width / 2,
-                        y: UIScreen.main.bounds.height / 3 + 20 // 팝업 아래로 약간 이동
+                        y: UIScreen.main.bounds.height / 3 + 20
                     )
-                
                     .transition(.scale)
                     .animation(.spring(), value: selectedStopManager.isTapped)
             }
+            
             VStack {
-                EndStopView(busStopDetail: $endStopDetail)
+                EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
                     .padding(.top, 16)
                     .padding(.leading ,16)
                     .padding(.trailing, 17)
@@ -79,7 +73,7 @@ struct BusStopView: View {
             }
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
-            endStopDetail = BusStopDetail(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "", endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "", endStopNameNaver: journeyModel.journeyStops.last?.stopNameNaver ?? "", remainingStops: locationManager.remainingStops)
+            endStop = journeyModel.journeyStops.last ?? BusStop()
         }
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
@@ -132,9 +126,5 @@ struct BusStopView: View {
             }
             return Coordinate(latitude: latitude, longitude: longitude)
         }
-    }
-    
-    private func updateStateOrder() {
-        stopOrder = selectedStopManager.selectedIndex
     }
 }

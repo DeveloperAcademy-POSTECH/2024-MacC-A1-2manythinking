@@ -7,23 +7,32 @@
 
 import SwiftUI
 
-struct SpeechBubbleShape: Shape {
+struct PopoverView: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
+        
+        let curveWidth: CGFloat = 30
+        let curveHeight: CGFloat = 13
+        let bubbleCornerRadius: CGFloat = 14
+        let curveStartX = rect.midX - curveWidth / 2
 
-        let triangleWidth: CGFloat = 19
-        let triangleHeight: CGFloat = 19
-        let triangleStartX = rect.midX - triangleWidth / 2
-        let cornerRadius: CGFloat = 5
-        
-        // TODO: 화살표 수정하기...
-        path.move(to: CGPoint(x: triangleStartX, y: triangleHeight))
-        path.addQuadCurve(to: CGPoint(x: rect.midX, y: 0), control: CGPoint(x: rect.midX, y: -10)) // 좌측 둥근 곡선
-                path.addQuadCurve(to: CGPoint(x: triangleStartX + triangleWidth, y: triangleHeight), control: CGPoint(x: rect.midX, y: -10))
-        
-        path.addRoundedRect(in: CGRect(x: 0, y: triangleHeight, width: rect.width, height: rect.height - triangleHeight),
-                            cornerSize: CGSize(width: 14, height: 14))
-        
+        path.move(to: CGPoint(x: curveStartX, y: curveHeight))
+
+        path.addQuadCurve(
+            to: CGPoint(x: rect.midX, y: 0),
+            control: CGPoint(x: rect.midX + 3, y: -curveHeight)
+        )
+
+        path.addQuadCurve(
+            to: CGPoint(x: curveStartX + curveWidth, y: curveHeight),
+            control: CGPoint(x: rect.midX - 3, y: -curveHeight)
+        )
+
+        path.addRoundedRect(
+            in: CGRect(x: 0, y: curveHeight, width: rect.width, height: rect.height - curveHeight),
+            cornerSize: CGSize(width: bubbleCornerRadius, height: bubbleCornerRadius)
+        )
+
         return path
     }
 }
