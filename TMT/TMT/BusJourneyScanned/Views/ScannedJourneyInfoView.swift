@@ -59,9 +59,11 @@ struct ScannedJourneyInfoView: View {
                             Image(systemName: "exclamationmark.triangle.fill")
                             Spacer()
                         }
-                        .frame(height: 340)
                         Text("As the information was entered incorrectly, please reupload the screenshot.")
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
+                    .frame(height: 42)
                     .foregroundStyle(.red600)
                 }
                 
@@ -96,9 +98,10 @@ struct ScannedJourneyInfoView: View {
                             imageHandler.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
                             imageHandler.selectedImage = nil
                         } label: {
+                            // TODO: 커스텀 안되는 문제 해결하기
                             Text("Confirm")
                                 .foregroundStyle(.blue)
-                                .fontWeight(.bold)
+                                .font(.footnote.weight(.bold))
                         }
                     } message: {
                         Text("The previously uploaded image information will disappear. Do you want to proceed?")
