@@ -15,6 +15,9 @@ struct OnboardingView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             onboardingTabView()
+                .onAppear {
+                    requestNotificationPermission()
+                }
             
             if onboardingButtonTitle == "Next" {
                 OutlinedButton(title: onboardingButtonTitle) {
@@ -66,6 +69,16 @@ struct OnboardingView: View {
             shouldShowOnboarding = false
         }
     }
+    
+    private func requestNotificationPermission() {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                if let error = error {
+                    print("알림 권한 요청 실패: \(error)")
+                } else {
+                    print("알림 권한 요청 결과: \(granted)")
+                }
+            }
+        }
 }
 
 #Preview {

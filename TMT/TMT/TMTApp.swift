@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct TMTApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
