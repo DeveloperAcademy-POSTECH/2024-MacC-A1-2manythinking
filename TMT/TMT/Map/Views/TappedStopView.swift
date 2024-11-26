@@ -12,17 +12,21 @@ struct TappedStopView: View {
     @EnvironmentObject var searchModel: BusSearchModel
     @State private var stopOrder: Int? = 0
     @Binding var tappedStop: BusStop
+    @Binding var tappedViewSize: CGSize
     
     var body: some View {
         VStack {
-            BusStopDetailView(stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "", viewType: "")
-                .padding(.horizontal, 16)
-                .padding(.vertical, 21)
-                .offset(y: 10 )
-                .frame(width: 280)
-                .background(PopoverView().fill(.basicWhite)) // TODO: 색상 변경하기
-                .offset(x: 14, y: 79)
-            
+            GeometryReader { geometry in
+                BusStopDetailView(stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "", viewType: "")
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 21)
+                    .background(PopoverView().fill(.basicWhite)) // TODO: 색상 변경하기
+                    .frame(width: 280)
+                    .onAppear {
+                        tappedViewSize = geometry.size
+                    }
+            }
+            .frame(width: 280)
         }
         .onAppear {
             updateStateOrder()

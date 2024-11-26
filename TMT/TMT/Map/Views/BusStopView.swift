@@ -26,6 +26,7 @@ struct BusStopView: View {
     @State private var isUpdateRequested: Bool = false
     @State private var endStop: BusStop = BusStop()
     @State private var tappedStop: BusStop = BusStop()
+    @State private var tappedViewSize: CGSize = .zero
     @Binding var path: [String]
     
     var body: some View {
@@ -40,11 +41,10 @@ struct BusStopView: View {
                     .onTapGesture {
                         selectedStopManager.isTapped = false
                     }
-                TappedStopView(tappedStop: $tappedStop)
-                    .offset(x: -5, y: 50)
-                    .position(
-                        x: UIScreen.main.bounds.width / 2,
-                        y: UIScreen.main.bounds.height / 3 + 20
+                TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
+                    .offset(
+                        x: 0,
+                        y: tappedViewSize.height / 2 + 19 // BusIcon / 2 + SpeechBubble triangle 오차
                     )
                     .transition(.scale)
                     .animation(.spring(), value: selectedStopManager.isTapped)
