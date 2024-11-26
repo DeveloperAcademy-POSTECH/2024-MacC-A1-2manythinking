@@ -29,7 +29,7 @@ struct BusStopDetailView: View {
                 .font(.footnote)
             
             Divider()
-                .foregroundStyle(viewType == "EndStopView" ? .grey100 : .white) // TODO: white 변경 필요
+                .foregroundStyle(viewType == "EndStopView" ? .grey100 : .white) // TODO: divider 색상 변경 필요
                 .padding(.vertical, 9)
             
             Text("English")
@@ -50,6 +50,7 @@ struct BusStopDetailView: View {
     BusStopDetailView(
         stopNameKorean: dummy.first!.stopNameKorean ?? "",
         stopNameRomanized: dummy.first!.stopNameRomanized ?? "",
-        stopNameNaver: dummy.first!.stopNameNaver ?? ""
+        stopNameNaver: dummy.first!.stopNameNaver ?? "",
+        viewType: "EndStopView"
     )
 }
