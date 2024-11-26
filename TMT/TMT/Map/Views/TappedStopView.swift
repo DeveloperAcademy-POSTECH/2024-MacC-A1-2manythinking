@@ -20,7 +20,7 @@ struct TappedStopView: View {
                 BusStopDetailView(stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "", viewType: "")
                     .padding(.horizontal, 16)
                     .padding(.vertical, 21)
-                    .background(PopoverView().fill(.basicWhite)) // TODO: 색상 변경하기
+                    .background(PopoverView().fill(.basicWhite)) // TODO: Popover 배경 색상 변경하기
                     .frame(width: 280)
                     .onAppear {
                         tappedViewSize = geometry.size

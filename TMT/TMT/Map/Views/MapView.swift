@@ -24,16 +24,39 @@ struct MapView: View {
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
     @State private var isUpdateRequested = false
-    @State private var hasNotArrived = true
+    @State private var isShowingBottomSheet = true
     @State private var endStop: BusStop = BusStop()
     @State private var tappedStop: BusStop = BusStop()
+    @State private var tappedViewSize: CGSize = .zero
     
     @Binding var path: [String]
     
     var body: some View {
         ZStack {
-                mapViewWrapper
-                    .edgesIgnoringSafeArea(.vertical)
+            mapViewWrapper
+                .edgesIgnoringSafeArea(.vertical)
+            
+            if selectedStopManager.isTapped {
+                Color.black.opacity(0)
+                    .ignoresSafeArea()
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedStopManager.isTapped = false
+                    }
+                TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
+                    .offset(
+                        x: 0,
+                        y: tappedViewSize.height / 2 + 19
+                    )
+                    .transition(.scale)
+                    .animation(.spring(), value: selectedStopManager.isTapped)
+            }
+            
+            
+            VStack {
+                EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
+                .padding([.top, .leading], 16)
+                .padding(.trailing, 17)
                 
                 VStack {
                     EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
