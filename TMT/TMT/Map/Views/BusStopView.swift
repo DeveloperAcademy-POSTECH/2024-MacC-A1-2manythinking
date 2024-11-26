@@ -38,7 +38,6 @@ struct BusStopView: View {
                     .padding(.leading ,16)
                     .padding(.trailing, 17)
                 Spacer()
-                endButton // bottom sheet 적용되면 삭제될 예정
                 HStack {
                     Spacer()
                     controlsView
@@ -124,13 +123,14 @@ struct BusStopView: View {
         }
     }
     
+    /// notification을 띄웁니다.
     private func scheduleBusArrivalNotification() {
         let content = UNMutableNotificationContent()
-            content.title = "도착 알림" // TODO: 제목 받아서 수정 필요.
+            content.title = "BusStop"
             content.body = "You have arrived at your destination."
             content.sound = .default
 
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) // TODO: 트리거하는 초에 대해서 의논 필요
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
             let request = UNNotificationRequest(identifier: "busArrival", content: content, trigger: trigger)
 
             UNUserNotificationCenter.current().add(request) { error in
