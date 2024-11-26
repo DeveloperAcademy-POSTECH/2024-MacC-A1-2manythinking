@@ -30,7 +30,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            busStopViewWrapper
+            mapViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
             
             VStack {
@@ -76,7 +76,7 @@ struct MapView: View {
     }
     
     // MARK: - Views / Map
-    private var busStopViewWrapper: some View {
+    private var mapViewWrapper: some View {
         MapViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
     }
     
