@@ -17,23 +17,38 @@ struct BusStopDetailView: View {
             Text("Korean")
                 .foregroundStyle(.grey200)
                 .font(.footnote)
+            
             Text("\(stopNameKorean)")
                 .foregroundStyle(.basicBlack)
                 .font(.title2)
                 .fontWeight(.bold)
+            
             Text("[\(stopNameRomanized)]")
                 .foregroundStyle(.grey500)
                 .font(.footnote)
+            
             Divider()
                 .foregroundStyle(.grey100)
                 .padding(.vertical, 9)
+            
             Text("English")
                 .foregroundStyle(.grey200)
                 .font(.footnote)
+            
             Text("\(stopNameNaver)")
                 .foregroundStyle(.grey600)
                 .font(.title2)
                 .fontWeight(.bold)
         }
     }
+}
+
+#Preview {
+    var dummy = BusStop.journeyStopDummy
+    
+    BusStopDetailView(
+        stopNameKorean: dummy.first!.stopNameKorean ?? "",
+        stopNameRomanized: dummy.first!.stopNameRomanized ?? "",
+        stopNameNaver: dummy.first!.stopNameNaver ?? ""
+    )
 }

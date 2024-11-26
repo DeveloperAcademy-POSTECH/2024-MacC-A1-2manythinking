@@ -26,7 +26,6 @@ struct SelectedBusStopView: View {
             }
             if let stopOrder = stopOrder {
                 BusStopDetailView(stopNameKorean: searchModel.filteredBusDataForNumber[stopOrder].stopNameKorean ?? "", stopNameRomanized: searchModel.filteredBusDataForNumber[stopOrder].stopNameRomanized ?? "", stopNameNaver: searchModel.filteredBusDataForNumber[stopOrder].stopNameNaver ?? "")
-                
             } else {
                 Text("Error is occured. Please try again.")
             }
@@ -48,4 +47,18 @@ struct SelectedBusStopView: View {
     private func updateStateOrder() {
         stopOrder = selectedStopManager.selectedIndex
     }
+}
+
+#Preview {
+    let selectedStopManager = SelectedStopManager()
+    let searchModel = BusSearchModel()
+    
+    searchModel.filteredBusDataForNumber = BusStop.busStopDummy
+    
+    selectedStopManager.selectedIndex = 3
+    selectedStopManager.isTapped = true
+
+    return SelectedBusStopView()
+        .environmentObject(selectedStopManager)
+        .environmentObject(searchModel)
 }

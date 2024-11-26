@@ -11,12 +11,12 @@ import MapKit
 final class JourneySettingModel: ObservableObject {
     @Published var journeyStops: [BusStop] = []
     
+    private let searchModel: BusSearchModel
+
     private var startStop: BusStop?
     private var endStop: BusStop?
     
-    private var lastPassedStopIndex: Int = -1
-    
-    private let searchModel: BusSearchModel
+    var lastPassedStopIndex: Int = -1
     
     init(searchModel: BusSearchModel) {
         self.searchModel = searchModel
