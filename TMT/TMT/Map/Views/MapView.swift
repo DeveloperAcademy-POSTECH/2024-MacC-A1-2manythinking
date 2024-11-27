@@ -153,7 +153,7 @@ struct MapView: View {
     
     private var endButton: some View {
         Button {
-            activityManager.endLiveActivity()
+            activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
             imageHandler.selectedImage = nil
             hasNotArrived = false
             path.removeAll()
