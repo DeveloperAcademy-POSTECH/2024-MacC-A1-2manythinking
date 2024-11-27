@@ -10,19 +10,15 @@ import SwiftUI
 struct BusStopArrivalView: View {
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
-    @Binding var isShowingArrivedView: Bool
+    @Binding var hasNotArrived: Bool
     @Binding var path: [String]
     
     var body: some View {
-        ZStack {
-            Color.basicBlack.opacity(0.63)
-                .ignoresSafeArea()
-            
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Spacer()
                     Button {
-                        isShowingArrivedView = false
+                        hasNotArrived = true
                     } label: {
                         Image(systemName: "xmark.circle")
                             .font(.title.weight(.light))
@@ -46,7 +42,7 @@ struct BusStopArrivalView: View {
                 FilledButton(title: "End") {
                     activityManager.endLiveActivity()
                     imageHandler.selectedImage = nil
-                    isShowingArrivedView = false
+                    hasNotArrived = false
                     path.removeAll()
                 }
             }
@@ -54,8 +50,7 @@ struct BusStopArrivalView: View {
             .background {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(.basicWhite)
-            }
-            .padding(16)
         }
+            .padding(16)
     }
 }

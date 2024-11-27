@@ -24,42 +24,41 @@ struct MapView: View {
     @State private var coordinatesList: [Coordinate] = []
     @State private var passedStops: Int = 0
     @State private var isUpdateRequested = false
-    @State private var isShowingBottomSheet = true
+    @State private var hasNotArrived = true
+    @State private var endStop: BusStop = BusStop()
+    @State private var tappedStop: BusStop = BusStop()
     
     @Binding var path: [String]
     
     var body: some View {
         ZStack {
-            mapViewWrapper
-                .edgesIgnoringSafeArea(.vertical)
-            
-            VStack {
-                EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "",
-                            endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "",
-                            endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "",
-                            remainingStops: locationManager.remainingStops)
-                .padding([.top, .leading], 16)
-                .padding(.trailing, 17)
+                mapViewWrapper
+                    .edgesIgnoringSafeArea(.vertical)
                 
-                Spacer()
-                
-                HStack {
+                VStack {
+                    EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
+                        .padding([.top, .leading], 16)
+                        .padding(.trailing, 17)
+                    
                     Spacer()
                     
-                    myLocationButton
-                        .padding(.trailing, 30)
-                        .padding(.bottom, 120)
+                    HStack {
+                        Spacer()
+                        
+                        myLocationButton
+                            .padding(.trailing, 30)
+                            .padding(.bottom, 120)
+                    }
                 }
-                
-                if selectedStopManager.isTapped == true {
-                    SelectedBusStopView()
-                }
+            
+            if !hasNotArrived {
+                popupView
             }
         }
         // TODO: 바텀시트 수정하기. 디테일 잡기
         // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
-        .bottomSheet(isPresented: $isShowingBottomSheet) {
-            sheetView
+        .bottomSheet(isPresented: $hasNotArrived) {
+                sheetView
         }
         .environmentObject(selectedStopManager)
         .toolbar(.hidden, for: .navigationBar)
@@ -69,9 +68,18 @@ struct MapView: View {
             }
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
+            endStop = journeyModel.journeyStops.last ?? BusStop()
         }
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
+            if locationManager.remainingStops == 5 {
+                scheduleTestNotification()
+                hasNotArrived = false
+            }
+            if locationManager.remainingStops == 0 {
+                scheduleBusArrivalNotification()
+                hasNotArrived = false
+            }
         }
     }
     
@@ -128,7 +136,7 @@ struct MapView: View {
         Button {
             activityManager.endLiveActivity()
             imageHandler.selectedImage = nil
-            isShowingBottomSheet = false
+            hasNotArrived = false
             path.removeAll()
         } label: {
             Text("End")
@@ -141,6 +149,14 @@ struct MapView: View {
         }
     }
     
+    private var popupView: some View {
+        ZStack {
+            Color.basicBlack.opacity(0.63)
+                .ignoresSafeArea()
+            BusStopArrivalView(hasNotArrived: $hasNotArrived, path: $path)
+        }
+    }
+    
     // MARK: - logic
     /// 좌표의 옵셔널을 제거합니다.
     private func getValidCoordinates() -> [Coordinate] {
@@ -150,6 +166,42 @@ struct MapView: View {
                 return nil
             }
             return Coordinate(latitude: latitude, longitude: longitude)
+        }
+    }
+    
+    private func scheduleBusArrivalNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "BusStop"
+        content.body = "You have arrived at your destination."
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false) // TODO: 트리거하는 초에 대해서 의논 필요
+        let request = UNNotificationRequest(identifier: "busArrival", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Failed to schedule notification: \(error)")
+            } else {
+                print("Notification scheduled successfully.")
+            }
+        }
+    }
+    
+    func scheduleTestNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "테스트 알림"
+        content.body = "알림 기능이 정상적으로 동작합니다!"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "testNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("알림 등록 실패: \(error)")
+            } else {
+                print("알림 등록 성공")
+            }
         }
     }
 }
