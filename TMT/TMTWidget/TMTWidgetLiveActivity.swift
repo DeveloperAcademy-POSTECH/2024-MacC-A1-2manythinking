@@ -44,7 +44,7 @@ struct BusJourneyLiveActivity: Widget {
                 .foregroundStyle(.basicBlack)
                 .multilineTextAlignment(.leading)
                 
-                Image("BigCircle")
+                Image("TrailingBig")
                     .resizable()
                     .renderingMode(.template)
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
@@ -151,11 +151,11 @@ struct BusJourneyLiveActivity: Widget {
                     .padding([.trailing, .bottom], 8)
                 }
             } compactLeading: { // MARK: Compact Leading
-                Image("SmallApp")
+                Image("LeadingLogo")
                     .resizable()
                     .frame(width: 23, height: 23)
             } compactTrailing: { // MARK: Compact Trailing
-                Image("SmallCircle")
+                Image("TrailingSmall")
                     .resizable()
                     .renderingMode(.template)
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
@@ -166,7 +166,7 @@ struct BusJourneyLiveActivity: Widget {
                             .foregroundStyle(.basicBlack)
                     }
             } minimal: { // MARK: Minimal
-                Image("SmallCircle")
+                Image("TrailingSmall")
                     .resizable()
                     .renderingMode(.template)
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
