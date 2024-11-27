@@ -6,38 +6,45 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct HomeView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
-    @State private var isShowingOnboarding = false
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
+    @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
+    
+    @State private var isShowingInformation = false
+    @State var path: [String] = []
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack {
-                // TODO: 정보 입력 화면 넣기
-                // TODO: 온보딩 확인하는 버튼 위치 추가하기
-
-                Button {
-                    isShowingOnboarding = true
-                } label: {
-                    Image(systemName: "exclamationmark.circle")
-                        .resizable()
-                        .frame(width: 24, height: 24)
+        NavigationStack(path: $path) {
+            ZStack(alignment: .bottom) {
+                Color.basicWhite
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 0) {
+                    NotUploadedView(path: $path)
+                    Spacer()
+                }
+                .padding(.horizontal, 16)
+                
+                if isShowingInformation {
+                    InformationModalView(isShowingInformation: $isShowingInformation)
                 }
             }
-            
-            if isShowingOnboarding {
-                OnboardingView(isShowingOnboarding: $isShowingOnboarding)
-                    .onDisappear {
-                        hasSeenOnboarding = true
-                    }
+            .toolbar {
+                Button {
+                    isShowingInformation = true
+                } label: {
+                    Image(systemName: "info.circle")
+                        .foregroundStyle(.grey600)
+                }
+                .disabled(isShowingInformation)
+            }
+            .fullScreenCover(isPresented: $shouldShowOnboarding) {
+                OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
             }
         }
-        .onAppear {
-            if !hasSeenOnboarding {
-                isShowingOnboarding = true
-            }
-        }
+        .environmentObject(imageHandler)
     }
 }
 

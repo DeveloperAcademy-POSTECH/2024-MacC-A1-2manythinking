@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "MyLocation4.png",
+      "filename" : "MapDot4.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "MyLocation4 1.png",
+      "filename" : "MapDot4 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "MyLocation4 2.png",
+      "filename" : "MapDot4 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
