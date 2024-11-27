@@ -67,7 +67,7 @@ final class JourneySettingModel: ObservableObject {
         }
         return nil
     }
-    
+
     /// 실시간으로 남은 정류장 수 업데이트
     func updateRemainingStopsAndCurrentStop(currentLocation: CLLocationCoordinate2D) -> (remainingStops: Int, currentStop: BusStop?) {
         guard !journeyStops.isEmpty else {
