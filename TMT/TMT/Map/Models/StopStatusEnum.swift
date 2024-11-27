@@ -9,7 +9,7 @@ import SwiftUI
 
 enum StopStatusEnum {
     case zeroStopLeft, oneStopLeft, twoStopsLeft, threeStopsLeft, defaultStatus
-
+    
     init(remainingStops: Int) {
         switch remainingStops {
         case 0:
@@ -24,7 +24,7 @@ enum StopStatusEnum {
             self = .defaultStatus
         }
     }
-
+    
     var statusColor: Color {
         switch self {
         case .zeroStopLeft:
@@ -39,7 +39,7 @@ enum StopStatusEnum {
             return .brandPrimary
         }
     }
-
+    
     var backgroundColor: Color {
         switch self {
         case .zeroStopLeft:
@@ -54,7 +54,7 @@ enum StopStatusEnum {
             return .basicWhite
         }
     }
-
+    
     var leftStopNumberColor: Color {
         switch self {
         case .zeroStopLeft:
@@ -65,7 +65,7 @@ enum StopStatusEnum {
             return .basicBlack
         }
     }
-
+    
     var leftStopTextColor: Color {
         switch self {
         case .zeroStopLeft:
@@ -76,7 +76,7 @@ enum StopStatusEnum {
             return .grey300
         }
     }
-
+    
     var destinationColor: Color {
         switch self {
         case .zeroStopLeft, .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
