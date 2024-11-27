@@ -28,7 +28,7 @@ enum StopStatusEnum {
     var statusColor: Color {
         switch self {
         case .zeroStopLeft:
-            return .left1 // TODO: 색상 수정
+            return .left0
         case .oneStopLeft:
             return .left1
         case .twoStopsLeft:
@@ -43,7 +43,7 @@ enum StopStatusEnum {
     var backgroundColor: Color {
         switch self {
         case .zeroStopLeft:
-            return .left1 // TODO: 색상 수정
+            return .left0
         case .oneStopLeft:
             return .left1
         case .twoStopsLeft:
@@ -58,7 +58,7 @@ enum StopStatusEnum {
     var leftStopNumberColor: Color {
         switch self {
         case .zeroStopLeft:
-            return .left1 // TODO: 색상 수정
+            return .left0
         case .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
             return .basicWhite
         case .defaultStatus:
@@ -69,7 +69,7 @@ enum StopStatusEnum {
     var leftStopTextColor: Color {
         switch self {
         case .zeroStopLeft:
-            return .left1 // TODO: 색상 수정
+            return .left0
         case .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
             return .basicWhite
         case .defaultStatus:
