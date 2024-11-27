@@ -72,10 +72,6 @@ struct MapView: View {
         }
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
-            if locationManager.remainingStops == 5 {
-                scheduleTestNotification()
-                hasNotArrived = false
-            }
             if locationManager.remainingStops == 0 {
                 scheduleBusArrivalNotification()
                 hasNotArrived = false
@@ -183,24 +179,6 @@ struct MapView: View {
                 print("Failed to schedule notification: \(error)")
             } else {
                 print("Notification scheduled successfully.")
-            }
-        }
-    }
-    
-    func scheduleTestNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "테스트 알림"
-        content.body = "알림 기능이 정상적으로 동작합니다!"
-        content.sound = .default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let request = UNNotificationRequest(identifier: "testNotification", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("알림 등록 실패: \(error)")
-            } else {
-                print("알림 등록 성공")
             }
         }
     }
