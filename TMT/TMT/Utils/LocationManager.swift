@@ -16,11 +16,16 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var isFirstLoad = true
     @Published var userLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
+    @Published var thisStop: BusStop?
     @Published var remainingStops: Int = 0 {
         didSet {
             if oldValue != remainingStops {
                 Task {
-                    await activityManager?.updateLiveActivity(remainingStops: remainingStops)
+                    if let currentStop = thisStop {
+                        await activityManager?.updateLiveActivity(remainingStops: remainingStops, thisStop: currentStop)
+                    } else {
+                        print("❌ 현재 정류장 정보가 없습니다.")
+                    }
                 }
             }
         }
@@ -33,6 +38,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     init(activityManager: LiveActivityManager, journeyModel: JourneySettingModel) {
         self.activityManager = activityManager
         self.journeyModel = journeyModel
+        self.thisStop = journeyModel.journeyStops.first
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -66,8 +72,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     self.isFirstLoad = false
                 }
                 self.userLocation = location.coordinate
-                
-                self.remainingStops = self.journeyModel?.updateRemainingStops(currentLocation: self.userLocation) ?? 0
+
+                let result = self.journeyModel?.updateRemainingStopsAndCurrentStop(currentLocation: self.userLocation)
+                self.remainingStops = result?.remainingStops ?? 0
+                self.thisStop = result?.currentStop
             }
         }
     }
