@@ -13,7 +13,7 @@ struct BusJourneyAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var remainingStopsCount: Int
-
+        
         var thisStopNameKorean: String
         var thisStopNameRomanized: String
     }
@@ -30,20 +30,20 @@ struct BusJourneyLiveActivity: Widget {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .center, spacing: 4) {
                         Image(systemName: "location.fill")
-
+                        
                         Text("This Stop")
                     }
                     .padding(.bottom, 4)
-
+                    
                     Text(context.state.thisStopNameKorean)
                         .font(.system(size: 20, weight: .bold))
-
+                    
                     Text("[\(context.state.thisStopNameRomanized)]") // TODO: 여러 줄로 보이도록 하기
                         .font(.system(size: 14, weight: .medium))
                 }
                 .foregroundStyle(.basicBlack)
                 .multilineTextAlignment(.leading)
-
+                
                 Image("BigCircle")
                     .resizable()
                     .renderingMode(.template)
@@ -53,57 +53,57 @@ struct BusJourneyLiveActivity: Widget {
                         VStack(spacing: -4) {
                             Text("\(context.state.remainingStopsCount)")
                                 .font(.system(size: 24, weight: .bold))
-
+                            
                             Text("Stops Left")
                                 .font(.system(size: 12))
                         }
                     }
             }
             .padding(16)
-
+            
         } dynamicIsland: { context in
             // MARK: Expanded
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
-
+                
                 DynamicIslandExpandedRegion(.leading) {
                     HStack(alignment: .center, spacing: 4) {
                         Image(systemName: "location.fill") // TODO: 도착지 - 핀 / 현재 정류장 - location
                             .renderingMode(.template)
                             .frame(width: 12)
-
+                        
                         Text("This Stop")
                             .font(.system(size: 14, weight: .medium))
-
+                        
                     }
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
                     .padding([.leading, .top], 8)
                 }
-
+                
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack(spacing: 9) {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(context.state.thisStopNameKorean)
                                     .font(.system(size: 20, weight: .bold))
-
+                                
                                 Text("[\(context.state.thisStopNameRomanized)]")
                                     .font(.system(size: 14, weight: .medium))
                                     .multilineTextAlignment(.leading)
                             }
-
+                            
                             Spacer()
                         }
-
+                        
                         HStack(alignment: .center, spacing: 6) {
                             Spacer()
-
-                            // TODO: 남은 정류장 수
+                            
+                            // MARK: 남은 정류장 수
                             HStack(alignment: .bottom, spacing: 2) {
                                 Text("\(context.state.remainingStopsCount)")
                                     .font(.system(size: 24, weight: .bold))
-
+                                
                                 Text("Stops Left")
                                     .font(.system(size: 14, weight: .medium))
                             }
@@ -113,41 +113,39 @@ struct BusJourneyLiveActivity: Widget {
                             .background {
                                 RoundedRectangle(cornerRadius: 24)
                                     .foregroundStyle(.grey900)
-
+                                
                             }
-
-                            // 버튼이 개빡센 것 같다 .... 잠온덩 ...
-
+                            
                             // TODO: this stop 버튼
-//
-//                            Button {
-//                            } label: {
-//                                RoundedRectangle(cornerRadius: 25)
-//                                    .frame(width: 44, height: 44)
-//                                    .overlay {
-//                                        Image(systemName: "location.fill")
-//                                            .frame(width: 16, height: 16)
-//                                            .foregroundStyle(.basicBlack)
-//                                    }
-//                                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
-//
-//                            }
-//                            .buttonStyle(.plain)
-//
+                            //
+                            //                            Button {
+                            //                            } label: {
+                            //                                RoundedRectangle(cornerRadius: 25)
+                            //                                    .frame(width: 44, height: 44)
+                            //                                    .overlay {
+                            //                                        Image(systemName: "location.fill")
+                            //                                            .frame(width: 16, height: 16)
+                            //                                            .foregroundStyle(.basicBlack)
+                            //                                    }
+                            //                                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                            //
+                            //                            }
+                            //                            .buttonStyle(.plain)
+                            //
                             // TODO: destination 버튼
-//                            Button {
-//                            } label: {
-//                                RoundedRectangle(cornerRadius: 25)
-//                                    .frame(width: 44, height: 44)
-//                                    .overlay {
-//                                        Image("Pin")
-//                                            .resizable()
-//                                            .frame(width: 16, height: 16)
-//                                            .foregroundStyle(.basicBlack)
-//                                    }
-//                                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
-//                            }
-//                            .buttonStyle(.plain)
+                            //                            Button {
+                            //                            } label: {
+                            //                                RoundedRectangle(cornerRadius: 25)
+                            //                                    .frame(width: 44, height: 44)
+                            //                                    .overlay {
+                            //                                        Image("Pin")
+                            //                                            .resizable()
+                            //                                            .frame(width: 16, height: 16)
+                            //                                            .foregroundStyle(.basicBlack)
+                            //                                    }
+                            //                                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                            //                            }
+                            //                            .buttonStyle(.plain)
                         }
                     }
                     .padding([.trailing, .bottom], 8)
@@ -196,19 +194,19 @@ extension BusJourneyAttributes.ContentState {
     fileprivate static var HyoGokDong55: BusJourneyAttributes.ContentState {
         BusJourneyAttributes.ContentState(remainingStopsCount: 55, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
-
+    
     fileprivate static var HyoGokDong3: BusJourneyAttributes.ContentState {
         BusJourneyAttributes.ContentState(remainingStopsCount: 3, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
-
+    
     fileprivate static var HyoGokDong2: BusJourneyAttributes.ContentState {
         BusJourneyAttributes.ContentState(remainingStopsCount: 2, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
-
+    
     fileprivate static var HyoGokDong1: BusJourneyAttributes.ContentState {
         BusJourneyAttributes.ContentState(remainingStopsCount: 1, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
-
+    
     fileprivate static var HyoGokDong0: BusJourneyAttributes.ContentState {
         BusJourneyAttributes.ContentState(remainingStopsCount: 0, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }

@@ -74,7 +74,7 @@ final class JourneySettingModel: ObservableObject {
             print("정류장 설정 plz ..")
             return (0, self.startStop)
         }
-
+        
         var passedStops = 0
         var closestStop = journeyStops.first
         let userLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
