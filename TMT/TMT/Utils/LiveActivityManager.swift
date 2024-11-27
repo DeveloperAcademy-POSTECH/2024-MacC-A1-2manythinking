@@ -9,7 +9,6 @@ import Combine
 import ActivityKit
 
 final class LiveActivityManager: ObservableObject {
-    private var cancellable: Set<AnyCancellable> = Set()
     private var activity: Activity<BusJourneyAttributes>?
     
     func startLiveActivity(startBusStop: BusStop, endBusStop: BusStop, remainingStops: Int) {
