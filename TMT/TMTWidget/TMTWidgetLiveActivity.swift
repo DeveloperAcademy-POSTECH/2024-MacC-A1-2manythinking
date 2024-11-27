@@ -13,11 +13,12 @@ struct BusJourneyAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var remainingStopsCount: Int
+
+        var thisStopNameKorean: String
+        var thisStopNameRomanized: String
     }
     
     // Fixed non-changing properties about your activity go here!
-    var stopNameKorean: String
-    var stopNameRomanized: String
 }
 
 struct BusJourneyLiveActivity: Widget {
@@ -216,25 +217,72 @@ struct DestinationDetailView: View {
     }
 }
 
+
+// MARK: - Preview
 extension BusJourneyAttributes {
     fileprivate static var preview: BusJourneyAttributes {
-        BusJourneyAttributes(stopNameKorean: "효곡동행정복지센터", stopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+        BusJourneyAttributes()
     }
 }
 
 extension BusJourneyAttributes.ContentState {
-    fileprivate static var HyoGokDong3: BusJourneyAttributes.ContentState {
-        BusJourneyAttributes.ContentState(remainingStopsCount: 3)
+    fileprivate static var HyoGokDong55: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 55, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
-    
+
+    fileprivate static var HyoGokDong3: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 3, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+    }
+
+    fileprivate static var HyoGokDong2: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 2, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+    }
+
+    fileprivate static var HyoGokDong1: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 1, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+    }
+
     fileprivate static var HyoGokDong0: BusJourneyAttributes.ContentState {
-        BusJourneyAttributes.ContentState(remainingStopsCount: 0)
+        BusJourneyAttributes.ContentState(remainingStopsCount: 0, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
 }
 
-#Preview("Notification", as: .content, using: BusJourneyAttributes.preview) {
+#Preview("Lock Screen", as: .content, using: BusJourneyAttributes.preview) {
     BusJourneyLiveActivity()
 } contentStates: {
+    BusJourneyAttributes.ContentState.HyoGokDong55
     BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
+    BusJourneyAttributes.ContentState.HyoGokDong0
+}
+
+#Preview("Expanded Dynamic Island", as: .dynamicIsland(.expanded), using: BusJourneyAttributes.preview) {
+    BusJourneyLiveActivity()
+} contentStates: {
+    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
+    BusJourneyAttributes.ContentState.HyoGokDong0
+}
+
+#Preview("Compact Dynamic Island", as: .dynamicIsland(.compact), using: BusJourneyAttributes.preview) {
+    BusJourneyLiveActivity()
+} contentStates: {
+    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
+    BusJourneyAttributes.ContentState.HyoGokDong0
+}
+
+#Preview("Minimal Dynamic Island", as: .dynamicIsland(.minimal), using: BusJourneyAttributes.preview) {
+    BusJourneyLiveActivity()
+} contentStates: {
+    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
     BusJourneyAttributes.ContentState.HyoGokDong0
 }
