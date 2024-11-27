@@ -69,7 +69,7 @@ struct ThisStopView: View {
                     .tint(.red600)
             }
             Button {
-                activityManager.endLiveActivity()
+                activityManager.endLiveActivity(destinationInfo: BusStop(stopNameKorean: stopNameKorean, stopNameRomanized: stopNameRomanized, stopNameNaver: stopNameNaver))
                 imageHandler.selectedImage = nil
                 path.removeAll()
             } label: {
