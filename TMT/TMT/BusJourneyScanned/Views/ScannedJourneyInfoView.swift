@@ -115,7 +115,7 @@ struct ScannedJourneyInfoView: View {
                     }
                     .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                     
-                    NavigationLink(destination: BusStopView(path: $path)
+                    NavigationLink(destination: MapView(path: $path)
                         .environmentObject(locationManager)
                         .environmentObject(searchModel)
                         .environmentObject(activityManager)
@@ -135,11 +135,10 @@ struct ScannedJourneyInfoView: View {
                                 endStopString: imageHandler.scannedJourneyInfo.endStop
                             )
                             
+                            guard let startStop = journeyModel.journeyStops.first else { return }
                             guard let endStop = journeyModel.journeyStops.last else { return }
-                            activityManager.startLiveActivity(
-                                destinationInfo: endStop,
-                                remainingStops: locationManager.remainingStops
-                            )
+
+                            activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
                             tag = 1
                             path.append("BusStop")
                         }
