@@ -52,16 +52,11 @@ struct MapView: View {
                     .animation(.spring(), value: selectedStopManager.isTapped)
             }
             
-            
             VStack {
                 EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
-                .padding([.top, .leading], 16)
-                .padding(.trailing, 17)
+                    .padding([.top, .leading], 16)
+                    .padding(.trailing, 17)
                 
-                VStack {
-                    EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
-                        .padding([.top, .leading], 16)
-                        .padding(.trailing, 17)
                     
                     Spacer()
                     
@@ -74,34 +69,37 @@ struct MapView: View {
                     }
                 }
             
-            if !isShowingBottomSheet {
-                popupView
+                if !isShowingBottomSheet {
+                    popupView
+                    myLocationButton
+                        .padding(.trailing, 30)
+                        .padding(.bottom, 120)
+                }
             }
-        }
-        // TODO: 바텀시트 수정하기. 디테일 잡기
-        // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
-        .bottomSheet(isPresented: $isShowingBottomSheet) {
+            // TODO: 바텀시트 수정하기. 디테일 잡기
+            // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
+            .bottomSheet(isPresented: $isShowingBottomSheet) {
                 sheetView
-        }
-        .environmentObject(selectedStopManager)
-        .toolbar(.hidden, for: .navigationBar)
-        .onAppear {
-            if locationManager.isFirstLoad {
-                locationManager.findCurrentLocation()
             }
-            searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
-            coordinatesList = getValidCoordinates()
-            endStop = journeyModel.journeyStops.last ?? BusStop()
-        }
-        .onChange(of: locationManager.remainingStops) {
-            passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
-            if locationManager.remainingStops == 0 {
-                scheduleBusArrivalNotification()
-                isShowingBottomSheet = false
+            .environmentObject(selectedStopManager)
+            .toolbar(.hidden, for: .navigationBar)
+            .onAppear {
+                if locationManager.isFirstLoad {
+                    locationManager.findCurrentLocation()
+                }
+                searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
+                coordinatesList = getValidCoordinates()
+                endStop = journeyModel.journeyStops.last ?? BusStop()
+            }
+            .onChange(of: locationManager.remainingStops) {
+                passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
+                if locationManager.remainingStops == 0 {
+                    scheduleBusArrivalNotification()
+                    isShowingBottomSheet = false
+                }
             }
         }
     }
-    
     // MARK: - Views / Map
     private var mapViewWrapper: some View {
         MapViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)

@@ -10,6 +10,7 @@ import SwiftUI
 struct BusStopArrivalView: View {
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
+    @EnvironmentObject var journeyModel: JourneySettingModel
     @Binding var hasNotArrived: Bool
     @Binding var path: [String]
     
@@ -40,7 +41,7 @@ struct BusStopArrivalView: View {
                 .padding(.bottom, 8)
             
             FilledButton(title: "End") {
-                activityManager.endLiveActivity()
+                activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
                 imageHandler.selectedImage = nil
                 hasNotArrived = false
                 path.removeAll()

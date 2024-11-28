@@ -104,6 +104,7 @@
 		5BA06D492CF38E1F00834BBD /* TappedStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappedStopView.swift; sourceTree = "<group>"; };
 		5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
+		5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
 		5BCC7CEF2CF5FF93005986BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BCC7D152CF601DB005986BF /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BCC7D172CF6021A005986BF /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
@@ -284,8 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				5B347FCD2CF49DBC00A1E852 /* BusStopArrivalView.swift */,
-				5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */,
-				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
 				5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */,
 				5BA06D492CF38E1F00834BBD /* TappedStopView.swift */,
 				5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */,
@@ -582,7 +581,6 @@
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
-				5BCC7D182CF60220005986BF /* BusStopDetailView.swift in Sources */,
 				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
 				D876BF312CECE89E0098B68E /* OnboardingView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
