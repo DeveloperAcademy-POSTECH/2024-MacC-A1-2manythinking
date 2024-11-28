@@ -24,7 +24,7 @@ struct EndStopView: View {
                         .foregroundStyle(colors.backgroundColor)
                 }
             
-            BusStopDetailView(stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "", viewType: "EndStopView")
+            BusStopDetailView(stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "", isEndStopViewVisible: true)
                 .padding(.horizontal, 16)
                 .padding(.top, 5)
                 .padding(.bottom, 11.88)

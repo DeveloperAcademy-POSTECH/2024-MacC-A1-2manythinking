@@ -17,7 +17,7 @@ struct TappedStopView: View {
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                BusStopDetailView(stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "", viewType: "")
+                BusStopDetailView(stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "", isEndStopViewVisible: false)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 21)
                     .background(PopoverView().fill(.basicWhite)) // TODO: Popover 배경 색상 변경하기

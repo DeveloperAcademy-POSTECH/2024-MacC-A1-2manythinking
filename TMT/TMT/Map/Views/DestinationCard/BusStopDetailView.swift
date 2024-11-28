@@ -11,12 +11,12 @@ struct BusStopDetailView: View {
     var stopNameKorean: String
     var stopNameRomanized: String
     var stopNameNaver: String
-    var viewType: String
+    var isEndStopViewVisible: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Korean")
-                .foregroundStyle(viewType == "EndStopView" ? .grey200 : .grey400)
+                .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
                 .font(.footnote)
             
             Text("\(stopNameKorean)")
@@ -29,15 +29,15 @@ struct BusStopDetailView: View {
                 .font(.footnote)
             
             Divider()
-                .foregroundStyle(viewType == "EndStopView" ? .grey100 : .white) // TODO: divider 색상 변경 필요
+                .foregroundStyle(isEndStopViewVisible ? .grey100 : .white) // TODO: divider 색상 변경 필요
                 .padding(.vertical, 9)
             
             Text("English")
-                .foregroundStyle(viewType == "EndStopView" ? .grey200 : .grey400)
+                .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
                 .font(.footnote)
             
             Text("\(stopNameNaver)")
-                .foregroundStyle(.grey600)
+                .foregroundStyle(.basicBlack)
                 .font(.title2)
                 .fontWeight(.bold)
         }
@@ -51,6 +51,6 @@ struct BusStopDetailView: View {
         stopNameKorean: dummy.first!.stopNameKorean ?? "",
         stopNameRomanized: dummy.first!.stopNameRomanized ?? "",
         stopNameNaver: dummy.first!.stopNameNaver ?? "",
-        viewType: "EndStopView"
+        isEndStopViewVisible : true
     )
 }
