@@ -27,8 +27,9 @@
 		5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */; };
 		5BCC7CF02CF5FF93005986BF /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC7CEF2CF5FF93005986BF /* ScannedJourneyInfoView.swift */; };
 		5BCC7D162CF601E1005986BF /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC7D152CF601DB005986BF /* EndStopView.swift */; };
-		5BE1BEA92CF85A390082648D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BEA82CF85A320082648D /* NotificationManager.swift */; };
-		5BCC7D182CF60220005986BF /* BusStopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC7D172CF6021A005986BF /* BusStopDetailView.swift */; };
+		5BE1BF062CF864CB0082648D /* BusStopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF052CF864C30082648D /* BusStopDetailView.swift */; };
+		5BE1BF082CF867590082648D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF072CF867550082648D /* NotificationManager.swift */; };
+		5BE1BF092CF867590082648D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF072CF867550082648D /* NotificationManager.swift */; };
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
@@ -105,10 +106,10 @@
 		5BA06D492CF38E1F00834BBD /* TappedStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappedStopView.swift; sourceTree = "<group>"; };
 		5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
-		5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
 		5BCC7CEF2CF5FF93005986BF /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BCC7D152CF601DB005986BF /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
-		5BE1BEA82CF85A320082648D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		5BE1BF052CF864C30082648D /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
+		5BE1BF072CF867550082648D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
@@ -210,7 +211,6 @@
 		D801A1BB2CF229CA00AD0D64 /* DestinationCard */ = {
 			isa = PBXGroup;
 			children = (
-				5BCC7D172CF6021A005986BF /* BusStopDetailView.swift */,
 				5BCC7D152CF601DB005986BF /* EndStopView.swift */,
 			);
 			path = DestinationCard;
@@ -276,7 +276,7 @@
 		D81D9E962CE47E7B004F2024 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BE1BEA82CF85A320082648D /* NotificationManager.swift */,
+				5BE1BF072CF867550082648D /* NotificationManager.swift */,
 				5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */,
 				D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */,
 			);
@@ -286,15 +286,9 @@
 		D81D9E972CE47E82004F2024 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B347FCD2CF49DBC00A1E852 /* BusStopArrivalView.swift */,
+				5BE1BF052CF864C30082648D /* BusStopDetailView.swift */,
 				5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */,
 				5BA06D492CF38E1F00834BBD /* TappedStopView.swift */,
-				5B4EFCDF2CEDB0760096FA0C /* BusStopDetailView.swift */,
-				5BEEBC182CEBB3CF000272F5 /* SelectedBusStopView.swift */,
-				5B6DA5B72CBE551400613ACB /* BusStopView.swift */,
-				5B4F87332CC973F3000329C2 /* BusStopViewWrapper.swift */,
-				5BB6D2532CD372E500F6A487 /* ThisStopView.swift */,
-				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
 				5B347FCD2CF49DBC00A1E852 /* BusStopArrivalView.swift */,
 				5B6DA5B72CBE551400613ACB /* MapView.swift */,
 				5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */,
@@ -552,7 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E7E7122CF60FD300EAD54F /* StopStatusEnum.swift in Sources */,
-				5BE1BEA92CF85A390082648D /* NotificationManager.swift in Sources */,
+				5BE1BF092CF867590082648D /* NotificationManager.swift in Sources */,
 				D8E054DD2CF1AF89006B1879 /* View.swift in Sources */,
 				5BF33BF52CE70E37006F17EC /* Color.swift in Sources */,
 			);
@@ -562,10 +556,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BCC7CC82CF5BEDB005986BF /* BusStopDetailView.swift in Sources */,
 				D83277652CEC67CE005E00CF /* LottieView.swift in Sources */,
 				5BCC7D162CF601E1005986BF /* EndStopView.swift in Sources */,
 				D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */,
+				5BE1BF062CF864CB0082648D /* BusStopDetailView.swift in Sources */,
 				5B04FC512CD9BC0400163877 /* UploadedPhotoView.swift in Sources */,
 				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
 				5B50F1892CE64EBE00E2EC41 /* ScannedJourneyInfo.swift in Sources */,
@@ -580,11 +574,11 @@
 				5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */,
 				5B7B01DE2CD0CA5900B6009E /* OCRExtractorManager.swift in Sources */,
 				D876BF2F2CECE8820098B68E /* OnboardingIntroView.swift in Sources */,
-				5BE1BEAA2CF85A390082648D /* NotificationManager.swift in Sources */,
 				D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
+				5BE1BF082CF867590082648D /* NotificationManager.swift in Sources */,
 				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
 				D876BF312CECE89E0098B68E /* OnboardingView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
@@ -812,10 +806,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4S9N87385A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -853,10 +847,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4S9N87385A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
