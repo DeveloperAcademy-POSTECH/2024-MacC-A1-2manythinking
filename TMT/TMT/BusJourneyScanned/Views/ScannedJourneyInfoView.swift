@@ -60,6 +60,7 @@ struct ScannedJourneyInfoView: View {
                             Spacer()
                         }
                         Text("As the information was entered incorrectly, please reupload the screenshot.")
+                            .font(.system(size: 16, weight: .medium))
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -99,7 +100,7 @@ struct ScannedJourneyInfoView: View {
                             showingAlert = false
                             showingPhotosPicker = true
                         } label: {
-                            // TODO: 커스텀 안되는 문제 해결하기
+                            // TODO: 커스텀 안되는 문제 해결하기 (bold 처리가 안됨)
                             Text("Confirm")
                                 .foregroundStyle(.blue)
                                 .font(.footnote.weight(.bold))
@@ -165,6 +166,7 @@ struct ScannedJourneyInfoView: View {
             } label: {
                 Image(systemName: "info.circle")
                     .foregroundStyle(.grey600)
+                    .font(.system(size: 17, weight: .regular))
             }
             .disabled(isShowingInformation)
         }
@@ -175,9 +177,11 @@ struct ScannedJourneyInfoView: View {
         VStack(alignment: .leading) {
             Text("\(title)")
                 .foregroundStyle(.grey300)
+                .font(.system(size: 14, weight: .medium))
+            
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
-                .bold()
-                .font(.title)
+                .foregroundStyle(.textDefault)
+                .font(.system(size: 20, weight: .bold))
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(

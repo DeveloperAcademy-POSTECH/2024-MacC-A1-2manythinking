@@ -19,16 +19,18 @@ struct NotUploadedView: View {
         ZStack {
             VStack {
                 HStack {
-                    Text("Ride Confident,\nArrive Intentionally")
-                        .font(.title)
+                    Text("Put your worries away\nAnd take the bus\ncomfortably")
+                        .foregroundStyle(.textDefault)
+                        .font(.system(size: 28, weight: .bold))
                         .bold()
                     Spacer()
                 }
                 HStack(spacing: 0) {
-                    Text("Whether you don't know Korean,\nyou can know\nwhere to get off the bus.")
+                    Text("We will let you know exact location to\nget off")
                         .padding(.bottom, 10)
                         .foregroundStyle(.brandPrimary)
-                                                .font(.title3.weight(.bold))
+                        .font(.system(size: 20, weight: .bold))
+                        .padding(.bottom, 10)
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
@@ -48,7 +50,8 @@ struct NotUploadedView: View {
                             .aspectRatio(1.0, contentMode: .fit)
                         HStack(alignment: .center, spacing: 8) {
                             Image(systemName: "photo")
-                            Text("Upload Path Screenshot")
+                            Text("Upload Screenshot")
+                                .font(.system(size: 18, weight: .medium))
                         }
                         .foregroundStyle(.yellow600)
                     }

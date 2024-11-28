@@ -22,7 +22,7 @@ struct InformationModalView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(title)
-                    .foregroundStyle(.basicBlack)
+                    .foregroundStyle(.textDefault)
                     .font(.system(size: 24, weight: .bold)) // TODO: 서체 수정
                 
                 Text(description)
@@ -47,7 +47,7 @@ struct InformationModalView: View {
             }
             .padding(16)
             .background {
-                Color.basicWhite
+                Color.backgroundModal
                     .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .frame(minHeight: 590)

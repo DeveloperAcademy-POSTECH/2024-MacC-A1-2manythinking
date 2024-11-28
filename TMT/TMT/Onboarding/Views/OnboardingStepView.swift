@@ -22,6 +22,7 @@ struct OnboardingStepView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(step.title)
                             .font(.system(size: 28, weight: .bold)) // TODO: 서체 수정하기
+                            .foregroundStyle(.textDefault)
                         
                         if let description = step.description {
                             Text(description)

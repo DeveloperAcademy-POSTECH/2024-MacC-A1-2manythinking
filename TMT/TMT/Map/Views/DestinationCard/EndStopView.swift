@@ -16,6 +16,7 @@ struct EndStopView: View {
         VStack(spacing: 0) {
             Text("Destination")
                 .foregroundStyle(colors.destinationColor)
+                .font(.system(size: 14, weight: .medium))
                 .frame(width: 361, height: 38)
                 .offset(y: -10)
                 .background {

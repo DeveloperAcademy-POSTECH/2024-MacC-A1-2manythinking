@@ -17,16 +17,15 @@ struct BusStopDetailView: View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Korean")
                 .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
-                .font(.footnote)
+                .font(.system(size: 14, weight: .medium))
             
             Text("\(stopNameKorean)")
                 .foregroundStyle(.basicBlack)
-                .font(.title2)
-                .fontWeight(.bold)
+                .font(.system(size: 24, weight: .bold))
             
             Text("[\(stopNameRomanized)]")
                 .foregroundStyle(.grey400)
-                .font(.footnote)
+                                .font(.system(size: 14, weight: .medium))
             
             Divider()
                 .foregroundStyle(isEndStopViewVisible ? .grey100 : .white) // TODO: divider 색상 변경 필요
@@ -34,12 +33,11 @@ struct BusStopDetailView: View {
             
             Text("English")
                 .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
-                .font(.footnote)
+                .font(.system(size: 14, weight: .medium))
             
             Text("\(stopNameNaver)")
                 .foregroundStyle(.basicBlack)
-                .font(.title2)
-                .fontWeight(.bold)
+                .font(.system(size: 20, weight: .bold))
         }
     }
 }
