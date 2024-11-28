@@ -9,10 +9,11 @@ import SwiftUI
 
 struct EndStopView: View {
     @Binding var busStopDetail: BusStop
+    @Binding var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color)
     var remainingStops: Int = 0
     
     var body: some View {
-        let colors = mainColor(remainingStops: remainingStops)
+        
         VStack(spacing: 0) {
             Text("Destination")
                 .foregroundStyle(colors.destinationColor)
@@ -37,15 +38,9 @@ struct EndStopView: View {
                         bottomTrailing: 15,
                         topTrailing: 0
                     ))
-                    .foregroundStyle(.basicWhite)
+                    .foregroundStyle(.brandBackground)
                 }
                 .offset(y: -19)
         }
-    }
-    
-    /// EndStopView의 메인 컬러를 판단합니다.
-    private func mainColor(remainingStops: Int) -> (backgroundColor: Color, leftStopNumberColor: Color, leftStopTextColor: Color, destinationColor: Color) {
-        let status = StopStatusEnum(remainingStops: remainingStops)
-        return (status.backgroundColor, status.leftStopNumberColor, status.leftStopTextColor, status.destinationColor)
     }
 }

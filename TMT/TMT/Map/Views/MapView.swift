@@ -27,6 +27,7 @@ struct MapView: View {
     @State private var endStop: BusStop = BusStop()
     @State private var tappedStop: BusStop = BusStop()
     @State private var tappedViewSize: CGSize = .zero
+    @State private var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
     
     @Binding var path: [String]
     
@@ -52,9 +53,9 @@ struct MapView: View {
             }
             
             VStack {
-                EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
-                .padding([.top, .leading], 16)
-                .padding(.trailing, 17)
+                EndStopView(busStopDetail: $endStop, colors: $colors, remainingStops: locationManager.remainingStops)
+                    .padding([.top, .leading], 16)
+                    .padding(.trailing, 17)
                 
                 Spacer()
                 
@@ -66,9 +67,9 @@ struct MapView: View {
                         .padding(.bottom, 120)
                 }
             }
-          
+            
             if !isShowingBottomSheet {
-                  popupView
+                popupView
             }
         }
         .environmentObject(selectedStopManager)
@@ -85,8 +86,10 @@ struct MapView: View {
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
             endStop = journeyModel.journeyStops.last ?? BusStop()
+            colors = mainColor(remainingStops: locationManager.remainingStops)
         }
         .onChange(of: locationManager.remainingStops) {
+            colors = mainColor(remainingStops: locationManager.remainingStops)
             if locationManager.remainingStops == 0 {
                 NotificationManager.shared.scheduleBusArrivalNotification()
                 isShowingBottomSheet = false
@@ -105,7 +108,7 @@ struct MapView: View {
         } label: {
             Circle()
                 .frame(width: 44, height: 44)
-                .foregroundStyle(.basicWhite)
+                .foregroundStyle(.brandBackground)
                 .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
                 .overlay {
                     Image(systemName: "location.fill")
@@ -124,10 +127,12 @@ struct MapView: View {
                 .overlay {
                     HStack(alignment: .bottom, spacing: 6) {
                         Text("\(locationManager.remainingStops)")
-                            .font(.system(size: 45))
+                            .foregroundStyle(colors.leftStopNumberColor)
+                            .font(.system(size: 45, weight: .semibold))
                         
                         Text("Stops Left")
-                            .font(.system(size: 20))
+                            .foregroundStyle(.grey200)
+                            .font(.system(size: 20, weight: .bold))
                         
                         Spacer()
                         
@@ -150,7 +155,7 @@ struct MapView: View {
             path.removeAll()
         } label: {
             Text("End")
-                .foregroundStyle(.basicWhite)
+                .foregroundStyle(.brandBackground)
                 .frame(width: 69, height: 38)
                 .background {
                     RoundedRectangle(cornerRadius: 30)
@@ -177,6 +182,13 @@ struct MapView: View {
             }
             return Coordinate(latitude: latitude, longitude: longitude)
         }
+    }
+    
+    
+    /// EndStopView의 메인 컬러를 판단합니다.
+    private func mainColor(remainingStops: Int) -> (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) {
+        let status = StopStatusEnum(remainingStops: remainingStops)
+        return (status.backgroundColor, status.leftStopNumberColor, status.destinationColor)
     }
 }
 

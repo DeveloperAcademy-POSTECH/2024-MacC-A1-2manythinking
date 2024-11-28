@@ -20,7 +20,7 @@ struct BusStopDetailView: View {
                 .font(.system(size: 14, weight: .medium))
             
             Text("\(stopNameKorean)")
-                .foregroundStyle(.basicBlack)
+                .foregroundStyle(.textDefault)
                 .font(.system(size: 24, weight: .bold))
             
             Text("[\(stopNameRomanized)]")
@@ -36,7 +36,7 @@ struct BusStopDetailView: View {
                 .font(.system(size: 14, weight: .medium))
             
             Text("\(stopNameNaver)")
-                .foregroundStyle(.basicBlack)
+                .foregroundStyle(.textDefault)
                 .font(.system(size: 20, weight: .bold))
         }
     }

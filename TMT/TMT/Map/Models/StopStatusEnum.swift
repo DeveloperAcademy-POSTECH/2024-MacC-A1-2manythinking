@@ -25,6 +25,7 @@ enum StopStatusEnum {
         }
     }
     
+    /// Dynamic Island
     var statusColor: Color {
         switch self {
         case .zeroStopLeft:
@@ -40,6 +41,7 @@ enum StopStatusEnum {
         }
     }
     
+    /// EndStopView Background
     var backgroundColor: Color {
         switch self {
         case .zeroStopLeft:
@@ -51,38 +53,33 @@ enum StopStatusEnum {
         case .threeStopsLeft:
             return .left3
         case .defaultStatus:
-            return .basicWhite
+            return .yellow500
         }
     }
     
-    var leftStopNumberColor: Color {
-        switch self {
-        case .zeroStopLeft:
-            return .left0
-        case .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
-            return .basicWhite
-        case .defaultStatus:
-            return .basicBlack
-        }
-    }
-    
-    var leftStopTextColor: Color {
-        switch self {
-        case .zeroStopLeft:
-            return .left0
-        case .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
-            return .basicWhite
-        case .defaultStatus:
-            return .grey300
-        }
-    }
-    
+    /// EndStopView Destination Text
     var destinationColor: Color {
         switch self {
         case .zeroStopLeft, .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
             return .basicWhite
         case .defaultStatus:
             return .yellow900
+        }
+    }
+    
+    /// BottomSheet Number
+    var leftStopNumberColor: Color {
+        switch self {
+        case .zeroStopLeft:
+            return .left0
+        case .oneStopLeft:
+            return .left1
+        case .twoStopsLeft:
+            return .left2
+        case .threeStopsLeft:
+            return .left3
+        case .defaultStatus:
+            return .textDefault
         }
     }
 }

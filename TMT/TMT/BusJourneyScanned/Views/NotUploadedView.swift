@@ -17,7 +17,7 @@ struct NotUploadedView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Text("Put your worries away\nAnd take the bus\ncomfortably")
                         .foregroundStyle(.textDefault)
@@ -25,15 +25,17 @@ struct NotUploadedView: View {
                         .bold()
                     Spacer()
                 }
+                .padding(.bottom, 10)
+                
                 HStack(spacing: 0) {
                     Text("We will let you know exact location to\nget off")
                         .padding(.bottom, 10)
                         .foregroundStyle(.brandPrimary)
                         .font(.system(size: 20, weight: .bold))
-                        .padding(.bottom, 10)
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
+                .padding(.bottom, 24)
                 
                 NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo, path: $path).environmentObject(imageHandler), tag: 1, selection: $tag) {
                     EmptyView()
