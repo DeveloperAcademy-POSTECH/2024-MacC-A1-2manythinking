@@ -16,7 +16,7 @@ struct OnboardingView: View {
         ZStack(alignment: .bottom) {
             onboardingTabView()
                 .onAppear {
-                    requestNotificationPermission()
+                    NotificationManager.shared.requestNotificationPermission()
                 }
             
             if onboardingButtonTitle == "Next" {
@@ -59,7 +59,7 @@ struct OnboardingView: View {
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                        .disabled(true)
+        .disabled(true)
     }
     
     private func goToNextPage() {
@@ -69,16 +69,6 @@ struct OnboardingView: View {
             shouldShowOnboarding = false
         }
     }
-    
-    private func requestNotificationPermission() {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-                if let error = error {
-                    print("알림 권한 요청 실패: \(error)")
-                } else {
-                    print("알림 권한 요청 결과: \(granted)")
-                }
-            }
-        }
 }
 
 #Preview {

@@ -44,6 +44,7 @@ struct MapView: View {
                         selectedStopManager.isTapped = false
                     }
                 TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
+//                    .environmentObject(/selectedStopManager)
                     .offset(
                         x: 0,
                         y: tappedViewSize.height / 2 + 19
@@ -75,28 +76,32 @@ struct MapView: View {
                         .padding(.trailing, 30)
                         .padding(.bottom, 120)
                 }
-            }
-            // TODO: 바텀시트 수정하기. 디테일 잡기
-            // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
-            .bottomSheet(isPresented: $isShowingBottomSheet) {
-                sheetView
-            }
-            .environmentObject(selectedStopManager)
-            .toolbar(.hidden, for: .navigationBar)
-            .onAppear {
-                if locationManager.isFirstLoad {
-                    locationManager.findCurrentLocation()
+                
+                if !isShowingBottomSheet {
+                    popupView
                 }
-                searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
-                coordinatesList = getValidCoordinates()
-                endStop = journeyModel.journeyStops.last ?? BusStop()
             }
-            .onChange(of: locationManager.remainingStops) {
-                passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
-                if locationManager.remainingStops == 0 {
-                    scheduleBusArrivalNotification()
-                    isShowingBottomSheet = false
-                }
+        }
+        .environmentObject(selectedStopManager)
+        // TODO: 바텀시트 수정하기. 디테일 잡기
+        // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
+        .bottomSheet(isPresented: $isShowingBottomSheet) {
+            sheetView
+        }
+        .toolbar(.hidden, for: .navigationBar)
+        .onAppear {
+            if locationManager.isFirstLoad {
+                locationManager.findCurrentLocation()
+            }
+            searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
+            coordinatesList = getValidCoordinates()
+            endStop = journeyModel.journeyStops.last ?? BusStop()
+        }
+        .onChange(of: locationManager.remainingStops) {
+            passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
+            if locationManager.remainingStops == 0 {
+                NotificationManager.shared.scheduleBusArrivalNotification()
+                isShowingBottomSheet = false
             }
         }
     }
@@ -183,24 +188,6 @@ struct MapView: View {
                 return nil
             }
             return Coordinate(latitude: latitude, longitude: longitude)
-        }
-    }
-    
-    private func scheduleBusArrivalNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "BusStop"
-        content.body = "You have arrived at your destination."
-        content.sound = .default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false) // TODO: 트리거하는 초에 대해서 의논 필요
-        let request = UNNotificationRequest(identifier: "busArrival", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Failed to schedule notification: \(error)")
-            } else {
-                print("Notification scheduled successfully.")
-            }
         }
     }
 }
