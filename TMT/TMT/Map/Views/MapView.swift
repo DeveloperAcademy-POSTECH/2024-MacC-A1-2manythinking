@@ -22,7 +22,6 @@ struct MapView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var coordinatesList: [Coordinate] = []
-    @State private var passedStops: Int = 0
     @State private var isUpdateRequested = false
     @State private var isShowingBottomSheet = true
     @State private var endStop: BusStop = BusStop()
