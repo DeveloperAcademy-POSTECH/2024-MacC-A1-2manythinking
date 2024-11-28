@@ -15,6 +15,9 @@ struct OnboardingView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             onboardingTabView()
+                .onAppear {
+                    NotificationManager.shared.requestNotificationPermission()
+                }
             
             if onboardingButtonTitle == "Next" {
                 OutlinedButton(title: onboardingButtonTitle) {
@@ -56,7 +59,7 @@ struct OnboardingView: View {
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                        .disabled(true)
+        .disabled(true)
     }
     
     private func goToNextPage() {

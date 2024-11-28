@@ -22,7 +22,6 @@ struct MapView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var coordinatesList: [Coordinate] = []
-    @State private var passedStops: Int = 0
     @State private var isUpdateRequested = false
     @State private var isShowingBottomSheet = true
     @State private var endStop: BusStop = BusStop()
@@ -52,7 +51,6 @@ struct MapView: View {
                     .animation(.spring(), value: selectedStopManager.isTapped)
             }
             
-            
             VStack {
                 EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
                 .padding([.top, .leading], 16)
@@ -68,13 +66,17 @@ struct MapView: View {
                         .padding(.bottom, 120)
                 }
             }
+          
+            if !isShowingBottomSheet {
+                  popupView
+            }
         }
+        .environmentObject(selectedStopManager)
         // TODO: 바텀시트 수정하기. 디테일 잡기
         // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
         .bottomSheet(isPresented: $isShowingBottomSheet) {
             sheetView
         }
-        .environmentObject(selectedStopManager)
         .toolbar(.hidden, for: .navigationBar)
         .onAppear {
             if locationManager.isFirstLoad {
@@ -85,10 +87,12 @@ struct MapView: View {
             endStop = journeyModel.journeyStops.last ?? BusStop()
         }
         .onChange(of: locationManager.remainingStops) {
-            passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
+            if locationManager.remainingStops == 0 {
+                NotificationManager.shared.scheduleBusArrivalNotification()
+                isShowingBottomSheet = false
+            }
         }
     }
-    
     // MARK: - Views / Map
     private var mapViewWrapper: some View {
         MapViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
@@ -152,6 +156,14 @@ struct MapView: View {
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundStyle(.brandPrimary)
                 }
+        }
+    }
+    
+    private var popupView: some View {
+        ZStack {
+            Color.basicBlack.opacity(0.63)
+                .ignoresSafeArea()
+            BusStopArrivalView(hasNotArrived: $isShowingBottomSheet, path: $path)
         }
     }
     
