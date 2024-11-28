@@ -74,13 +74,13 @@ struct MapView: View {
                     }
                 }
             
-            if !hasNotArrived {
+            if !isShowingBottomSheet {
                 popupView
             }
         }
         // TODO: 바텀시트 수정하기. 디테일 잡기
         // TODO: 제일 작은 사이즈일 때는 정류장 안 보이도록 수정하기.
-        .bottomSheet(isPresented: $hasNotArrived) {
+        .bottomSheet(isPresented: $isShowingBottomSheet) {
                 sheetView
         }
         .environmentObject(selectedStopManager)
@@ -97,7 +97,7 @@ struct MapView: View {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
             if locationManager.remainingStops == 0 {
                 scheduleBusArrivalNotification()
-                hasNotArrived = false
+                isShowingBottomSheet = false
             }
         }
     }
@@ -155,7 +155,7 @@ struct MapView: View {
         Button {
             activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
             imageHandler.selectedImage = nil
-            hasNotArrived = false
+            isShowingBottomSheet = false
             path.removeAll()
         } label: {
             Text("End")
@@ -172,7 +172,7 @@ struct MapView: View {
         ZStack {
             Color.basicBlack.opacity(0.63)
                 .ignoresSafeArea()
-            BusStopArrivalView(hasNotArrived: $hasNotArrived, path: $path)
+            BusStopArrivalView(hasNotArrived: $isShowingBottomSheet, path: $path)
         }
     }
     
