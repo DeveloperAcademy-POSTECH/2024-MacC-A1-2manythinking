@@ -83,8 +83,10 @@ struct MapViewWrapper: UIViewRepresentable {
                 view.image = UIImage(named: "SelectedBusStopIcon")
                 view.frame.size = CGSize(width: 35, height: 35)
                 view.layer.cornerRadius = 5
+                
                 parent.selectedStopManager.selectedIndex = annotation.index
                 parent.selectedStopManager.isTapped = true
+                
                 mapView.setRegion(MKCoordinateRegion(
                     center: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude),
                     span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
@@ -120,7 +122,7 @@ struct MapViewWrapper: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .followWithHeading
         mapView.setRegion(region, animated: true)
-        mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 16.75, bottom: 90, right: 0)
+        mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 0, bottom: 0, right: 0)
         mapView.mapType = .mutedStandard
         context.coordinator.updateMapRegionTimer(for: mapView)
         return mapView

@@ -25,6 +25,9 @@ struct MapView: View {
     @State private var passedStops: Int = 0
     @State private var isUpdateRequested = false
     @State private var isShowingBottomSheet = true
+    @State private var endStop: BusStop = BusStop()
+    @State private var tappedStop: BusStop = BusStop()
+    @State private var tappedViewSize: CGSize = .zero
     
     @Binding var path: [String]
     
@@ -33,11 +36,25 @@ struct MapView: View {
             mapViewWrapper
                 .edgesIgnoringSafeArea(.vertical)
             
+            if selectedStopManager.isTapped {
+                Color.black.opacity(0)
+                    .ignoresSafeArea()
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedStopManager.isTapped = false
+                    }
+                TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
+                    .offset(
+                        x: 0,
+                        y: tappedViewSize.height / 2 + 19
+                    )
+                    .transition(.scale)
+                    .animation(.spring(), value: selectedStopManager.isTapped)
+            }
+            
+            
             VStack {
-                EndStopView(endStopNameKorean: journeyModel.journeyStops.last?.stopNameKorean ?? "",
-                            endStopNameRomanized: journeyModel.journeyStops.last?.stopNameRomanized ?? "",
-                            endStopNameNaver: journeyModel.journeyStops.last?.stopNameKorean ?? "",
-                            remainingStops: locationManager.remainingStops)
+                EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
                 .padding([.top, .leading], 16)
                 .padding(.trailing, 17)
                 
@@ -49,10 +66,6 @@ struct MapView: View {
                     myLocationButton
                         .padding(.trailing, 30)
                         .padding(.bottom, 120)
-                }
-                
-                if selectedStopManager.isTapped == true {
-                    SelectedBusStopView()
                 }
             }
         }
@@ -69,6 +82,7 @@ struct MapView: View {
             }
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
             coordinatesList = getValidCoordinates()
+            endStop = journeyModel.journeyStops.last ?? BusStop()
         }
         .onChange(of: locationManager.remainingStops) {
             passedStops = journeyModel.journeyStops.count - locationManager.remainingStops

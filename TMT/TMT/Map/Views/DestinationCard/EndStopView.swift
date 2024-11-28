@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct EndStopView: View {
-    var endStopNameKorean: String
-    var endStopNameRomanized: String
-    var endStopNameNaver: String
-    var remainingStops: Int
+    @Binding var busStopDetail: BusStop
+    var remainingStops: Int = 0
     
     var body: some View {
         let colors = mainColor(remainingStops: remainingStops)
-        
         VStack(spacing: 0) {
             Text("Destination")
                 .foregroundStyle(colors.destinationColor)
@@ -27,9 +24,7 @@ struct EndStopView: View {
                         .foregroundStyle(colors.backgroundColor)
                 }
             
-            BusStopDetailView(stopNameKorean: endStopNameKorean,
-                              stopNameRomanized: endStopNameRomanized,
-                              stopNameNaver: endStopNameNaver)
+            BusStopDetailView(stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "", isEndStopViewVisible: true)
                 .padding(.horizontal, 16)
                 .padding(.top, 5)
                 .padding(.bottom, 11.88)
@@ -52,46 +47,4 @@ struct EndStopView: View {
         let status = StopStatusEnum(remainingStops: remainingStops)
         return (status.backgroundColor, status.leftStopNumberColor, status.leftStopTextColor, status.destinationColor)
     }
-}
-
-#Preview("Few Remaining Stops") {
-    var endStop = BusStop.journeyStopDummy[1]
-
-    Group {
-        EndStopView(
-            endStopNameKorean: endStop.stopNameKorean ?? "Unknown",
-            endStopNameRomanized: endStop.stopNameRomanized ?? "Unknown",
-            endStopNameNaver: endStop.stopNameNaver ?? "Unknown",
-            remainingStops: 0
-        )
-        EndStopView(
-            endStopNameKorean: endStop.stopNameKorean ?? "Unknown",
-            endStopNameRomanized: endStop.stopNameRomanized ?? "Unknown",
-            endStopNameNaver: endStop.stopNameNaver ?? "Unknown",
-            remainingStops: 1
-        )
-        EndStopView(
-            endStopNameKorean: endStop.stopNameKorean ?? "Unknown",
-            endStopNameRomanized: endStop.stopNameRomanized ?? "Unknown",
-            endStopNameNaver: endStop.stopNameNaver ?? "Unknown",
-            remainingStops: 2
-        )
-        EndStopView(
-            endStopNameKorean: endStop.stopNameKorean ?? "Unknown",
-            endStopNameRomanized: endStop.stopNameRomanized ?? "Unknown",
-            endStopNameNaver: endStop.stopNameNaver ?? "Unknown",
-            remainingStops: 3
-        )
-    }
-}
-
-#Preview("Many Remaining Stops") {
-    var endStop = BusStop.journeyStopDummy[2]
-    
-    EndStopView(
-        endStopNameKorean: endStop.stopNameKorean ?? "Unknown",
-        endStopNameRomanized: endStop.stopNameRomanized ?? "Unknown",
-        endStopNameNaver: endStop.stopNameNaver ?? "Unknown",
-        remainingStops: 10
-    )
 }
