@@ -44,7 +44,6 @@ struct MapView: View {
                         selectedStopManager.isTapped = false
                     }
                 TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
-                //                    .environmentObject(/selectedStopManager)
                     .offset(
                         x: 0,
                         y: tappedViewSize.height / 2 + 19
@@ -55,9 +54,8 @@ struct MapView: View {
             
             VStack {
                 EndStopView(busStopDetail: $endStop, remainingStops: locationManager.remainingStops)
-                    .padding([.top, .leading], 16)
-                    .padding(.trailing, 17)
-                
+                .padding([.top, .leading], 16)
+                .padding(.trailing, 17)
                 
                 Spacer()
                 
@@ -69,16 +67,9 @@ struct MapView: View {
                         .padding(.bottom, 120)
                 }
             }
-            
+          
             if !isShowingBottomSheet {
-                popupView
-                myLocationButton
-                    .padding(.trailing, 30)
-                    .padding(.bottom, 120)
-            }
-            
-            if !isShowingBottomSheet {
-                popupView
+                  popupView
             }
         }
         .environmentObject(selectedStopManager)
