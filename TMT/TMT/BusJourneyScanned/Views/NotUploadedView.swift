@@ -14,7 +14,7 @@ struct NotUploadedView: View {
     @State private var showingAlert = false
     @State private var tag: Int? = nil
     @Binding var path: [String]
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -30,11 +30,11 @@ struct NotUploadedView: View {
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
-                
+
                 NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo, path: $path).environmentObject(imageHandler), tag: 1, selection: $tag) {
                     EmptyView()
                 }
-                
+
                 PhotosPicker(
                     selection: $pickedItem,
                     matching: .screenshots
@@ -70,9 +70,25 @@ struct NotUploadedView: View {
                     Text("Image recognition failed during upload. Please upload the image again.")
                 }
             }
-            
+
             if imageHandler.isLoading {
                 ProgressView()
+            }
+        }
+        .onAppear {
+            if let sharedDefaults = UserDefaults(suiteName: "group.twomanythinking.TMT"),
+               sharedDefaults.bool(forKey: "isShared"),
+               let imageData = sharedDefaults.data(forKey: "sharedImage"),
+               let image = UIImage(data: imageData) {
+                imageHandler.loadImagebyUIImage(from: image, viewCategory: "NotUploadedView") {
+                    if !imageHandler.showAlertScreen {
+                        tag = 1
+                        path.append("ScannedJourneyInfo")
+                    }
+
+                    sharedDefaults.set(false, forKey: "isShared")
+                    sharedDefaults.synchronize()
+                }
             }
         }
     }

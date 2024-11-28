@@ -2,29 +2,73 @@
 //  ShareViewController.swift
 //  TMTShareExtension
 //
-//  Created by 김유빈 on 11/29/24.
+//  Created by 김유빈 on 11/22/24.
 //
 
 import UIKit
 import Social
 
 class ShareViewController: SLComposeServiceViewController {
-
-    override func isContentValid() -> Bool {
-        // Do validation of contentText and/or NSExtensionContext attachments here
-        return true
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        handleSharedImage()
     }
 
-    override func didSelectPost() {
-        // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
-    
-        // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
-        self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+    private func handleSharedImage() {
+        guard let inputItem = self.extensionContext?.inputItems.first as? NSExtensionItem,
+              let attachment = inputItem.attachments?.first,
+              attachment.hasItemConformingToTypeIdentifier("public.image") else {
+            return
+        }
+
+
+        attachment.loadItem(forTypeIdentifier: "public.image", options: nil) { item, error in
+            if let error = error {
+                self.completeExtensionAndOpenApp()
+                return
+            }
+
+            if let url = item as? URL { // URL로 처리
+                self.handleImageFromURL(url)
+            } else if let data = item as? Data, let image = UIImage(data: data) { // Data로 처리
+                self.saveImageToApp(image)
+            } else {
+                self.completeExtensionAndOpenApp()
+            }
+        }
     }
 
-    override func configurationItems() -> [Any]! {
-        // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
-        return []
+    private func handleImageFromURL(_ url: URL) {
+        // URL에서 이미지를 로드
+        do {
+            let imageData = try Data(contentsOf: url)
+            if let image = UIImage(data: imageData) {
+                self.saveImageToApp(image)
+            } else {
+                self.completeExtensionAndOpenApp()
+            }
+        } catch {
+            self.completeExtensionAndOpenApp()
+        }
     }
 
+    private func saveImageToApp(_ image: UIImage) {
+        if let imageData = image.jpegData(compressionQuality: 1.0),
+           let sharedDefaults = UserDefaults(suiteName: "group.twomanythinking.TMT") {
+            sharedDefaults.set(imageData, forKey: "sharedImage")
+            sharedDefaults.set(true, forKey: "isShared")
+            sharedDefaults.synchronize()
+        } else {
+        }
+
+        self.completeExtensionAndOpenApp()
+    }
+
+
+    private func completeExtensionAndOpenApp() {
+        // TODO: 앱으로 이동하기
+
+        // extension 종료
+        self.extensionContext?.completeRequest(returningItems: nil)
+    }
 }

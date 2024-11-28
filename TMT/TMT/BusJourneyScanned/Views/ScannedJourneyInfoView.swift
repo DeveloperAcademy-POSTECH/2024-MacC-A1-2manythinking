@@ -14,19 +14,19 @@ struct ScannedJourneyInfoView: View {
     @StateObject private var journeyModel: JourneySettingModel
     @StateObject private var activityManager: LiveActivityManager
     @StateObject var locationManager: LocationManager
-    
+
     @State private var tag: Int? = nil
     @State private var showingAlert: Bool = false
     @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
     @Binding var path: [String]
-    
+
     init(scannedJourneyInfo: Binding<ScannedJourneyInfo>, path: Binding<[String]>) {
         let searchModel = BusSearchModel()
         let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
-        
+
         _searchModel = StateObject(wrappedValue: searchModel)
         _journeyModel = StateObject(wrappedValue: journeyModel)
         _activityManager = StateObject(wrappedValue: activityManager)
@@ -167,9 +167,9 @@ struct ScannedJourneyInfoView: View {
             }
             .disabled(isShowingInformation)
         }
-        
+
     }
-    
+
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
