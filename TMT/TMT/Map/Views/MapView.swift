@@ -88,7 +88,6 @@ struct MapView: View {
             endStop = journeyModel.journeyStops.last ?? BusStop()
         }
         .onChange(of: locationManager.remainingStops) {
-            passedStops = journeyModel.journeyStops.count - locationManager.remainingStops
             if locationManager.remainingStops == 0 {
                 NotificationManager.shared.scheduleBusArrivalNotification()
                 isShowingBottomSheet = false
