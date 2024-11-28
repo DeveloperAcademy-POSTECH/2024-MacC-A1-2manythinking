@@ -29,6 +29,10 @@
 		5BE1BF5B2CF8C53E0082648D /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */; };
 		5BE1BF5D2CF8C6150082648D /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */; };
 		5BE1BF5F2CF8C70F0082648D /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */; };
+		5BE1BF912CF8E4F90082648D /* IntroFinishDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF902CF8E4F90082648D /* IntroFinishDark.json */; };
+		5BE1BF922CF8E4F90082648D /* CaptureDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF8E2CF8E4F90082648D /* CaptureDark.json */; };
+		5BE1BF932CF8E4F90082648D /* BusDotIntroDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF8D2CF8E4F90082648D /* BusDotIntroDark.json */; };
+		5BE1BF942CF8E4F90082648D /* GoNaverMapDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF8F2CF8E4F90082648D /* GoNaverMapDark.json */; };
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
@@ -109,6 +113,10 @@
 		5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
+		5BE1BF8D2CF8E4F90082648D /* BusDotIntroDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BusDotIntroDark.json; sourceTree = "<group>"; };
+		5BE1BF8E2CF8E4F90082648D /* CaptureDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaptureDark.json; sourceTree = "<group>"; };
+		5BE1BF8F2CF8E4F90082648D /* GoNaverMapDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoNaverMapDark.json; sourceTree = "<group>"; };
+		5BE1BF902CF8E4F90082648D /* IntroFinishDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroFinishDark.json; sourceTree = "<group>"; };
 		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
@@ -400,6 +408,10 @@
 				D86A9EE02CEC696700B252F8 /* Capture.json */,
 				D86A9EE12CEC696700B252F8 /* GoNaverMap.json */,
 				D86A9EE22CEC696700B252F8 /* IntroFinish.json */,
+				5BE1BF8D2CF8E4F90082648D /* BusDotIntroDark.json */,
+				5BE1BF8E2CF8E4F90082648D /* CaptureDark.json */,
+				5BE1BF8F2CF8E4F90082648D /* GoNaverMapDark.json */,
+				5BE1BF902CF8E4F90082648D /* IntroFinishDark.json */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -528,6 +540,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
+				5BE1BF912CF8E4F90082648D /* IntroFinishDark.json in Resources */,
+				5BE1BF922CF8E4F90082648D /* CaptureDark.json in Resources */,
+				5BE1BF932CF8E4F90082648D /* BusDotIntroDark.json in Resources */,
+				5BE1BF942CF8E4F90082648D /* GoNaverMapDark.json in Resources */,
 				D86A9EE32CEC696700B252F8 /* Capture.json in Resources */,
 				D86A9EE42CEC696700B252F8 /* GoNaverMap.json in Resources */,
 				D86A9EE52CEC696700B252F8 /* BusDotIntro.json in Resources */,

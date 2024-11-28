@@ -24,6 +24,7 @@ struct FilledButton: View {
                     Text(title)
                         .foregroundStyle(textColor)
                         .font(.system(size: 18, weight: .medium)) // TODO: 서체 수정
+                        .cornerRadius(8)
                         .padding(10)
                 }
                 .frame(height: 52)
@@ -43,11 +44,12 @@ struct OutlinedButton: View {
         } label: {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(strokeColor, lineWidth: 1)
-                .background(.basicWhite)
+                .background(.brandBackground)
                 .overlay {
                     Text(title)
                         .foregroundStyle(textColor)
                         .font(.system(size: 18, weight: .medium)) // TODO: 서체 수정
+                        .cornerRadius(8)
                         .padding(10)
                 }
                 .frame(height: 52)

@@ -18,7 +18,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $path) {
             ZStack(alignment: .bottom) {
-                Color.basicWhite
+                Color.brandBackground
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {

@@ -36,7 +36,7 @@ struct ScannedJourneyInfoView: View {
     
     var body: some View {
         ZStack {
-            Color.white
+            Color.brandBackground
                 .ignoresSafeArea()
             VStack {
                 ScrollView {
@@ -183,7 +183,7 @@ struct ScannedJourneyInfoView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(.grey100, lineWidth: 1)
-                        .background(Color.basicWhite.cornerRadius(8))
+                        .background(Color.brandBackground.cornerRadius(8))
                 )
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }

@@ -26,11 +26,20 @@ enum OnboardingStep: CaseIterable {
         }
     }
     
-    var image: String {
+    var lightImage: String {
         switch self {
         case .goNaverMap: return "GoNaverMap"
         case .capture: return "Capture"
         case .introFinish: return "IntroFinish"
         }
     }
+    
+    var darkImage: String {
+        switch self {
+        case .goNaverMap: return "GoNaverMapDark"
+        case .capture: return "CaptureDark"
+        case .introFinish: return "IntroFinishDark"
+        }
+    }
+
 }
