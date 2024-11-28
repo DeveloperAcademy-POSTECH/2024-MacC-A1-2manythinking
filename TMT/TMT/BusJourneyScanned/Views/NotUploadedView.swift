@@ -52,7 +52,7 @@ struct NotUploadedView: View {
                     }
                 }
                 .onChange(of: pickedItem) {
-                    imageHandler.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
+                    imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "NotUploadedView") {
                         if !imageHandler.showAlertScreen {
                             tag = 1
                             path.append("ScannedJourneyInfo")

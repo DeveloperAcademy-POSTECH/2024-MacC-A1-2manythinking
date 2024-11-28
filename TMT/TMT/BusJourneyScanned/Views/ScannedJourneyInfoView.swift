@@ -111,7 +111,7 @@ struct ScannedJourneyInfoView: View {
                         EmptyView()
                     }
                     .onChange(of: pickedItem) {
-                        imageHandler.loadImage(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
+                        imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
                     }
                     .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                     
