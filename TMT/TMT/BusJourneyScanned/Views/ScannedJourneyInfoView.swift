@@ -63,6 +63,9 @@ struct ScannedJourneyInfoView: View {
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                    .onAppear {
+                        imageHandler.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
+                    }
                     .frame(height: 42)
                     .foregroundStyle(.red600)
                 }
@@ -95,8 +98,6 @@ struct ScannedJourneyInfoView: View {
                         Button {
                             showingAlert = false
                             showingPhotosPicker = true
-                            imageHandler.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
-                            imageHandler.selectedImage = nil
                         } label: {
                             // TODO: 커스텀 안되는 문제 해결하기
                             Text("Confirm")
@@ -137,7 +138,7 @@ struct ScannedJourneyInfoView: View {
                             
                             guard let startStop = journeyModel.journeyStops.first else { return }
                             guard let endStop = journeyModel.journeyStops.last else { return }
-                          
+                            
                             activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
                             tag = 1
                             path.append("BusStop")

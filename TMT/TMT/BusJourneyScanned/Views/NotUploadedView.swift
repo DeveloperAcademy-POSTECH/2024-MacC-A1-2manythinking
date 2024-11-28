@@ -57,6 +57,7 @@ struct NotUploadedView: View {
                             tag = 1
                             path.append("ScannedJourneyInfo")
                         }
+                        pickedItem = nil
                     }
                 }
                 .alert("Failed to recognize the image.", isPresented: $imageHandler.showAlertScreen) {
