@@ -32,13 +32,17 @@ struct BusJourneyLiveActivity: Widget {
                         Image(systemName: "location.fill")
                         
                         Text("This Stop")
+                            .foregroundStyle(.textDefault)
+                            .font(.system(size: 14, weight: .medium))
                     }
                     .padding(.bottom, 4)
                     
                     Text(context.state.thisStopNameKorean)
+                        .foregroundStyle(.textDefault)
                         .font(.system(size: 20, weight: .bold))
                     
                     Text("[\(context.state.thisStopNameRomanized)]") // TODO: 여러 줄로 보이도록 하기
+                        .foregroundStyle(.textDefault)
                         .font(.system(size: 14, weight: .medium))
                 }
                 .foregroundStyle(.basicBlack)
@@ -52,10 +56,12 @@ struct BusJourneyLiveActivity: Widget {
                     .overlay {
                         VStack(spacing: -4) {
                             Text("\(context.state.remainingStopsCount)")
+                                .foregroundStyle(.textLeft)
                                 .font(.system(size: 24, weight: .bold))
                             
                             Text("Stops Left")
-                                .font(.system(size: 12))
+                                .foregroundStyle(.textLeft)
+                                .font(.system(size: 14, weight: .medium))
                         }
                     }
             }
@@ -86,9 +92,11 @@ struct BusJourneyLiveActivity: Widget {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(context.state.thisStopNameKorean)
+                                    .foregroundStyle(.grey50)
                                     .font(.system(size: 20, weight: .bold))
                                 
                                 Text("[\(context.state.thisStopNameRomanized)]")
+                                    .foregroundStyle(.grey50)
                                     .font(.system(size: 14, weight: .medium))
                                     .multilineTextAlignment(.leading)
                             }
@@ -107,7 +115,7 @@ struct BusJourneyLiveActivity: Widget {
                                 Text("Stops Left")
                                     .font(.system(size: 14, weight: .medium))
                             }
-                            .foregroundStyle(.brandPrimary)
+                            .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
                             .padding(.horizontal, 14)
                             .padding(.vertical, 7.5)
                             .background {

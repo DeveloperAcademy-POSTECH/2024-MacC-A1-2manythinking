@@ -41,14 +41,14 @@ struct OnboardingStepView: View {
                 Spacer()
                 
                 if screenMode == "Light" {
-                                    LottieView(animationFileName: step.lightImage, loopMode: .loop)
-                                        .frame(maxWidth: 270, maxHeight: 531)
-                                        .padding(.bottom, 48)
-                                } else {
-                                    LottieView(animationFileName: step.darkImage, loopMode: .loop)
-                                        .frame(maxWidth: 270, maxHeight: 531)
-                                        .padding(.bottom, 48)
-                                }
+                    LottieView(animationFileName: step.lightImage, loopMode: .loop)
+                        .frame(maxWidth: 270, maxHeight: 531)
+                        .padding(.bottom, 48)
+                } else {
+                    LottieView(animationFileName: step.darkImage, loopMode: .loop)
+                        .frame(maxWidth: 270, maxHeight: 531)
+                        .padding(.bottom, 48)
+                }
             }
         }
     }

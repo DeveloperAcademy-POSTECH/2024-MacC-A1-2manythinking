@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct BusStopDetailView: View {
+    var isEndStopViewVisible: Bool
     var stopNameKorean: String
     var stopNameRomanized: String
     var stopNameNaver: String
-    var isEndStopViewVisible: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -25,7 +25,7 @@ struct BusStopDetailView: View {
             
             Text("[\(stopNameRomanized)]")
                 .foregroundStyle(.grey400)
-                                .font(.system(size: 14, weight: .medium))
+                .font(.system(size: 14, weight: .medium))
             
             Divider()
                 .foregroundStyle(isEndStopViewVisible ? .grey100 : .white) // TODO: divider 색상 변경 필요
@@ -46,9 +46,8 @@ struct BusStopDetailView: View {
     var dummy = BusStop.journeyStopDummy
     
     BusStopDetailView(
-        stopNameKorean: dummy.first!.stopNameKorean ?? "",
+        isEndStopViewVisible : true, stopNameKorean: dummy.first!.stopNameKorean ?? "",
         stopNameRomanized: dummy.first!.stopNameRomanized ?? "",
-        stopNameNaver: dummy.first!.stopNameNaver ?? "",
-        isEndStopViewVisible : true
+        stopNameNaver: dummy.first!.stopNameNaver ?? ""
     )
 }

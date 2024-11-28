@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct TappedStopView: View {
-    @EnvironmentObject var selectedStopManager: SelectedStopManager
     @EnvironmentObject var searchModel: BusSearchModel
+    @EnvironmentObject var selectedStopManager: SelectedStopManager
+    
     @State private var stopOrder: Int? = 0
+    
     @Binding var tappedStop: BusStop
     @Binding var tappedViewSize: CGSize
     
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                BusStopDetailView(stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "", isEndStopViewVisible: false)
+                BusStopDetailView(isEndStopViewVisible: false, stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "")
                     .padding(.horizontal, 16)
                     .padding(.vertical, 21)
                     .background(PopoverView().fill(.basicWhite)) // TODO: Popover 배경 색상 변경하기

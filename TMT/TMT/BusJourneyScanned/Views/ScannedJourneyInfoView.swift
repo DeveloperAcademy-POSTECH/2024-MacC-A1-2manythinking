@@ -10,27 +10,28 @@ import PhotosUI
 
 struct ScannedJourneyInfoView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
-    @StateObject private var searchModel: BusSearchModel
-    @StateObject private var journeyModel: JourneySettingModel
     @StateObject private var activityManager: LiveActivityManager
+    @StateObject private var journeyModel: JourneySettingModel
     @StateObject var locationManager: LocationManager
+    @StateObject private var searchModel: BusSearchModel
     
-    @State private var tag: Int? = nil
-    @State private var showingAlert: Bool = false
-    @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
+    @State private var showingAlert: Bool = false
+    @State private var showingPhotosPicker: Bool = false
+    @State private var tag: Int? = nil
+    
     @Binding var path: [String]
     
     init(scannedJourneyInfo: Binding<ScannedJourneyInfo>, path: Binding<[String]>) {
         let searchModel = BusSearchModel()
-        let journeyModel = JourneySettingModel(searchModel: searchModel)
         let activityManager = LiveActivityManager()
-        
-        _searchModel = StateObject(wrappedValue: searchModel)
-        _journeyModel = StateObject(wrappedValue: journeyModel)
+        let journeyModel = JourneySettingModel(searchModel: searchModel)
+
         _activityManager = StateObject(wrappedValue: activityManager)
+        _journeyModel = StateObject(wrappedValue: journeyModel)
         _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
+        _searchModel = StateObject(wrappedValue: searchModel)
         _path = path
     }
     

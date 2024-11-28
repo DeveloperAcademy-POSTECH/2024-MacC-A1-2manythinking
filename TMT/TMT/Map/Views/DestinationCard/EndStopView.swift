@@ -10,6 +10,7 @@ import SwiftUI
 struct EndStopView: View {
     @Binding var busStopDetail: BusStop
     @Binding var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color)
+    
     var remainingStops: Int = 0
     
     var body: some View {
@@ -26,7 +27,7 @@ struct EndStopView: View {
                         .foregroundStyle(colors.backgroundColor)
                 }
             
-            BusStopDetailView(stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "", isEndStopViewVisible: true)
+            BusStopDetailView(isEndStopViewVisible: true, stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "")
                 .padding(.horizontal, 16)
                 .padding(.top, 5)
                 .padding(.bottom, 11.88)

@@ -10,9 +10,11 @@ import PhotosUI
 
 struct NotUploadedView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
+    
     @State private var pickedItem: PhotosPickerItem? = nil
     @State private var showingAlert = false
     @State private var tag: Int? = nil
+    
     @Binding var path: [String]
     
     var body: some View {

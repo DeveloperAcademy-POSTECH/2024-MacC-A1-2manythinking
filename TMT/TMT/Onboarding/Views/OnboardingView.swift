@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-        @State private var currentPage = 0
-        @Binding var shouldShowOnboarding: Bool
+    @State private var currentPage = 0
+    @Binding var shouldShowOnboarding: Bool
     
     var body: some View {
         let screenMode = colorScheme == .dark ? "Dark" : "Light"
@@ -23,18 +23,18 @@ struct OnboardingView: View {
             
             if onboardingButtonTitle == "Next" {
                 if screenMode == "Light" {
-                                    OutlinedButton(title: onboardingButtonTitle) {
-                                        goToNextPage()
-                                    }
-                                    .padding(.horizontal, 16)
-                                    .padding(.bottom, 53)
-                                } else {
-                                    OutlinedButton(title: onboardingButtonTitle, strokeColor: .brandPrimary, textColor: .basicWhite) {
-                                        goToNextPage()
-                                    }
-                                    .padding(.horizontal, 16)
-                                    .padding(.bottom, 53)
-                                }
+                    OutlinedButton(title: onboardingButtonTitle) {
+                        goToNextPage()
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 53)
+                } else {
+                    OutlinedButton(title: onboardingButtonTitle, strokeColor: .brandPrimary, textColor: .basicWhite) {
+                        goToNextPage()
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 53)
+                }
             } else {
                 FilledButton(title: onboardingButtonTitle) {
                     goToNextPage()

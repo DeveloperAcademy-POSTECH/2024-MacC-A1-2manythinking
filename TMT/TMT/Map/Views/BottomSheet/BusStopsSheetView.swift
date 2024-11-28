@@ -60,9 +60,10 @@ struct BusStopRowView: View {
                     .foregroundStyle(.basicWhite)
                     .frame(width: 8, height: 8.4)
             }
+            .foregroundStyle(.grey100)
             .padding(.leading, 57)
             .padding(.trailing, 28)
-            .foregroundStyle(.grey100)
+            .background(.backgroundModal)
     }
     
     private var busStopInfoView: some View {
@@ -79,7 +80,7 @@ struct BusStopRowView: View {
         VStack(alignment: .leading, spacing: 0) {
             Text(stop.stopNameKorean ?? "")
                 .font(.headline) // TODO: 서체
-                .foregroundStyle(.textDefault)
+                .foregroundStyle(isPartOfJourney ? .textDefault : .grey400)
             
             Text("[\(stop.stopNameRomanized ?? "")]")
                 .font(.subheadline) // TODO: 서체

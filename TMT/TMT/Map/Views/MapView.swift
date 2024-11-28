@@ -21,13 +21,14 @@ struct MapView: View {
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
+    @State private var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
     @State private var coordinatesList: [Coordinate] = []
-    @State private var isUpdateRequested = false
-    @State private var isShowingBottomSheet = true
     @State private var endStop: BusStop = BusStop()
+    @State private var isShowingBottomSheet = true
+    @State private var isUpdateRequested = false
+    @State private var showingAlert: Bool = false
     @State private var tappedStop: BusStop = BusStop()
     @State private var tappedViewSize: CGSize = .zero
-    @State private var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
     
     @Binding var path: [String]
     
@@ -98,7 +99,7 @@ struct MapView: View {
     }
     // MARK: - Views / Map
     private var mapViewWrapper: some View {
-        MapViewWrapper(selectedStopManager: selectedStopManager, region: $locationManager.region, isUpdateRequested: $isUpdateRequested, coordinatesList: coordinatesList)
+        MapViewWrapper(selectedStopManager: selectedStopManager, isUpdateRequested: $isUpdateRequested, region: $locationManager.region, coordinatesList: coordinatesList)
     }
     
     private var myLocationButton: some View {
@@ -122,7 +123,7 @@ struct MapView: View {
         VStack(spacing: 3) {
             Rectangle()
                 .frame(height: 100)
-                .foregroundStyle(.basicWhite)
+                .foregroundStyle(.brandBackground)
                 .shadow(color: .basicBlack.opacity(0.25), radius: 2.5, y: 2)
                 .overlay {
                     HStack(alignment: .bottom, spacing: 6) {
@@ -149,10 +150,7 @@ struct MapView: View {
     
     private var endButton: some View {
         Button {
-            activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
-            imageHandler.selectedImage = nil
-            isShowingBottomSheet = false
-            path.removeAll()
+            showingAlert = true
         } label: {
             Text("End")
                 .foregroundStyle(.brandBackground)
@@ -161,6 +159,19 @@ struct MapView: View {
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundStyle(.brandPrimary)
                 }
+        }
+        .alert("End Navigation", isPresented: $showingAlert) {
+            Button("Stay", role: .cancel) {
+                showingAlert = false
+            }
+            Button("Exit", role:.destructive) {
+                activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
+                imageHandler.selectedImage = nil
+                isShowingBottomSheet = false
+                path.removeAll()
+            }
+        } message: {
+            Text("Are you sure you want to return to Home? Your navigation will end.")
         }
     }
     
