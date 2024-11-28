@@ -27,6 +27,8 @@
 		5BCC7CC82CF5BEDB005986BF /* BusStopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */; };
 		5BE1BF082CF867590082648D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF072CF867550082648D /* NotificationManager.swift */; };
 		5BE1BF5B2CF8C53E0082648D /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */; };
+		5BE1BF5D2CF8C6150082648D /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */; };
+		5BE1BF5F2CF8C70F0082648D /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */; };
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
@@ -93,7 +95,6 @@
 		5B347FCF2CF4F71F00A1E852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
-		5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -103,10 +104,11 @@
 		5BA06D492CF38E1F00834BBD /* TappedStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappedStopView.swift; sourceTree = "<group>"; };
 		5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
-		5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
 		5BE1BF072CF867550082648D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
+		5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
+		5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
@@ -208,7 +210,7 @@
 		D801A1BB2CF229CA00AD0D64 /* DestinationCard */ = {
 			isa = PBXGroup;
 			children = (
-				5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */,
+				5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */,
 				5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */,
 			);
 			path = DestinationCard;
@@ -263,7 +265,7 @@
 		D81D9E952CE47E06004F2024 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */,
+				5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */,
 				5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */,
 				5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */,
 				5B2D9A112CCA1521001FF6CC /* OCRStarterManager.swift */,
@@ -571,6 +573,7 @@
 				D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */,
 				D867396D2CA933CD00FFE8ED /* TMTApp.swift in Sources */,
 				5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */,
+				5BE1BF5F2CF8C70F0082648D /* EndStopView.swift in Sources */,
 				D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */,
 				5BE1BF082CF867590082648D /* NotificationManager.swift in Sources */,
 				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
@@ -584,6 +587,7 @@
 				D844BCDA2CC147390059E31F /* LiveActivityManager.swift in Sources */,
 				5B83D51E2CD7D81F00633B3C /* NotUploadedView.swift in Sources */,
 				D858729C2CD4A15F001CC467 /* OnboardingStepView.swift in Sources */,
+				5BE1BF5D2CF8C6150082648D /* ScannedJourneyInfo.swift in Sources */,
 				D88F3AF22CD34DD200C0B657 /* InformationModalView.swift in Sources */,
 				D8E054DE2CF1AF89006B1879 /* View.swift in Sources */,
 				D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */,

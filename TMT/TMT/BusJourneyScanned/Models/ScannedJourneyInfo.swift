@@ -10,3 +10,4 @@ struct ScannedJourneyInfo {
     var startStop: String
     var endStop: String
 }
+
