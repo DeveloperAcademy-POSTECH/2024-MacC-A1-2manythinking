@@ -26,10 +26,12 @@ struct BusJourneyLiveActivity: Widget {
         ActivityConfiguration(for: BusJourneyAttributes.self) { context in
             // Lock screen/banner UI goes here
             // MARK: Lock Screen
-            HStack(spacing: 19) {
+            HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .center, spacing: 4) {
                         Image(systemName: "location.fill")
+                            .foregroundStyle(.textDefault)
+                            .font(.system(size: 12, weight: .medium))
                         
                         Text("This Stop")
                             .foregroundStyle(.textDefault)
@@ -45,6 +47,7 @@ struct BusJourneyLiveActivity: Widget {
                         .foregroundStyle(.textDefault)
                         .font(.system(size: 14, weight: .medium))
                 }
+                .frame(width: 243)
                 .foregroundStyle(.basicBlack)
                 .multilineTextAlignment(.leading)
                 
@@ -81,7 +84,7 @@ struct BusJourneyLiveActivity: Widget {
                         
                         Text("This Stop")
                             .font(.system(size: 14, weight: .medium))
-                        
+                            .padding(.bottom, 4)
                     }
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
                     .padding([.leading, .top], 8)

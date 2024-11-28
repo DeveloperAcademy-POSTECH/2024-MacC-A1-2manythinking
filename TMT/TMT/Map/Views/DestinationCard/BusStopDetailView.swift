@@ -21,7 +21,7 @@ struct BusStopDetailView: View {
             
             Text("\(stopNameKorean)")
                 .foregroundStyle(.textDefault)
-                .font(.system(size: 24, weight: .bold))
+                .font(isEndStopViewVisible ? .system(size: 24, weight: .bold) : .system(size: 20, weight: .bold))
             
             Text("[\(stopNameRomanized)]")
                 .foregroundStyle(.grey400)

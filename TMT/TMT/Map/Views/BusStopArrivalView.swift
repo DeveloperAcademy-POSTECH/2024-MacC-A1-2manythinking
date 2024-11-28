@@ -22,16 +22,20 @@ struct BusStopArrivalView: View {
                     hasNotArrived = true
                 } label: {
                     Image(systemName: "xmark.circle")
-                        .font(.title.weight(.light))
                         .foregroundStyle(.grey300)
+                        .font(.system(size: 24, weight: .light))
                 }
             }
             .padding(.bottom, 8)
             
             Text("You've arrived")
-                .font(.title.weight(.bold))
+                .foregroundStyle(.textDefault)
+                .font(.system(size: 24, weight: .bold))
+                .padding(.bottom, 4)
+            
             Text("Hope you had a pleasant journey!")
                 .foregroundStyle(.brandPrimary)
+                .font(.system(size: 16, weight: .medium))
                 .padding(.bottom, 8)
             
             Image("BusStopArrived")
@@ -50,7 +54,7 @@ struct BusStopArrivalView: View {
         .padding(16)
         .background {
             RoundedRectangle(cornerRadius: 16)
-                .foregroundStyle(.basicWhite)
+                .foregroundStyle(.backgroundModal)
         }
         .padding(16)
     }
