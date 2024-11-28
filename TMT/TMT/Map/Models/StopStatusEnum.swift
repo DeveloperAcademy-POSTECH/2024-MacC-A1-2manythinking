@@ -8,48 +8,59 @@
 import SwiftUI
 
 enum StopStatusEnum {
-    case zeroStopRemaining, oneStopRemaining, twoStopsRemaining, threeStopsRemaining, defaultStatus
+    case zeroStopLeft, oneStopLeft, twoStopsLeft, threeStopsLeft, defaultStatus
     
     init(remainingStops: Int) {
         switch remainingStops {
         case 0:
-            self = .zeroStopRemaining
+            self = .zeroStopLeft
         case 1:
-            self = .oneStopRemaining
+            self = .oneStopLeft
         case 2:
-            self = .twoStopsRemaining
+            self = .twoStopsLeft
         case 3:
-            self = .threeStopsRemaining
+            self = .threeStopsLeft
         default:
             self = .defaultStatus
         }
     }
     
-    var backgroundColor: Color {
+    var statusColor: Color {
         switch self {
-        case .zeroStopRemaining:
+        case .zeroStopLeft:
             return .left0
-        case .oneStopRemaining:
+        case .oneStopLeft:
             return .left1
-        case .twoStopsRemaining:
+        case .twoStopsLeft:
             return .left2
-        case .threeStopsRemaining:
+        case .threeStopsLeft:
             return .left3
         case .defaultStatus:
-            return .yellow500
+            return .brandPrimary
+        }
+    }
+    
+    var backgroundColor: Color {
+        switch self {
+        case .zeroStopLeft:
+            return .left0
+        case .oneStopLeft:
+            return .left1
+        case .twoStopsLeft:
+            return .left2
+        case .threeStopsLeft:
+            return .left3
+        case .defaultStatus:
+            return .basicWhite
         }
     }
     
     var leftStopNumberColor: Color {
         switch self {
-        case .zeroStopRemaining:
+        case .zeroStopLeft:
             return .left0
-        case .oneStopRemaining:
-            return .left1
-        case .twoStopsRemaining:
-            return .left2
-        case .threeStopsRemaining:
-            return .left3
+        case .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
+            return .basicWhite
         case .defaultStatus:
             return .basicBlack
         }
@@ -57,14 +68,10 @@ enum StopStatusEnum {
     
     var leftStopTextColor: Color {
         switch self {
-        case .zeroStopRemaining:
+        case .zeroStopLeft:
             return .left0
-        case .oneStopRemaining:
-            return .left1
-        case .twoStopsRemaining:
-            return .left2
-        case .threeStopsRemaining:
-            return .left3
+        case .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
+            return .basicWhite
         case .defaultStatus:
             return .grey300
         }
@@ -72,7 +79,7 @@ enum StopStatusEnum {
     
     var destinationColor: Color {
         switch self {
-        case .zeroStopRemaining, .oneStopRemaining, .twoStopsRemaining, .threeStopsRemaining:
+        case .zeroStopLeft, .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
             return .basicWhite
         case .defaultStatus:
             return .yellow900

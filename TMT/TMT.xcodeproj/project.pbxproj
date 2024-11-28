@@ -56,6 +56,7 @@
 		D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */; };
 		D8E054DD2CF1AF89006B1879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054DC2CF1AF89006B1879 /* View.swift */; };
 		D8E054DE2CF1AF89006B1879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054DC2CF1AF89006B1879 /* View.swift */; };
+		D8E7E7122CF60FD300EAD54F /* StopStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C4AF32CD52E0F00031147 /* StopStatusEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -534,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E7E7122CF60FD300EAD54F /* StopStatusEnum.swift in Sources */,
 				D8E054DD2CF1AF89006B1879 /* View.swift in Sources */,
 				5BF33BF52CE70E37006F17EC /* Color.swift in Sources */,
 			);
