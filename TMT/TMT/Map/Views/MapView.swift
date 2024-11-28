@@ -29,7 +29,6 @@ struct MapView: View {
     @State private var showingAlert: Bool = false
     @State private var tappedStop: BusStop = BusStop()
     @State private var tappedViewSize: CGSize = .zero
-    @State private var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
     
     @Binding var path: [String]
     
