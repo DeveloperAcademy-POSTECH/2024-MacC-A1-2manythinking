@@ -16,7 +16,7 @@ struct NotUploadedView: View {
     @State private var tag: Int? = nil
     
     @Binding var path: [String]
-
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -37,11 +37,11 @@ struct NotUploadedView: View {
                     Spacer()
                 }
                 .padding(.bottom, 24)
-              
+                
                 NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo, path: $path).environmentObject(imageHandler), tag: 1, selection: $tag) {
                     EmptyView()
                 }
-
+                
                 PhotosPicker(
                     selection: $pickedItem,
                     matching: .screenshots
@@ -79,7 +79,7 @@ struct NotUploadedView: View {
                     Text("Image recognition failed during upload. Please upload the image again.")
                 }
             }
-
+            
             if imageHandler.isLoading {
                 ProgressView()
             }
@@ -94,7 +94,7 @@ struct NotUploadedView: View {
                         tag = 1
                         path.append("ScannedJourneyInfo")
                     }
-
+                    
                     sharedDefaults.set(false, forKey: "isShared")
                     sharedDefaults.synchronize()
                 }
