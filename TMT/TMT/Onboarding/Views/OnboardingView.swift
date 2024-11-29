@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @EnvironmentObject var locationManager: LocationManager
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+  
     @State private var currentPage = 0
     @Binding var shouldShowOnboarding: Bool
     
@@ -18,7 +20,20 @@ struct OnboardingView: View {
         ZStack(alignment: .bottom) {
             onboardingTabView(screenMode: screenMode)
                 .onAppear {
-                    NotificationManager.shared.requestNotificationPermission()
+                         NotificationManager.shared.requestNotificationPermission()
+                         locationManager.requestPermission()
+                }
+                .alert(isPresented: $locationManager.showSettingsAlert) {
+                    Alert(
+                        title: Text("Location access is not available."),
+                        message: Text("Go to your app settings to adjust location access."),
+                        primaryButton: .default(Text("Go to Settings")) {
+                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                                UIApplication.shared.open(url)
+                            }
+                        },
+                        secondaryButton: .cancel(Text("Cancel"))
+                    )
                 }
             
             if onboardingButtonTitle == "Next" {
@@ -42,6 +57,7 @@ struct OnboardingView: View {
                 .padding(.horizontal, 16)
                 .padding(.bottom, 53)
             }
+            
         }
         .ignoresSafeArea(.all)
         .background(.brandBackground)
@@ -79,8 +95,4 @@ struct OnboardingView: View {
             shouldShowOnboarding = false
         }
     }
-}
-
-#Preview {
-    OnboardingView(shouldShowOnboarding: .constant(true))
 }

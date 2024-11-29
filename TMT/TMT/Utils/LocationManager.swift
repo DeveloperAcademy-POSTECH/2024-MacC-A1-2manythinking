@@ -31,6 +31,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    @Published var showSettingsAlert = false
+    
     private let locationManager = CLLocationManager()
     private weak var activityManager: LiveActivityManager?
     private weak var journeyModel: JourneySettingModel?
@@ -42,9 +45,23 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
+    }
+    
+    /// 사용자 위치수집권한 받기
+    func requestPermission() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    /// 사용자가 위치수집에 동의했는지 확인하기
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        DispatchQueue.main.async {
+            self.authorizationStatus = status
+            if status == .denied || status == .restricted {
+                self.showSettingsAlert = true
+            }
+        }
     }
     
     /// 사용자의 현재 위치 파악
@@ -72,7 +89,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                     self.isFirstLoad = false
                 }
                 self.userLocation = location.coordinate
-
+                
                 let result = self.journeyModel?.updateRemainingStopsAndCurrentStop(currentLocation: self.userLocation)
                 self.remainingStops = result?.remainingStops ?? 0
                 self.thisStop = result?.currentStop

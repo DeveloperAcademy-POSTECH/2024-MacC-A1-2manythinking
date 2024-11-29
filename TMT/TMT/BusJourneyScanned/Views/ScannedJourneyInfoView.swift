@@ -10,11 +10,14 @@ import PhotosUI
 
 struct ScannedJourneyInfoView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
-    @StateObject private var activityManager: LiveActivityManager
-    @StateObject private var journeyModel: JourneySettingModel
-    @StateObject var locationManager: LocationManager
-    @StateObject private var searchModel: BusSearchModel
+    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var searchModel: BusSearchModel
+    @EnvironmentObject var journeyModel: JourneySettingModel
+    @EnvironmentObject var activityManager: LiveActivityManager
     
+    @State private var tag: Int? = nil
+    @State private var showingAlert: Bool = false
+    @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
     @State private var showingAlert: Bool = false
@@ -22,18 +25,6 @@ struct ScannedJourneyInfoView: View {
     @State private var tag: Int? = nil
     
     @Binding var path: [String]
-    
-    init(scannedJourneyInfo: Binding<ScannedJourneyInfo>, path: Binding<[String]>) {
-        let searchModel = BusSearchModel()
-        let activityManager = LiveActivityManager()
-        let journeyModel = JourneySettingModel(searchModel: searchModel)
-        
-        _activityManager = StateObject(wrappedValue: activityManager)
-        _journeyModel = StateObject(wrappedValue: journeyModel)
-        _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
-        _searchModel = StateObject(wrappedValue: searchModel)
-        _path = path
-    }
     
     var body: some View {
         ZStack {
@@ -118,14 +109,9 @@ struct ScannedJourneyInfoView: View {
                     }
                     .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                     
-                    NavigationLink(destination: MapView(path: $path)
-                        .environmentObject(locationManager)
-                        .environmentObject(searchModel)
-                        .environmentObject(activityManager)
-                        .environmentObject(journeyModel)
-                        .environmentObject(imageHandler), tag: 1, selection: $tag) {
-                            EmptyView()
-                        }
+                    NavigationLink(destination: MapView(path: $path), tag: 1, selection: $tag) {
+                        EmptyView()
+                    }
                     
                     FilledButton(
                         title: "Start",
@@ -197,5 +183,5 @@ struct ScannedJourneyInfoView: View {
 }
 
 #Preview {
-    ScannedJourneyInfoView(scannedJourneyInfo: .constant(ScannedJourneyInfo(busNumber: "207", startStop: "1", endStop: "2")), path: .constant(["ScannedJourneyInfoView"]))
+    ScannedJourneyInfoView(path: .constant(["ScannedJourneyInfoView"]))
 }

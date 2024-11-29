@@ -36,9 +36,8 @@ struct NotUploadedView: View {
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
-                .padding(.bottom, 24)
                 
-                NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo, path: $path).environmentObject(imageHandler), tag: 1, selection: $tag) {
+                NavigationLink(destination: ScannedJourneyInfoView(path: $path), tag: 1, selection: $tag) {
                     EmptyView()
                 }
                 
