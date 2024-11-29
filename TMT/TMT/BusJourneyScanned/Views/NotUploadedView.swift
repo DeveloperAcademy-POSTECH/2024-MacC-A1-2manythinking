@@ -16,7 +16,7 @@ struct NotUploadedView: View {
     @State private var tag: Int? = nil
     
     @Binding var path: [String]
-    
+
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -38,11 +38,11 @@ struct NotUploadedView: View {
                     Spacer()
                 }
                 .padding(.bottom, 24)
-                
+              
                 NavigationLink(destination: ScannedJourneyInfoView(scannedJourneyInfo: $imageHandler.scannedJourneyInfo, path: $path).environmentObject(imageHandler), tag: 1, selection: $tag) {
                     EmptyView()
                 }
-                
+
                 PhotosPicker(
                     selection: $pickedItem,
                     matching: .screenshots
@@ -61,7 +61,7 @@ struct NotUploadedView: View {
                     }
                 }
                 .onChange(of: pickedItem) {
-                    imageHandler.loadImage(from: pickedItem, viewCategory: "NotUploadedView") {
+                    imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "NotUploadedView") {
                         if !imageHandler.showAlertScreen {
                             tag = 1
                             path.append("ScannedJourneyInfo")
@@ -80,9 +80,25 @@ struct NotUploadedView: View {
                     Text("Image recognition failed during upload. Please upload the image again.")
                 }
             }
-            
+
             if imageHandler.isLoading {
                 ProgressView()
+            }
+        }
+        .onAppear {
+            if let sharedDefaults = UserDefaults(suiteName: "group.twomanythinking.TMT"),
+               sharedDefaults.bool(forKey: "isShared"),
+               let imageData = sharedDefaults.data(forKey: "sharedImage"),
+               let image = UIImage(data: imageData) {
+                imageHandler.loadImagebyUIImage(from: image, viewCategory: "NotUploadedView") {
+                    if !imageHandler.showAlertScreen {
+                        tag = 1
+                        path.append("ScannedJourneyInfo")
+                    }
+
+                    sharedDefaults.set(false, forKey: "isShared")
+                    sharedDefaults.synchronize()
+                }
             }
         }
     }
