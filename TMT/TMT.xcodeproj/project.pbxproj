@@ -35,6 +35,7 @@
 		D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* ButtonComponent.swift */; };
 		D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */; };
 		D83277652CEC67CE005E00CF /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83277642CEC67CE005E00CF /* LottieView.swift */; };
+		D836618D2CF9A892002A181F /* LaunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D836618B2CF9A892002A181F /* LaunchLogo.png */; };
 		D844BCBD2CC120010059E31F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBC2CC120010059E31F /* WidgetKit.framework */; };
 		D844BCBF2CC120010059E31F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D844BCBE2CC120010059E31F /* SwiftUI.framework */; };
 		D844BCD02CC120030059E31F /* TMTWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -111,6 +112,7 @@
 		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
 		D83277642CEC67CE005E00CF /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		D836618B2CF9A892002A181F /* LaunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchLogo.png; sourceTree = "<group>"; };
 		D844BCBA2CC120010059E31F /* TMTWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D844BCBC2CC120010059E31F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D844BCBE2CC120010059E31F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -307,6 +309,14 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
+		D836618E2CF9A923002A181F /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D836618B2CF9A892002A181F /* LaunchLogo.png */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		D844BCBB2CC120010059E31F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +419,7 @@
 			children = (
 				D86A9ED52CEC681C00B252F8 /* BusStop */,
 				D86A9ED62CEC682900B252F8 /* Onboarding */,
+				D836618E2CF9A923002A181F /* LaunchScreen */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -525,6 +536,7 @@
 				D86A9EE62CEC696700B252F8 /* IntroFinish.json in Resources */,
 				5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
+				D836618D2CF9A892002A181F /* LaunchLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
