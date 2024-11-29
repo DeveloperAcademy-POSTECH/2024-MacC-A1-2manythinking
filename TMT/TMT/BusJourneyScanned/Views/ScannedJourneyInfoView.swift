@@ -20,10 +20,7 @@ struct ScannedJourneyInfoView: View {
     @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
-    @State private var showingAlert: Bool = false
-    @State private var showingPhotosPicker: Bool = false
-    @State private var tag: Int? = nil
-    
+
     @Binding var path: [String]
     
     var body: some View {
