@@ -29,10 +29,6 @@
 		5BE1BF5B2CF8C53E0082648D /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */; };
 		5BE1BF5D2CF8C6150082648D /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */; };
 		5BE1BF5F2CF8C70F0082648D /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */; };
-		5BE1BF912CF8E4F90082648D /* IntroFinishDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF902CF8E4F90082648D /* IntroFinishDark.json */; };
-		5BE1BF922CF8E4F90082648D /* CaptureDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF8E2CF8E4F90082648D /* CaptureDark.json */; };
-		5BE1BF932CF8E4F90082648D /* BusDotIntroDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF8D2CF8E4F90082648D /* BusDotIntroDark.json */; };
-		5BE1BF942CF8E4F90082648D /* GoNaverMapDark.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1BF8F2CF8E4F90082648D /* GoNaverMapDark.json */; };
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
@@ -126,10 +122,6 @@
 		5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
-		5BE1BF8D2CF8E4F90082648D /* BusDotIntroDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BusDotIntroDark.json; sourceTree = "<group>"; };
-		5BE1BF8E2CF8E4F90082648D /* CaptureDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaptureDark.json; sourceTree = "<group>"; };
-		5BE1BF8F2CF8E4F90082648D /* GoNaverMapDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoNaverMapDark.json; sourceTree = "<group>"; };
-		5BE1BF902CF8E4F90082648D /* IntroFinishDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroFinishDark.json; sourceTree = "<group>"; };
 		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
 		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81238872CF8C0560005EB25 /* TMTShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +183,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D81238952CF8C0560005EB25 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
+		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
 		D844BCC02CC120010059E31F /* TMTWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -453,10 +446,6 @@
 				D86A9EE02CEC696700B252F8 /* Capture.json */,
 				D86A9EE12CEC696700B252F8 /* GoNaverMap.json */,
 				D86A9EE22CEC696700B252F8 /* IntroFinish.json */,
-				5BE1BF8D2CF8E4F90082648D /* BusDotIntroDark.json */,
-				5BE1BF8E2CF8E4F90082648D /* CaptureDark.json */,
-				5BE1BF8F2CF8E4F90082648D /* GoNaverMapDark.json */,
-				5BE1BF902CF8E4F90082648D /* IntroFinishDark.json */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -620,10 +609,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
-				5BE1BF912CF8E4F90082648D /* IntroFinishDark.json in Resources */,
-				5BE1BF922CF8E4F90082648D /* CaptureDark.json in Resources */,
-				5BE1BF932CF8E4F90082648D /* BusDotIntroDark.json in Resources */,
-				5BE1BF942CF8E4F90082648D /* GoNaverMapDark.json in Resources */,
 				D86A9EE32CEC696700B252F8 /* Capture.json in Resources */,
 				D86A9EE42CEC696700B252F8 /* GoNaverMap.json in Resources */,
 				D86A9EE52CEC696700B252F8 /* BusDotIntro.json in Resources */,
@@ -721,9 +706,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TMTShareExtension/TMTShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTShareExtension;
@@ -738,6 +725,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_ShareExtension_Development;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -750,9 +738,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TMTShareExtension/TMTShareExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTShareExtension;
@@ -767,6 +757,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_ShareExtension_Distribution;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -780,9 +771,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -799,6 +792,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Development;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -816,9 +810,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -835,6 +831,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Distribution;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -972,21 +969,24 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TMT/TMT.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BusDot;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "It is required to display your location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Authorization is required to provide drop-off instructions based on the user's location.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -996,6 +996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Development;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1013,21 +1014,24 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TMT/TMTRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BusDot;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "It is required to display your location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Authorization is required to provide drop-off instructions based on the user's location.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1037,6 +1041,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Distribution;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

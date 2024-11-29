@@ -60,7 +60,7 @@ struct BusStopRowView: View {
                     .foregroundStyle(.basicWhite)
                     .frame(width: 8, height: 8.4)
             }
-            .foregroundStyle(.grey100)
+            .foregroundStyle(isPartOfJourney ? .brandPrimary : .grey100)
             .padding(.leading, 57)
             .padding(.trailing, 28)
             .background(.backgroundModal)
