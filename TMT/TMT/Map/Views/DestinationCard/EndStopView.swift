@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EndStopView: View {
     @Binding var busStopDetail: BusStop
-    @Binding var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color)
+    @Binding var colors: (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color)
     
     var remainingStops: Int = 0
     
@@ -24,7 +24,7 @@ struct EndStopView: View {
                 .background {
                     RoundedRectangle(cornerRadius: 20)
                         .trim(from: 0.5, to: 1)
-                        .foregroundStyle(colors.backgroundColor)
+                        .foregroundStyle(colors.statusColor)
                 }
             
             BusStopDetailView(isEndStopViewVisible: true, stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "")

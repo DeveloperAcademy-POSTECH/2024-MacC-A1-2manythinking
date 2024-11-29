@@ -30,25 +30,20 @@ struct BusJourneyLiveActivity: Widget {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .center, spacing: 4) {
                         Image(systemName: "location.fill")
-                            .foregroundStyle(.textDefault)
-                            .font(.system(size: 12, weight: .medium))
+                            .font(.system(size: 12))
                         
                         Text("This Stop")
-                            .foregroundStyle(.textDefault)
                             .font(.system(size: 14, weight: .medium))
                     }
                     .padding(.bottom, 4)
                     
                     Text(context.state.thisStopNameKorean)
-                        .foregroundStyle(.textDefault)
                         .font(.system(size: 20, weight: .bold))
                     
                     Text("[\(context.state.thisStopNameRomanized)]") // TODO: 여러 줄로 보이도록 하기
-                        .foregroundStyle(.textDefault)
                         .font(.system(size: 14, weight: .medium))
                 }
-                .frame(width: 243)
-                .foregroundStyle(.basicBlack)
+                .foregroundStyle(.textDefault)
                 .multilineTextAlignment(.leading)
                 
                 Image("TrailingBig")

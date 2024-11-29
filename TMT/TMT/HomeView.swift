@@ -37,7 +37,7 @@ struct HomeView: View {
                 } label: {
                     Image(systemName: "info.circle")
                         .foregroundStyle(.grey600)
-                        .font(.system(size: 17, weight: .regular))
+                        .font(.system(size: 17))
                 }
                 .disabled(isShowingInformation)
             }

@@ -9,7 +9,6 @@ enum BusColor: String, CaseIterable {
     case blue = "Blue"
     case general = "General"
     case express = "Express"
-    case green = "Green"
     
     static var allColors: [String] {
         return BusColor.allCases.map { $0.rawValue }

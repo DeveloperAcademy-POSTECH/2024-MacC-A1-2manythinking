@@ -41,22 +41,6 @@ enum StopStatusEnum {
         }
     }
     
-    /// EndStopView Background
-    var backgroundColor: Color {
-        switch self {
-        case .zeroStopLeft:
-            return .left0
-        case .oneStopLeft:
-            return .left1
-        case .twoStopsLeft:
-            return .left2
-        case .threeStopsLeft:
-            return .left3
-        case .defaultStatus:
-            return .yellow500
-        }
-    }
-    
     /// EndStopView Destination Text
     var destinationColor: Color {
         switch self {

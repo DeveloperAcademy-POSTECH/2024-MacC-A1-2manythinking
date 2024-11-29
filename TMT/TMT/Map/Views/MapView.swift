@@ -21,7 +21,7 @@ struct MapView: View {
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
-    @State private var colors: (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
+    @State private var colors: (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
     @State private var coordinatesList: [Coordinate] = []
     @State private var endStop: BusStop = BusStop()
     @State private var isShowingBottomSheet = true
@@ -197,9 +197,9 @@ struct MapView: View {
     
     
     /// EndStopView의 메인 컬러를 판단합니다.
-    private func mainColor(remainingStops: Int) -> (backgroundColor: Color, leftStopNumberColor: Color, destinationColor: Color) {
+    private func mainColor(remainingStops: Int) -> (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) {
         let status = StopStatusEnum(remainingStops: remainingStops)
-        return (status.backgroundColor, status.leftStopNumberColor, status.destinationColor)
+        return (status.statusColor, status.leftStopNumberColor, status.destinationColor)
     }
 }
 

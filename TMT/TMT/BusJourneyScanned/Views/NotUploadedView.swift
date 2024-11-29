@@ -24,7 +24,6 @@ struct NotUploadedView: View {
                     Text("Put your worries away\nAnd take the bus\ncomfortably")
                         .foregroundStyle(.textDefault)
                         .font(.system(size: 28, weight: .bold))
-                        .bold()
                     Spacer()
                 }
                 .padding(.bottom, 10)
@@ -55,7 +54,7 @@ struct NotUploadedView: View {
                         HStack(alignment: .center, spacing: 8) {
                             Image(systemName: "photo")
                             Text("Upload Screenshot")
-                                .font(.system(size: 18, weight: .medium))
+                                .font(.system(size: 18))
                         }
                         .foregroundStyle(.yellow600)
                     }

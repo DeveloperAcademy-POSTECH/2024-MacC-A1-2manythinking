@@ -23,7 +23,7 @@ struct BusStopArrivalView: View {
                 } label: {
                     Image(systemName: "xmark.circle")
                         .foregroundStyle(.grey300)
-                        .font(.system(size: 24, weight: .light))
+                        .font(.system(size: 24))
                 }
             }
             .padding(.bottom, 8)
