@@ -26,12 +26,14 @@ struct BusJourneyLiveActivity: Widget {
         ActivityConfiguration(for: BusJourneyAttributes.self) { context in
             // Lock screen/banner UI goes here
             // MARK: Lock Screen
-            HStack(spacing: 19) {
+            HStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .center, spacing: 4) {
                         Image(systemName: "location.fill")
+                            .font(.system(size: 12))
                         
                         Text("This Stop")
+                            .font(.system(size: 14, weight: .medium))
                     }
                     .padding(.bottom, 4)
                     
@@ -41,7 +43,7 @@ struct BusJourneyLiveActivity: Widget {
                     Text("[\(context.state.thisStopNameRomanized)]") // TODO: 여러 줄로 보이도록 하기
                         .font(.system(size: 14, weight: .medium))
                 }
-                .foregroundStyle(.basicBlack)
+                .foregroundStyle(.textDefault)
                 .multilineTextAlignment(.leading)
                 
                 Image("TrailingBig")
@@ -52,10 +54,12 @@ struct BusJourneyLiveActivity: Widget {
                     .overlay {
                         VStack(spacing: -4) {
                             Text("\(context.state.remainingStopsCount)")
+                                .foregroundStyle(.textLeft)
                                 .font(.system(size: 24, weight: .bold))
                             
                             Text("Stops Left")
-                                .font(.system(size: 12))
+                                .foregroundStyle(.textLeft)
+                                .font(.system(size: 14, weight: .medium))
                         }
                     }
             }
@@ -75,7 +79,7 @@ struct BusJourneyLiveActivity: Widget {
                         
                         Text("This Stop")
                             .font(.system(size: 14, weight: .medium))
-                        
+                            .padding(.bottom, 4)
                     }
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
                     .padding([.leading, .top], 8)
@@ -86,9 +90,11 @@ struct BusJourneyLiveActivity: Widget {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(context.state.thisStopNameKorean)
+                                    .foregroundStyle(.grey50)
                                     .font(.system(size: 20, weight: .bold))
                                 
                                 Text("[\(context.state.thisStopNameRomanized)]")
+                                    .foregroundStyle(.grey50)
                                     .font(.system(size: 14, weight: .medium))
                                     .multilineTextAlignment(.leading)
                             }
@@ -107,7 +113,7 @@ struct BusJourneyLiveActivity: Widget {
                                 Text("Stops Left")
                                     .font(.system(size: 14, weight: .medium))
                             }
-                            .foregroundStyle(.brandPrimary)
+                            .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
                             .padding(.horizontal, 14)
                             .padding(.vertical, 7.5)
                             .background {

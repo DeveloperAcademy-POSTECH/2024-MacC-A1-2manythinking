@@ -8,25 +8,24 @@
 import SwiftUI
 
 struct BusStopDetailView: View {
+    var isEndStopViewVisible: Bool
     var stopNameKorean: String
     var stopNameRomanized: String
     var stopNameNaver: String
-    var isEndStopViewVisible: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Korean")
                 .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
-                .font(.footnote)
+                .font(.system(size: 14, weight: .medium))
             
             Text("\(stopNameKorean)")
-                .foregroundStyle(.basicBlack)
-                .font(.title2)
-                .fontWeight(.bold)
+                .foregroundStyle(.textDefault)
+                .font(isEndStopViewVisible ? .system(size: 24, weight: .bold) : .system(size: 20, weight: .bold))
             
             Text("[\(stopNameRomanized)]")
                 .foregroundStyle(.grey400)
-                .font(.footnote)
+                .font(.system(size: 14, weight: .medium))
             
             Divider()
                 .foregroundStyle(isEndStopViewVisible ? .grey100 : .white) // TODO: divider 색상 변경 필요
@@ -34,12 +33,11 @@ struct BusStopDetailView: View {
             
             Text("English")
                 .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
-                .font(.footnote)
+                .font(.system(size: 14, weight: .medium))
             
             Text("\(stopNameNaver)")
-                .foregroundStyle(.basicBlack)
-                .font(.title2)
-                .fontWeight(.bold)
+                .foregroundStyle(.textDefault)
+                .font(.system(size: 20, weight: .bold))
         }
     }
 }
@@ -48,9 +46,8 @@ struct BusStopDetailView: View {
     var dummy = BusStop.journeyStopDummy
     
     BusStopDetailView(
-        stopNameKorean: dummy.first!.stopNameKorean ?? "",
+        isEndStopViewVisible : true, stopNameKorean: dummy.first!.stopNameKorean ?? "",
         stopNameRomanized: dummy.first!.stopNameRomanized ?? "",
-        stopNameNaver: dummy.first!.stopNameNaver ?? "",
-        isEndStopViewVisible : true
+        stopNameNaver: dummy.first!.stopNameNaver ?? ""
     )
 }

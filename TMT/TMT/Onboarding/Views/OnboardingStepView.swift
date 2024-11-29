@@ -9,12 +9,12 @@ import SwiftUI
 
 struct OnboardingStepView: View {
     var step: OnboardingStep
+    let screenMode: String
     
     var body: some View {
         ZStack {
             if step == .introFinish {
-                Color.yellow50
-                    .ignoresSafeArea(.all)
+                screenMode == "Light" ? Color.yellow50.ignoresSafeArea(.all) : Color.brandBackground.ignoresSafeArea(.all)
             }
             
             VStack(spacing: 0) {
@@ -22,6 +22,7 @@ struct OnboardingStepView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(step.title)
                             .font(.system(size: 28, weight: .bold)) // TODO: 서체 수정하기
+                            .foregroundStyle(.textDefault)
                         
                         if let description = step.description {
                             Text(description)
@@ -39,20 +40,26 @@ struct OnboardingStepView: View {
                 
                 Spacer()
                 
-                LottieView(animationFileName: step.image, loopMode: .loop)
-                    .frame(maxWidth: 270, maxHeight: 531)
-                    .padding(.bottom, 48)
+                if screenMode == "Light" {
+                    LottieView(animationFileName: step.lightImage, loopMode: .loop)
+                        .frame(maxWidth: 270, maxHeight: 531)
+                        .padding(.bottom, 48)
+                } else {
+                    LottieView(animationFileName: step.darkImage, loopMode: .loop)
+                        .frame(maxWidth: 270, maxHeight: 531)
+                        .padding(.bottom, 48)
+                }
             }
         }
     }
 }
 
 #Preview {
-    OnboardingStepView(step: OnboardingStep.goNaverMap)
+    OnboardingStepView(step: OnboardingStep.goNaverMap, screenMode: "Dark")
 }
 #Preview {
-    OnboardingStepView(step: OnboardingStep.capture)
+    OnboardingStepView(step: OnboardingStep.capture, screenMode: "Dark")
 }
 #Preview {
-    OnboardingStepView(step: OnboardingStep.introFinish)
+    OnboardingStepView(step: OnboardingStep.introFinish, screenMode: "Dark")
 }

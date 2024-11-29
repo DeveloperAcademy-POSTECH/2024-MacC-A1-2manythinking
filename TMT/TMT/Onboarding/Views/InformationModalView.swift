@@ -10,9 +10,9 @@ import SwiftUI
 struct InformationModalView: View {
     @Binding var isShowingInformation: Bool
     @Environment(\.openURL) var openLink
-
+    
     private let title = "Prepare your screenshot"
-    private let description = "If you don't have a screenshot,\ngo to NAVER Map and take a screen capture"
+    private let description = "If you don't have one,\ngo to NAVER Map and take a screenshot."
     private let filledButtonTitle = "Go to Naver Map"
     private let outlinedButtonTitle = "I have a screenshot"
     
@@ -22,7 +22,7 @@ struct InformationModalView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(title)
-                    .foregroundStyle(.basicBlack)
+                    .foregroundStyle(.textDefault)
                     .font(.system(size: 24, weight: .bold)) // TODO: 서체 수정
                 
                 Text(description)
@@ -47,7 +47,7 @@ struct InformationModalView: View {
             }
             .padding(16)
             .background {
-                Color.basicWhite
+                Color.backgroundModal
                     .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             .frame(minHeight: 590)
