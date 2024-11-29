@@ -12,7 +12,7 @@ enum OnboardingStep: CaseIterable {
     
     var title: String {
         switch self {
-        case .goNaverMap: return "Go to Naver Map's\nbus route."
+        case .goNaverMap: return "Find your bus route on\nNaver Map"
         case .capture: return "Search and capture\nthe screenshot."
         case .introFinish: return "And upload it, Done!"
         }
@@ -22,15 +22,24 @@ enum OnboardingStep: CaseIterable {
         switch self {
         case .goNaverMap: return nil
         case .capture: return nil
-        case .introFinish: return "The route is\nautomatically entered!"
+        case .introFinish: return "BusDot will automatically\nimport your bus route data"
         }
     }
     
-    var image: String {
+    var lightImage: String {
         switch self {
         case .goNaverMap: return "GoNaverMap"
         case .capture: return "Capture"
         case .introFinish: return "IntroFinish"
         }
     }
+    
+    var darkImage: String {
+        switch self {
+        case .goNaverMap: return "GoNaverMapDark"
+        case .capture: return "CaptureDark"
+        case .introFinish: return "IntroFinishDark"
+        }
+    }
+    
 }

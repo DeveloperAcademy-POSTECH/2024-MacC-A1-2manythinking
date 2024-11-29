@@ -60,9 +60,10 @@ struct BusStopRowView: View {
                     .foregroundStyle(.basicWhite)
                     .frame(width: 8, height: 8.4)
             }
+            .foregroundStyle(isPartOfJourney ? .brandPrimary : .grey100)
             .padding(.leading, 57)
             .padding(.trailing, 28)
-            .foregroundStyle(isPartOfJourney ? .brandPrimary : .grey100)
+            .background(.backgroundModal)
     }
     
     private var busStopInfoView: some View {
@@ -70,25 +71,25 @@ struct BusStopRowView: View {
             busStopNamesView
             
             Divider()
-                .background(isPartOfJourney ? .grey50 : .grey100)
+                .background(.busStopLine)
         }
-        .background(isPartOfJourney ? .basicWhite : .grey30) // TODO: 색상 추가되면 변경하기
+        .background(isPartOfJourney ? .brandBackground  : .busStopUnselect)// TODO: 색상 추가되면 변경하기
     }
     
     private var busStopNamesView: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(stop.stopNameKorean ?? "")
                 .font(.headline) // TODO: 서체
-                .foregroundStyle(.basicBlack)
+                .foregroundStyle(isPartOfJourney ? .textDefault : .grey400)
             
             Text("[\(stop.stopNameRomanized ?? "")]")
                 .font(.subheadline) // TODO: 서체
-                .foregroundStyle(.grey300)
+                .foregroundStyle(.grey400)
             
             if isPartOfJourney {
                 Text(stop.stopNameNaver ?? "")
-                    .font(.subheadline) // TODO: 서체
-                    .foregroundStyle(.basicBlack)
+                    .font(.headline) // TODO: 서체
+                    .foregroundStyle(.textDefault)
             }
         }
         .multilineTextAlignment(.leading)

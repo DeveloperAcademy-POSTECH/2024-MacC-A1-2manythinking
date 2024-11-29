@@ -10,23 +10,29 @@ import PhotosUI
 
 struct NotUploadedView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
+    
     @State private var pickedItem: PhotosPickerItem? = nil
     @State private var showingAlert = false
     @State private var tag: Int? = nil
+    
     @Binding var path: [String]
-
+    
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
-                    Text("Ride Confident,\nArrive Intentionally")
-                        .font(.title)
-                        .bold()
+                    Text("Put your worries away\nAnd take the bus\ncomfortably")
+                        .foregroundStyle(.textDefault)
+                        .font(.system(size: 28, weight: .bold))
                     Spacer()
                 }
+                .padding(.bottom, 10)
+                
                 HStack(spacing: 0) {
-                    Text("Whether you don't know Korean,\nyou can know\nwhere to get off the bus.")
+                    Text("We will let you know exact location to\nget off")
                         .padding(.bottom, 10)
+                        .foregroundStyle(.brandPrimary)
+                        .font(.system(size: 20, weight: .bold))
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
@@ -34,7 +40,7 @@ struct NotUploadedView: View {
                 NavigationLink(destination: ScannedJourneyInfoView(path: $path), tag: 1, selection: $tag) {
                     EmptyView()
                 }
-
+                
                 PhotosPicker(
                     selection: $pickedItem,
                     matching: .screenshots
@@ -46,7 +52,8 @@ struct NotUploadedView: View {
                             .aspectRatio(1.0, contentMode: .fit)
                         HStack(alignment: .center, spacing: 8) {
                             Image(systemName: "photo")
-                            Text("Upload Path Screenshot")
+                            Text("Upload Screenshot")
+                                .font(.system(size: 18))
                         }
                         .foregroundStyle(.yellow600)
                     }
@@ -71,7 +78,7 @@ struct NotUploadedView: View {
                     Text("Image recognition failed during upload. Please upload the image again.")
                 }
             }
-
+            
             if imageHandler.isLoading {
                 ProgressView()
             }
@@ -86,7 +93,7 @@ struct NotUploadedView: View {
                         tag = 1
                         path.append("ScannedJourneyInfo")
                     }
-
+                    
                     sharedDefaults.set(false, forKey: "isShared")
                     sharedDefaults.synchronize()
                 }

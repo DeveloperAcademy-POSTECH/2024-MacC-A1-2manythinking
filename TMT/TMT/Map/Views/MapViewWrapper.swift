@@ -24,19 +24,24 @@ final class SelectedStopManager: ObservableObject {
 }
 
 struct MapViewWrapper: UIViewRepresentable {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     @ObservedObject var selectedStopManager: SelectedStopManager
-    @Binding var region: MKCoordinateRegion
+    
     @Binding var isUpdateRequested: Bool
+    @Binding var region: MKCoordinateRegion
+    
     var coordinatesList: [Coordinate]
     var updateInterval: TimeInterval = 5
     
     class Coordinator: NSObject, MKMapViewDelegate {
         var parent: MapViewWrapper
+        var screenMode: String
         var timer: Timer?
         private var isUserInteractionInProgress = false
         
-        init(_ parent: MapViewWrapper) {
+        init(_ parent: MapViewWrapper, colorScheme: ColorScheme) {
             self.parent = parent
+            self.screenMode = colorScheme == .dark ? "Dark" : "Light"
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -68,9 +73,17 @@ struct MapViewWrapper: UIViewRepresentable {
             
             if let indexedAnnotation = annotation as? IndexedAnnotation {
                 if indexedAnnotation.index == parent.selectedStopManager.selectedIndex && parent.selectedStopManager.isTapped {
-                    annotationView?.image = UIImage(named: "SelectedBusStopIcon")
+                    if screenMode == "Light" {
+                        annotationView?.image = UIImage(named: "SelectedBusStopIcon")
+                    } else {
+                        annotationView?.image = UIImage(named: "SelectedBusStopIconDark")
+                    }
                 } else {
-                    annotationView?.image = UIImage(named: "BusStopIcon")
+                    if screenMode == "Light" {
+                        annotationView?.image = UIImage(named: "BusStopIcon")
+                    } else {
+                        annotationView?.image = UIImage(named: "BusStopIconDark")
+                    }
                 }
                 annotationView?.frame.size = CGSize(width: 35, height: 35)
                 annotationView?.layer.cornerRadius = 5
@@ -113,7 +126,7 @@ struct MapViewWrapper: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(self, colorScheme: colorScheme)
     }
     
     func makeUIView(context: Context) -> MKMapView {

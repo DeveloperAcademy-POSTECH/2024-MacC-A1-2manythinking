@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct OnboardingIntroView: View {
-    private let title = "BusDot helps\nnot miss your stop."
-    private let fileName = "BusDotIntro"
+    private let title = "With BusDot, you will\nnever miss your stop!"
+    let screenMode: String
     
     var body: some View {
+        let fileName = screenMode == "Light" ? "BusDotIntro" : "BusDotIntroDark"
         VStack(alignment: .leading, spacing: 0) {
             Text(title)
                 .font(.system(size: 28, weight: .bold)) // TODO: 서체 수정하기
+                .foregroundStyle(.textDefault)
                 .padding(.top, 61)
                 .padding(.horizontal, 24)
             
@@ -28,5 +30,5 @@ struct OnboardingIntroView: View {
 }
 
 #Preview {
-    OnboardingIntroView()
+    OnboardingIntroView(screenMode: "Dark")
 }

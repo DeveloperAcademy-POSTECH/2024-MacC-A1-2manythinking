@@ -33,7 +33,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack(path: $path) {
             ZStack(alignment: .bottom) {
-                Color.basicWhite
+                Color.brandBackground
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
@@ -52,6 +52,7 @@ struct HomeView: View {
                 } label: {
                     Image(systemName: "info.circle")
                         .foregroundStyle(.grey600)
+                        .font(.system(size: 17))
                 }
                 .disabled(isShowingInformation)
             }

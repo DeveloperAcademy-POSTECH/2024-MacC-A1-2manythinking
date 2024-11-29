@@ -33,9 +33,6 @@
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
 		D81238912CF8C0560005EB25 /* TMTShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D81238872CF8C0560005EB25 /* TMTShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D81238C82CF8CD760005EB25 /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81238C72CF8CD760005EB25 /* ScannedJourneyInfoView.swift */; };
-		D81238C92CF8CD920005EB25 /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1882CE64EB500E2EC41 /* ScannedJourneyInfo.swift */; };
-		D81238CA2CF8CDAE0005EB25 /* EndStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6D2572CD3DD0D00F6A487 /* EndStopView.swift */; };
 		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
 		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
 		D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
@@ -127,7 +124,6 @@
 		D81238872CF8C0560005EB25 /* TMTShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81238962CF8C07C0005EB25 /* TMTRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMTRelease.entitlements; sourceTree = "<group>"; };
 		D81238982CF8C3380005EB25 /* TMT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMT.entitlements; sourceTree = "<group>"; };
-		D81238C72CF8CD760005EB25 /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneySettingModel.swift; sourceTree = "<group>"; };
 		D81D9E992CE47F0D004F2024 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D81D9E9B2CE47F12004F2024 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -158,7 +154,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D81238952CF8C0560005EB25 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		5BC7F47C2CF9CF9B00659F42 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -182,8 +178,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D81238952CF8C0560005EB25 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
-		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
+		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (5BC7F47C2CF9CF9B00659F42 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
 		D844BCC02CC120010059E31F /* TMTWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -706,7 +701,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TMTShareExtension/TMTShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -735,7 +730,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TMTShareExtension/TMTShareExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -765,7 +760,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -801,7 +796,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -957,7 +952,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TMT/TMT.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -972,7 +967,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -999,7 +993,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TMT/TMTRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -1014,7 +1008,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

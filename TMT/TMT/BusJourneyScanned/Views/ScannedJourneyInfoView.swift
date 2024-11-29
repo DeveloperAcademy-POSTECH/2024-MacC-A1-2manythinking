@@ -20,11 +20,15 @@ struct ScannedJourneyInfoView: View {
     @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
+    @State private var showingAlert: Bool = false
+    @State private var showingPhotosPicker: Bool = false
+    @State private var tag: Int? = nil
+    
     @Binding var path: [String]
     
     var body: some View {
         ZStack {
-            Color.white
+            Color.brandBackground
                 .ignoresSafeArea()
             VStack {
                 ScrollView {
@@ -48,6 +52,7 @@ struct ScannedJourneyInfoView: View {
                             Spacer()
                         }
                         Text("As the information was entered incorrectly, please reupload the screenshot.")
+                            .font(.system(size: 16, weight: .medium))
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -87,7 +92,7 @@ struct ScannedJourneyInfoView: View {
                             showingAlert = false
                             showingPhotosPicker = true
                         } label: {
-                            // TODO: 커스텀 안되는 문제 해결하기
+                            // TODO: 커스텀 안되는 문제 해결하기 (bold 처리가 안됨)
                             Text("Confirm")
                                 .foregroundStyle(.blue)
                                 .font(.footnote.weight(.bold))
@@ -148,25 +153,28 @@ struct ScannedJourneyInfoView: View {
             } label: {
                 Image(systemName: "info.circle")
                     .foregroundStyle(.grey600)
+                    .font(.system(size: 17))
             }
             .disabled(isShowingInformation)
         }
-
+        
     }
-
+    
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
                 .foregroundStyle(.grey300)
+                .font(.system(size: 14, weight: .medium))
+            
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
-                .bold()
-                .font(.title)
+                .foregroundStyle(.textDefault)
+                .font(.system(size: 20, weight: .bold))
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(.grey100, lineWidth: 1)
-                        .background(Color.basicWhite.cornerRadius(8))
+                        .background(Color.brandBackground.cornerRadius(8))
                 )
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }
