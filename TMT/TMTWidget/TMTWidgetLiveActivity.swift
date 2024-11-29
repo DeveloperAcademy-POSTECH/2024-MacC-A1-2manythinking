@@ -45,6 +45,8 @@ struct BusJourneyLiveActivity: Widget {
                 }
                 .foregroundStyle(.textDefault)
                 .multilineTextAlignment(.leading)
+
+                Spacer()
                 
                 Image("TrailingBig")
                     .resizable()
@@ -197,8 +199,8 @@ extension BusJourneyAttributes {
 }
 
 extension BusJourneyAttributes.ContentState {
-    fileprivate static var HyoGokDong55: BusJourneyAttributes.ContentState {
-        BusJourneyAttributes.ContentState(remainingStopsCount: 55, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+    fileprivate static var Postech55: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 55, thisStopNameKorean: "포스텍", thisStopNameRomanized: "Postech")
     }
     
     fileprivate static var HyoGokDong3: BusJourneyAttributes.ContentState {
@@ -221,7 +223,7 @@ extension BusJourneyAttributes.ContentState {
 #Preview("Lock Screen", as: .content, using: BusJourneyAttributes.preview) {
     BusJourneyLiveActivity()
 } contentStates: {
-    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.Postech55
     BusJourneyAttributes.ContentState.HyoGokDong3
     BusJourneyAttributes.ContentState.HyoGokDong2
     BusJourneyAttributes.ContentState.HyoGokDong1
@@ -231,7 +233,7 @@ extension BusJourneyAttributes.ContentState {
 #Preview("Expanded Dynamic Island", as: .dynamicIsland(.expanded), using: BusJourneyAttributes.preview) {
     BusJourneyLiveActivity()
 } contentStates: {
-    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.Postech55
     BusJourneyAttributes.ContentState.HyoGokDong3
     BusJourneyAttributes.ContentState.HyoGokDong2
     BusJourneyAttributes.ContentState.HyoGokDong1
@@ -241,7 +243,7 @@ extension BusJourneyAttributes.ContentState {
 #Preview("Compact Dynamic Island", as: .dynamicIsland(.compact), using: BusJourneyAttributes.preview) {
     BusJourneyLiveActivity()
 } contentStates: {
-    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.Postech55
     BusJourneyAttributes.ContentState.HyoGokDong3
     BusJourneyAttributes.ContentState.HyoGokDong2
     BusJourneyAttributes.ContentState.HyoGokDong1
@@ -251,7 +253,7 @@ extension BusJourneyAttributes.ContentState {
 #Preview("Minimal Dynamic Island", as: .dynamicIsland(.minimal), using: BusJourneyAttributes.preview) {
     BusJourneyLiveActivity()
 } contentStates: {
-    BusJourneyAttributes.ContentState.HyoGokDong55
+    BusJourneyAttributes.ContentState.Postech55
     BusJourneyAttributes.ContentState.HyoGokDong3
     BusJourneyAttributes.ContentState.HyoGokDong2
     BusJourneyAttributes.ContentState.HyoGokDong1
