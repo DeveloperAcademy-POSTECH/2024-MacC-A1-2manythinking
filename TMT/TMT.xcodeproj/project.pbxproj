@@ -183,6 +183,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D81238952CF8C0560005EB25 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
+		D81238882CF8C0560005EB25 /* TMTShareExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TMTShareExtension; sourceTree = "<group>"; };
 		D844BCC02CC120010059E31F /* TMTWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D844BCD72CC120E40059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, D844BCD12CC120030059E31F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TMTWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
