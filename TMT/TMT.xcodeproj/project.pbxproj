@@ -57,6 +57,10 @@
 		D876BF2F2CECE8820098B68E /* OnboardingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876BF2E2CECE8820098B68E /* OnboardingIntroView.swift */; };
 		D876BF312CECE89E0098B68E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D876BF302CECE89E0098B68E /* OnboardingView.swift */; };
 		D88F3AF22CD34DD200C0B657 /* InformationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F3AF12CD34DD200C0B657 /* InformationModalView.swift */; };
+		D8A1C0962CFA1B5C007D9F3F /* GoNaverMapDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0942CFA1B5C007D9F3F /* GoNaverMapDark.json */; };
+		D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0932CFA1B5C007D9F3F /* CaptureDark.json */; };
+		D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0952CFA1B5C007D9F3F /* IntroFinishDark.json */; };
+		D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0922CFA1B5C007D9F3F /* BusDotIntroDark.json */; };
 		D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchItem.swift */; };
 		D8D377EB2CBE95CA0043D103 /* BusSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */; };
 		D8E054DD2CF1AF89006B1879 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E054DC2CF1AF89006B1879 /* View.swift */; };
@@ -148,6 +152,10 @@
 		D876BF2E2CECE8820098B68E /* OnboardingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroView.swift; sourceTree = "<group>"; };
 		D876BF302CECE89E0098B68E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D88F3AF12CD34DD200C0B657 /* InformationModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationModalView.swift; sourceTree = "<group>"; };
+		D8A1C0922CFA1B5C007D9F3F /* BusDotIntroDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BusDotIntroDark.json; sourceTree = "<group>"; };
+		D8A1C0932CFA1B5C007D9F3F /* CaptureDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaptureDark.json; sourceTree = "<group>"; };
+		D8A1C0942CFA1B5C007D9F3F /* GoNaverMapDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoNaverMapDark.json; sourceTree = "<group>"; };
+		D8A1C0952CFA1B5C007D9F3F /* IntroFinishDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroFinishDark.json; sourceTree = "<group>"; };
 		D8D377E82CBE95C30043D103 /* BusSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchItem.swift; sourceTree = "<group>"; };
 		D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchModel.swift; sourceTree = "<group>"; };
 		D8E054DC2CF1AF89006B1879 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -437,10 +445,8 @@
 		D86A9ED62CEC682900B252F8 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				D86A9EDF2CEC696700B252F8 /* BusDotIntro.json */,
-				D86A9EE02CEC696700B252F8 /* Capture.json */,
-				D86A9EE12CEC696700B252F8 /* GoNaverMap.json */,
-				D86A9EE22CEC696700B252F8 /* IntroFinish.json */,
+				D8A1C0892CFA1AD1007D9F3F /* DarkMode */,
+				D8A1C0882CFA1AC8007D9F3F /* LightMode */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -452,6 +458,28 @@
 				D81D9E922CE47D8B004F2024 /* Views */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D8A1C0882CFA1AC8007D9F3F /* LightMode */ = {
+			isa = PBXGroup;
+			children = (
+				D86A9EDF2CEC696700B252F8 /* BusDotIntro.json */,
+				D86A9EE02CEC696700B252F8 /* Capture.json */,
+				D86A9EE12CEC696700B252F8 /* GoNaverMap.json */,
+				D86A9EE22CEC696700B252F8 /* IntroFinish.json */,
+			);
+			path = LightMode;
+			sourceTree = "<group>";
+		};
+		D8A1C0892CFA1AD1007D9F3F /* DarkMode */ = {
+			isa = PBXGroup;
+			children = (
+				D8A1C0922CFA1B5C007D9F3F /* BusDotIntroDark.json */,
+				D8A1C0932CFA1B5C007D9F3F /* CaptureDark.json */,
+				D8A1C0942CFA1B5C007D9F3F /* GoNaverMapDark.json */,
+				D8A1C0952CFA1B5C007D9F3F /* IntroFinishDark.json */,
+			);
+			path = DarkMode;
 			sourceTree = "<group>";
 		};
 		D8D377E42CBE548F0043D103 /* Resource */ = {
@@ -607,6 +635,10 @@
 				D86A9EE32CEC696700B252F8 /* Capture.json in Resources */,
 				D86A9EE42CEC696700B252F8 /* GoNaverMap.json in Resources */,
 				D86A9EE52CEC696700B252F8 /* BusDotIntro.json in Resources */,
+				D8A1C0962CFA1B5C007D9F3F /* GoNaverMapDark.json in Resources */,
+				D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */,
+				D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */,
+				D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */,
 				D86A9EE62CEC696700B252F8 /* IntroFinish.json in Resources */,
 				5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
@@ -972,7 +1004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1013,7 +1045,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
