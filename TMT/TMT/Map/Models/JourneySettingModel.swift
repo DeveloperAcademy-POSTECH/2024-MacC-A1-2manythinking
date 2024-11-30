@@ -16,7 +16,8 @@ final class JourneySettingModel: ObservableObject {
     private var startStop: BusStop?
     private var endStop: BusStop?
 
-    var lastPassedStopIndex: Int = -1
+    @Published var closestStop: BusStop?
+    @Published var lastPassedStopIndex: Int = -1
 
     init(searchModel: BusSearchModel) {
         self.searchModel = searchModel
@@ -74,23 +75,25 @@ final class JourneySettingModel: ObservableObject {
             print("정류장 설정 plz ..")
             return (0, self.startStop)
         }
-        
-        var passedStops = 0
-        var closestStop = journeyStops.first
+
+        var currentStop = journeyStops.first
         let userLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
 
         for (index, stop) in journeyStops.enumerated() {
-            guard let stopLatitude = stop.latitude, let stopLongitude = stop.longitude else { continue }
+            guard index > lastPassedStopIndex,
+                  let stopLatitude = stop.latitude,
+                  let stopLongitude = stop.longitude else { continue }
+
             let stopLocation = CLLocation(latitude: stopLatitude, longitude: stopLongitude)
 
-            if userLocation.distance(from: stopLocation) < 10.0 {
-                passedStops = index
-                closestStop = stop
+            if userLocation.distance(from: stopLocation) < 50.0 {
+                lastPassedStopIndex = index
+                currentStop = stop
                 break
             }
         }
 
-        let remainingStops = max(0, journeyStops.count - passedStops - 1)
-        return (remainingStops, closestStop)
+        let remainingStops = max(0, journeyStops.count - lastPassedStopIndex - 1)
+        return (remainingStops, currentStop)
     }
 }
