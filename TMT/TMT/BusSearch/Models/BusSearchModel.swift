@@ -10,7 +10,9 @@ import Foundation
 final class BusSearchModel: ObservableObject {
     @Published var allBusData: [BusStop] = []
     @Published var filteredBusDataForNumber: [BusStop] = []
-    @Published var busRouteCoordinates: [Coordinate] = []
+    @Published var filteredRouteCoordinates: [Coordinate] = []
+    
+    var allRouteCoordinates: [Coordinate] = []
     
     init() {
         loadBusStopData()
@@ -68,7 +70,7 @@ final class BusSearchModel: ObservableObject {
     @MainActor
     private func applyBusRouteCoordinateData(_ searchResponse: [[String]]) {
         for response in searchResponse {
-            self.busRouteCoordinates.append(Coordinate(busNumber: response[0],
+            self.allRouteCoordinates.append(Coordinate(busNumber: response[0],
                                                        stopNameKorean: response[1],
                                                        stopOrder: Int(response[2]) ?? 0,
                                                        latitude: Double(response[3]) ?? 0,
@@ -89,6 +91,13 @@ final class BusSearchModel: ObservableObject {
     func searchBusStops(byName name: String) -> [BusStop] {
         return filteredBusDataForNumber.filter {
             name.contains($0.stopNameNaver ?? "") || name.contains($0.stopNameKorean ?? "")
+        }
+    }
+    
+    /// BusRouteCoordinates csv 파일에서 해당되는 버스 번호 찾기
+    func searchRouteCoordinates(byNumber number: String) {
+        filteredRouteCoordinates = allRouteCoordinates.filter { route in
+            return route.busNumber.contains(number)
         }
     }
 }

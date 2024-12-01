@@ -5,7 +5,7 @@
 //  Created by Choi Minkyeong on 12/1/24.
 //
 
-import SwiftUI
+import Foundation
 
 struct Coordinate: Identifiable {
     var id = UUID()

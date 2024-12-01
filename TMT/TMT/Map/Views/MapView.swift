@@ -16,7 +16,7 @@ struct MapView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var colors: (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
-    @State private var busStopCoordinates: [Coordinate] = []
+    //    @State private var busStopCoordinates: [Coordinate] = []
     @State private var busRouteCoordinates: [Coordinate] = []
     @State private var endStop: BusStop = BusStop()
     @State private var isShowingBottomSheet = true
@@ -80,8 +80,9 @@ struct MapView: View {
                 locationManager.findCurrentLocation()
             }
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
-            busStopCoordinates = getValidCoordinates(isRoute: false)
-            busRouteCoordinates = getValidCoordinates(isRoute: true)
+            searchModel.searchRouteCoordinates(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
+            busRouteCoordinates = journeyRouteCoordinates()
+            print("busRouteCoordinates: \(busRouteCoordinates)")
             endStop = journeyModel.journeyStops.last ?? BusStop()
             colors = mainColor(remainingStops: locationManager.remainingStops)
         }
@@ -95,7 +96,7 @@ struct MapView: View {
     }
     // MARK: - Views / Map
     private var mapViewWrapper: some View {
-        MapViewWrapper(selectedStopManager: selectedStopManager, isUpdateRequested: $isUpdateRequested, region: $locationManager.region, busStopCoordinates: busStopCoordinates, busRouteCoordinates: busRouteCoordinates)
+        MapViewWrapper(selectedStopManager: selectedStopManager, isUpdateRequested: $isUpdateRequested, region: $locationManager.region, busStopCoordinates: searchModel.filteredBusDataForNumber, busRouteCoordinates: busRouteCoordinates)
     }
     
     private var myLocationButton: some View {
@@ -180,27 +181,16 @@ struct MapView: View {
     }
     
     // MARK: - logic
-    /// 좌표의 옵셔널을 제거합니다.
-    private func getValidCoordinates(isRoute: Bool) -> [Coordinate] {
-        if isRoute {
-//            journeyModel.journeyStops
-            searchModel.filteredBusDataForNumber.compactMap { stop in
-                guard let latitude = stop.latitude,
-                      let longitude = stop.longitude else {
-                    return nil
-                }
-                return Coordinate(latitude: latitude, longitude: longitude)
-            }
-            // 1차로 버스 번호 필터링
-            // 2차로 저니스탑의 첫 오더와 마지막 오더를 알아서 실제 적용시키기
-        } else {
-            searchModel.filteredBusDataForNumber.compactMap { stop in
-                guard let latitude = stop.latitude,
-                      let longitude = stop.longitude else {
-                    return nil
-                }
-                return Coordinate(latitude: latitude, longitude: longitude)
-            }
+    /// 사용자가 이동할 경로의 좌표만을 뽑아냅니다.
+    private func journeyRouteCoordinates() -> [Coordinate] {
+        guard let firstStopOrder = journeyModel.journeyStops.first?.stopOrder,
+              let lastStopOrder = journeyModel.journeyStops.last?.stopOrder else {
+            print("Error: No available stopOrder.")
+            return []
+        }
+        
+        return searchModel.filteredRouteCoordinates.filter { coordinate in
+            coordinate.stopOrder >= firstStopOrder && coordinate.stopOrder <= lastStopOrder
         }
     }
     

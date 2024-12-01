@@ -30,7 +30,7 @@ struct MapViewWrapper: UIViewRepresentable {
     @Binding var isUpdateRequested: Bool
     @Binding var region: MKCoordinateRegion
     
-    var busStopCoordinates: [Coordinate]
+    var busStopCoordinates: [BusStop]
     var busRouteCoordinates: [Coordinate]
     var updateInterval: TimeInterval = 5
     
@@ -86,8 +86,7 @@ struct MapViewWrapper: UIViewRepresentable {
                         annotationView?.image = UIImage(named: "BusStopIconDark")
                     }
                 }
-                annotationView?.frame.size = CGSize(width: 35, height: 35)
-                annotationView?.layer.cornerRadius = 5
+                annotationView?.frame.size = CGSize(width: 20, height: 20)
             }
             return annotationView
         }
@@ -95,8 +94,7 @@ struct MapViewWrapper: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             if let annotation = view.annotation as? IndexedAnnotation {
                 view.image = UIImage(named: "SelectedBusStopIcon")
-                view.frame.size = CGSize(width: 35, height: 35)
-                view.layer.cornerRadius = 5
+                view.frame.size = CGSize(width: 20, height: 20)
                 
                 parent.selectedStopManager.selectedIndex = annotation.index
                 parent.selectedStopManager.isTapped = true
@@ -109,14 +107,14 @@ struct MapViewWrapper: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-                if let polyline = overlay as? MKPolyline {
-                    let renderer = MKPolylineRenderer(polyline: polyline)
-                    renderer.strokeColor = .systemBlue
-                    renderer.lineWidth = 4.0
-                    return renderer
-                }
-                return MKOverlayRenderer()
+            if let polyline = overlay as? MKPolyline {
+                let renderer = MKPolylineRenderer(polyline: polyline)
+                renderer.strokeColor = .yellow500
+                renderer.lineWidth = 6.0
+                return renderer
             }
+            return MKOverlayRenderer()
+        }
         
         func updateMapRegionTimer(for mapView: MKMapView) {
             timer = Timer.scheduledTimer(withTimeInterval: parent.updateInterval, repeats: true) { [weak self] _ in
@@ -149,6 +147,7 @@ struct MapViewWrapper: UIViewRepresentable {
         mapView.layoutMargins = UIEdgeInsets(top: 0.0, left: 0, bottom: 0, right: 0)
         mapView.mapType = .mutedStandard
         context.coordinator.updateMapRegionTimer(for: mapView)
+        
         return mapView
     }
     
@@ -178,7 +177,7 @@ struct MapViewWrapper: UIViewRepresentable {
         }
         
         let coordinates = busRouteCoordinates.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) }
-                let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
-                mapView.addOverlay(polyline)
+        let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        mapView.addOverlay(polyline)
     }
 }
