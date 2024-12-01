@@ -44,7 +44,7 @@ final class BusSearchModel: ObservableObject {
     }
     
     func loadBusRouteCoordinateData() {
-        loadCSV(fileName: "BusRouteCoordinate") { [weak self] parsedData in
+        loadCSV(fileName: "BusRouteCoordinates") { [weak self] parsedData in
             guard let self = self else { return }
             await self.applyBusRouteCoordinateData(parsedData)
         }
@@ -68,11 +68,11 @@ final class BusSearchModel: ObservableObject {
     @MainActor
     private func applyBusRouteCoordinateData(_ searchResponse: [[String]]) {
         for response in searchResponse {
-            self.busRouteCoordinates.append(BusStop(busNumber: response[0].isEmpty ? nil : response[0],
-                                                    stopOrder: response[2].isEmpty ? nil : Int(response[1]),
-                                                    stopNameKorean: response[3].isEmpty ? nil : response[2],
-                                                    latitude: response[6].isEmpty ? nil : Double(response[3]),
-                                                    longitude: response[7].isEmpty ? nil : Double(response[7].dropLast(1))))
+            self.busRouteCoordinates.append(Coordinate(busNumber: response[0],
+                                                       stopNameKorean: response[1],
+                                                       stopOrder: Int(response[2]) ?? 0,
+                                                       latitude: Double(response[3]) ?? 0,
+                                                       longitude: Double(response[4].dropLast(1)) ?? 0))
         }
     }
     
