@@ -17,6 +17,7 @@
 		5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */; };
 		5B60774B2CFE1A2D0075A026 /* InfoPlist.strings in Sources */ = {isa = PBXBuildFile; fileRef = 5B60774A2CFE1A2D0075A026 /* InfoPlist.strings */; };
 		5B6076E92CFC663F0075A026 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6076E82CFC663A0075A026 /* Coordinate.swift */; };
+		5B6076EB2CFCA9AB0075A026 /* BusRouteCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5B6076EA2CFCA9AB0075A026 /* BusRouteCoordinates.csv */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
@@ -112,6 +113,7 @@
 		5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
 		5B6076E82CFC663A0075A026 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		5B6076EA2CFCA9AB0075A026 /* BusRouteCoordinates.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusRouteCoordinates.csv; sourceTree = "<group>"; };
 		5B6077472CFE199A0075A026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		5B6077482CFE199C0075A026 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/Info.plist; sourceTree = "<group>"; };
 		5B6077492CFE1A2D0075A026 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 		D86A9ED52CEC681C00B252F8 /* BusStop */ = {
 			isa = PBXGroup;
 			children = (
+				5B6076EA2CFCA9AB0075A026 /* BusRouteCoordinates.csv */,
 				5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */,
 				D801A1B82CF2212000AD0D64 /* Test */,
 			);
@@ -645,6 +648,7 @@
 				D86A9EE42CEC696700B252F8 /* GoNaverMap.json in Resources */,
 				D86A9EE52CEC696700B252F8 /* BusDotIntro.json in Resources */,
 				D8A1C0962CFA1B5C007D9F3F /* GoNaverMapDark.json in Resources */,
+				5B6076EB2CFCA9AB0075A026 /* BusRouteCoordinates.csv in Resources */,
 				D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */,
 				D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */,
 				D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */,
