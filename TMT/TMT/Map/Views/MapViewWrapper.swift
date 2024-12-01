@@ -30,7 +30,8 @@ struct MapViewWrapper: UIViewRepresentable {
     @Binding var isUpdateRequested: Bool
     @Binding var region: MKCoordinateRegion
     
-    var coordinatesList: [Coordinate]
+    var busStopCoordinates: [Coordinate]
+    var busRouteCoordinates: [Coordinate]
     var updateInterval: TimeInterval = 5
     
     class Coordinator: NSObject, MKMapViewDelegate {
@@ -107,6 +108,16 @@ struct MapViewWrapper: UIViewRepresentable {
             }
         }
         
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+                if let polyline = overlay as? MKPolyline {
+                    let renderer = MKPolylineRenderer(polyline: polyline)
+                    renderer.strokeColor = .systemBlue
+                    renderer.lineWidth = 4.0
+                    return renderer
+                }
+                return MKOverlayRenderer()
+            }
+        
         func updateMapRegionTimer(for mapView: MKMapView) {
             timer = Timer.scheduledTimer(withTimeInterval: parent.updateInterval, repeats: true) { [weak self] _ in
                 guard let self = self else { return }
@@ -151,18 +162,23 @@ struct MapViewWrapper: UIViewRepresentable {
         mapView.setRegion(region, animated: true)
         mapView.removeAnnotations(mapView.annotations)
         
-        let annotations = coordinatesList.enumerated().map { index, stop in
+        let annotations = busStopCoordinates.enumerated().map { index, stop in
             IndexedAnnotation(
-                coordinate: CLLocationCoordinate2D(latitude: stop.latitude, longitude: stop.longitude),
+                coordinate: CLLocationCoordinate2D(latitude: stop.latitude ?? 0, longitude: stop.longitude ?? 0),
                 index: index
             )
         }
         mapView.addAnnotations(annotations)
+        
         if selectedStopManager.isTapped, let index = selectedStopManager.selectedIndex {
             mapView.setRegion(MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: annotations[index].coordinate.latitude, longitude: annotations[index].coordinate.longitude),
                 span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
             ), animated: true)
         }
+        
+        let coordinates = busRouteCoordinates.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) }
+                let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+                mapView.addOverlay(polyline)
     }
 }

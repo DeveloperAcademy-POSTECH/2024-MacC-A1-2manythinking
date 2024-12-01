@@ -16,6 +16,7 @@
 		5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */; };
 		5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */; };
 		5B60774B2CFE1A2D0075A026 /* InfoPlist.strings in Sources */ = {isa = PBXBuildFile; fileRef = 5B60774A2CFE1A2D0075A026 /* InfoPlist.strings */; };
+		5B6076E92CFC663F0075A026 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6076E82CFC663A0075A026 /* Coordinate.swift */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
@@ -110,6 +111,7 @@
 		5B347FCF2CF4F71F00A1E852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
+		5B6076E82CFC663A0075A026 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		5B6077472CFE199A0075A026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		5B6077482CFE199C0075A026 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/Info.plist; sourceTree = "<group>"; };
 		5B6077492CFE1A2D0075A026 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		D81D9E932CE47DBC004F2024 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B6076E82CFC663A0075A026 /* Coordinate.swift */,
 				D8D377E82CBE95C30043D103 /* BusSearchItem.swift */,
 				D8D377EA2CBE95CA0043D103 /* BusSearchModel.swift */,
 			);
@@ -704,6 +707,7 @@
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
 				5BA06D4A2CF38E5400834BBD /* TappedStopView.swift in Sources */,
 				D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */,
+				5B6076E92CFC663F0075A026 /* Coordinate.swift in Sources */,
 				D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */,
 				D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */,
 				5BA06D4C2CF3A63000834BBD /* PopoverView.swift in Sources */,
@@ -761,9 +765,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TMTShareExtension/TMTShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTShareExtension;
@@ -778,6 +784,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_ShareExtension_Development;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -790,9 +797,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = TMTShareExtension/TMTShareExtensionRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTShareExtension;
@@ -807,6 +816,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_ShareExtension_Distribution;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -820,9 +830,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -839,6 +851,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Development;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -856,9 +869,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMTWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TMTWidget;
@@ -875,6 +890,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT.TMTWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Widget_Distribution;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1014,10 +1030,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TMT/TMT.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -1038,6 +1056,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Development;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1055,10 +1074,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TMT/TMTRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TMT/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7P5S729LQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TMT/Info.plist;
@@ -1079,6 +1100,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = 2MT_Distribution;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
