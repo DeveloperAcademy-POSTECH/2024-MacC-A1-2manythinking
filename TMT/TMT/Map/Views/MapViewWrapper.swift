@@ -56,7 +56,7 @@ struct MapViewWrapper: UIViewRepresentable {
                     
                     let locationImage = UIImage(named: "MyLocation")
                     annotationView?.image = locationImage
-                    annotationView?.frame.size = CGSize(width: 35, height: 35)
+                    annotationView?.frame.size = CGSize(width: 30, height: 30)
                 } else {
                     annotationView?.annotation = annotation
                 }
@@ -86,7 +86,7 @@ struct MapViewWrapper: UIViewRepresentable {
                         annotationView?.image = UIImage(named: "BusStopIconDark")
                     }
                 }
-                annotationView?.frame.size = CGSize(width: 20, height: 20)
+                annotationView?.frame.size = CGSize(width: 25, height: 25)
             }
             return annotationView
         }
@@ -94,7 +94,7 @@ struct MapViewWrapper: UIViewRepresentable {
         func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
             if let annotation = view.annotation as? IndexedAnnotation {
                 view.image = UIImage(named: "SelectedBusStopIcon")
-                view.frame.size = CGSize(width: 20, height: 20)
+                view.frame.size = CGSize(width: 25, height: 25)
                 
                 parent.selectedStopManager.selectedIndex = annotation.index
                 parent.selectedStopManager.isTapped = true
@@ -110,7 +110,7 @@ struct MapViewWrapper: UIViewRepresentable {
             if let polyline = overlay as? MKPolyline {
                 let renderer = MKPolylineRenderer(polyline: polyline)
                 renderer.strokeColor = .yellow500
-                renderer.lineWidth = 6.0
+                renderer.lineWidth = 10.0
                 return renderer
             }
             return MKOverlayRenderer()
