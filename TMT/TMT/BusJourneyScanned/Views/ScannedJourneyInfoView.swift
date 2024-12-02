@@ -28,7 +28,7 @@ struct ScannedJourneyInfoView: View {
             Color.brandBackground
                 .ignoresSafeArea()
             VStack {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     if !imageHandler.showAlertScreen {
                         UploadedPhotoView(selectedImage: $imageHandler.selectedImage)
                     } else {
