@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-struct Coordinate: Identifiable {
-    var id = UUID()
-    var latitude: Double
-    var longitude: Double
-}
-
 struct MapView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
@@ -22,7 +16,7 @@ struct MapView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var colors: (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
-    @State private var coordinatesList: [Coordinate] = []
+    @State private var busRouteCoordinates: [Coordinate] = []
     @State private var endStop: BusStop = BusStop()
     @State private var isShowingBottomSheet = true
     @State private var isUpdateRequested = false
@@ -47,7 +41,7 @@ struct MapView: View {
                 TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
                     .offset(
                         x: 0,
-                        y: tappedViewSize.height / 2 + 19
+                        y: tappedViewSize.height / 2 + 14
                     )
                     .transition(.scale)
                     .animation(.spring(), value: selectedStopManager.isTapped)
@@ -85,7 +79,9 @@ struct MapView: View {
                 locationManager.findCurrentLocation()
             }
             searchModel.searchBusStops(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
-            coordinatesList = getValidCoordinates()
+            searchModel.searchRouteCoordinates(byNumber: journeyModel.journeyStops.first?.busNumber ?? "")
+            busRouteCoordinates = journeyRouteCoordinates()
+            print("busRouteCoordinates: \(busRouteCoordinates)")
             endStop = journeyModel.journeyStops.last ?? BusStop()
             colors = mainColor(remainingStops: locationManager.remainingStops)
         }
@@ -99,7 +95,7 @@ struct MapView: View {
     }
     // MARK: - Views / Map
     private var mapViewWrapper: some View {
-        MapViewWrapper(selectedStopManager: selectedStopManager, isUpdateRequested: $isUpdateRequested, region: $locationManager.region, coordinatesList: coordinatesList)
+        MapViewWrapper(selectedStopManager: selectedStopManager, isUpdateRequested: $isUpdateRequested, region: $locationManager.region, busStopCoordinates: searchModel.filteredBusDataForNumber, busRouteCoordinates: busRouteCoordinates)
     }
     
     private var myLocationButton: some View {
@@ -184,14 +180,16 @@ struct MapView: View {
     }
     
     // MARK: - logic
-    /// 좌표의 옵셔널을 제거합니다.
-    private func getValidCoordinates() -> [Coordinate] {
-        searchModel.filteredBusDataForNumber.compactMap { stop in
-            guard let latitude = stop.latitude,
-                  let longitude = stop.longitude else {
-                return nil
-            }
-            return Coordinate(latitude: latitude, longitude: longitude)
+    /// 사용자가 이동할 경로의 좌표만을 뽑아냅니다.
+    private func journeyRouteCoordinates() -> [Coordinate] {
+        guard let firstStopOrder = journeyModel.journeyStops.first?.stopOrder,
+              let lastStopOrder = journeyModel.journeyStops.last?.stopOrder else {
+            print("Error: No available stopOrder.")
+            return []
+        }
+        
+        return searchModel.filteredRouteCoordinates.filter { coordinate in
+            coordinate.stopOrder >= firstStopOrder && coordinate.stopOrder <= lastStopOrder
         }
     }
     
