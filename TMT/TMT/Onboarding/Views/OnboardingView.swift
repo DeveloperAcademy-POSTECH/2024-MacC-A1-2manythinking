@@ -10,7 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     @EnvironmentObject var locationManager: LocationManager
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-  
+    
     @State private var currentPage = 0
     @Binding var shouldShowOnboarding: Bool
     
@@ -20,14 +20,13 @@ struct OnboardingView: View {
         ZStack(alignment: .bottom) {
             onboardingTabView(screenMode: screenMode)
                 .onAppear {
-                         NotificationManager.shared.requestNotificationPermission()
-                         locationManager.requestPermission()
+                    locationManager.requestPermission()
                 }
                 .alert(isPresented: $locationManager.showSettingsAlert) {
                     Alert(
                         title: Text("Location access is not available."),
-                        message: Text("Go to your app settings to adjust location access."),
-                        primaryButton: .default(Text("Go to Settings")) {
+                        message: Text("Open your app settings to allow location access."),
+                        primaryButton: .default(Text("Open Settings")) {
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
                             }

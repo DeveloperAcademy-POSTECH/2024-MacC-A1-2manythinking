@@ -164,7 +164,7 @@ struct MapView: View {
             Button("Stay", role: .cancel) {
                 showingAlert = false
             }
-            Button("Exit", role:.destructive) {
+            Button("End", role:.destructive) {
                 activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
                 imageHandler.selectedImage = nil
                 isShowingBottomSheet = false
@@ -194,7 +194,6 @@ struct MapView: View {
             return Coordinate(latitude: latitude, longitude: longitude)
         }
     }
-    
     
     /// EndStopView의 메인 컬러를 판단합니다.
     private func mainColor(remainingStops: Int) -> (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) {

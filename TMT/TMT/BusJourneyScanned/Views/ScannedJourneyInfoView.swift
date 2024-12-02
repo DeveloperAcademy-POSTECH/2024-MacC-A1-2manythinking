@@ -20,7 +20,7 @@ struct ScannedJourneyInfoView: View {
     @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
     @State private var pickedItem: PhotosPickerItem? = nil
-
+    
     @Binding var path: [String]
     
     var body: some View {
@@ -48,7 +48,7 @@ struct ScannedJourneyInfoView: View {
                             Image(systemName: "exclamationmark.triangle.fill")
                             Spacer()
                         }
-                        Text("As the information was entered incorrectly, please reupload the screenshot.")
+                        Text("Opps, something seems off. Could you reupload the screenshot?")
                             .font(.system(size: 16, weight: .medium))
                             .lineLimit(nil)
                             .fixedSize(horizontal: false, vertical: true)
@@ -114,19 +114,22 @@ struct ScannedJourneyInfoView: View {
                         title: "Start",
                         fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary
                     ) {
-                        if !imageHandler.showAlertText {
-                            journeyModel.setJourneyStops(
-                                busNumberString: imageHandler.scannedJourneyInfo.busNumber,
-                                startStopString: imageHandler.scannedJourneyInfo.startStop,
-                                endStopString: imageHandler.scannedJourneyInfo.endStop
-                            )
-                            
-                            guard let startStop = journeyModel.journeyStops.first else { return }
-                            guard let endStop = journeyModel.journeyStops.last else { return }
-                            
-                            activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
-                            tag = 1
-                            path.append("BusStop")
+                        Task {
+                            await NotificationManager.shared.requestNotificationPermission()
+                            if !imageHandler.showAlertText {
+                                journeyModel.setJourneyStops(
+                                    busNumberString: imageHandler.scannedJourneyInfo.busNumber,
+                                    startStopString: imageHandler.scannedJourneyInfo.startStop,
+                                    endStopString: imageHandler.scannedJourneyInfo.endStop
+                                )
+                                
+                                guard let startStop = journeyModel.journeyStops.first else { return }
+                                guard let endStop = journeyModel.journeyStops.last else { return }
+                                
+                                activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
+                                tag = 1
+                                path.append("BusStop")
+                            }
                         }
                     }
                     .disabled(imageHandler.showAlertText)
