@@ -16,7 +16,6 @@ struct MapView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var colors: (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
-    //    @State private var busStopCoordinates: [Coordinate] = []
     @State private var busRouteCoordinates: [Coordinate] = []
     @State private var endStop: BusStop = BusStop()
     @State private var isShowingBottomSheet = true
