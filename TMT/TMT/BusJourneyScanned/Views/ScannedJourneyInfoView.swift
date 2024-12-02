@@ -143,6 +143,9 @@ struct ScannedJourneyInfoView: View {
                     }
             }
         }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
         .navigationBarBackButtonHidden()
         .toolbar {
             Button {
