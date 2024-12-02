@@ -42,7 +42,7 @@ struct MapView: View {
                 TappedStopView(tappedStop: $tappedStop, tappedViewSize: $tappedViewSize)
                     .offset(
                         x: 0,
-                        y: tappedViewSize.height / 2 + 19
+                        y: tappedViewSize.height / 2 + 14
                     )
                     .transition(.scale)
                     .animation(.spring(), value: selectedStopManager.isTapped)
