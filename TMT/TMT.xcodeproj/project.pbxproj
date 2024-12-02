@@ -248,7 +248,6 @@
 		D801A1B82CF2212000AD0D64 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				5B6077DD2CFE20A00075A026 /* BusRouteCoordinates.csv */,
 				D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */,
 			);
 			path = Test;
@@ -448,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */,
+				5B6077DD2CFE20A00075A026 /* BusRouteCoordinates.csv */,
 				D801A1B82CF2212000AD0D64 /* Test */,
 			);
 			path = BusStop;
