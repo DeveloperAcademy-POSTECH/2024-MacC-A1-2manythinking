@@ -65,7 +65,7 @@ struct OnboardingView: View {
     private var onboardingButtonTitle: String {
         switch currentPage {
         case 0:
-            return "Let's GO"
+            return "Let's go"
         case OnboardingStep.allCases.count:
             return "Okay, I got it"
         default:

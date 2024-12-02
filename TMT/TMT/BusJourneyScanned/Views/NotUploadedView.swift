@@ -21,7 +21,7 @@ struct NotUploadedView: View {
         ZStack {
             VStack(spacing: 0) {
                 HStack {
-                    Text("Put your worries away\nAnd take the bus\ncomfortably")
+                    Text("Don't worry\nRide comfortably")
                         .foregroundStyle(.textDefault)
                         .font(.system(size: 28, weight: .bold))
                     Spacer()
@@ -29,7 +29,7 @@ struct NotUploadedView: View {
                 .padding(.bottom, 10)
                 
                 HStack(spacing: 0) {
-                    Text("We will let you know exact location to\nget off")
+                    Text("We will let you know\nthe exact location to\nget off")
                         .padding(.bottom, 10)
                         .foregroundStyle(.brandPrimary)
                         .font(.system(size: 20, weight: .bold))

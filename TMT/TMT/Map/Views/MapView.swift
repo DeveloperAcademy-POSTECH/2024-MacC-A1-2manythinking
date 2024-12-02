@@ -171,7 +171,7 @@ struct MapView: View {
                 path.removeAll()
             }
         } message: {
-            Text("Are you sure you want to return to Home? Your navigation will end.")
+            Text("Are you sure you want to end your navigation?")
         }
     }
     

@@ -1,0 +1,9 @@
+//
+//  infoPlist.swift
+//  TMT
+//
+//  Created by Choi Minkyeong on 12/3/24.
+//
+
+NSLocationWhenInUseUsageDescription = "사용자의 위치에 따른 서비스 제공을 위해 위치 정보를 수집합니다.";
+
