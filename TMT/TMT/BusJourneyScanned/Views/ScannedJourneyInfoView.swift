@@ -138,9 +138,6 @@ struct ScannedJourneyInfoView: View {
             
             if isShowingInformation {
                 InformationModalView(isShowingInformation: $isShowingInformation)
-                    .onDisappear {
-                        isShowingInformation = false
-                    }
             }
         }
         .onTapGesture {
