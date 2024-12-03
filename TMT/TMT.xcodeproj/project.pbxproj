@@ -26,8 +26,8 @@
 		5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B85B1C12CD91CC000469D03 /* HomeView.swift */; };
 		5BA06D4A2CF38E5400834BBD /* TappedStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA06D492CF38E1F00834BBD /* TappedStopView.swift */; };
 		5BA06D4C2CF3A63000834BBD /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */; };
-		5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */; };
 		5BCC7CC82CF5BEDB005986BF /* BusStopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */; };
+		5BD057AA2CFEA376003D9F5A /* BusStopData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5BD057A92CFEA376003D9F5A /* BusStopData.csv */; };
 		5BE1BF082CF867590082648D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF072CF867550082648D /* NotificationManager.swift */; };
 		5BE1BF5B2CF8C53E0082648D /* ScannedJourneyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */; };
 		5BE1BF5D2CF8C6150082648D /* ScannedJourneyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */; };
@@ -128,8 +128,8 @@
 		5B85B1C12CD91CC000469D03 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5BA06D492CF38E1F00834BBD /* TappedStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappedStopView.swift; sourceTree = "<group>"; };
 		5BA06D4B2CF3A61C00834BBD /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
-		5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		5BCC7CC72CF5BED4005986BF /* BusStopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopDetailView.swift; sourceTree = "<group>"; };
+		5BD057A92CFEA376003D9F5A /* BusStopData.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusStopData.csv; sourceTree = "<group>"; };
 		5BE1BF072CF867550082648D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5BE1BF5A2CF8C53A0082648D /* ScannedJourneyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfoView.swift; sourceTree = "<group>"; };
 		5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
@@ -449,8 +449,7 @@
 		D86A9ED52CEC681C00B252F8 /* BusStop */ = {
 			isa = PBXGroup;
 			children = (
-				5B6077222CFD9C630075A026 /* BusRouteCoordinates.csv */,
-				5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */,
+				5BD057A92CFEA376003D9F5A /* BusStopData.csv */,
 				5B6077DD2CFE20A00075A026 /* BusRouteCoordinates.csv */,
 				D801A1B82CF2212000AD0D64 /* Test */,
 			);
@@ -654,11 +653,11 @@
 				D86A9EE42CEC696700B252F8 /* GoNaverMap.json in Resources */,
 				D86A9EE52CEC696700B252F8 /* BusDotIntro.json in Resources */,
 				D8A1C0962CFA1B5C007D9F3F /* GoNaverMapDark.json in Resources */,
+				5BD057AA2CFEA376003D9F5A /* BusStopData.csv in Resources */,
 				D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */,
 				D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */,
 				D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */,
 				D86A9EE62CEC696700B252F8 /* IntroFinish.json in Resources */,
-				5BA3A5852CE12D8900C2DEA0 /* BusStopData.csv in Resources */,
 				D86739712CA933CE00FFE8ED /* Assets.xcassets in Resources */,
 				D836618D2CF9A892002A181F /* LaunchLogo.png in Resources */,
 			);

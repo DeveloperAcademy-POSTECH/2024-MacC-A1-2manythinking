@@ -19,7 +19,7 @@ struct TappedStopView: View {
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                BusStopDetailView(isEndStopViewVisible: false, stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameNaver: tappedStop.stopNameNaver ?? "")
+                BusStopDetailView(isEndStopViewVisible: false, stopNameKorean: tappedStop.stopNameKorean ?? "", stopNameRomanized: tappedStop.stopNameRomanized ?? "", stopNameTranslated: tappedStop.stopNameTranslated ?? "")
                     .padding(.horizontal, 16)
                     .padding(.top, 25)
                     .padding(.bottom, 14)

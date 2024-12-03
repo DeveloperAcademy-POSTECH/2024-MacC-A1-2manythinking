@@ -11,7 +11,7 @@ struct BusStopDetailView: View {
     var isEndStopViewVisible: Bool
     var stopNameKorean: String
     var stopNameRomanized: String
-    var stopNameNaver: String
+    var stopNameTranslated: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -35,7 +35,7 @@ struct BusStopDetailView: View {
                 .foregroundStyle(isEndStopViewVisible ? .grey200 : .grey400)
                 .font(.system(size: 14, weight: .medium))
             
-            Text("\(stopNameNaver)")
+            Text("\(stopNameTranslated)")
                 .foregroundStyle(.textDefault)
                 .font(.system(size: 20, weight: .bold))
         }
@@ -48,6 +48,6 @@ struct BusStopDetailView: View {
     BusStopDetailView(
         isEndStopViewVisible : true, stopNameKorean: dummy.first!.stopNameKorean ?? "",
         stopNameRomanized: dummy.first!.stopNameRomanized ?? "",
-        stopNameNaver: dummy.first!.stopNameNaver ?? ""
+        stopNameTranslated: dummy.first!.stopNameTranslated ?? ""
     )
 }

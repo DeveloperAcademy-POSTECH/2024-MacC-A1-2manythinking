@@ -87,7 +87,7 @@ struct BusStopRowView: View {
                 .foregroundStyle(.grey400)
             
             if isPartOfJourney {
-                Text(stop.stopNameNaver ?? "")
+                Text(stop.stopNameTranslated ?? "")
                     .font(.headline) // TODO: 서체
                     .foregroundStyle(.textDefault)
             }
