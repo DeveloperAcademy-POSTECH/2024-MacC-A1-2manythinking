@@ -16,7 +16,8 @@
 		5B4F87342CC973F4000329C2 /* MapViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */; };
 		5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */; };
 		5B6076E92CFC663F0075A026 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6076E82CFC663A0075A026 /* Coordinate.swift */; };
-		5B6077232CFD9C630075A026 /* BusRouteCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5B6077222CFD9C630075A026 /* BusRouteCoordinates.csv */; };
+		5B60774B2CFE1A2D0075A026 /* InfoPlist.strings in Sources */ = {isa = PBXBuildFile; fileRef = 5B60774A2CFE1A2D0075A026 /* InfoPlist.strings */; };
+		5B6077DE2CFE20A00075A026 /* BusRouteCoordinates.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5B6077DD2CFE20A00075A026 /* BusRouteCoordinates.csv */; };
 		5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */; };
 		5B6DA5B82CBE551400613ACB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B72CBE551400613ACB /* MapView.swift */; };
 		5B6DA5BA2CBE6F8C00613ACB /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */; };
@@ -114,7 +115,11 @@
 		5B4F87332CC973F3000329C2 /* MapViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWrapper.swift; sourceTree = "<group>"; };
 		5B50F1862CE5D14F00E2EC41 /* ImageHandlerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandlerModel.swift; sourceTree = "<group>"; };
 		5B6076E82CFC663A0075A026 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
-		5B6077222CFD9C630075A026 /* BusRouteCoordinates.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusRouteCoordinates.csv; sourceTree = "<group>"; };
+		5B6077472CFE199A0075A026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		5B6077482CFE199C0075A026 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ko; path = ko.lproj/Info.plist; sourceTree = "<group>"; };
+		5B6077492CFE1A2D0075A026 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B60774C2CFE1A340075A026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5B6077DD2CFE20A00075A026 /* BusRouteCoordinates.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = BusRouteCoordinates.csv; sourceTree = "<group>"; };
 		5B64AF942CCF82270083CA23 /* BusInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfoEnum.swift; sourceTree = "<group>"; };
 		5B6DA5B72CBE551400613ACB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		5B6DA5B92CBE6F8700613ACB /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -130,7 +135,6 @@
 		5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
-		D803DE332CD8A80C00C36D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D81238872CF8C0560005EB25 /* TMTShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81238962CF8C07C0005EB25 /* TMTRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMTRelease.entitlements; sourceTree = "<group>"; };
 		D81238982CF8C3380005EB25 /* TMT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMT.entitlements; sourceTree = "<group>"; };
@@ -416,7 +420,7 @@
 			children = (
 				D81238982CF8C3380005EB25 /* TMT.entitlements */,
 				D81238962CF8C07C0005EB25 /* TMTRelease.entitlements */,
-				D803DE332CD8A80C00C36D17 /* Info.plist */,
+				5B6077422CFDE71B0075A026 /* Info.plist */,
 				D867396C2CA933CD00FFE8ED /* TMTApp.swift */,
 				5B347FCF2CF4F71F00A1E852 /* AppDelegate.swift */,
 				5B85B1C12CD91CC000469D03 /* HomeView.swift */,
@@ -447,6 +451,7 @@
 			children = (
 				5B6077222CFD9C630075A026 /* BusRouteCoordinates.csv */,
 				5BA3A5842CE12D8900C2DEA0 /* BusStopData.csv */,
+				5B6077DD2CFE20A00075A026 /* BusRouteCoordinates.csv */,
 				D801A1B82CF2212000AD0D64 /* Test */,
 			);
 			path = BusStop;
@@ -495,6 +500,7 @@
 		D8D377E42CBE548F0043D103 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				5B60774A2CFE1A2D0075A026 /* InfoPlist.strings */,
 				D86A9ED52CEC681C00B252F8 /* BusStop */,
 				D86A9ED62CEC682900B252F8 /* Onboarding */,
 				D836618E2CF9A923002A181F /* LaunchScreen */,
@@ -605,6 +611,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = D86739602CA933CD00FFE8ED;
 			packageReferences = (
@@ -642,11 +649,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86739742CA933CE00FFE8ED /* Preview Assets.xcassets in Resources */,
+				5B6077DE2CFE20A00075A026 /* BusRouteCoordinates.csv in Resources */,
 				D86A9EE32CEC696700B252F8 /* Capture.json in Resources */,
 				D86A9EE42CEC696700B252F8 /* GoNaverMap.json in Resources */,
 				D86A9EE52CEC696700B252F8 /* BusDotIntro.json in Resources */,
 				D8A1C0962CFA1B5C007D9F3F /* GoNaverMapDark.json in Resources */,
-				5B6077232CFD9C630075A026 /* BusRouteCoordinates.csv in Resources */,
 				D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */,
 				D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */,
 				D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */,
@@ -690,6 +697,7 @@
 				5B2D9A122CCA1553001FF6CC /* OCRStarterManager.swift in Sources */,
 				5BE1BF5B2CF8C53E0082648D /* ScannedJourneyInfoView.swift in Sources */,
 				5B50F1872CE5D19100E2EC41 /* ImageHandlerModel.swift in Sources */,
+				5B60774B2CFE1A2D0075A026 /* InfoPlist.strings in Sources */,
 				5B85B1C22CD91CC000469D03 /* HomeView.swift in Sources */,
 				5B0C4AF42CD52E1800031147 /* StopStatusEnum.swift in Sources */,
 				5B347FCE2CF49DEA00A1E852 /* BusStopArrivalView.swift in Sources */,
@@ -740,6 +748,27 @@
 			targetProxy = D844BCCE2CC120030059E31F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5B6077422CFDE71B0075A026 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6077472CFE199A0075A026 /* en */,
+				5B6077482CFE199C0075A026 /* ko */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		5B60774A2CFE1A2D0075A026 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6077492CFE1A2D0075A026 /* ko */,
+				5B60774C2CFE1A340075A026 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D81238922CF8C0560005EB25 /* Debug */ = {
@@ -877,6 +906,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -940,6 +970,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1007,7 +1038,7 @@
 				INFOPLIST_FILE = TMT/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BusDot;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Authorization is required to provide drop-off instructions based on the user's location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide bus route information.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1048,7 +1079,7 @@
 				INFOPLIST_FILE = TMT/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BusDot;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Authorization is required to provide drop-off instructions based on the user's location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide bus route information.";
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

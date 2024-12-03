@@ -25,6 +25,11 @@ struct EndStopView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .trim(from: 0.5, to: 1)
                         .foregroundStyle(colors.statusColor)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .trim(from: 0.5, to: 1)
+                                .stroke(.grey100, lineWidth: 0.5)
+                        )
                 }
             
             BusStopDetailView(isEndStopViewVisible: true, stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "")
@@ -40,6 +45,15 @@ struct EndStopView: View {
                         topTrailing: 0
                     ))
                     .foregroundStyle(.brandBackground)
+                    .overlay(
+                        UnevenRoundedRectangle(cornerRadii: .init(
+                            topLeading: 0,
+                            bottomLeading: 15,
+                            bottomTrailing: 15,
+                            topTrailing: 0
+                        ))
+                        .stroke(.grey100, lineWidth: 0.5)
+                    )
                 }
                 .offset(y: -19)
         }

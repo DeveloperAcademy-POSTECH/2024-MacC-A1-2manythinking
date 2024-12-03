@@ -14,13 +14,12 @@ class NotificationManager: ObservableObject {
     static let shared = NotificationManager()
     
     /// 알림 권한 요청
-    func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if let error = error {
-                print("알림 권한 요청 실패: \(error)")
-            } else {
-                print("알림 권한 요청 결과: \(granted)")
-            }
+    func requestNotificationPermission() async {
+        do {
+            let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
+            print("알림 권한 요청 결과: \(granted)")
+        } catch {
+            print("알림 권한 요청 실패: \(error)")
         }
     }
     

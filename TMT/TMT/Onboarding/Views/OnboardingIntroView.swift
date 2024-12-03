@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingIntroView: View {
-    private let title = "With BusDot, you will\nnever miss your stop!"
+    private let title = "Never miss your stop\nwith BusDot"
     let screenMode: String
     
     var body: some View {
