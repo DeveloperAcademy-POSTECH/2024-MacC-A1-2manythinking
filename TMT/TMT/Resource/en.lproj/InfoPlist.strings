@@ -5,4 +5,4 @@
 //  Created by Choi Minkyeong on 12/3/24.
 //
 
-NSLocationWhenInUseUsageDescription = "We need your location to provide bus route information.";
+NSLocationWhenInUseUsageDescription = "It is required to display your location.";

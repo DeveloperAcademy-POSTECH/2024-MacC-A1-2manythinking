@@ -19,7 +19,7 @@
 		<key>UIImageName</key>
 		<string>LaunchLogo</string>
 	</dict>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>We need your location to provide bus route information.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>It is required to display your location.</string>
 </dict>
 </plist>
