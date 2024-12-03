@@ -62,8 +62,9 @@ final class BusSearchModel: ObservableObject {
                                            stopNameKorean: response[3].isEmpty ? nil : response[3],
                                            stopNameRomanized: response[4].isEmpty ? nil : response[4],
                                            stopNameNaver: response[5].isEmpty ? nil : response[5],
-                                           latitude: response[6].isEmpty ? nil : Double(response[6]),
-                                           longitude: response[7].isEmpty ? nil : Double(response[7].dropLast(1))))
+                                           stopNameTranslated: response[6].isEmpty ? nil : response[6],
+                                           latitude: response[7].isEmpty ? nil : Double(response[7]),
+                                           longitude: response[8].isEmpty ? nil : Double(response[8].dropLast(1))))
         }
     }
     

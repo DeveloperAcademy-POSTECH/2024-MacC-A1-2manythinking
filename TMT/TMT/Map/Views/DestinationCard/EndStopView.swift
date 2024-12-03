@@ -32,7 +32,7 @@ struct EndStopView: View {
                         )
                 }
             
-            BusStopDetailView(isEndStopViewVisible: true, stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameNaver: busStopDetail.stopNameNaver ?? "")
+            BusStopDetailView(isEndStopViewVisible: true, stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameTranslated: busStopDetail.stopNameTranslated ?? "")
                 .padding(.horizontal, 16)
                 .padding(.top, 5)
                 .padding(.bottom, 11.88)
