@@ -71,7 +71,7 @@ struct NotUploadedView: View {
                     Button {
                         imageHandler.showAlertScreen = false
                     } label: {
-                        Text("Reupload")
+                        Text("Okay")
                             .foregroundStyle(.blue)
                     }
                 } message: {

@@ -17,6 +17,7 @@ struct HomeView: View {
     @StateObject private var searchModel: BusSearchModel
     
     @State private var isShowingInformation = false
+    @State private var hasSeenOnboarding = false
     @State var path: [String] = []
     
     init() {
@@ -41,9 +42,12 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 16)
-                
+
                 if isShowingInformation {
                     InformationModalView(isShowingInformation: $isShowingInformation)
+                        .onDisappear {
+                            hasSeenOnboarding = true
+                        }
                 }
             }
             .toolbar {
@@ -58,6 +62,11 @@ struct HomeView: View {
             }
             .fullScreenCover(isPresented: $shouldShowOnboarding) {
                 OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
+                    .onDisappear {
+                        if !hasSeenOnboarding {
+                            isShowingInformation = true
+                        }
+                    }
             }
         }
         .environmentObject(locationManager)

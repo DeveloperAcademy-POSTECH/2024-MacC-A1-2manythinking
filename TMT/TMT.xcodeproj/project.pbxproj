@@ -39,6 +39,8 @@
 		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
 		D81D9E9C2CE47F12004F2024 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D826488F2CD35550000A448D /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D826488E2CD35550000A448D /* ButtonComponent.swift */; };
+		D82CB2332CFE103800A93217 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82CB2322CFE103800A93217 /* UIApplication.swift */; };
+		D82CB2342CFE103800A93217 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82CB2322CFE103800A93217 /* UIApplication.swift */; };
 		D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */; };
 		D83277652CEC67CE005E00CF /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83277642CEC67CE005E00CF /* LottieView.swift */; };
 		D836618D2CF9A892002A181F /* LaunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D836618B2CF9A892002A181F /* LaunchLogo.png */; };
@@ -136,6 +138,7 @@
 		D81D9E992CE47F0D004F2024 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D81D9E9B2CE47F12004F2024 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D826488E2CD35550000A448D /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		D82CB2322CFE103800A93217 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		D82D29A42CD3AC8B0083BB59 /* OnboardingStepEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepEnum.swift; sourceTree = "<group>"; };
 		D83277642CEC67CE005E00CF /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D836618B2CF9A892002A181F /* LaunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchLogo.png; sourceTree = "<group>"; };
@@ -345,6 +348,7 @@
 				D81D9E992CE47F0D004F2024 /* String.swift */,
 				D81D9E9B2CE47F12004F2024 /* Color.swift */,
 				D8E054DC2CF1AF89006B1879 /* View.swift */,
+				D82CB2322CFE103800A93217 /* UIApplication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -667,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82CB2332CFE103800A93217 /* UIApplication.swift in Sources */,
 				D8E7E7122CF60FD300EAD54F /* StopStatusEnum.swift in Sources */,
 				D8E054DD2CF1AF89006B1879 /* View.swift in Sources */,
 				5BF33BF52CE70E37006F17EC /* Color.swift in Sources */,
@@ -702,6 +707,7 @@
 				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
 				D876BF312CECE89E0098B68E /* OnboardingView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
+				D82CB2342CFE103800A93217 /* UIApplication.swift in Sources */,
 				5BA06D4A2CF38E5400834BBD /* TappedStopView.swift in Sources */,
 				D82D29A52CD3AC8B0083BB59 /* OnboardingStepEnum.swift in Sources */,
 				5B6076E92CFC663F0075A026 /* Coordinate.swift in Sources */,
@@ -1012,7 +1018,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1053,7 +1059,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = twomanythinking.TMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

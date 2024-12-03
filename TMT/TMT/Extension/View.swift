@@ -15,7 +15,7 @@ enum Detents {
     var presentationDetent: PresentationDetent {
         switch self {
         case .small:
-            return .height(95)
+            return .height(80)
         case .middle:
             return .height(525)
         case .large:
@@ -30,7 +30,7 @@ extension View {
         presentationDetents: [Detents] = [.small, .middle, .large],
         isPresented: Binding<Bool> = .constant(true),
         dragIndicator: Visibility = .visible,
-        sheetCornerRadius: CGFloat = 24,
+        sheetCornerRadius: CGFloat = 16,
         interactiveDisabled: Bool = true,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View {

@@ -12,8 +12,8 @@ struct InformationModalView: View {
     @Environment(\.openURL) var openLink
     
     private let title = "Prepare your screenshot"
-    private let description = "If you don't have one,\ngo to NAVER Map and take a screenshot."
-    private let filledButtonTitle = "Go to Naver Map"
+    private let description = "If you don't have one,\nopen NAVER Map and take a screenshot."
+    private let filledButtonTitle = "Open NAVER Map"
     private let outlinedButtonTitle = "I have a screenshot"
     
     var body: some View {

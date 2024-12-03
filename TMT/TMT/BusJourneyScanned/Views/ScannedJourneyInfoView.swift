@@ -28,7 +28,7 @@ struct ScannedJourneyInfoView: View {
             Color.brandBackground
                 .ignoresSafeArea()
             VStack {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     if !imageHandler.showAlertScreen {
                         UploadedPhotoView(selectedImage: $imageHandler.selectedImage)
                     } else {
@@ -138,10 +138,10 @@ struct ScannedJourneyInfoView: View {
             
             if isShowingInformation {
                 InformationModalView(isShowingInformation: $isShowingInformation)
-                    .onDisappear {
-                        isShowingInformation = false
-                    }
             }
+        }
+        .onTapGesture {
+            UIApplication.shared.endEditing()
         }
         .navigationBarBackButtonHidden()
         .toolbar {
