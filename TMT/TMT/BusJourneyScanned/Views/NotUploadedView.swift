@@ -29,7 +29,7 @@ struct NotUploadedView: View {
                 .padding(.bottom, 10)
                 
                 HStack(spacing: 0) {
-                    Text("We will let you know\nthe exact location to\nget off")
+                    Text("We will let you know\nthe exact location to get off.")
                         .padding(.bottom, 10)
                         .foregroundStyle(.brandPrimary)
                         .font(.system(size: 20, weight: .bold))
