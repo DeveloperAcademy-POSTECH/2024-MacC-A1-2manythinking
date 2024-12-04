@@ -14,15 +14,18 @@ struct ScannedJourneyInfoView: View {
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
     @EnvironmentObject var activityManager: LiveActivityManager
-    
+
     @State private var tag: Int? = nil
+
     @State private var showingAlert: Bool = false
-    @State private var showingPhotosPicker: Bool = false
     @State private var isShowingInformation = false
+    @State private var isLoading = false
+
+    @State private var showingPhotosPicker: Bool = false
     @State private var pickedItem: PhotosPickerItem? = nil
-    
+
     @Binding var path: [String]
-    
+
     var body: some View {
         ZStack {
             Color.brandBackground
@@ -34,14 +37,14 @@ struct ScannedJourneyInfoView: View {
                     } else {
                         UploadedPhotoView(selectedImage: .constant(nil))
                     }
-                    
+
                     VStack(alignment: .leading) {
                         uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
                         uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
                         uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
                     }
                 }
-                
+
                 if imageHandler.showAlertText {
                     HStack {
                         VStack {
@@ -59,7 +62,7 @@ struct ScannedJourneyInfoView: View {
                     .frame(height: 42)
                     .foregroundStyle(.red600)
                 }
-                
+
                 HStack(spacing: 0) {
                     Group {
                         if imageHandler.showAlertText {
@@ -84,7 +87,7 @@ struct ScannedJourneyInfoView: View {
                             Text("Cancel")
                                 .foregroundStyle(.blue)
                         }
-                        
+
                         Button {
                             showingAlert = false
                             showingPhotosPicker = true
@@ -97,7 +100,7 @@ struct ScannedJourneyInfoView: View {
                     } message: {
                         Text("The previously uploaded image information will disappear. Do you want to proceed?")
                     }
-                    
+
                     PhotosPicker(selection: $pickedItem, matching: .screenshots) {
                         EmptyView()
                     }
@@ -105,15 +108,14 @@ struct ScannedJourneyInfoView: View {
                         imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
                     }
                     .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
-                    
+
                     NavigationLink(destination: MapView(path: $path), tag: 1, selection: $tag) {
                         EmptyView()
                     }
-                    
-                    FilledButton(
-                        title: "Start",
-                        fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary
-                    ) {
+
+                    FilledButton(title: "Start",
+                                 fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
+                        isLoading = true
                         Task {
                             await NotificationManager.shared.requestNotificationPermission()
                             if !imageHandler.showAlertText {
@@ -122,25 +124,33 @@ struct ScannedJourneyInfoView: View {
                                     startStopString: imageHandler.scannedJourneyInfo.startStop,
                                     endStopString: imageHandler.scannedJourneyInfo.endStop
                                 )
-                                
+
                                 guard let startStop = journeyModel.journeyStops.first else { return }
                                 guard let endStop = journeyModel.journeyStops.last else { return }
-                                
+
                                 activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
-                                tag = 1
-                                path.append("BusStop")
+
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                    isLoading = false
+                                    tag = 1
+                                    path.append("BusStop")
+                                }
                             }
                         }
                     }
-                    .disabled(imageHandler.showAlertText)
+                                 .disabled(imageHandler.showAlertText)
                 }
                 .frame(height: 52)
                 .padding(.vertical, 12.5)
             }
             .padding(.horizontal, 16)
-            
+
             if isShowingInformation {
                 InformationModalView(isShowingInformation: $isShowingInformation)
+            }
+
+            if isLoading {
+                LoadingView()
             }
         }
         .onTapGesture {
@@ -157,15 +167,15 @@ struct ScannedJourneyInfoView: View {
             }
             .disabled(isShowingInformation)
         }
-        
+
     }
-    
+
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
                 .foregroundStyle(.grey300)
                 .font(.system(size: 14, weight: .medium))
-            
+
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
                 .foregroundStyle(.textDefault)
                 .font(.system(size: 20, weight: .bold))
