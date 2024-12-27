@@ -6,6 +6,7 @@
 //
 
 import ActivityKit
+import SwiftUI
 
 final class LiveActivityManager {
     static let shared = LiveActivityManager()
@@ -38,13 +39,18 @@ final class LiveActivityManager {
     }
     
     func endLiveActivity() {
+        let semaphore = DispatchSemaphore(value: 0)
+
         Task {
-            for activity in Activity<BusJourneyAttributes>.activities {
-                await activity.end(nil, dismissalPolicy: .immediate)
+            if let currentActivity = activity {
+                await currentActivity.end(nil, dismissalPolicy: .immediate)
+                self.activity = nil
             }
 
-            activity = nil
+            semaphore.signal()
         }
+
+        semaphore.wait()
     }
     
     func updateLiveActivity(remainingStops: Int, thisStop: BusStop) async {
