@@ -162,7 +162,7 @@ struct MapView: View {
                 showingAlert = false
             }
             Button("End", role:.destructive) {
-                activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
+                activityManager.endLiveActivity()
                 imageHandler.selectedImage = nil
                 isShowingBottomSheet = false
                 path.removeAll()

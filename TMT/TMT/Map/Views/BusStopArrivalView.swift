@@ -45,7 +45,7 @@ struct BusStopArrivalView: View {
                 .padding(.bottom, 8)
             
             FilledButton(title: "End") {
-                activityManager.endLiveActivity(destinationInfo: journeyModel.journeyStops.last!)
+                activityManager.endLiveActivity()
                 imageHandler.selectedImage = nil
                 hasNotArrived = false
                 path.removeAll()
