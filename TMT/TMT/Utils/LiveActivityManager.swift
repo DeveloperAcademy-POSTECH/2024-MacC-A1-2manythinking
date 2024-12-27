@@ -9,6 +9,8 @@ import Combine
 import ActivityKit
 
 final class LiveActivityManager: ObservableObject {
+    static let shared = LiveActivityManager()
+
     private var activity: Activity<BusJourneyAttributes>?
     
     func startLiveActivity(startBusStop: BusStop, endBusStop: BusStop, remainingStops: Int) {
@@ -36,17 +38,12 @@ final class LiveActivityManager: ObservableObject {
         
     }
     
-    func endLiveActivity(destinationInfo: BusStop) {
-        guard let destinationNameKorean = destinationInfo.stopNameKorean else { return }
-        guard let destinationNameRomanized = destinationInfo.stopNameRomanized else { return }
-        
-        let finalContent = BusJourneyAttributes.ContentState(remainingStopsCount: 0, thisStopNameKorean: destinationNameKorean, thisStopNameRomanized: destinationNameRomanized)
-        
-        let dismissalpolicy: ActivityUIDismissalPolicy = .immediate
-        
+    func endLiveActivity() {
         Task {
-            await activity?.end(ActivityContent(state: finalContent, staleDate: nil), dismissalPolicy: dismissalpolicy)
-            
+            for activity in Activity<BusJourneyAttributes>.activities {
+                await activity.end(nil, dismissalPolicy: .immediate)
+            }
+
             activity = nil
         }
     }
