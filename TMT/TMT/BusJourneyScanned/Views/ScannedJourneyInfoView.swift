@@ -13,7 +13,6 @@ struct ScannedJourneyInfoView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
-    @EnvironmentObject var activityManager: LiveActivityManager
 
     @State private var tag: Int? = nil
 
@@ -128,7 +127,7 @@ struct ScannedJourneyInfoView: View {
                                 guard let startStop = journeyModel.journeyStops.first else { return }
                                 guard let endStop = journeyModel.journeyStops.last else { return }
 
-                                activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
+                                LiveActivityManager.shared.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                     isLoading = false

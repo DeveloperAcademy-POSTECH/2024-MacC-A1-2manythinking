@@ -5,10 +5,9 @@
 //  Created by 김유빈 on 10/17/24.
 //
 
-import Combine
 import ActivityKit
 
-final class LiveActivityManager: ObservableObject {
+final class LiveActivityManager {
     static let shared = LiveActivityManager()
 
     private var activity: Activity<BusJourneyAttributes>?

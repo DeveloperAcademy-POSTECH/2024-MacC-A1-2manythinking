@@ -12,7 +12,6 @@ struct MapView: View {
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
     @StateObject var selectedStopManager = SelectedStopManager()
-    @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     
     @State private var colors: (statusColor: Color, leftStopNumberColor: Color, destinationColor: Color) = (.white, .white, .white)
@@ -162,7 +161,7 @@ struct MapView: View {
                 showingAlert = false
             }
             Button("End", role:.destructive) {
-                activityManager.endLiveActivity()
+                LiveActivityManager.shared.endLiveActivity()
                 imageHandler.selectedImage = nil
                 isShowingBottomSheet = false
                 path.removeAll()
@@ -205,9 +204,8 @@ struct MapView: View {
     // Mock 데이터 및 객체 초기화
     let searchModel = BusSearchModel()
     let journeyModel = JourneySettingModel(searchModel: searchModel)
-    let activityManager = LiveActivityManager()
     let imageHandler = ImageHandlerModel()
-    let locationManager = LocationManager(activityManager: activityManager, journeyModel: journeyModel)
+    let locationManager = LocationManager(journeyModel: journeyModel)
     
     searchModel.filteredBusDataForNumber = BusStop.busStopDummy
     
@@ -217,6 +215,5 @@ struct MapView: View {
         .environmentObject(locationManager)
         .environmentObject(searchModel)
         .environmentObject(journeyModel)
-        .environmentObject(activityManager)
         .environmentObject(imageHandler)
 }
