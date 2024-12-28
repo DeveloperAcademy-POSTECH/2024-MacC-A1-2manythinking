@@ -11,6 +11,7 @@ struct BusStopArrivalView: View {
     @EnvironmentObject var activityManager: LiveActivityManager
     @EnvironmentObject var imageHandler: ImageHandlerModel
     @EnvironmentObject var journeyModel: JourneySettingModel
+    @EnvironmentObject var locationManager: LocationManager
     @Binding var hasNotArrived: Bool
     @Binding var path: [String]
     
