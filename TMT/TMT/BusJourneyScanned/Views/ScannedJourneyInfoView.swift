@@ -25,6 +25,8 @@ struct ScannedJourneyInfoView: View {
     @State private var showingPhotosPicker: Bool = false
     @State private var pickedItem: PhotosPickerItem? = nil
     
+    @State private var showingLoadingAlert: Bool = false
+    @State private var alertMessage = ""
     @State private var cancellable: AnyCancellable?
     
     @Binding var path: [String]
@@ -130,23 +132,47 @@ struct ScannedJourneyInfoView: View {
                                 guard let startStop = journeyModel.journeyStops.first else { return }
                                 guard let endStop = journeyModel.journeyStops.last else { return }
                                 
-                                activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
-                                
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                     cancellable = locationManager.$remainingStops
                                         .sink { newValue in
-//                                            if locationManager.remainingStops != 0 {
+                                            if newValue != 0 {
+                                                activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: newValue)
+                                                
                                                 isLoading = false
                                                 tag = 1
                                                 path.append("BusStop")
+                                                
                                                 cancellable?.cancel()
-//                                            }
+                                            }
                                         }
                                 }
                             }
                         }
                     }
+                                 .onAppear {
+                                     journeyModel.journeyStops = []
+                                     locationManager.remainingStops = 0
+                                 }
                                  .disabled(imageHandler.showAlertText)
+                                 .onChange(of: isLoading) { newValue in
+                                     if newValue {
+                                         DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+                                             if isLoading {
+                                                 isLoading = false
+                                                 alertMessage = "Failed to load the image. Please try again."
+                                                 showingLoadingAlert = true
+                                             }
+                                         }
+                                     }
+                                 }
+                                 .alert(isPresented: $showingLoadingAlert) {
+                                     Alert(
+                                        title: Text("Error!"),
+                                        message: Text(alertMessage),
+                                        dismissButton: .default(Text("Okay")) {
+                                        }
+                                     )
+                                 }
                 }
                 .frame(height: 52)
                 .padding(.vertical, 12.5)
@@ -175,7 +201,6 @@ struct ScannedJourneyInfoView: View {
             }
             .disabled(isShowingInformation)
         }
-        
     }
     
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
