@@ -22,7 +22,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if oldValue != remainingStops {
                 Task {
                     if let currentStop = thisStop {
-                        await activityManager?.updateLiveActivity(remainingStops: remainingStops, thisStop: currentStop)
+                        await LiveActivityManager.shared.updateLiveActivity(remainingStops: remainingStops, thisStop: currentStop)
                     } else {
                         print("❌ 현재 정류장 정보가 없습니다.")
                     }
@@ -35,11 +35,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var showSettingsAlert = false
     
     private let locationManager = CLLocationManager()
-    private weak var activityManager: LiveActivityManager?
     private weak var journeyModel: JourneySettingModel?
     
-    init(activityManager: LiveActivityManager, journeyModel: JourneySettingModel) {
-        self.activityManager = activityManager
+    init(journeyModel: JourneySettingModel) {
         self.journeyModel = journeyModel
         self.thisStop = journeyModel.journeyStops.first
         super.init()
