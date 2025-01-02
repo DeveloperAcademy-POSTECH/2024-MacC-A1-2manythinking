@@ -35,6 +35,14 @@
 		5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86739702CA933CE00FFE8ED /* Assets.xcassets */; };
 		5BF33BF52CE70E37006F17EC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E9B2CE47F12004F2024 /* Color.swift */; };
 		D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */; };
+		D80EFF0B2D26584200AC45C9 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF072D26584200AC45C9 /* Pretendard-Bold.otf */; };
+		D80EFF0C2D26584200AC45C9 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF092D26584200AC45C9 /* Pretendard-Regular.otf */; };
+		D80EFF0D2D26584200AC45C9 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF0A2D26584200AC45C9 /* Pretendard-SemiBold.otf */; };
+		D80EFF0E2D26584200AC45C9 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF082D26584200AC45C9 /* Pretendard-Medium.otf */; };
+		D80EFF0F2D26584200AC45C9 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF072D26584200AC45C9 /* Pretendard-Bold.otf */; };
+		D80EFF102D26584200AC45C9 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF092D26584200AC45C9 /* Pretendard-Regular.otf */; };
+		D80EFF112D26584200AC45C9 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF0A2D26584200AC45C9 /* Pretendard-SemiBold.otf */; };
+		D80EFF122D26584200AC45C9 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80EFF082D26584200AC45C9 /* Pretendard-Medium.otf */; };
 		D81238912CF8C0560005EB25 /* TMTShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D81238872CF8C0560005EB25 /* TMTShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D81D9D3C2CE21CD1004F2024 /* JourneySettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9D3B2CE21CD1004F2024 /* JourneySettingModel.swift */; };
 		D81D9E9A2CE47F0D004F2024 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81D9E992CE47F0D004F2024 /* String.swift */; };
@@ -66,6 +74,8 @@
 		D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0932CFA1B5C007D9F3F /* CaptureDark.json */; };
 		D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0952CFA1B5C007D9F3F /* IntroFinishDark.json */; };
 		D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A1C0922CFA1B5C007D9F3F /* BusDotIntroDark.json */; };
+		D8BD64B72D265D7A00702C32 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD64B62D265D7A00702C32 /* Font.swift */; };
+		D8BD64B82D265D7A00702C32 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD64B62D265D7A00702C32 /* Font.swift */; };
 		D8C5E7322D006D31005FE865 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5E7312D006D31005FE865 /* LoadingView.swift */; };
 		D8C5E7362D006D53005FE865 /* LoadingCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C5E7352D006D53005FE865 /* LoadingCase.swift */; };
 		D8D377E92CBE95C30043D103 /* BusSearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D377E82CBE95C30043D103 /* BusSearchItem.swift */; };
@@ -137,6 +147,10 @@
 		5BE1BF5C2CF8C6100082648D /* ScannedJourneyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedJourneyInfo.swift; sourceTree = "<group>"; };
 		5BE1BF5E2CF8C70C0082648D /* EndStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndStopView.swift; sourceTree = "<group>"; };
 		D801A1B92CF2213C00AD0D64 /* BusDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDataMock.swift; sourceTree = "<group>"; };
+		D80EFF072D26584200AC45C9 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		D80EFF082D26584200AC45C9 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		D80EFF092D26584200AC45C9 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		D80EFF0A2D26584200AC45C9 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		D81238872CF8C0560005EB25 /* TMTShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TMTShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81238962CF8C07C0005EB25 /* TMTRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMTRelease.entitlements; sourceTree = "<group>"; };
 		D81238982CF8C3380005EB25 /* TMT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMT.entitlements; sourceTree = "<group>"; };
@@ -169,6 +183,7 @@
 		D8A1C0932CFA1B5C007D9F3F /* CaptureDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CaptureDark.json; sourceTree = "<group>"; };
 		D8A1C0942CFA1B5C007D9F3F /* GoNaverMapDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoNaverMapDark.json; sourceTree = "<group>"; };
 		D8A1C0952CFA1B5C007D9F3F /* IntroFinishDark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IntroFinishDark.json; sourceTree = "<group>"; };
+		D8BD64B62D265D7A00702C32 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		D8C5E7312D006D31005FE865 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D8C5E7352D006D53005FE865 /* LoadingCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCase.swift; sourceTree = "<group>"; };
 		D8D377E82CBE95C30043D103 /* BusSearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchItem.swift; sourceTree = "<group>"; };
@@ -276,6 +291,17 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
+		D80EFF062D26580200AC45C9 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D80EFF072D26584200AC45C9 /* Pretendard-Bold.otf */,
+				D80EFF082D26584200AC45C9 /* Pretendard-Medium.otf */,
+				D80EFF092D26584200AC45C9 /* Pretendard-Regular.otf */,
+				D80EFF0A2D26584200AC45C9 /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		D81D9E912CE47D84004F2024 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +383,7 @@
 				D81D9E9B2CE47F12004F2024 /* Color.swift */,
 				D8E054DC2CF1AF89006B1879 /* View.swift */,
 				D82CB2322CFE103800A93217 /* UIApplication.swift */,
+				D8BD64B62D265D7A00702C32 /* Font.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -529,6 +556,7 @@
 		D8D377E42CBE548F0043D103 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D80EFF062D26580200AC45C9 /* Font */,
 				5B60774A2CFE1A2D0075A026 /* InfoPlist.strings */,
 				D86A9ED52CEC681C00B252F8 /* BusStop */,
 				D86A9ED62CEC682900B252F8 /* Onboarding */,
@@ -669,6 +697,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80EFF0B2D26584200AC45C9 /* Pretendard-Bold.otf in Resources */,
+				D80EFF0C2D26584200AC45C9 /* Pretendard-Regular.otf in Resources */,
+				D80EFF0D2D26584200AC45C9 /* Pretendard-SemiBold.otf in Resources */,
+				D80EFF0E2D26584200AC45C9 /* Pretendard-Medium.otf in Resources */,
 				5BF33BF42CE70E2E006F17EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,6 +717,10 @@
 				D8A1C0962CFA1B5C007D9F3F /* GoNaverMapDark.json in Resources */,
 				5BD057AA2CFEA376003D9F5A /* BusStopData.csv in Resources */,
 				D8A1C0972CFA1B5C007D9F3F /* CaptureDark.json in Resources */,
+				D80EFF0F2D26584200AC45C9 /* Pretendard-Bold.otf in Resources */,
+				D80EFF102D26584200AC45C9 /* Pretendard-Regular.otf in Resources */,
+				D80EFF112D26584200AC45C9 /* Pretendard-SemiBold.otf in Resources */,
+				D80EFF122D26584200AC45C9 /* Pretendard-Medium.otf in Resources */,
 				D8A1C0982CFA1B5C007D9F3F /* IntroFinishDark.json in Resources */,
 				D8A1C0992CFA1B5C007D9F3F /* BusDotIntroDark.json in Resources */,
 				D86A9EE62CEC696700B252F8 /* IntroFinish.json in Resources */,
@@ -709,6 +745,7 @@
 			files = (
 				D82CB2332CFE103800A93217 /* UIApplication.swift in Sources */,
 				D8E7E7122CF60FD300EAD54F /* StopStatusEnum.swift in Sources */,
+				D8BD64B82D265D7A00702C32 /* Font.swift in Sources */,
 				D8E054DD2CF1AF89006B1879 /* View.swift in Sources */,
 				5BF33BF52CE70E37006F17EC /* Color.swift in Sources */,
 			);
@@ -744,6 +781,7 @@
 				5BE1BF082CF867590082648D /* NotificationManager.swift in Sources */,
 				D801A1BA2CF2213C00AD0D64 /* BusDataMock.swift in Sources */,
 				D876BF312CECE89E0098B68E /* OnboardingView.swift in Sources */,
+				D8BD64B72D265D7A00702C32 /* Font.swift in Sources */,
 				D8C5E7322D006D31005FE865 /* LoadingView.swift in Sources */,
 				5B64AF952CCF823D0083CA23 /* BusInfoEnum.swift in Sources */,
 				D82CB2342CFE103800A93217 /* UIApplication.swift in Sources */,
