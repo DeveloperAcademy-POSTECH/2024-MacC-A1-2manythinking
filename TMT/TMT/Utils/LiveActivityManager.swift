@@ -5,10 +5,12 @@
 //  Created by 김유빈 on 10/17/24.
 //
 
-import Combine
 import ActivityKit
+import SwiftUI
 
-final class LiveActivityManager: ObservableObject {
+final class LiveActivityManager {
+    static let shared = LiveActivityManager()
+
     private var activity: Activity<BusJourneyAttributes>?
     
     func startLiveActivity(startBusStop: BusStop, endBusStop: BusStop, remainingStops: Int) {
@@ -36,19 +38,19 @@ final class LiveActivityManager: ObservableObject {
         
     }
     
-    func endLiveActivity(destinationInfo: BusStop) {
-        guard let destinationNameKorean = destinationInfo.stopNameKorean else { return }
-        guard let destinationNameRomanized = destinationInfo.stopNameRomanized else { return }
-        
-        let finalContent = BusJourneyAttributes.ContentState(remainingStopsCount: 0, thisStopNameKorean: destinationNameKorean, thisStopNameRomanized: destinationNameRomanized)
-        
-        let dismissalpolicy: ActivityUIDismissalPolicy = .immediate
-        
+    func endLiveActivity() {
+        let semaphore = DispatchSemaphore(value: 0)
+
         Task {
-            await activity?.end(ActivityContent(state: finalContent, staleDate: nil), dismissalPolicy: dismissalpolicy)
-            
-            activity = nil
+            if let currentActivity = activity {
+                await currentActivity.end(nil, dismissalPolicy: .immediate)
+                self.activity = nil
+            }
+
+            semaphore.signal()
         }
+
+        semaphore.wait()
     }
     
     func updateLiveActivity(remainingStops: Int, thisStop: BusStop) async {

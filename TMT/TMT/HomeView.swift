@@ -10,7 +10,6 @@ import PhotosUI
 
 struct HomeView: View {
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
-    @StateObject private var activityManager: LiveActivityManager
     @StateObject private var journeyModel: JourneySettingModel
     @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
     @StateObject private var locationManager: LocationManager
@@ -23,12 +22,10 @@ struct HomeView: View {
     init() {
         let searchModel = BusSearchModel()
         let journeyModel = JourneySettingModel(searchModel: searchModel)
-        let activityManager = LiveActivityManager()
         
         _searchModel = StateObject(wrappedValue: searchModel)
         _journeyModel = StateObject(wrappedValue: journeyModel)
-        _activityManager = StateObject(wrappedValue: activityManager)
-        _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
+        _locationManager = StateObject(wrappedValue: LocationManager(journeyModel: journeyModel))
     }
     
     var body: some View {
@@ -71,7 +68,6 @@ struct HomeView: View {
         }
         .environmentObject(locationManager)
         .environmentObject(searchModel)
-        .environmentObject(activityManager)
         .environmentObject(journeyModel)
         .environmentObject(imageHandler)
     }

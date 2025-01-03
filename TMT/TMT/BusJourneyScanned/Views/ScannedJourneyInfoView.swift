@@ -14,8 +14,7 @@ struct ScannedJourneyInfoView: View {
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var searchModel: BusSearchModel
     @EnvironmentObject var journeyModel: JourneySettingModel
-    @EnvironmentObject var activityManager: LiveActivityManager
-    
+
     @State private var tag: Int? = nil
     
     @State private var showingAlert: Bool = false
@@ -131,12 +130,12 @@ struct ScannedJourneyInfoView: View {
                                 
                                 guard let startStop = journeyModel.journeyStops.first else { return }
                                 guard let endStop = journeyModel.journeyStops.last else { return }
-                                
+                              
                                 cancellable = locationManager.$remainingStops
                                     .sink { newValue in
                                         if newValue != 0 {
-                                            activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: newValue)
-                                            
+                                            LiveActivityManager.shared.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
+
                                             isLoading = false
                                             tag = 1
                                             path.append("BusStop")
