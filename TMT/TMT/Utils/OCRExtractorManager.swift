@@ -81,7 +81,7 @@ class OCRExtractorManager {
         if let firstIndex = filteredArray.firstIndex(where: { $0 == "off" || $0 == "oft" || $0 == "otf" || $0 == "ott"}),
            let secondIndex = filteredArray.firstIndex(of: busNumber),
            firstIndex < secondIndex {
-            let result = Array(filteredArray[(firstIndex + 1)...secondIndex].dropLast())
+            let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
             startStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopBoard.")
@@ -128,7 +128,7 @@ class OCRExtractorManager {
         if let firstIndex = filteredArray.firstIndex(of: sortOfBuses[0]),
            let secondIndex = filteredArray.firstIndex(where: { $0 == "ETA" || $0 == busNumber }),
            firstIndex < secondIndex {
-            let result = Array(filteredArray[(firstIndex + 1)...secondIndex].dropLast())
+            let result = Array(filteredArray[(firstIndex + 1)..<secondIndex].dropLast())
             startStop = stringArrayToStirng(stringArray: result)
         } else {
             print("Failed to extract busStopBoard.")
