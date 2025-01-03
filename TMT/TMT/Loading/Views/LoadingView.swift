@@ -15,8 +15,8 @@ struct LoadingView: View {
         VStack(spacing: 0) {
             HStack {
                 Text(currentLoading.description)
-                    .foregroundStyle(.textDefault)
-                    .font(.system(size: 28, weight: .bold))
+                    .title1Bold()
+                    .foregroundStyle(.basicBlack)
 
                 Spacer()
             }

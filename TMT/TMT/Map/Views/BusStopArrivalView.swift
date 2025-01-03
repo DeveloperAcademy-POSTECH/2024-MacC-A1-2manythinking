@@ -28,13 +28,13 @@ struct BusStopArrivalView: View {
             .padding(.bottom, 8)
             
             Text("You've arrived")
+                .title2()
                 .foregroundStyle(.textDefault)
-                .font(.system(size: 24, weight: .bold))
                 .padding(.bottom, 4)
             
             Text("Hope you had a pleasant journey!")
+                .body2Medium()
                 .foregroundStyle(.brandPrimary)
-                .font(.system(size: 16, weight: .medium))
                 .padding(.bottom, 8)
             
             Image("BusStopArrived")

@@ -27,7 +27,6 @@ struct BusStopsSheetView: View {
                     .onAppear {
                         proxy.scrollTo(journeyModel.journeyStops.first!.stopOrder)
                     }
-                    // TODO: 정류장 지나칠 때마다 스크롤 위치 변화하는지 테스트 필요
                     .onChange(of: journeyModel.lastPassedStopIndex) {
                         proxy.scrollTo(journeyModel.journeyStops[journeyModel.lastPassedStopIndex].stopOrder)
                         
@@ -79,16 +78,16 @@ struct BusStopRowView: View {
     private var busStopNamesView: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(stop.stopNameKorean ?? "")
-                .font(.headline) // TODO: 서체
+                .body2Regular()
                 .foregroundStyle(isPartOfJourney ? .textDefault : .grey400)
-            
+
             Text("[\(stop.stopNameRomanized ?? "")]")
-                .font(.subheadline) // TODO: 서체
+                .label3Regular()
                 .foregroundStyle(.grey400)
-            
+
             if isPartOfJourney {
                 Text(stop.stopNameTranslated ?? "")
-                    .font(.headline) // TODO: 서체
+                    .body2Regular()
                     .foregroundStyle(.textDefault)
             }
         }

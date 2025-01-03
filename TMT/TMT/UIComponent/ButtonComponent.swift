@@ -22,8 +22,8 @@ struct FilledButton: View {
                 .foregroundStyle(fillColor)
                 .overlay {
                     Text(title)
+                        .body1()
                         .foregroundStyle(textColor)
-                        .font(.system(size: 18, weight: .medium)) // TODO: 서체 수정
                         .cornerRadius(8)
                         .padding(10)
                 }
@@ -47,8 +47,8 @@ struct OutlinedButton: View {
                 .background(.brandBackground)
                 .overlay {
                     Text(title)
+                        .body1()
                         .foregroundStyle(textColor)
-                        .font(.system(size: 18, weight: .medium)) // TODO: 서체 수정
                         .cornerRadius(8)
                         .padding(10)
                 }
