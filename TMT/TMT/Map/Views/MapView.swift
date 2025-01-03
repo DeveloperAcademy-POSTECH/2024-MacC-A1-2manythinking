@@ -124,13 +124,13 @@ struct MapView: View {
                 .overlay {
                     HStack(alignment: .bottom, spacing: 6) {
                         Text("\(locationManager.remainingStops)")
+                            .title0SemiBold()
                             .foregroundStyle(colors.leftStopNumberColor)
-                            .font(.system(size: 45, weight: .semibold))
-                        
+
                         Text("Stops Left")
+                            .title4()
                             .foregroundStyle(.grey200)
-                            .font(.system(size: 20, weight: .bold))
-                        
+
                         Spacer()
                         
                         endButton
@@ -149,6 +149,7 @@ struct MapView: View {
             showingAlert = true
         } label: {
             Text("End")
+                .body1()
                 .foregroundStyle(.brandBackground)
                 .frame(width: 69, height: 38)
                 .background {
@@ -160,6 +161,7 @@ struct MapView: View {
             Button("Stay", role: .cancel) {
                 showingAlert = false
             }
+
             Button("End", role:.destructive) {
                 LiveActivityManager.shared.endLiveActivity()
                 imageHandler.selectedImage = nil
@@ -175,6 +177,7 @@ struct MapView: View {
         ZStack {
             Color.basicBlack.opacity(0.63)
                 .ignoresSafeArea()
+            
             BusStopArrivalView(hasNotArrived: $isShowingBottomSheet, path: $path)
         }
     }

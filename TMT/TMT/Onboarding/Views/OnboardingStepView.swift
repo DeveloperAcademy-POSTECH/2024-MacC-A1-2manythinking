@@ -21,13 +21,13 @@ struct OnboardingStepView: View {
                 HStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(step.title)
-                            .font(.system(size: 28, weight: .bold)) // TODO: 서체 수정하기
+                            .title1Bold()
                             .foregroundStyle(.textDefault)
                         
                         if let description = step.description {
                             Text(description)
+                                .title2()
                                 .multilineTextAlignment(.leading)
-                                .font(.system(size: 24, weight: .bold))
                                 .foregroundStyle(.brandPrimary)
                                 .padding(.bottom, 6)
                         }

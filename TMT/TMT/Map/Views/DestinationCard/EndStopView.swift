@@ -17,22 +17,25 @@ struct EndStopView: View {
         
         VStack(spacing: 0) {
             Text("Destination")
+                .label1Medium()
                 .foregroundStyle(colors.destinationColor)
-                .font(.system(size: 14, weight: .medium))
                 .frame(width: 361, height: 38)
                 .offset(y: -10)
                 .background {
                     RoundedRectangle(cornerRadius: 20)
                         .trim(from: 0.5, to: 1)
                         .foregroundStyle(colors.statusColor)
-                        .overlay(
+                        .overlay {
                             RoundedRectangle(cornerRadius: 20)
                                 .trim(from: 0.5, to: 1)
                                 .stroke(.grey100, lineWidth: 0.5)
-                        )
+                        }
                 }
             
-            BusStopDetailView(isEndStopViewVisible: true, stopNameKorean: busStopDetail.stopNameKorean ?? "", stopNameRomanized: busStopDetail.stopNameRomanized ?? "", stopNameTranslated: busStopDetail.stopNameTranslated ?? "")
+            BusStopDetailView(isEndStopViewVisible: true,
+                              stopNameKorean: busStopDetail.stopNameKorean ?? "",
+                              stopNameRomanized: busStopDetail.stopNameRomanized ?? "",
+                              stopNameTranslated: busStopDetail.stopNameTranslated ?? "")
                 .padding(.horizontal, 16)
                 .padding(.top, 5)
                 .padding(.bottom, 11.88)
@@ -45,7 +48,7 @@ struct EndStopView: View {
                         topTrailing: 0
                     ))
                     .foregroundStyle(.brandBackground)
-                    .overlay(
+                    .overlay {
                         UnevenRoundedRectangle(cornerRadii: .init(
                             topLeading: 0,
                             bottomLeading: 15,
@@ -53,7 +56,7 @@ struct EndStopView: View {
                             topTrailing: 0
                         ))
                         .stroke(.grey100, lineWidth: 0.5)
-                    )
+                    }
                 }
                 .offset(y: -19)
         }
