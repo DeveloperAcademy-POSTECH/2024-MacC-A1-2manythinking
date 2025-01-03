@@ -132,20 +132,18 @@ struct ScannedJourneyInfoView: View {
                                 guard let startStop = journeyModel.journeyStops.first else { return }
                                 guard let endStop = journeyModel.journeyStops.last else { return }
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                    cancellable = locationManager.$remainingStops
-                                        .sink { newValue in
-                                            if newValue != 0 {
-                                                activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: newValue)
-                                                
-                                                isLoading = false
-                                                tag = 1
-                                                path.append("BusStop")
-                                                
-                                                cancellable?.cancel()
-                                            }
+                                cancellable = locationManager.$remainingStops
+                                    .sink { newValue in
+                                        if newValue != 0 {
+                                            activityManager.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: newValue)
+                                            
+                                            isLoading = false
+                                            tag = 1
+                                            path.append("BusStop")
+                                            
+                                            cancellable?.cancel()
                                         }
-                                }
+                                    }
                             }
                         }
                     }
@@ -156,13 +154,7 @@ struct ScannedJourneyInfoView: View {
                                  .disabled(imageHandler.showAlertText)
                                  .onChange(of: isLoading) { newValue in
                                      if newValue {
-                                         DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
-                                             if isLoading {
-                                                 isLoading = false
-                                                 alertMessage = "Failed to load the image. Please try again."
-                                                 showingLoadingAlert = true
-                                             }
-                                         }
+                                         startLoadingTimeout()
                                      }
                                  }
                                  .alert(isPresented: $showingLoadingAlert) {
@@ -185,6 +177,7 @@ struct ScannedJourneyInfoView: View {
             
             if isLoading {
                 LoadingView()
+                    .toolbar(.hidden, for: .navigationBar)
             }
         }
         .onTapGesture {
@@ -222,6 +215,20 @@ struct ScannedJourneyInfoView: View {
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }
         .padding(.bottom, 16)
+    }
+    
+    private func startLoadingTimeout() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+            if isLoading {
+                stopLoadingWithError("Failed to load the image. Please try again.")
+            }
+        }
+    }
+
+    private func stopLoadingWithError(_ message: String) {
+        isLoading = false
+        alertMessage = message
+        showingLoadingAlert = true
     }
 }
 
