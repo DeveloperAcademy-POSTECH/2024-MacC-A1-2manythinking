@@ -5,6 +5,7 @@
 //  Created by Choi Minkyeong on 11/3/24.
 //
 
+import Combine
 import SwiftUI
 import PhotosUI
 
@@ -15,16 +16,20 @@ struct ScannedJourneyInfoView: View {
     @EnvironmentObject var journeyModel: JourneySettingModel
 
     @State private var tag: Int? = nil
-
+    
     @State private var showingAlert: Bool = false
     @State private var isShowingInformation = false
     @State private var isLoading = false
-
+    
     @State private var showingPhotosPicker: Bool = false
     @State private var pickedItem: PhotosPickerItem? = nil
-
+    
+    @State private var showingLoadingAlert: Bool = false
+    @State private var alertMessage = ""
+    @State private var cancellable: AnyCancellable?
+    
     @Binding var path: [String]
-
+    
     var body: some View {
         ZStack {
             Color.brandBackground
@@ -36,14 +41,14 @@ struct ScannedJourneyInfoView: View {
                     } else {
                         UploadedPhotoView(selectedImage: .constant(nil))
                     }
-
+                    
                     VStack(alignment: .leading) {
                         uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
                         uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
                         uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
                     }
                 }
-
+                
                 if imageHandler.showAlertText {
                     HStack {
                         VStack {
@@ -61,7 +66,7 @@ struct ScannedJourneyInfoView: View {
                     .frame(height: 42)
                     .foregroundStyle(.red600)
                 }
-
+                
                 HStack(spacing: 0) {
                     Group {
                         if imageHandler.showAlertText {
@@ -86,12 +91,11 @@ struct ScannedJourneyInfoView: View {
                             Text("Cancel")
                                 .foregroundStyle(.blue)
                         }
-
+                        
                         Button {
                             showingAlert = false
                             showingPhotosPicker = true
                         } label: {
-                            // TODO: 커스텀 안되는 문제 해결하기 (bold 처리가 안됨)
                             Text("Confirm")
                                 .foregroundStyle(.blue)
                                 .font(.footnote.weight(.bold))
@@ -99,7 +103,7 @@ struct ScannedJourneyInfoView: View {
                     } message: {
                         Text("The previously uploaded image information will disappear. Do you want to proceed?")
                     }
-
+                    
                     PhotosPicker(selection: $pickedItem, matching: .screenshots) {
                         EmptyView()
                     }
@@ -107,11 +111,11 @@ struct ScannedJourneyInfoView: View {
                         imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
                     }
                     .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
-
+                    
                     NavigationLink(destination: MapView(path: $path), tag: 1, selection: $tag) {
                         EmptyView()
                     }
-
+                    
                     FilledButton(title: "Start",
                                  fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
                         isLoading = true
@@ -123,33 +127,56 @@ struct ScannedJourneyInfoView: View {
                                     startStopString: imageHandler.scannedJourneyInfo.startStop,
                                     endStopString: imageHandler.scannedJourneyInfo.endStop
                                 )
-
+                                
                                 guard let startStop = journeyModel.journeyStops.first else { return }
                                 guard let endStop = journeyModel.journeyStops.last else { return }
+                              
+                                cancellable = locationManager.$remainingStops
+                                    .sink { newValue in
+                                        if newValue != 0 {
+                                            LiveActivityManager.shared.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
 
-                                LiveActivityManager.shared.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
-
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                    isLoading = false
-                                    tag = 1
-                                    path.append("BusStop")
-                                }
+                                            isLoading = false
+                                            tag = 1
+                                            path.append("BusStop")
+                                            
+                                            cancellable?.cancel()
+                                        }
+                                    }
                             }
                         }
                     }
+                                 .onAppear {
+                                     journeyModel.journeyStops = []
+                                     locationManager.remainingStops = 0
+                                 }
                                  .disabled(imageHandler.showAlertText)
+                                 .onChange(of: isLoading) { newValue in
+                                     if newValue {
+                                         startLoadingTimeout()
+                                     }
+                                 }
+                                 .alert(isPresented: $showingLoadingAlert) {
+                                     Alert(
+                                        title: Text("Error!"),
+                                        message: Text(alertMessage),
+                                        dismissButton: .default(Text("Okay")) {
+                                        }
+                                     )
+                                 }
                 }
                 .frame(height: 52)
                 .padding(.vertical, 12.5)
             }
             .padding(.horizontal, 16)
-
+            
             if isShowingInformation {
                 InformationModalView(isShowingInformation: $isShowingInformation)
             }
-
+            
             if isLoading {
                 LoadingView()
+                    .toolbar(.hidden, for: .navigationBar)
             }
         }
         .onTapGesture {
@@ -166,15 +193,14 @@ struct ScannedJourneyInfoView: View {
             }
             .disabled(isShowingInformation)
         }
-
     }
-
+    
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
                 .label1Medium()
                 .foregroundStyle(.grey300)
-
+          
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
                 .font(.custom("Pretendard", size: 20).bold())
                 .foregroundStyle(.textDefault)
@@ -188,6 +214,20 @@ struct ScannedJourneyInfoView: View {
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }
         .padding(.bottom, 16)
+    }
+    
+    private func startLoadingTimeout() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+            if isLoading {
+                stopLoadingWithError("Failed to load the image. Please try again.")
+            }
+        }
+    }
+
+    private func stopLoadingWithError(_ message: String) {
+        isLoading = false
+        alertMessage = message
+        showingLoadingAlert = true
     }
 }
 
