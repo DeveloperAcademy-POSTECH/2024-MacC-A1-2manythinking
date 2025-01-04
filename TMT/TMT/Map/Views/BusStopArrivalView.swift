@@ -10,7 +10,6 @@ import SwiftUI
 struct BusStopArrivalView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
     @EnvironmentObject var journeyModel: JourneySettingModel
-    @EnvironmentObject var locationManager: LocationManager
     @Binding var hasNotArrived: Bool
     @Binding var path: [String]
     
