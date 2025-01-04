@@ -13,7 +13,7 @@ enum OnboardingStep: CaseIterable {
     var title: String {
         switch self {
         case .goNaverMap: return "Find your bus route on\nNAVER Map."
-        case .capture: return "Screenshot the search result."
+        case .capture: return "Screenshot\nthe search result."
         case .introFinish: return "Then upload it!"
         }
     }

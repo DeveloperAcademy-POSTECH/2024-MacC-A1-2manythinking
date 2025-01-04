@@ -198,12 +198,12 @@ struct ScannedJourneyInfoView: View {
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
+                .label1Medium()
                 .foregroundStyle(.grey300)
-                .font(.system(size: 14, weight: .medium))
-            
+          
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
+                .font(.custom("Pretendard", size: 20).bold())
                 .foregroundStyle(.textDefault)
-                .font(.system(size: 20, weight: .bold))
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(
@@ -233,4 +233,5 @@ struct ScannedJourneyInfoView: View {
 
 #Preview {
     ScannedJourneyInfoView(path: .constant(["ScannedJourneyInfoView"]))
+        .environmentObject(ImageHandlerModel())
 }

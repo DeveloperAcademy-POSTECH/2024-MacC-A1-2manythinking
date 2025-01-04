@@ -22,12 +22,12 @@ struct InformationModalView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text(title)
+                    .title2()
                     .foregroundStyle(.textDefault)
-                    .font(.system(size: 24, weight: .bold)) // TODO: 서체 수정
-                
+
                 Text(description)
+                    .body2Medium()
                     .foregroundStyle(.brandPrimary)
-                    .font(.system(size: 16, weight: .medium)) // TODO: 서체 수정
                     .padding(.top, -4)
                     .padding(.bottom, 2)
                 

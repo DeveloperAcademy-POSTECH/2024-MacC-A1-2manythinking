@@ -33,15 +33,15 @@ struct BusJourneyLiveActivity: Widget {
                             .font(.system(size: 12))
                         
                         Text("This Stop")
-                            .font(.system(size: 14, weight: .medium))
+                            .label1Medium()
                     }
                     .padding(.bottom, 4)
                     
                     Text(context.state.thisStopNameKorean)
-                        .font(.system(size: 20, weight: .bold))
-                    
+                        .title4()
+
                     Text("[\(context.state.thisStopNameRomanized)]") // TODO: 여러 줄로 보이도록 하기
-                        .font(.system(size: 14, weight: .medium))
+                        .label1Medium()
                 }
                 .foregroundStyle(.textDefault)
                 .multilineTextAlignment(.leading)
@@ -56,12 +56,12 @@ struct BusJourneyLiveActivity: Widget {
                     .overlay {
                         VStack(spacing: -4) {
                             Text("\(context.state.remainingStopsCount)")
+                                .title2()
                                 .foregroundStyle(.textLeft)
-                                .font(.system(size: 24, weight: .bold))
-                            
+
                             Text("Stops Left")
+                                .label1Medium()
                                 .foregroundStyle(.textLeft)
-                                .font(.system(size: 14, weight: .medium))
                         }
                     }
             }
@@ -80,7 +80,7 @@ struct BusJourneyLiveActivity: Widget {
                             .frame(width: 12)
                         
                         Text("This Stop")
-                            .font(.system(size: 14, weight: .medium))
+                            .label1Medium()
                             .padding(.bottom, 4)
                     }
                     .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
@@ -92,12 +92,12 @@ struct BusJourneyLiveActivity: Widget {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(context.state.thisStopNameKorean)
+                                    .title4()
                                     .foregroundStyle(.grey50)
-                                    .font(.system(size: 20, weight: .bold))
-                                
+
                                 Text("[\(context.state.thisStopNameRomanized)]")
+                                    .label1Medium()
                                     .foregroundStyle(.grey50)
-                                    .font(.system(size: 14, weight: .medium))
                                     .multilineTextAlignment(.leading)
                             }
                             
@@ -110,10 +110,10 @@ struct BusJourneyLiveActivity: Widget {
                             // MARK: 남은 정류장 수
                             HStack(alignment: .bottom, spacing: 2) {
                                 Text("\(context.state.remainingStopsCount)")
-                                    .font(.system(size: 24, weight: .bold))
-                                
+                                    .title2()
+
                                 Text("Stops Left")
-                                    .font(.system(size: 14, weight: .medium))
+                                .label1Medium()
                             }
                             .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
                             .padding(.horizontal, 14)
@@ -163,6 +163,7 @@ struct BusJourneyLiveActivity: Widget {
                     .resizable()
                     .frame(width: 23, height: 23)
                     .padding(.horizontal, 2)
+
             } compactTrailing: { // MARK: Compact Trailing
                 Image("TrailingSmall")
                     .resizable()
@@ -171,9 +172,10 @@ struct BusJourneyLiveActivity: Widget {
                     .frame(width: 21, height: 22)
                     .overlay {
                         Text("\(context.state.remainingStopsCount)")
-                            .font(.system(size: 14, weight: .bold))
+                            .label1Medium()
                             .foregroundStyle(.basicBlack)
                     }
+
             } minimal: { // MARK: Minimal
                 Image("TrailingSmall")
                     .resizable()
@@ -182,7 +184,7 @@ struct BusJourneyLiveActivity: Widget {
                     .frame(width: 21, height: 22)
                     .overlay {
                         Text("\(context.state.remainingStopsCount)")
-                            .font(.system(size: 14, weight: .bold))
+                            .label1Medium()
                             .foregroundStyle(.basicBlack)
                     }
             }
