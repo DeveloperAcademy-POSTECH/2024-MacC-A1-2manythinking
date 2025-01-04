@@ -1,0 +1,8 @@
+//
+//  Localizable.strings
+//  TMT
+//
+//  Created by Choi Minkyeong on 12/2/24.
+//
+
+"NSLocationWhenInUseUsageDescription" = "We need your location to provide bus route information.";

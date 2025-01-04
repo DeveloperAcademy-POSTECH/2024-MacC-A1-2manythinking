@@ -5,214 +5,233 @@
 //  Created by Choi Minkyeong on 11/3/24.
 //
 
+import Combine
 import SwiftUI
 import PhotosUI
 
 struct ScannedJourneyInfoView: View {
-    @State private var busNumber: String = ""
-    @State private var startStop: String = ""
-    @State private var endStop: String = ""
-    @State private var pickedItem: PhotosPickerItem? = nil
-    @State private var newScannedInfo: String = ""
-    @Binding var scannedJourneyInfo: String
-    @Binding var selectedImage: UIImage?
-    @Binding var isLoading: Bool
-    
-    @StateObject private var searchModel: BusSearchModel
-    @StateObject private var journeyModel: JourneySettingModel
-    @StateObject private var activityManager: LiveActivityManager
-    @StateObject var locationManager: LocationManager
-    
+    @EnvironmentObject var imageHandler: ImageHandlerModel
+    @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var searchModel: BusSearchModel
+    @EnvironmentObject var journeyModel: JourneySettingModel
+
     @State private var tag: Int? = nil
+    
     @State private var showingAlert: Bool = false
+    @State private var isShowingInformation = false
+    @State private var isLoading = false
+    
     @State private var showingPhotosPicker: Bool = false
-    @State private var hasError: Bool = false
+    @State private var pickedItem: PhotosPickerItem? = nil
     
-    init(scannedJourneyInfo: Binding<String>, selectedImage: Binding<UIImage?>, isLoading: Binding<Bool>) {
-        let searchModel = BusSearchModel()
-        let journeyModel = JourneySettingModel(searchModel: searchModel)
-        let activityManager = LiveActivityManager()
-        _searchModel = StateObject(wrappedValue: searchModel)
-        _journeyModel = StateObject(wrappedValue: journeyModel)
-        _activityManager = StateObject(wrappedValue: activityManager)
-        _locationManager = StateObject(wrappedValue: LocationManager(activityManager: activityManager, journeyModel: journeyModel))
-        _scannedJourneyInfo = scannedJourneyInfo
-        _selectedImage = selectedImage
-        _isLoading = isLoading
-    }
+    @State private var showingLoadingAlert: Bool = false
+    @State private var alertMessage = ""
+    @State private var cancellable: AnyCancellable?
     
-    
+    @Binding var path: [String]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            uploadedInfoBox(title: "Bus Number", scannedInfo: $busNumber)
-            uploadedInfoBox(title: "Departure Stop", scannedInfo: $startStop)
-            uploadedInfoBox(title: "Arrival Stop", scannedInfo: $endStop)
-            
-            if hasError {
-                HStack {
-                    VStack {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                        Spacer()
-                    }
-                    Text("As the information was entered incorrectly, please reupload the screenshot.")
-                }
-                .foregroundStyle(.red600)
-            }
-            
-            HStack(spacing: 0) {
-                Button {
-                    showingAlert = true
-                } label: {
-                    ZStack {
-                        if !hasError {
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(.brandPrimary, lineWidth: 1)
-                            Text("Reupload")
-                                .foregroundStyle(.brandPrimary)
-                        } else {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.grey900)
-                                .stroke(.grey900)
-                            Text("Reupload")
-                                .foregroundStyle(.white)
-                        }
-                    }
-                }
-                .padding(.trailing, 8)
-                .alert("Information will disappear.", isPresented: $showingAlert) {
-                    Button {
-                        showingAlert = false
-                    } label: {
-                        Text("Cancel")
-                            .foregroundStyle(.blue)
+        ZStack {
+            Color.brandBackground
+                .ignoresSafeArea()
+            VStack {
+                ScrollView(showsIndicators: false) {
+                    if !imageHandler.showAlertScreen {
+                        UploadedPhotoView(selectedImage: $imageHandler.selectedImage)
+                    } else {
+                        UploadedPhotoView(selectedImage: .constant(nil))
                     }
                     
-                    Button {
-                        showingAlert = false
-                        showingPhotosPicker = true
-                    } label: {
-                        Text("Confirm")
-                            .foregroundStyle(.blue)
-                            .fontWeight(.bold)
+                    VStack(alignment: .leading) {
+                        uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
+                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
+                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
                     }
-                } message: {
-                    Text("The previously uploaded image information will disappear. Do you want to proceed?")
                 }
                 
-                PhotosPicker(selection: $pickedItem, matching: .screenshots) {
-                    EmptyView()
+                if imageHandler.showAlertText {
+                    HStack {
+                        VStack {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                            Spacer()
+                        }
+                        Text("Opps, something seems off. Could you reupload the screenshot?")
+                            .font(.system(size: 16, weight: .medium))
+                            .lineLimit(nil)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .onAppear {
+                        imageHandler.scannedJourneyInfo = ScannedJourneyInfo(busNumber: "", startStop: "", endStop: "")
+                    }
+                    .frame(height: 42)
+                    .foregroundStyle(.red600)
                 }
-                .onChange(of: pickedItem) {
-                    loadImage(from: pickedItem)
-                }
-                .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
-
-                NavigationLink(destination: BusStopView()
-                    .environmentObject(locationManager)
-                    .environmentObject(searchModel)
-                    .environmentObject(activityManager)
-                    .environmentObject(journeyModel), tag: 1, selection: self.$tag) {
+                
+                HStack(spacing: 0) {
+                    Group {
+                        if imageHandler.showAlertText {
+                            FilledButton(title: "Reupload", fillColor: .basicBlack, textColor: .basicWhite) {
+                                showingAlert = true
+                            }
+                        } else {
+                            OutlinedButton(
+                                title: "Reupload",
+                                strokeColor: .brandPrimary,
+                                textColor: .brandPrimary
+                            ) {
+                                showingAlert = true
+                            }
+                        }
+                    }
+                    .padding(.trailing, 8)
+                    .alert("Information will disappear.", isPresented: $showingAlert) {
+                        Button {
+                            showingAlert = false
+                        } label: {
+                            Text("Cancel")
+                                .foregroundStyle(.blue)
+                        }
+                        
+                        Button {
+                            showingAlert = false
+                            showingPhotosPicker = true
+                        } label: {
+                            Text("Confirm")
+                                .foregroundStyle(.blue)
+                                .font(.footnote.weight(.bold))
+                        }
+                    } message: {
+                        Text("The previously uploaded image information will disappear. Do you want to proceed?")
+                    }
+                    
+                    PhotosPicker(selection: $pickedItem, matching: .screenshots) {
                         EmptyView()
                     }
-                
-                Button {
-                    journeyModel.setJourneyStops(busNumberString: busNumber, startStopString: startStop, endStopString: endStop)
+                    .onChange(of: pickedItem) {
+                        imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
+                    }
+                    .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
                     
-                    guard let endStop = journeyModel.journeyStops.last else { return }
-                    activityManager.startLiveActivity(destinationInfo: endStop, remainingStops: locationManager.remainingStops)
-                    self.tag = 1
-                } label: {
-                    ZStack {
-                        if !hasError {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.brandPrimary)
-                                .stroke(.brandPrimary)
-                            Text("Start")
-                                .foregroundStyle(.black)
-                        } else {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.grey100)
-                                .stroke(.grey100)
-                            Text("Start")
-                                .foregroundStyle(.basicWhite)
+                    NavigationLink(destination: MapView(path: $path), tag: 1, selection: $tag) {
+                        EmptyView()
+                    }
+                    
+                    FilledButton(title: "Start",
+                                 fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
+                        isLoading = true
+                        Task {
+                            await NotificationManager.shared.requestNotificationPermission()
+                            if !imageHandler.showAlertText {
+                                journeyModel.setJourneyStops(
+                                    busNumberString: imageHandler.scannedJourneyInfo.busNumber,
+                                    startStopString: imageHandler.scannedJourneyInfo.startStop,
+                                    endStopString: imageHandler.scannedJourneyInfo.endStop
+                                )
+                                
+                                guard let startStop = journeyModel.journeyStops.first else { return }
+                                guard let endStop = journeyModel.journeyStops.last else { return }
+                              
+                                cancellable = locationManager.$remainingStops
+                                    .sink { newValue in
+                                        if newValue != 0 {
+                                            LiveActivityManager.shared.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
+
+                                            isLoading = false
+                                            tag = 1
+                                            path.append("BusStop")
+                                            
+                                            cancellable?.cancel()
+                                        }
+                                    }
+                            }
                         }
                     }
+                                 .onAppear {
+                                     journeyModel.journeyStops = []
+                                     locationManager.remainingStops = 0
+                                 }
+                                 .disabled(imageHandler.showAlertText)
+                                 .onChange(of: isLoading) { newValue in
+                                     if newValue {
+                                         startLoadingTimeout()
+                                     }
+                                 }
+                                 .alert(isPresented: $showingLoadingAlert) {
+                                     Alert(
+                                        title: Text("Error!"),
+                                        message: Text(alertMessage),
+                                        dismissButton: .default(Text("Okay")) {
+                                        }
+                                     )
+                                 }
                 }
-                .disabled(hasError)
+                .frame(height: 52)
+                .padding(.vertical, 12.5)
             }
-            .frame(height: 52)
-            .padding(.vertical, 12.5)
-        }
-        .onAppear {
-            newScannedInfo = scannedJourneyInfo
-            splitScannedInfo()
-        }
-    }
-    
-    private func loadImage(from item: PhotosPickerItem?) {
-        Task {
-            guard let item = item else { return }
-            if let data = try? await item.loadTransferable(type: Data.self),
-               let image = UIImage(data: data) {
-                selectedImage = image
-                isLoading = true
-                newScannedInfo = ""
-                
-                let ocrService = OCRService()
-                ocrService.startOCR(image: image) { info in
-                    isLoading = false
-                    hasError = false
-                    if info.isEmpty {
-                        hasError = true
-                    } else {
-                        self.newScannedInfo = info
-                    }
-                    splitScannedInfo()
-                }
+            .padding(.horizontal, 16)
+            
+            if isShowingInformation {
+                InformationModalView(isShowingInformation: $isShowingInformation)
+            }
+            
+            if isLoading {
+                LoadingView()
+                    .toolbar(.hidden, for: .navigationBar)
             }
         }
-    }
-    
-    private func splitScannedInfo() {
-        let splitted = newScannedInfo.split(separator: ",")
-        if splitted.count >= 3 {
-            busNumber = String(splitted[1])
-            startStop = String(splitted[0])
-            endStop = String(splitted[2])
-        } else {
-            busNumber = ""
-            startStop = ""
-            endStop = ""
+        .onTapGesture {
+            UIApplication.shared.endEditing()
         }
-        if let lastChar = busNumber.last, lastChar == " " {
-            busNumber = String(busNumber.dropLast())
-        }
-        if let lastChar = startStop.last, lastChar == " " {
-            startStop = String(startStop.dropLast())
-        }
-        if let lastChar = endStop.last, lastChar == " " {
-            endStop = String(endStop.dropLast())
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            Button {
+                isShowingInformation = true
+            } label: {
+                Image(systemName: "info.circle")
+                    .foregroundStyle(.grey600)
+                    .font(.system(size: 17))
+            }
+            .disabled(isShowingInformation)
         }
     }
     
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
         VStack(alignment: .leading) {
             Text("\(title)")
+                .label1Medium()
                 .foregroundStyle(.grey300)
+          
             TextField("\(scannedInfo.wrappedValue)", text: scannedInfo)
-                .bold()
-                .font(.title)
+                .font(.custom("Pretendard", size: 20).bold())
+                .foregroundStyle(.textDefault)
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(
                     RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(.grey100, lineWidth: 1)
-                        .background(Color.basicWhite.cornerRadius(8))
+                        .background(Color.brandBackground.cornerRadius(8))
                 )
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }
         .padding(.bottom, 16)
     }
+    
+    private func startLoadingTimeout() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+            if isLoading {
+                stopLoadingWithError("Failed to load the image. Please try again.")
+            }
+        }
+    }
+
+    private func stopLoadingWithError(_ message: String) {
+        isLoading = false
+        alertMessage = message
+        showingLoadingAlert = true
+    }
 }
 
+#Preview {
+    ScannedJourneyInfoView(path: .constant(["ScannedJourneyInfoView"]))
+        .environmentObject(ImageHandlerModel())
+}

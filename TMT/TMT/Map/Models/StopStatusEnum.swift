@@ -8,58 +8,62 @@
 import SwiftUI
 
 enum StopStatusEnum {
-    case oneOrZeroStopsRemaining, twoStopsRemaining, threeStopsRemaining, defaultStatus
+    case zeroStopLeft, oneStopLeft, twoStopsLeft, threeStopsLeft, defaultStatus
     
     init(remainingStops: Int) {
         switch remainingStops {
-        case 0...1:
-            self = .oneOrZeroStopsRemaining
+        case 0:
+            self = .zeroStopLeft
+        case 1:
+            self = .oneStopLeft
         case 2:
-            self = .twoStopsRemaining
+            self = .twoStopsLeft
         case 3:
-            self = .threeStopsRemaining
+            self = .threeStopsLeft
         default:
             self = .defaultStatus
         }
     }
     
-    var backgroundColor: Color {
+    /// Dynamic Island
+    var statusColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining:
+        case .zeroStopLeft:
+            return .left0
+        case .oneStopLeft:
             return .left1
-        case .twoStopsRemaining:
+        case .twoStopsLeft:
             return .left2
-        case .threeStopsRemaining:
+        case .threeStopsLeft:
             return .left3
         case .defaultStatus:
-            return .white
+            return .brandPrimary
         }
     }
     
-    var textColor: Color {
+    /// EndStopView Destination Text
+    var destinationColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return .white
+        case .zeroStopLeft, .oneStopLeft, .twoStopsLeft, .threeStopsLeft:
+            return .basicWhite
         case .defaultStatus:
-            return .yellow600
+            return .yellow900
         }
     }
     
-    var subTextColor: Color {
+    /// BottomSheet Number
+    var leftStopNumberColor: Color {
         switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return .white
+        case .zeroStopLeft:
+            return .left0
+        case .oneStopLeft:
+            return .left1
+        case .twoStopsLeft:
+            return .left2
+        case .threeStopsLeft:
+            return .left3
         case .defaultStatus:
-            return .grey400
-        }
-    }
-    
-    var pinImage: String {
-        switch self {
-        case .oneOrZeroStopsRemaining, .twoStopsRemaining, .threeStopsRemaining:
-            return "PinWhite"
-        case .defaultStatus:
-            return "PinYellow"
+            return .textDefault
         }
     }
 }

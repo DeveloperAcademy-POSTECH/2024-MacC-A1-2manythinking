@@ -5,26 +5,27 @@
 //  Created by 김유빈 on 10/17/24.
 //
 
-import Combine
 import ActivityKit
+import SwiftUI
 
-final class LiveActivityManager: ObservableObject {
-    private var cancellable: Set<AnyCancellable> = Set()
+final class LiveActivityManager {
+    static let shared = LiveActivityManager()
+
     private var activity: Activity<BusJourneyAttributes>?
-
-    func startLiveActivity(destinationInfo: BusStop, remainingStops: Int) {
+    
+    func startLiveActivity(startBusStop: BusStop, endBusStop: BusStop, remainingStops: Int) {
         if ActivityAuthorizationInfo().areActivitiesEnabled {
             // 실행 중인 라이브 액티비티가 있으면 종료됩니다.
             if let _ = activity {
                 return
             }
             
-            guard let stopNameKorean = destinationInfo.stopNameKorean else { return }
-            guard let stropNameRomanized = destinationInfo.stopNameRomanized else { return }
+            guard let startNameKorean = endBusStop.stopNameKorean else { return }
+            guard let startNameRomanized = endBusStop.stopNameRomanized else { return }
             
-            let data = BusJourneyAttributes(stopNameKorean: stopNameKorean, stopNameRomanized: stropNameRomanized)
+            let data = BusJourneyAttributes()
             
-            let initialState = BusJourneyAttributes.ContentState(remainingStopsCount: remainingStops)
+            let initialState = BusJourneyAttributes.ContentState(remainingStopsCount: remainingStops, thisStopNameKorean: startNameKorean, thisStopNameRomanized: startNameRomanized)
             
             let content = ActivityContent(state: initialState, staleDate: nil)
             
@@ -38,24 +39,30 @@ final class LiveActivityManager: ObservableObject {
     }
     
     func endLiveActivity() {
-        let finalContent = BusJourneyAttributes.ContentState(remainingStopsCount: 0)
-        
-        let dismissalpolicy: ActivityUIDismissalPolicy = .immediate
-        
+        let semaphore = DispatchSemaphore(value: 0)
+
         Task {
-            await activity?.end(ActivityContent(state: finalContent, staleDate: nil), dismissalPolicy: dismissalpolicy)
-            
-            activity = nil
+            if let currentActivity = activity {
+                await currentActivity.end(nil, dismissalPolicy: .immediate)
+                self.activity = nil
+            }
+
+            semaphore.signal()
         }
+
+        semaphore.wait()
     }
     
-    func updateLiveActivity(remainingStops: Int) async {
-        let contentState = BusJourneyAttributes.ContentState(remainingStopsCount: remainingStops)
+    func updateLiveActivity(remainingStops: Int, thisStop: BusStop) async {
+        guard let thisStopNameKorean = thisStop.stopNameKorean else { return }
+        guard let thisStopNameRomanized = thisStop.stopNameRomanized else { return }
+        
+        let contentState = BusJourneyAttributes.ContentState(remainingStopsCount: remainingStops, thisStopNameKorean: thisStopNameKorean, thisStopNameRomanized: thisStopNameRomanized)
         
         // TODO: 애플워치에 뜨는 알림. title, body 내용 수정해야 함. 애플 워치에 알림 안 띄우고 알림 보내는 방법은 없나 ??...
         let alertConfig = AlertConfiguration(
-            title: "title",
-            body: "body",
+            title: "This Stop is \(thisStopNameKorean)[\(thisStopNameRomanized)].",
+            body: "\(remainingStops) stop(s) left.",
             sound: .default
         )
         

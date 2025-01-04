@@ -13,228 +13,252 @@ struct BusJourneyAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var remainingStopsCount: Int
+        
+        var thisStopNameKorean: String
+        var thisStopNameRomanized: String
     }
     
     // Fixed non-changing properties about your activity go here!
-    var stopNameKorean: String
-    var stopNameRomanized: String
 }
 
 struct BusJourneyLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: BusJourneyAttributes.self) { context in
             // Lock screen/banner UI goes here
-            HStack(spacing: 8) {
-                DestinationView(context: context)
+            // MARK: Lock Screen
+            HStack(spacing: 16) {
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(alignment: .center, spacing: 4) {
+                        Image(systemName: "location.fill")
+                            .font(.system(size: 12))
+                        
+                        Text("This Stop")
+                            .label1Medium()
+                    }
+                    .padding(.bottom, 4)
+                    
+                    Text(context.state.thisStopNameKorean)
+                        .title4()
+
+                    Text("[\(context.state.thisStopNameRomanized)]") // TODO: 여러 줄로 보이도록 하기
+                        .label1Medium()
+                }
+                .foregroundStyle(.textDefault)
+                .multilineTextAlignment(.leading)
+
+                Spacer()
                 
-                RemainingStopsCircleView(remainingStopsCount: context.state.remainingStopsCount)
+                Image("TrailingBig")
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                    .frame(width: 80, height: 80)
+                    .overlay {
+                        VStack(spacing: -4) {
+                            Text("\(context.state.remainingStopsCount)")
+                                .title2()
+                                .foregroundStyle(.textLeft)
+
+                            Text("Stops Left")
+                                .label1Medium()
+                                .foregroundStyle(.textLeft)
+                        }
+                    }
             }
-            .activityBackgroundTint(.white.opacity(0.7)) // TODO: 배경색 수정
-            .activitySystemActionForegroundColor(.basicWhite)
-            .padding(.horizontal, 15)
-            .padding(.vertical, 17.5)
+            .padding(16)
             
         } dynamicIsland: { context in
+            // MARK: Expanded
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 
                 DynamicIslandExpandedRegion(.leading) {
-                    HStack(spacing: 2) {
-                        Image("PinYellow")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                            .foregroundStyle(.brandPrimary)
-
-                        Text("Destination")
-                            .foregroundStyle(.brandPrimary)
-                            .font(.system(size: 14))
+                    HStack(alignment: .center, spacing: 4) {
+                        Image(systemName: "location.fill") // TODO: 도착지 - 핀 / 현재 정류장 - location
+                            .renderingMode(.template)
+                            .frame(width: 12)
+                        
+                        Text("This Stop")
+                            .label1Medium()
+                            .padding(.bottom, 4)
                     }
-                    .padding(.top, 18)
-                    .padding(.horizontal, 8)
-                }
-                
-                
-                DynamicIslandExpandedRegion(.trailing) {
-                    RemainingStopsTextView(remainingStopsCount: context.state.remainingStopsCount)
-                        .padding(.top, 18)
+                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                    .padding([.leading, .top], 8)
                 }
                 
                 DynamicIslandExpandedRegion(.bottom) {
-                    DestinationDetailView(context: context)
+                    VStack(spacing: 9) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text(context.state.thisStopNameKorean)
+                                    .title4()
+                                    .foregroundStyle(.grey50)
+
+                                Text("[\(context.state.thisStopNameRomanized)]")
+                                    .label1Medium()
+                                    .foregroundStyle(.grey50)
+                                    .multilineTextAlignment(.leading)
+                            }
+                            
+                            Spacer()
+                        }
+                        
+                        HStack(alignment: .center, spacing: 6) {
+                            Spacer()
+                            
+                            // MARK: 남은 정류장 수
+                            HStack(alignment: .bottom, spacing: 2) {
+                                Text("\(context.state.remainingStopsCount)")
+                                    .title2()
+
+                                Text("Stops Left")
+                                .label1Medium()
+                            }
+                            .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 7.5)
+                            .background {
+                                RoundedRectangle(cornerRadius: 24)
+                                    .foregroundStyle(.grey900)
+                                
+                            }
+                            
+                            // TODO: this stop 버튼
+                            //
+                            //                            Button {
+                            //                            } label: {
+                            //                                RoundedRectangle(cornerRadius: 25)
+                            //                                    .frame(width: 44, height: 44)
+                            //                                    .overlay {
+                            //                                        Image(systemName: "location.fill")
+                            //                                            .frame(width: 16, height: 16)
+                            //                                            .foregroundStyle(.basicBlack)
+                            //                                    }
+                            //                                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                            //
+                            //                            }
+                            //                            .buttonStyle(.plain)
+                            //
+                            // TODO: destination 버튼
+                            //                            Button {
+                            //                            } label: {
+                            //                                RoundedRectangle(cornerRadius: 25)
+                            //                                    .frame(width: 44, height: 44)
+                            //                                    .overlay {
+                            //                                        Image("Pin")
+                            //                                            .resizable()
+                            //                                            .frame(width: 16, height: 16)
+                            //                                            .foregroundStyle(.basicBlack)
+                            //                                    }
+                            //                                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                            //                            }
+                            //                            .buttonStyle(.plain)
+                        }
+                    }
+                    .padding([.trailing, .bottom], 8)
                 }
-            } compactLeading: {
-                
-            } compactTrailing: {
-                Text("\(context.state.remainingStopsCount)")
-            } minimal: {
-                Text("\(context.state.remainingStopsCount)")
+            } compactLeading: { // MARK: Compact Leading
+                Image("LeadingLogo")
+                    .resizable()
+                    .frame(width: 23, height: 23)
+                    .padding(.horizontal, 2)
+
+            } compactTrailing: { // MARK: Compact Trailing
+                Image("TrailingSmall")
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                    .frame(width: 21, height: 22)
+                    .overlay {
+                        Text("\(context.state.remainingStopsCount)")
+                            .label1Medium()
+                            .foregroundStyle(.basicBlack)
+                    }
+
+            } minimal: { // MARK: Minimal
+                Image("TrailingSmall")
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundStyle(StopStatusEnum(remainingStops: context.state.remainingStopsCount).statusColor)
+                    .frame(width: 21, height: 22)
+                    .overlay {
+                        Text("\(context.state.remainingStopsCount)")
+                            .label1Medium()
+                            .foregroundStyle(.basicBlack)
+                    }
             }
             .keylineTint(.brandPrimary)
         }
     }
 }
 
-struct DestinationView: View {
-    let context: ActivityViewContext<BusJourneyAttributes>
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack(spacing: 2) {
-                Image("PinGrey")
-                    .resizable()
-                    .frame(width: 12, height: 12)
-                
-                Text("Destination")
-                    .font(.system(size: 14))
-                    .foregroundStyle(.basicBlackOpacity40)
-            }
 
-            HStack(alignment: .top, spacing: 17) {
-                Text("KOR")
-                    .foregroundStyle(.basicBlackOpacity40)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(context.attributes.stopNameRomanized)
-                        .font(.system(size: 14, weight: .semibold))
-                        .lineLimit(3)
-                    
-                    Text(context.attributes.stopNameKorean)
-                        .font(.system(size: 16, weight: .medium))
-                }
-                .foregroundStyle(.basicBlack)
-                
-                Spacer()
-            }
-        }
-    }
-}
-
-struct RemainingStopsCircleView: View {
-    let remainingStopsCount: Int
-    
-    var body: some View {
-        Circle()
-            .frame(width: 75, height: 75)
-            .foregroundStyle(circleColor)
-            .blur(radius: 12)
-            .overlay {
-                TextOverlay(remainingStopsCount: remainingStopsCount)
-            }
-    }
-    
-    private var circleColor: Color {
-        switch remainingStopsCount {
-        case 0:
-            return .readyOpacity
-        case 1:
-            return .left1Opacity
-        case 2:
-            return .left2Opacity
-        case 3:
-            return .left3Opacity
-        default:
-            return .brandPrimaryOpacity70
-        }
-    }
-    
-    @ViewBuilder
-    private func TextOverlay(remainingStopsCount: Int) -> some View {
-        if remainingStopsCount == 0 {
-            Text("READY")
-                .font(.system(size: 22, weight: .bold))
-                .foregroundStyle(.white)
-        } else {
-            VStack(spacing: 0) {
-                Text("\(remainingStopsCount)")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundStyle(.white)
-                
-                Text("left")
-                    .font(.system(size: 14))
-                    .foregroundStyle(.white)
-            }
-        }
-    }
-}
-
-struct RemainingStopsTextView: View {
-    let remainingStopsCount: Int
-    
-    var body: some View {
-        HStack(alignment: .bottom, spacing: 2) {
-            Text("\(remainingStopsCount)")
-                .font(.system(size: 24, weight: .bold))
-                .foregroundStyle(textColor)
-            
-            if remainingStopsCount > 0 {
-                Text("left")
-                    .font(.system(size: 12))
-                    .foregroundStyle(textColor)
-            }
-        }
-    }
-    
-    private var textColor: Color {
-        switch remainingStopsCount {
-        case 0:
-            return .ready
-        case 1:
-            return .left1
-        case 2:
-            return .left2
-        case 3:
-            return .left3
-        default:
-            return .brandPrimary
-        }
-    }
-}
-
-struct DestinationDetailView: View {
-    let context: ActivityViewContext<BusJourneyAttributes>
-    
-    var body: some View {
-        HStack(alignment: .top, spacing: 8) {
-            Text("KOR")
-                .foregroundStyle(.yellow300)
-                .font(.system(size: 16))
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(context.attributes.stopNameRomanized)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
-                
-                Text(context.attributes.stopNameKorean)
-            }
-            .foregroundStyle(.basicWhite)
-            .font(.system(size: 18, weight: .medium))
-            
-            Spacer()
-        }
-        .padding(.horizontal, 8)
-    }
-}
-
+// MARK: - Preview
 extension BusJourneyAttributes {
     fileprivate static var preview: BusJourneyAttributes {
-        BusJourneyAttributes(stopNameKorean: "효곡동행정복지센터", stopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+        BusJourneyAttributes()
     }
 }
 
 extension BusJourneyAttributes.ContentState {
+    fileprivate static var Postech55: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 55, thisStopNameKorean: "포스텍", thisStopNameRomanized: "Postech")
+    }
+    
     fileprivate static var HyoGokDong3: BusJourneyAttributes.ContentState {
-        BusJourneyAttributes.ContentState(remainingStopsCount: 3)
+        BusJourneyAttributes.ContentState(remainingStopsCount: 3, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+    }
+    
+    fileprivate static var HyoGokDong2: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 2, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
+    }
+    
+    fileprivate static var HyoGokDong1: BusJourneyAttributes.ContentState {
+        BusJourneyAttributes.ContentState(remainingStopsCount: 1, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
     
     fileprivate static var HyoGokDong0: BusJourneyAttributes.ContentState {
-        BusJourneyAttributes.ContentState(remainingStopsCount: 0)
+        BusJourneyAttributes.ContentState(remainingStopsCount: 0, thisStopNameKorean: "효곡동행정복지센터", thisStopNameRomanized: "Hyo-gok-dong Haeng-jeong Bok-ji Center")
     }
 }
 
-#Preview("Notification", as: .content, using: BusJourneyAttributes.preview) {
+#Preview("Lock Screen", as: .content, using: BusJourneyAttributes.preview) {
     BusJourneyLiveActivity()
 } contentStates: {
+    BusJourneyAttributes.ContentState.Postech55
     BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
+    BusJourneyAttributes.ContentState.HyoGokDong0
+}
+
+#Preview("Expanded Dynamic Island", as: .dynamicIsland(.expanded), using: BusJourneyAttributes.preview) {
+    BusJourneyLiveActivity()
+} contentStates: {
+    BusJourneyAttributes.ContentState.Postech55
+    BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
+    BusJourneyAttributes.ContentState.HyoGokDong0
+}
+
+#Preview("Compact Dynamic Island", as: .dynamicIsland(.compact), using: BusJourneyAttributes.preview) {
+    BusJourneyLiveActivity()
+} contentStates: {
+    BusJourneyAttributes.ContentState.Postech55
+    BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
+    BusJourneyAttributes.ContentState.HyoGokDong0
+}
+
+#Preview("Minimal Dynamic Island", as: .dynamicIsland(.minimal), using: BusJourneyAttributes.preview) {
+    BusJourneyLiveActivity()
+} contentStates: {
+    BusJourneyAttributes.ContentState.Postech55
+    BusJourneyAttributes.ContentState.HyoGokDong3
+    BusJourneyAttributes.ContentState.HyoGokDong2
+    BusJourneyAttributes.ContentState.HyoGokDong1
     BusJourneyAttributes.ContentState.HyoGokDong0
 }

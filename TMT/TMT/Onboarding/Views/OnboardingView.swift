@@ -8,74 +8,90 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @Binding var isShowingOnboarding: Bool
-    @State private var currentPage = 0
+    @EnvironmentObject var locationManager: LocationManager
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    init(isShowingOnboarding: Binding<Bool>) {
-        UIPageControl.appearance().currentPageIndicatorTintColor = .black
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
-        self._isShowingOnboarding = isShowingOnboarding
-    }
+    @State private var currentPage = 0
+    @Binding var shouldShowOnboarding: Bool
     
     var body: some View {
+        let screenMode = colorScheme == .dark ? "Dark" : "Light"
+        
         ZStack(alignment: .bottom) {
-            Color.basicBlack.opacity(0.5)
-            
-            VStack(spacing: 0) {
-                xmarkButton()
-                
-                onboardingTabView()
-                    .padding(.bottom, 10)
-                
-                PrimaryButton(title: onboardingButtonTitle) {
-                    if currentPage < OnboardingStep.allCases.count - 1 {
-                        currentPage += 1
-                    } else {
-                        isShowingOnboarding.toggle()
-                    }
+            onboardingTabView(screenMode: screenMode)
+                .onAppear {
+                    locationManager.requestPermission()
                 }
+                .alert(isPresented: $locationManager.showSettingsAlert) {
+                    Alert(
+                        title: Text("Location access is not available."),
+                        message: Text("Open your app settings to allow location access."),
+                        primaryButton: .default(Text("Open Settings")) {
+                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                                UIApplication.shared.open(url)
+                            }
+                        },
+                        secondaryButton: .cancel(Text("Cancel"))
+                    )
+                }
+            
+            if onboardingButtonTitle == "Next" {
+                if screenMode == "Light" {
+                    OutlinedButton(title: onboardingButtonTitle) {
+                        goToNextPage()
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 53)
+                } else {
+                    OutlinedButton(title: onboardingButtonTitle, strokeColor: .brandPrimary, textColor: .basicWhite) {
+                        goToNextPage()
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 53)
+                }
+            } else {
+                FilledButton(title: onboardingButtonTitle) {
+                    goToNextPage()
+                }
+                .padding(.horizontal, 16)
+                .padding(.bottom, 53)
             }
-            .padding(16)
-            .background {
-                Color.basicWhite
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-            }
-            .frame(maxHeight: 590)
-            .padding([.horizontal, .top], 16)
-            .padding(.bottom, 34)
+            
         }
         .ignoresSafeArea(.all)
+        .background(.brandBackground)
     }
     
     private var onboardingButtonTitle: String {
-        currentPage == OnboardingStep.allCases.count - 1 ? "Done" : "Continue"
-    }
-    
-    private func xmarkButton() -> some View {
-        HStack {
-            Spacer()
-            Button {
-                isShowingOnboarding = false
-            } label: {
-                Image(systemName: "xmark.circle")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .foregroundStyle(.grey300)
-            }
+        switch currentPage {
+        case 0:
+            return "Let's go"
+        case OnboardingStep.allCases.count:
+            return "Okay, I got it"
+        default:
+            return "Next"
         }
     }
     
-    private func onboardingTabView() -> some View {
+    private func onboardingTabView(screenMode: String) -> some View {
         TabView(selection: $currentPage) {
+            OnboardingIntroView(screenMode: screenMode)
+                .tag(0)
+            
             ForEach(OnboardingStep.allCases.indices, id: \.self) { index in
-                OnboardingStepView(step: OnboardingStep.allCases[index])
+                OnboardingStepView(step: OnboardingStep.allCases[index], screenMode:  screenMode)
+                    .tag(index + 1)
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .disabled(true)
     }
-}
-
-#Preview {
-    OnboardingView(isShowingOnboarding: .constant(true))
+    
+    private func goToNextPage() {
+        if currentPage < OnboardingStep.allCases.count {
+            currentPage += 1
+        } else {
+            shouldShowOnboarding = false
+        }
+    }
 }

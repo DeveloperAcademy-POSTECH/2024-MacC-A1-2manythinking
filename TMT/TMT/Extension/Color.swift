@@ -18,8 +18,17 @@ extension ShapeStyle where Self == Color {
 
     // MARK: Brand
     static var brandBackground: Self { Color("Brand/background") }
+    static var backgroundDynamic: Self { Color("Brand/backgroundDynamic")}
+    static var backgroundModal: Self { Color("Brand/backgroundModal")}
+    static var backgroundOnboarding: Self { Color("Brand/backgroundOnboarding")}
+    static var busStopLine: Self { Color("Brand/busStopLine")}
+    static var busStopSelect: Self { Color("Brand/busStopSelect")}
+    static var busStopUnselect: Self { Color("Brand/busStopUnselect")}
     static var brandPrimary: Self { Color("Brand/primary") }
     static var brandPrimaryOpacity70: Self { Color("Brand/primaryOpacity70") }
+    static var textDefault: Self { Color("Brand/textDefault")}
+    static var textLeft: Self { Color("Brand/textLeft")}
+    static var toolTipBackground: Self { Color("Brand/toolTipBackground")}
     
     // MARK: Bus
     static var busBlue: Self { Color("Bus/blue") }

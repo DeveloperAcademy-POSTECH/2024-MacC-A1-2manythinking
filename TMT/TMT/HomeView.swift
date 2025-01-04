@@ -9,60 +9,39 @@ import SwiftUI
 import PhotosUI
 
 struct HomeView: View {
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding = false
-    @State private var isShowingOnboarding = false
-    @State private var scannedJourneyInfo: String = ""
-    @State private var selectedImage: UIImage? = nil
-    @State private var isLoading: Bool = false
-    @State private var hasError: Bool = false
-    @State private var showingAlert = false
+    @AppStorage("shouldShowOnboarding") var shouldShowOnboarding = true
+    @StateObject private var journeyModel: JourneySettingModel
+    @StateObject private var imageHandler: ImageHandlerModel = ImageHandlerModel()
+    @StateObject private var locationManager: LocationManager
+    @StateObject private var searchModel: BusSearchModel
+    
+    @State private var isShowingInformation = false
+    @State private var hasSeenOnboarding = false
+    @State var path: [String] = []
+    
+    init() {
+        let searchModel = BusSearchModel()
+        let journeyModel = JourneySettingModel(searchModel: searchModel)
+        
+        _searchModel = StateObject(wrappedValue: searchModel)
+        _journeyModel = StateObject(wrappedValue: journeyModel)
+        _locationManager = StateObject(wrappedValue: LocationManager(journeyModel: journeyModel))
+    }
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack(alignment: .bottom) {
-                Color.basicWhite
+                Color.brandBackground
                     .ignoresSafeArea()
+                
                 VStack(spacing: 0) {
-                    if scannedJourneyInfo == "" && hasError {
-                        NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
-                            .onAppear {
-                                self.showingAlert = true
-                            }
-                            .alert("Failed to recognize the image.", isPresented: $showingAlert) {
-                                Button {
-                                    scannedJourneyInfo = ""
-                                    showingAlert = false
-                                    hasError = false
-                                } label: {
-                                    Text("Reupload")
-                                        .foregroundStyle(.blue)
-                                }
-                            } message: {
-                                Text("Image recognition failed during upload. Please upload the image again.")
-                            }
-                    } else if !scannedJourneyInfo.isEmpty {
-                        ScrollView {
-                            UploadedPhotoView(selectedImage: $selectedImage)
-                            ScannedJourneyInfoView(scannedJourneyInfo: $scannedJourneyInfo, selectedImage: $selectedImage, isLoading: $isLoading)
-                        }
-                    } else {
-                        if isLoading {
-                            ZStack {
-                                NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
-                                    .disabled(isLoading)
-                                ProgressView()
-                            }
-                        }
-                        else {
-                            NotUploadedView(selectedImage: $selectedImage, scannedJourneyInfo: $scannedJourneyInfo, isLoading: $isLoading, hasError: $hasError)
-                        }
-                    }
+                    NotUploadedView(path: $path)
                     Spacer()
                 }
                 .padding(.horizontal, 16)
-                
-                if isShowingOnboarding {
-                    OnboardingView(isShowingOnboarding: $isShowingOnboarding)
+
+                if isShowingInformation {
+                    InformationModalView(isShowingInformation: $isShowingInformation)
                         .onDisappear {
                             hasSeenOnboarding = true
                         }
@@ -70,21 +49,26 @@ struct HomeView: View {
             }
             .toolbar {
                 Button {
-                    isShowingOnboarding = true
+                    isShowingInformation = true
                 } label: {
-                    Label("Info", systemImage: "info.circle")
-                        .font(.title2)
+                    Image(systemName: "info.circle")
+                        .foregroundStyle(.grey600)
+                        .font(.system(size: 17))
                 }
+                .disabled(isShowingInformation)
             }
-            .onAppear {
-                if !hasSeenOnboarding {
-                    isShowingOnboarding = true
-                }
+            .fullScreenCover(isPresented: $shouldShowOnboarding) {
+                OnboardingView(shouldShowOnboarding: $shouldShowOnboarding)
+                    .onDisappear {
+                        if !hasSeenOnboarding {
+                            isShowingInformation = true
+                        }
+                    }
             }
         }
+        .environmentObject(locationManager)
+        .environmentObject(searchModel)
+        .environmentObject(journeyModel)
+        .environmentObject(imageHandler)
     }
-}
-
-#Preview {
-    HomeView()
 }
