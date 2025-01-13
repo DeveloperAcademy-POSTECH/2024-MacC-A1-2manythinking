@@ -6,8 +6,8 @@
 //
 
 import Combine
-import SwiftUI
 import PhotosUI
+import SwiftUI
 
 struct ScannedJourneyInfoView: View {
     @EnvironmentObject var imageHandler: ImageHandlerModel
@@ -34,21 +34,23 @@ struct ScannedJourneyInfoView: View {
         ZStack {
             Color.brandBackground
                 .ignoresSafeArea()
-            VStack {
+
+            VStack(spacing: 16) {
                 ScrollView(showsIndicators: false) {
                     if !imageHandler.showAlertScreen {
                         UploadedPhotoView(selectedImage: $imageHandler.selectedImage)
                     } else {
                         UploadedPhotoView(selectedImage: .constant(nil))
                     }
-                    
-                    VStack(alignment: .leading) {
-                        uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
-                        uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
-                        uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
-                    }
+
+                    uploadedInfoBox(title: "Departure Stop", scannedInfo: $imageHandler.scannedJourneyInfo.startStop)
+
+                    uploadedInfoBox(title: "Bus Number", scannedInfo: $imageHandler.scannedJourneyInfo.busNumber)
+
+                    uploadedInfoBox(title: "Arrival Stop", scannedInfo: $imageHandler.scannedJourneyInfo.endStop)
+
                 }
-                
+
                 if imageHandler.showAlertText {
                     HStack {
                         VStack {
@@ -66,7 +68,7 @@ struct ScannedJourneyInfoView: View {
                     .frame(height: 42)
                     .foregroundStyle(.red600)
                 }
-                
+
                 HStack(spacing: 0) {
                     Group {
                         if imageHandler.showAlertText {
@@ -91,7 +93,7 @@ struct ScannedJourneyInfoView: View {
                             Text("Cancel")
                                 .foregroundStyle(.blue)
                         }
-                        
+
                         Button {
                             showingAlert = false
                             showingPhotosPicker = true
@@ -103,7 +105,7 @@ struct ScannedJourneyInfoView: View {
                     } message: {
                         Text("The previously uploaded image information will disappear. Do you want to proceed?")
                     }
-                    
+
                     PhotosPicker(selection: $pickedItem, matching: .screenshots) {
                         EmptyView()
                     }
@@ -111,11 +113,11 @@ struct ScannedJourneyInfoView: View {
                         imageHandler.loadImageByPhotosPickerItem(from: pickedItem, viewCategory: "ScannedJourneyInfoView", completion: {})
                     }
                     .photosPicker(isPresented: $showingPhotosPicker, selection: $pickedItem, matching: .screenshots)
-                    
+
                     NavigationLink(destination: MapView(path: $path), tag: 1, selection: $tag) {
                         EmptyView()
                     }
-                    
+
                     FilledButton(title: "Start",
                                  fillColor: imageHandler.showAlertText ? .grey100 : .brandPrimary) {
                         isLoading = true
@@ -127,11 +129,11 @@ struct ScannedJourneyInfoView: View {
                                     startStopString: imageHandler.scannedJourneyInfo.startStop,
                                     endStopString: imageHandler.scannedJourneyInfo.endStop
                                 )
-                                
-                                guard let startStop = journeyModel.journeyStops.first else { return }
-                                guard let endStop = journeyModel.journeyStops.last else { return }
-                                
-                                cancellable = locationManager.$remainingStops
+
+                              guard let startStop = journeyModel.journeyStops.first else { return }
+                              guard let endStop = journeyModel.journeyStops.last else { return }
+                              
+                              cancellable = locationManager.$remainingStops
                                     .sink { newValue in
                                         if newValue != 0 {
                                             LiveActivityManager.shared.startLiveActivity(startBusStop: startStop, endBusStop: endStop, remainingStops: locationManager.remainingStops)
@@ -139,7 +141,7 @@ struct ScannedJourneyInfoView: View {
                                             isLoading = false
                                             tag = 1
                                             path.append("BusStop")
-                                            
+
                                             cancellable?.cancel()
                                         }
                                     }
@@ -165,8 +167,6 @@ struct ScannedJourneyInfoView: View {
                                      )
                                  }
                 }
-                .frame(height: 52)
-                .padding(.vertical, 12.5)
             }
             .padding(.horizontal, 16)
             
@@ -196,7 +196,7 @@ struct ScannedJourneyInfoView: View {
     }
     
     private func uploadedInfoBox(title: String, scannedInfo: Binding<String>) -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("\(title)")
                 .label1Medium()
                 .foregroundStyle(.grey300)
@@ -206,14 +206,12 @@ struct ScannedJourneyInfoView: View {
                 .foregroundStyle(.textDefault)
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .background(
+                .background {
                     RoundedRectangle(cornerRadius: 8)
                         .strokeBorder(.grey100, lineWidth: 1)
-                        .background(Color.brandBackground.cornerRadius(8))
-                )
+                }
                 .keyboardType(title == "Bus Number" ? .numberPad : .default)
         }
-        .padding(.bottom, 16)
     }
     
     private func startLoadingTimeout() {
@@ -233,6 +231,8 @@ struct ScannedJourneyInfoView: View {
 
 #Preview {
     ScannedJourneyInfoView(path: .constant(["ScannedJourneyInfoView"]))
+        .environmentObject(JourneySettingModel(searchModel: BusSearchModel()))
+        .environmentObject(LocationManager(journeyModel: JourneySettingModel(searchModel: BusSearchModel())))
         .environmentObject(ImageHandlerModel())
         .environmentObject(JourneySettingModel(searchModel: BusSearchModel()))
         .environmentObject(LocationManager(journeyModel: JourneySettingModel(searchModel: BusSearchModel())))
